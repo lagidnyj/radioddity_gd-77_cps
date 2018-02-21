@@ -242,114 +242,114 @@
 	</DtmfContactForm>
 	<DtmfForm Text="DTMF">
 		<Controls>
-			<Control Id="chkSideTone" Text="DTMF Side Tone" />
+			<Control Id="chkSideTone" Text="DTMF Seiten Ton" />
 			<Control Id="lblUpCode" Text="PTTID Up Code" />
 			<Control Id="lblDownCode" Text="PTTID Down Code" />
-			<Control Id="lblSelfID" Text="Self ID" />
-			<Control Id="lblRespHoldTime" Text="Response Hold [s]" />
+			<Control Id="lblSelfID" Text="Eigene ID" />
+			<Control Id="lblRespHoldTime" Text="Haltezeit Antwort [s]" />
 			<Control Id="lblKillCode" Text="Kill Code" />
-			<Control Id="lblAutoResetTime" Text="Auto Reset Time [s]" />
-			<Control Id="lblDecTime" Text="Decode Time [s]" />
-			<Control Id="lblWakeCode" Text="Wake Code" />
-			<Control Id="lblDelimiter" Text="Delimiter" />
-			<Control Id="lblGrpCallCode" Text="Group Code" />
-			<Control Id="lblDecResp" Text="Decode Response" />
-			<Control Id="lblFstDlyTime" Text="First Digit Delay [ms]" />
-			<Control Id="lblKillWakeDec" Text="Kill/Wake Code" />
-			<Control Id="lblFstDur" Text="First Digit Duration [ms]" />
-			<Control Id="lblKillType" Text="Kill Type" />
-			<Control Id="lblOtherDur" Text="*# Duration [ms]" />
+			<Control Id="lblAutoResetTime" Text="Auto Reset Zeit [s]" />
+			<Control Id="lblDecTime" Text="Decode Zeit [s]" />
+			<Control Id="lblWakeCode" Text="Aufweck-Code" />
+			<Control Id="lblDelimiter" Text="Trenner" />
+			<Control Id="lblGrpCallCode" Text="Gruppen-Code" />
+			<Control Id="lblDecResp" Text="Decode Antwort" />
+			<Control Id="lblFstDlyTime" Text="Verzögerung erstes Zeichen [ms]" />
+			<Control Id="lblKillWakeDec" Text="Kill/Aufweck Code" />
+			<Control Id="lblFstDur" Text="Dauer erstes Zeichen [ms]" />
+			<Control Id="lblKillType" Text="Kill Typ" />
+			<Control Id="lblOtherDur" Text="*# Dauer [ms]" />
 			<Control Id="lblRate" Text="DTMF Rate" />
 		</Controls>
 		<Commons>
-			<Item Id="DecodeResp" Text="None,Reminder,Reply,Reminder and Reply" />
-			<Item Id="GroupCode" Text="None,A,B,C,D,*,#" />
-			<Item Id="KillType" Text="Tx Disable,Tx and Rx Disable,Kill" />
-			<Item Id="KillWakeDec" Text="Off,On" />
+			<Item Id="DecodeResp" Text="Kein,Erinnerung,Antwort,Erinnerung und Antwort" />
+			<Item Id="GroupCode" Text="Kein,A,B,C,D,*,#" />
+			<Item Id="KillType" Text="TX deaktiviert,TX and RX deaktiviert,Kill" />
+			<Item Id="KillWakeDec" Text="Aus,Ein" />
 		</Commons>
 	</DtmfForm>
-	<EmergencyForm Text="Emergency System">
+	<EmergencyForm Text="Notfall System">
 		<Controls>
 			<Control Id="lblAlias" Text="Name" />
-			<Control Id="lblAlarmType" Text="Alarm Type" />
-			<Control Id="lblAlarmMode" Text="Mode" />
+			<Control Id="lblAlarmType" Text="Alarm Typ" />
+			<Control Id="lblAlarmMode" Text="Modus" />
 			<Control Id="lblRevertCh" Text="Revert Channel" />
-			<Control Id="lblImpoliteRetries" Text="Impolite Retries" />
-			<Control Id="lblPoliteRetries" Text="Polite Retries" />
-			<Control Id="lblCycles" Text="Cycles" />
-			<Control Id="lblTxCycle" Text="Tx Cycle Time [s]" />
-			<Control Id="lblRxCycle" Text="Rx Cycle Time [s]" />
+			<Control Id="lblImpoliteRetries" Text="Unhöfliche Versuche" />
+			<Control Id="lblPoliteRetries" Text="Höfliche Versuche" />
+			<Control Id="lblCycles" Text="Schleifen" />
+			<Control Id="lblTxCycle" Text="TX Schleifen-Dauer [s]" />
+			<Control Id="lblRxCycle" Text="RX Schleifen-Dauer [s]" />
 		</Controls>
 		<Commons>
-			<Item Id="AlarmType" Text="Disable,Regular,Silent,Silent w/ Voice" />
-			<Item Id="AlarmMode" Text="Emergency Alarm,Emergency Alarm w/ call,Emergency Alarm w/ Voice" />
-			<Item Id="RevertCh" Text="None,Selected" />
+			<Item Id="AlarmType" Text="Deaktiviert,Regulär,Stumm,Stumm mit Sprache" />
+			<Item Id="AlarmMode" Text="Notfall Alarm,Notfall Alarm mit Anruf,Notfall Alarm mit Sprache" />
+			<Item Id="RevertCh" Text="Kein,Ausgewählter" />
 		</Commons>
 	</EmergencyForm>
 	<EncryptForm Text="Privacy">
 		<Controls>
-			<Control Id="dgvKey" Text="Key">
-				<ControlItem Id="txtKey" Text="Key" />
+			<Control Id="dgvKey" Text="Schlüssel">
+				<ControlItem Id="txtKey" Text="Schlüssel" />
 			</Control>
-			<Control Id="lblType" Text="Privacy Type" />
-			<Control Id="btnDel" Text="Delete" />
-			<Control Id="lblKeyLen" Text="Key Length" />
-			<Control Id="btnAdd" Text="Add" />
+			<Control Id="lblType" Text="Verschlüsselungs-Typ" />
+			<Control Id="btnDel" Text="Löschen" />
+			<Control Id="lblKeyLen" Text="Schlüssellänge" />
+			<Control Id="btnAdd" Text="Hinzufügen" />
 		</Controls>
 		<Commons>
-			<Item Id="EncryptType" Text="None,Basic" />
+			<Item Id="EncryptType" Text="Keine,Basic" />
 		</Commons>
 	</EncryptForm>
 	<GeneralSetForm Text="General Setting">
 		<Controls>
-			<Control Id="chkTxExitTone" Text="Tx Exit Tone" />
-			<Control Id="grpBeep" Text="Alert Tone" />
-			<Control Id="chkResetTone" Text="Reset Tone" />
-			<Control Id="chkUnifamiliarNumber" Text="Unifamiliar Number Tone" />
-			<Control Id="lblCallAlertDur" Text="Call Alert Tone Duration [s]" />
-			<Control Id="chkSelfTestPassTone" Text="Self Test Pass Tone" />
-			<Control Id="chkCrescendoTone" Text="Enhanced Tone*" />
-			<Control Id="chkChFreeTone" Text="Channel Freq Indication Tone" />
-			<Control Id="chkDisableAllTone" Text="Disable All Tone" />
-			<Control Id="lblTalkPermitTone" Text="Talk Permit Tone" />
-			<Control Id="lblArtsTone" Text="ARTS Tone" />
-			<Control Id="grpVoice" Text="Language" />
-			<Control Id="chkChVoice" Text="Channel Voice" />
-			<Control Id="lblVoiceLang" Text="Voice Language" />
-			<Control Id="grpSaveMode" Text="Battery Saver" />
-			<Control Id="chkBatteryRx" Text="Receive" />
-			<Control Id="chkBatteryPreamble" Text="Preamble" />
+			<Control Id="chkTxExitTone" Text="TX Ende Ton" />
+			<Control Id="grpBeep" Text="Signal Ton" />
+			<Control Id="chkResetTone" Text="Reset Ton" />
+			<Control Id="chkUnifamiliarNumber" Text="Ungewöhnliche Nummer Ton" />
+			<Control Id="lblCallAlertDur" Text="Anruf-Signalisierung Dauer [s]" />
+			<Control Id="chkSelfTestPassTone" Text="Selbsttest erfolgt Ton" />
+			<Control Id="chkCrescendoTone" Text="Erweiterter Ton*" />
+			<Control Id="chkChFreeTone" Text="Kanal Frei-Signalisierungs-Ton" />
+			<Control Id="chkDisableAllTone" Text="Deaktiviere Alle Töne" />
+			<Control Id="lblTalkPermitTone" Text="Sprecherlaubnis Ton" />
+			<Control Id="lblArtsTone" Text="ARTS Ton" />
+			<Control Id="grpVoice" Text="Sprache" />
+			<Control Id="chkChVoice" Text="Kanal-Stimme" />
+			<Control Id="lblVoiceLang" Text="StimmenSprache" />
+			<Control Id="grpSaveMode" Text="Batterie Sparen" />
+			<Control Id="chkBatteryRx" Text="Empfang" />
+			<Control Id="chkBatteryPreamble" Text="Präambel" />
 			<Control Id="grpLoneWork" Text="Lone Worker" />
-			<Control Id="lblReminderTmr" Text="Reminder Timer [s]" />
-			<Control Id="lblRespTmr" Text="Response Timer [min]" />
+			<Control Id="lblReminderTmr" Text="Erinnerung nach [s]" />
+			<Control Id="lblRespTmr" Text="Antwort-Timer [min]" />
 			<Control Id="grpTalkAround" Text="Talkaround" />
-			<Control Id="lblPrivateHang" Text="Private Call Hang Time [ms]" />
-			<Control Id="lblGrpHold" Text="Group Call Hang Time [ms]" />
-			<Control Id="chkDisableAllLeds" Text="Disable All LED" />
-			<Control Id="lblRadioName" Text="Radio Name" />
-			<Control Id="lblRadioID" Text="Radio ID" />
-			<Control Id="lblTxPreambleDur" Text="Tx Preamble Duration [ms]" />
-			<Control Id="lblProgramPwd" Text="Program Password" />
-			<Control Id="lblRxLowBatt" Text="Rx Low Battery Interval [s]" />
-			<Control Id="chkKillState" Text="Kill State" />
-			<Control Id="chkTestMode" Text="Test Mode" />
-			<Control Id="lblArsInitDly" Text="ARS Initialization Delay [min]" />
-			<Control Id="chkDataEnCtrlStation" Text="Data Enabled COntrol Station" />
-			<Control Id="lblMonitorType" Text="Monitor Type" />
-			<Control Id="lblVoxSense" Text="Vox Sensitivity" />
-			<Control Id="chkPrivateCall" Text="Private Call" />
-			<Control Id="chkTxInhibit" Text="Tx Inhibit Quick Key Override" />
-			<Control Id="lblUpChMode" Text="Up Channel Mode" />
-			<Control Id="lblDownChMode" Text="Down Channel Mode" />
+			<Control Id="lblPrivateHang" Text="Direktruf-Verweilzeit [ms]" />
+			<Control Id="lblGrpHold" Text="Gruppenruf-Verweilzeit [ms]" />
+			<Control Id="chkDisableAllLeds" Text="Deaktiviere Alle LED" />
+			<Control Id="lblRadioName" Text="Funkgeräte Name" />
+			<Control Id="lblRadioID" Text="Funkgeräte ID" />
+			<Control Id="lblTxPreambleDur" Text="TX Präambel Dauer [ms]" />
+			<Control Id="lblProgramPwd" Text="Programmier-Password" />
+			<Control Id="lblRxLowBatt" Text="RX Batterie Leer Intervall [s]" />
+			<Control Id="chkKillState" Text="Kill Status" />
+			<Control Id="chkTestMode" Text="Test Modus" />
+			<Control Id="lblArsInitDly" Text="ARS Initialisierungs-Verzögerung [min]" />
+			<Control Id="chkDataEnCtrlStation" Text="Data Enabled Control Station" />
+			<Control Id="lblMonitorType" Text="Monitor Typ" />
+			<Control Id="lblVoxSense" Text="Vox Empfindlichkeit" />
+			<Control Id="chkPrivateCall" Text="Direktruf" />
+			<Control Id="chkTxInhibit" Text="TX-Verbot überschreiben" />
+			<Control Id="lblUpChMode" Text="Oberer Kanal Modus" />
+			<Control Id="lblDownChMode" Text="Unterer Kabal Modus" />
 			<Control Id="grpScan" Text="Scan" />
-			<Control Id="lblScanMode" Text="Scan Mode" />
+			<Control Id="lblScanMode" Text="Scan Modus" />
 		</Controls>
 		<Commons>
-			<Item Id="MonitorType" Text="Open Squelch,Silent" />
-			<Item Id="TalkPermitTone" Text="None,Digital,Analog,Both" />
-			<Item Id="ArtsToneName" Text="Disable,Once,Always" />
-			<Item Id="ChannelMode" Text="Channel,VFO" />
-			<Item Id="ScanMode" Text="Time,Carrier,Search" />
+			<Item Id="MonitorType" Text="Offene Rauschsperre,Still" />
+			<Item Id="TalkPermitTone" Text="Kein,Digital,Analog,Beide" />
+			<Item Id="ArtsToneName" Text="Deaktiviert,Einmal,Immer" />
+			<Item Id="ChannelMode" Text="Kanal,VFO" />
+			<Item Id="ScanMode" Text="Zeit,Träger,Suche" />
 		</Commons>
 	</GeneralSetForm>
 	<HelpForm Text="HelpView">
