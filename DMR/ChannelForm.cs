@@ -2376,6 +2376,8 @@ namespace DMR
 
 		private Button btnCopy;
 
+        private Label lblxband;
+
 		public static int CurCntCh
 		{
 			get;
@@ -2524,6 +2526,7 @@ namespace DMR
 			this.method_15();
 			this.method_16();
 			this.RefreshByUserMode();
+            this.ValidateChildren();
 		}
 
 		public void RefreshByUserMode()
@@ -2666,6 +2669,7 @@ namespace DMR
 		private void btnCopy_Click(object sender, EventArgs e)
 		{
 			this.txtTxFreq.Text = this.txtRxFreq.Text;
+            this.ValidateChildren();
 		}
 
 		private void txtName_Leave(object sender, EventArgs e)
@@ -2783,9 +2787,12 @@ namespace DMR
 				num2 = double.Parse(this.txtTxFreq.Text);
 				if (Class15.smethod_20(num, num2) < 0)
 				{
-					this.txtTxFreq.Text = this.txtRxFreq.Text;
-					ChannelForm.data.SetTxFreq(index, this.txtRxFreq.Text);
+                    this.lblxband.Visible = true;
 				}
+                else
+                {
+                    this.lblxband.Visible = false;
+                }
 				ChannelForm.data.SetRxFreq(index, this.txtRxFreq.Text);
 				((MainForm)base.MdiParent).RefreshRelatedForm(base.GetType(), index);
 			}
@@ -2823,9 +2830,12 @@ namespace DMR
 				num = double.Parse(this.txtTxFreq.Text);
 				if (Class15.smethod_20(num2, num) < 0)
 				{
-					this.txtRxFreq.Text = this.txtTxFreq.Text;
-					ChannelForm.data.SetRxFreq(index, this.txtTxFreq.Text);
+                    this.lblxband.Visible = true;
 				}
+                else
+                {
+                    this.lblxband.Visible = false;
+                }
 				ChannelForm.data.SetTxFreq(index, this.txtTxFreq.Text);
 				((MainForm)base.MdiParent).RefreshRelatedForm(base.GetType(), index);
 			}
@@ -3511,6 +3521,7 @@ namespace DMR
 			this.lblTxFreq = new Label();
 			this.nudTot = new Class12();
 			this.lblScanList = new Label();
+            this.lblxband = new Label();
 			this.tsrCh.SuspendLayout();
 			this.mnsCh.SuspendLayout();
 			this.pnlChannel.SuspendLayout();
@@ -3673,6 +3684,7 @@ namespace DMR
 			this.pnlChannel.Controls.Add(this.lblTxFreq);
 			this.pnlChannel.Controls.Add(this.nudTot);
 			this.pnlChannel.Controls.Add(this.lblScanList);
+            this.pnlChannel.Controls.Add(this.lblxband);
 			this.pnlChannel.Dock = DockStyle.Fill;
 			this.pnlChannel.Location = new Point(0, 25);
 			this.pnlChannel.Name = "pnlChannel";
@@ -4354,7 +4366,15 @@ namespace DMR
 			this.lblScanList.TabIndex = 23;
 			this.lblScanList.Text = "Scan List";
 			this.lblScanList.TextAlign = ContentAlignment.MiddleRight;
-			base.AutoScaleDimensions = new SizeF(7f, 16f);
+            this.lblxband.Location = new Point(275, 0);
+            this.lblxband.Name = "lblxband";
+            this.lblxband.Size = new Size(550, 24);
+            this.lblxband.TabIndex = 24;
+            this.lblxband.Text = "Warning: Tx and Rx are on different bands. Radio performance may be affected.";
+            this.lblxband.ForeColor = System.Drawing.Color.Red;
+            this.lblxband.Visible = false;
+            this.lblxband.TextAlign = ContentAlignment.MiddleRight;
+            base.AutoScaleDimensions = new SizeF(7f, 16f);
 			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(1104, 684);
 			base.Controls.Add(this.pnlChannel);
