@@ -103,6 +103,7 @@
 			<Control Id="lblAdmitCriteria" Text="Admit Criteria" />
 			<Control Id="lblTxFreq" Text="Tx Freq [MHz]" />
 			<Control Id="lblScanList" Text="Scan List" />
+      <Control Id="lblxband" Text="Warning: Rx and Tx bands are different. Radio performance may be affected" />
 			<Control Id="tsrCh" Text="toolStrip1">
 				<ToolStripItem Id="tslblInfo" Text="" />
 				<ToolStripItem Id="tsbtnFirst" Text="First" />
