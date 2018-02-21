@@ -944,6 +944,10 @@ namespace DMR
 			Class15.dicCommon.Add("KeyPressPrint", "");
 			Class15.dicCommon.Add("DeviceNotFound", "");
 			Class15.dicCommon.Add("CommError", "");
+            Class15.dicCommon.Add("codePlugReadConfirm", Class15.SZ_CODEPLUG_READ_CONFIRM);
+            Class15.dicCommon.Add("codePlugWriteConfirm", Class15.SZ_CODEPLUG_WRITE_CONFIRM);
+            Class15.dicCommon.Add("pleaseConfirm", Class15.SZ_PLEASE_CONFIRM);
+
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
 			{
@@ -2466,7 +2470,7 @@ namespace DMR
 
 		private void tsbtnRead_Click(object sender, EventArgs e)
 		{
-            DialogResult result = MessageBox.Show("Are you sure you want to read the codeplug from the GD-77?\nThis will overwrite the current codeplug.", "Please confirm", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(Class15.dicCommon["codePlugReadConfirm"], Class15.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 this.closeAllForms();
@@ -2483,7 +2487,7 @@ namespace DMR
 
 		private void tsbtnWrite_Click(object sender, EventArgs e)
 		{
-            DialogResult result = MessageBox.Show("Are you sure you want to write this codeplug to the GD-77?\nThis will overwrite codeplug currently in the GD-77", "Please confirm", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(Class15.dicCommon["codePlugWriteConfirm"], Class15.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (base.ActiveMdiChild != null)

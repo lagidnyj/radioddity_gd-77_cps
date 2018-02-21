@@ -225,12 +225,12 @@ namespace DMR
 					if (this.IsRead)
 					{
 						//MessageBox.Show(Class15.dicCommon["ReadComplete"]);
-                        this.lblPrompt.Text = "Read complete";
+                        this.lblPrompt.Text = Class15.dicCommon["ReadComplete"];
 					}
 					else
 					{
 						//MessageBox.Show(Class15.dicCommon["WriteComplete"]);
-                        this.lblPrompt.Text = "Write complete";
+                        this.lblPrompt.Text = Class15.dicCommon["WriteComplete"];
 					}
                     this.btnOK.Visible = true;
                     this.btnCancel.Visible = false;

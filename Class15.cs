@@ -119,6 +119,10 @@ internal class Class15
 
 	public static string SZ_WRITE_COMPLETE;
 
+    public static string SZ_CODEPLUG_READ_CONFIRM;
+    public static string SZ_CODEPLUG_WRITE_CONFIRM;
+    public static string SZ_PLEASE_CONFIRM;
+
 	public static string SZ_KEYPRESS_DTMF;
 
 	public static string SZ_KEYPRESS_HEX;
@@ -1334,7 +1338,7 @@ internal class Class15
 		{
 			string value = item.Attributes["Id"].Value;
 			string value2 = item.Attributes["Text"].Value;
-			if (I2YgnU9gqyioPitkyF.ContainsKey(value))
+	        if (I2YgnU9gqyioPitkyF.ContainsKey(value))
 			{
 				I2YgnU9gqyioPitkyF[value] = value2;
 			}
@@ -1466,6 +1470,11 @@ internal class Class15
 		Class15.SZ_WRITE = "Write";
 		Class15.SZ_READ_COMPLETE = "Read Complete";
 		Class15.SZ_WRITE_COMPLETE = "Write Complete";
+        Class15.SZ_CODEPLUG_READ_CONFIRM = "Are you sure you want to read the codeplug from the GD-77?\nThis will overwrite the current codeplug.";
+        Class15.SZ_CODEPLUG_WRITE_CONFIRM = "Are you sure you want to write this codeplug to the GD-77?\nThis will overwrite codeplug currently in the GD-77";
+        Class15.SZ_PLEASE_CONFIRM = "Please confirm";
+
+
 		Class15.SZ_KEYPRESS_DTMF = "";
 		Class15.SZ_KEYPRESS_HEX = "Please Input: ";
 		Class15.SZ_KEYPRESS_DIGIT = "Please input: Digit and {0}";

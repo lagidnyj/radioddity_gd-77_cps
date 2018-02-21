@@ -42,6 +42,8 @@ Source: "..\bin\Release\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}"; Fla
 Source: "..\bin\Release\Data\Default.dat"; DestDir: "{app}\Data"; Flags: ignoreversion
 Source: "..\bin\Release\Language\English.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Release\Language\English.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\German.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\German.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

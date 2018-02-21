@@ -103,6 +103,7 @@
 			<Control Id="lblAdmitCriteria" Text="TX erlaubt" />
 			<Control Id="lblTxFreq" Text="TX Freq. [MHz]" />
 			<Control Id="lblScanList" Text="Scan" />
+      <Control Id="lblxband" Text="Achung: RX- und TX-Bänder sind unterschiedlich - die Leistungsfähigkeit des Funkgerätes kann beeinträchtigt sein!" />
 			<Control Id="tsrCh" Text="toolStrip1">
 				<ToolStripItem Id="tslblInfo" Text="" />
 				<ToolStripItem Id="tsbtnFirst" Text="Erster" />
@@ -738,8 +739,8 @@
 		<Item Id="CommError" Text="Kommunikationsfehler" />
 		<Item Id="Add" Text="Hinzufügen: " />
 		<Item Id="ScanSelected" Text="Kann Auswahl nicht ausführen" />
-		<Item Id="codePlugReadConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug aus dem GD-77 auslesen möchten?\nDiese Aktion wird den aktuellen Codeplug im Editor überschreiben!" />
-		<Item Id="codePlugWriteConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug in das GD-77 schreiben möchten?\nDiese Aktion wird den aktuellen Codeplug im GD-77 überschreiben!" />
+		<Item Id="codePlugReadConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug aus dem GD-77 auslesen möchten?Diese Aktion wird den aktuellen Codeplug im Editor überschreiben!" />
+		<Item Id="codePlugWriteConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug in das GD-77 schreiben möchten?Diese Aktion wird den aktuellen Codeplug im GD-77 überschreiben!" />
 		<Item Id="pleaseConfirm"  Text="Bitte bestätigen" />
 	</Commons>
 </Resource>
