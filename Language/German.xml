@@ -352,222 +352,222 @@
 			<Item Id="ScanMode" Text="Zeit,Träger,Suche" />
 		</Commons>
 	</GeneralSetForm>
-	<HelpForm Text="HelpView">
+	<HelpForm Text="Hilfe">
 		<Controls />
 	</HelpForm>
 	<MainForm Text="Radioddity GD-77 CPS 2.0.5 Community Edition">
 		<TreeView>
 			<TreeNode Id="Model" Text="GD-77" />
-			<TreeNode Id="BasicInfo" Text="Basic Information" />
-			<TreeNode Id="BootItem" Text="Boot Item" />
-			<TreeNode Id="Menu" Text="Menu" />
-			<TreeNode Id="NumKeyAssign" Text="Number Key Assign" />
-			<TreeNode Id="GeneralSetting" Text="General Setting" />
-			<TreeNode Id="Buttons" Text="Buttons" />
-			<TreeNode Id="TextMsg" Text="Text Message" />
-			<TreeNode Id="Pivacy" Text="Privacy" />
-			<TreeNode Id="SignalingSys" Text="Signaling System" />
-			<TreeNode Id="EmergencySys" Text="Emergency System" />
-			<TreeNode Id="Contact" Text="Contact" />
+			<TreeNode Id="BasicInfo" Text="Grundeinstellungen" />
+			<TreeNode Id="BootItem" Text="Gerätestart" />
+			<TreeNode Id="Menu" Text="Menü" />
+			<TreeNode Id="NumKeyAssign" Text="Zifferntasten-Belegung" />
+			<TreeNode Id="GeneralSetting" Text="Generelle Einstellungen" />
+			<TreeNode Id="Buttons" Text="Tasten" />
+			<TreeNode Id="TextMsg" Text="Text Nachrichten" />
+			<TreeNode Id="Pivacy" Text="Verschlüsselung" />
+			<TreeNode Id="SignalingSys" Text="Signalisierungs-System" />
+			<TreeNode Id="EmergencySys" Text="Notfall System" />
+			<TreeNode Id="Contact" Text="Kontakte" />
 			<TreeNode Id="DtmfContact" Text="DTMF" />
-			<TreeNode Id="DigitalContact" Text="Digital Contact" />
-			<TreeNode Id="RxGroupList" Text="Rx Group List" />
-			<TreeNode Id="Zone" Text="Zone" />
-			<TreeNode Id="Channel" Text="Channel" />
-			<TreeNode Id="Scan" Text="Scan" />
+			<TreeNode Id="DigitalContact" Text="Digitale Kontakte" />
+			<TreeNode Id="RxGroupList" Text="RX Gruppenlisten" />
+			<TreeNode Id="Zone" Text="Zonen" />
+			<TreeNode Id="Channel" Text="Kanäle" />
+			<TreeNode Id="Scan" Text="Suchlauf" />
 			<TreeNode Id="DtmfSignal" Text="DTMF" />
 			<TreeNode Id="VFO" Text="VFO" />
 			<TreeNode Id="VFOA" Text="VFO A" />
 			<TreeNode Id="VFOB" Text="VFO B" />
 		</TreeView>
 		<MenuStrip>
-			<MenuItem Id="tsmiFile" Text="&amp;File" />
-			<MenuItem Id="tsmiNew" Text="New" />
-			<MenuItem Id="tsmiSave" Text="Save" />
-			<MenuItem Id="tsmiOpen" Text="Open" />
-			<MenuItem Id="tsmiExit" Text="Exit" />
-			<MenuItem Id="tsmiSetting" Text="Setting" />
-			<MenuItem Id="tsmiDeviceInfo" Text="Basic Information" />
-			<MenuItem Id="tsmiBootItem" Text="Boot Item" />
-			<MenuItem Id="tsmiMenu" Text="Menu" />
-			<MenuItem Id="tsmiNumKeyContact" Text="Number Key Assign" />
-			<MenuItem Id="tsmiGerneralSet" Text="General Setting" />
-			<MenuItem Id="tsmiButton" Text="Buttons" />
-			<MenuItem Id="tsmiTextMsg" Text="Text Message" />
-			<MenuItem Id="tsmiEncrypt" Text="Privacy" />
-			<MenuItem Id="tsmiSignaling" Text="Signaling System" />
+			<MenuItem Id="tsmiFile" Text="&amp;Datei" />
+			<MenuItem Id="tsmiNew" Text="Neu" />
+			<MenuItem Id="tsmiSave" Text="Speichern" />
+			<MenuItem Id="tsmiOpen" Text="Öffnen" />
+			<MenuItem Id="tsmiExit" Text="Beenden" />
+			<MenuItem Id="tsmiSetting" Text="Einstellungen" />
+			<MenuItem Id="tsmiDeviceInfo" Text="Grundeinstellungen" />
+			<MenuItem Id="tsmiBootItem" Text="Gerätestart" />
+			<MenuItem Id="tsmiMenu" Text="Menü" />
+			<MenuItem Id="tsmiNumKeyContact" Text="Zifferntasten-Belegung" />
+			<MenuItem Id="tsmiGerneralSet" Text="Generelle Einstellungen" />
+			<MenuItem Id="tsmiButton" Text="Tasten" />
+			<MenuItem Id="tsmiTextMsg" Text="Text Nachrichten" />
+			<MenuItem Id="tsmiEncrypt" Text="Verschlüsselung" />
+			<MenuItem Id="tsmiSignaling" Text="Signalisierungs-System" />
 			<MenuItem Id="tsmiDtmf" Text="DTMF" />
-			<MenuItem Id="tsmiEmgSystem" Text="Emergency System" />
-			<MenuItem Id="tsmiContact" Text="Contact" />
+			<MenuItem Id="tsmiEmgSystem" Text="Notfall System" />
+			<MenuItem Id="tsmiContact" Text="Kontakte" />
 			<MenuItem Id="tsmiDtmfContact" Text="DTMF" />
-			<MenuItem Id="tsmiDmrContact" Text="Digital Contact" />
-			<MenuItem Id="tsmiContacts" Text="Contacts" />
-			<MenuItem Id="tsmiGrpRxList" Text="Rx Group List" />
-			<MenuItem Id="tsmiZone" Text="Zone" />
-			<MenuItem Id="tsmiZoneList" Text="ZoneList" />
-			<MenuItem Id="tsmiCh" Text="Channel" />
-			<MenuItem Id="tsmiScan" Text="Scan" />
-			<MenuItem Id="tsmiScanList" Text="Scan List" />
-			<MenuItem Id="tsmiProgram" Text="Program" />
-			<MenuItem Id="tsmiRead" Text="Read" />
-			<MenuItem Id="tsmiWrite" Text="Write" />
-			<MenuItem Id="tsmiBasic" Text="Basic" />
-			<MenuItem Id="tsmiView" Text="View" />
-			<MenuItem Id="tsmiTree" Text="TreeView" />
-			<MenuItem Id="tsmiHelp" Text="HelpView" />
-			<MenuItem Id="tsmiToolBar" Text="Toolbar" />
-			<MenuItem Id="tsmiStatusBar" Text="Status Bar" />
-			<MenuItem Id="tsmiWindow" Text="Window" />
-			<MenuItem Id="tsmiCascade" Text="Cascade" />
-			<MenuItem Id="tsmiTileHor" Text="Tile Horzontal" />
-			<MenuItem Id="tsmiTileVer" Text="Tile Vertical" />
-			<MenuItem Id="tsmiCloseAll" Text="Close All" />
-			<MenuItem Id="tsmiAbout" Text="About" />
-			<MenuItem Id="tsmiLanguage" Text="Language" />
+			<MenuItem Id="tsmiDmrContact" Text="Digitale Kontakte" />
+			<MenuItem Id="tsmiContacts" Text="Kontakte" />
+			<MenuItem Id="tsmiGrpRxList" Text="RX Gruppenlisten" />
+			<MenuItem Id="tsmiZone" Text="Zonen" />
+			<MenuItem Id="tsmiZoneList" Text="Zonen-Liste" />
+			<MenuItem Id="tsmiCh" Text="Kanäle" />
+			<MenuItem Id="tsmiScan" Text="Suchlauf" />
+			<MenuItem Id="tsmiScanList" Text="Scan Liste" />
+			<MenuItem Id="tsmiProgram" Text="Programmieren" />
+			<MenuItem Id="tsmiRead" Text="Lesen" />
+			<MenuItem Id="tsmiWrite" Text="Schreiben" />
+			<MenuItem Id="tsmiBasic" Text="Vereinfacht" />
+			<MenuItem Id="tsmiView" Text="Ansicht" />
+			<MenuItem Id="tsmiTree" Text="Baum" />
+			<MenuItem Id="tsmiHelp" Text="Hife" />
+			<MenuItem Id="tsmiToolBar" Text="Werkzeugleiste" />
+			<MenuItem Id="tsmiStatusBar" Text="Statusleiste" />
+			<MenuItem Id="tsmiWindow" Text="Fenster" />
+			<MenuItem Id="tsmiCascade" Text="Kaskadieren" />
+			<MenuItem Id="tsmiTileHor" Text="Horizontal anordnen" />
+			<MenuItem Id="tsmiTileVer" Text="Vertikal anordnen" />
+			<MenuItem Id="tsmiCloseAll" Text="Alle schließen" />
+			<MenuItem Id="tsmiAbout" Text="Über" />
+			<MenuItem Id="tsmiLanguage" Text="Sprache" />
 			<MenuItem Id="tsmiEnglish" Text="English" />
 			<MenuItem Id="tsmiChinese" Text="Chinese" />
 		</MenuStrip>
 		<ContextMenuStrip>
-			<MenuItem Id="tsmiAdd" Text="Add" />
-			<MenuItem Id="tsmiClear" Text="Clear" />
+			<MenuItem Id="tsmiAdd" Text="Hinzufügen" />
+			<MenuItem Id="tsmiClear" Text="Leeren" />
 		</ContextMenuStrip>
 		<ContextMenuStrip>
-			<MenuItem Id="tsmiDel" Text="Delete" />
-			<MenuItem Id="tsmiRename" Text="Rename" />
-			<MenuItem Id="tsmiCopy" Text="Copy" />
-			<MenuItem Id="tsmiPaste" Text="Paste" />
+			<MenuItem Id="tsmiDel" Text="Löschen" />
+			<MenuItem Id="tsmiRename" Text="Umbenennen" />
+			<MenuItem Id="tsmiCopy" Text="Kopieren" />
+			<MenuItem Id="tsmiPaste" Text="Einfügen" />
 		</ContextMenuStrip>
 		<ContextMenuStrip>
-			<MenuItem Id="tsmiCollapseAll" Text="Collapse All" />
-			<MenuItem Id="tsmiExpandAll" Text="Expand All" />
+			<MenuItem Id="tsmiCollapseAll" Text="Alle zuklappen" />
+			<MenuItem Id="tsmiExpandAll" Text="Alle aufklappen" />
 		</ContextMenuStrip>
 		<ContextMenuStrip>
-			<MenuItem Id="tsmiAddContact" Text="Add" />
-			<MenuItem Id="tsmiGroupCall" Text="Group Call" />
-			<MenuItem Id="tsmiPrivateCall" Text="Private Call" />
-			<MenuItem Id="tsmiAllCall" Text="All Call" />
+			<MenuItem Id="tsmiAddContact" Text="Hinzufügen" />
+			<MenuItem Id="tsmiGroupCall" Text="Gruppenruf" />
+			<MenuItem Id="tsmiPrivateCall" Text="Direktruf" />
+			<MenuItem Id="tsmiAllCall" Text="Alle rufen" />
 		</ContextMenuStrip>
 		<ToolStrip>
-			<ToolItem Id="tsbtnNew" Text="New" />
-			<ToolItem Id="tsbtnOpen" Text="Open" />
-			<ToolItem Id="tsbtnSave" Text="Save" />
-			<ToolItem Id="tsbtnRead" Text="Read" />
-			<ToolItem Id="tsbtnWrite" Text="Write" />
-			<ToolItem Id="tsbtnAbout" Text="About" />
+			<ToolItem Id="tsbtnNew" Text="Neu" />
+			<ToolItem Id="tsbtnOpen" Text="Öffnen" />
+			<ToolItem Id="tsbtnSave" Text="Speichern" />
+			<ToolItem Id="tsbtnRead" Text="Lesen" />
+			<ToolItem Id="tsbtnWrite" Text="Schreiben" />
+			<ToolItem Id="tsbtnAbout" Text="Über" />
 		</ToolStrip>
 	</MainForm>
 	<MenuForm Text="Menu">
 		<Controls>
-			<Control Id="grpCall" Text="Call Log" />
-			<Control Id="chkReceivedCall" Text="Answered" />
-			<Control Id="chkDialedCall" Text="Outgoing Radio" />
-			<Control Id="chkMissedCall" Text="Missed" />
-			<Control Id="grpSetting" Text="Basic" />
+			<Control Id="grpCall" Text="Anruf-Log" />
+			<Control Id="chkReceivedCall" Text="Beantwortet" />
+			<Control Id="chkDialedCall" Text="Angerufene ID" />
+			<Control Id="chkMissedCall" Text="Verpasst" />
+			<Control Id="grpSetting" Text="Grundeinstellungen" />
 			<Control Id="chkDoubleWait" Text="Double Standby" />
 			<Control Id="lblDwSwitch" Text="Double Standby" />
-			<Control Id="lblKeyTone" Text="Key Tone" />
-			<Control Id="lblBacklightTime" Text="Backlight [s]" />
-			<Control Id="chkSql" Text="Squelch" />
-			<Control Id="chkBacklight" Text="Backlight" />
-			<Control Id="chkKeyboardLock" Text="Keypad Lock" />
+			<Control Id="lblKeyTone" Text="Tastenton" />
+			<Control Id="lblBacklightTime" Text="Hintergrund-Licht [s]" />
+			<Control Id="chkSql" Text="Rauschsperre" />
+			<Control Id="chkBacklight" Text="Hintergrund-Licht" />
+			<Control Id="chkKeyboardLock" Text="Tastatursperre" />
 			<Control Id="chkVox" Text="Vox" />
-			<Control Id="chkToneHint" Text="Tones/Alerts" />
-			<Control Id="chkLed" Text="LED Indicator" />
-			<Control Id="lblChDispMode" Text="Channel Display" />
-			<Control Id="chkPwdLock" Text="Password And Lock" />
-			<Control Id="lblMenuLang" Text="Menu Lanugage" />
-			<Control Id="lblWorkMode" Text="Work Mode" />
-			<Control Id="chkPower" Text="Power" />
-			<Control Id="chkBootScreen" Text="Intro Screen" />
-			<Control Id="chkEncrypt" Text="Privacy" />
-			<Control Id="lblKeyLockTime" Text="Keypad Lock Time [s]" />
+			<Control Id="chkToneHint" Text="Töne/Alarme" />
+			<Control Id="chkLed" Text="LED Anzeige" />
+			<Control Id="lblChDispMode" Text="Kanal Anzeige" />
+			<Control Id="chkPwdLock" Text="Passwort und Sperre" />
+			<Control Id="lblMenuLang" Text="Menü-Sprache" />
+			<Control Id="lblWorkMode" Text="Arbeits-Modus" />
+			<Control Id="chkPower" Text="Leistung" />
+			<Control Id="chkBootScreen" Text="Einschalt-Bildschirm" />
+			<Control Id="chkEncrypt" Text="Verschlüsselung" />
+			<Control Id="lblKeyLockTime" Text="Tastatursperre in [s]" />
 			<Control Id="chkTalkAround" Text="Talkaround" />
-			<Control Id="chkChDisp" Text="Channel Display" />
-			<Control Id="grpContact" Text="Contact" />
-			<Control Id="chkOneKeyDial" Text="One Key Dial" />
+			<Control Id="chkChDisp" Text="Kanal Anzeige" />
+			<Control Id="grpContact" Text="Kontakt" />
+			<Control Id="chkOneKeyDial" Text="Schnellwahltaste" />
 			<Control Id="chkRadioDetect" Text="Radio Check" />
 			<Control Id="chkRadioActive" Text="Radio Enable" />
-			<Control Id="chkContactEdit" Text="Edit" />
-			<Control Id="chkRadioKill" Text="Radio Disable" />
-			<Control Id="chkManualDial" Text="Manual Dial" />
-			<Control Id="chkRemoteMonitor" Text="Remote Monitor" />
-			<Control Id="chkCallPrompt" Text="Call Alert" />
-			<Control Id="grpScan" Text="Scan" />
-			<Control Id="chkScanEditList" Text="Edit List" />
-			<Control Id="chkScan" Text="Scan" />
-			<Control Id="grpBasic" Text="Basic" />
-			<Control Id="lblMenuHangTime" Text="Menu Hang Time [s]" />
+			<Control Id="chkContactEdit" Text="Ändern" />
+			<Control Id="chkRadioKill" Text="Radio Deaktivieren" />
+			<Control Id="chkManualDial" Text="Manueller Ruf" />
+			<Control Id="chkRemoteMonitor" Text="Ferngesteuerter Monitor" />
+			<Control Id="chkCallPrompt" Text="Ruf-Alarm" />
+			<Control Id="grpScan" Text="Suchlauf" />
+			<Control Id="chkScanEditList" Text="Liste ändern" />
+			<Control Id="chkScan" Text="Suchlauf" />
+			<Control Id="grpBasic" Text="Einfach" />
+			<Control Id="lblMenuHangTime" Text="Menü anzeigen [s]" />
 			<Control Id="chkInfo" Text="Information" />
 			<Control Id="chkFm" Text="FM" />
-			<Control Id="chkGps" Text="Gps" />
-			<Control Id="chkP1Key" Text="P1 Key" />
-			<Control Id="lblBrightness" Text="Brightness" />
+			<Control Id="chkGps" Text="GPS" />
+			<Control Id="chkP1Key" Text="P1 Taste" />
+			<Control Id="lblBrightness" Text="Helligkeit" />
 		</Controls>
 		<Commons>
-			<Item Id="KeyLockTime" Text="Manual,5,10,15" />
-			<Item Id="BacklightTime" Text="Always Open,Always Close,5,10" />
-			<Item Id="WorkMode" Text="VFO,MR,Channel" />
-			<Item Id="ChDispMode" Text="Number,Name,Frequency" />
-			<Item Id="KeyTone" Text="Off,On" />
-			<Item Id="DoubleWait" Text="Off,Double Double,Double Single" />
+			<Item Id="KeyLockTime" Text="Manuell,5,10,15" />
+			<Item Id="BacklightTime" Text="Immer ein,Immer aus,5,10" />
+			<Item Id="WorkMode" Text="VFO,Speicher,Kanal" />
+			<Item Id="ChDispMode" Text="Nummer,Bezeichnung,Frequenz" />
+			<Item Id="KeyTone" Text="Aus,Ein" />
+			<Item Id="DoubleWait" Text="Aus,Double Double,Double Single" />
 			<Item Id="MenuLang" Text="English,中文" />
 		</Commons>
 	</MenuForm>
-	<NormalScanForm Text="Scan">
+	<NormalScanForm Text="Suchlauf">
 		<Controls>
-			<Control Id="grpSelected" Text="Member" />
+			<Control Id="grpSelected" Text="Mitglied" />
 			<Control Id="chkTalkback" Text="Talkback" />
-			<Control Id="grpUnselected" Text="Available" />
-			<Control Id="chkChMark" Text="Channel Mark" />
-			<Control Id="lblTxDesignatedCh" Text="Tx Designated Channel" />
-			<Control Id="lblPriorityCh1" Text="Priority Channel 1" />
-			<Control Id="lblSignalingHold" Text="Signaling Hold Time [ms]" />
+			<Control Id="grpUnselected" Text="Verfügbar" />
+			<Control Id="chkChMark" Text="Kanal Markierung" />
+			<Control Id="lblTxDesignatedCh" Text="TX bestimmter Kanal" />
+			<Control Id="lblPriorityCh1" Text="Prioritäts-Kanal 1" />
+			<Control Id="lblSignalingHold" Text="Verweildauer bei RX [ms]" />
 			<Control Id="lblName" Text="Name" />
 			<Control Id="lblPLType" Text="PL Type" />
-			<Control Id="lblPriorityCh2" Text="Priority Channel 2" />
-			<Control Id="lblPrioritySample" Text="Priority Sample Time [ms]" />
-			<Control Id="btnDown" Text="Down" />
-			<Control Id="btnUp" Text="Up" />
-			<Control Id="btnDel" Text="Delete" />
-			<Control Id="btnAdd" Text="Add" />
+			<Control Id="lblPriorityCh2" Text="Prioritäts-Kanal 2" />
+			<Control Id="lblPrioritySample" Text="Prioritäts-Intervall [ms]" />
+			<Control Id="btnDown" Text="Runter" />
+			<Control Id="btnUp" Text="Hoch" />
+			<Control Id="btnDel" Text="Löschen" />
+			<Control Id="btnAdd" Text="Hinzufügen" />
 		</Controls>
 		<Commons>
-			<Item Id="PriorityCh" Text="None,Selected" />
-			<Item Id="TxDesignatedCh" Text="Last Active Channel,Selected" />
-			<Item Id="PlType" Text="Non-Priority Channel,Disable,Priority Channel,Priority and Non-Priority Channel" />
+			<Item Id="PriorityCh" Text="Kein,Ausgewählter" />
+			<Item Id="TxDesignatedCh" Text="Letzter aktiver Kanal,Ausgewählter" />
+			<Item Id="PlType" Text="Nicht-priorisierter Kanal,Deaktiviert,Prioritäts-Kanal,Priorisierte und nicht-priorisierte Kanäle" />
 		</Commons>
 	</NormalScanForm>
-	<PasswordForm Text="Password">
+	<PasswordForm Text="Passwort">
 		<Controls>
-			<Control Id="btnCancel" Text="Cancel" />
+			<Control Id="btnCancel" Text="Abbrechen" />
 			<Control Id="btnOk" Text="OK" />
-			<Control Id="lblPwd" Text="Password" />
+			<Control Id="lblPwd" Text="Passwort" />
 		</Controls>
 	</PasswordForm>
-	<PowerPwdForm Text="Password">
+	<PowerPwdForm Text="Passwort">
 		<Controls>
-			<Control Id="btnCancel" Text="Cancel" />
+			<Control Id="btnCancel" Text="Abbrechen" />
 			<Control Id="btnOk" Text="OK" />
-			<Control Id="lblPwd" Text="Password" />
+			<Control Id="lblPwd" Text="Passwort" />
 		</Controls>
 	</PowerPwdForm>
-	<RxGroupListForm Text="Rx Group List">
+	<RxGroupListForm Text="Rx Gruppen-Liste">
 		<Controls>
-			<Control Id="btnDown" Text="Down" />
-			<Control Id="btnUp" Text="Up" />
-			<Control Id="grpSelected" Text="Member" />
-			<Control Id="btnAdd" Text="Add" />
-			<Control Id="grpUnselected" Text="Available" />
-			<Control Id="btnDel" Text="Delete" />
+			<Control Id="btnDown" Text="Runter" />
+			<Control Id="btnUp" Text="Hoch" />
+			<Control Id="grpSelected" Text="Mitglied" />
+			<Control Id="btnAdd" Text="Hinfügen" />
+			<Control Id="grpUnselected" Text="Verfügbar" />
+			<Control Id="btnDel" Text="Löschen" />
 			<Control Id="lblName" Text="Name" />
 		</Controls>
 	</RxGroupListForm>
-	<SignalingBasicForm Text="Signaling Basic">
+	<SignalingBasicForm Text="Signalisierung Grundeinstellungen">
 		<Controls>
 			<Control Id="chkCallAlert" Text="Call Alert Encode" />
 			<Control Id="chkRadioDisable" Text="Radio Disable Decode" />
-			<Control Id="chkRemoteMonitor" Text="Remote Monitor Decode" />
-			<Control Id="chkEmgRM" Text="Emergency Remote Monitor Decode" />
+			<Control Id="chkRemoteMonitor" Text="Entfernter Monitor Decode" />
+			<Control Id="chkEmgRM" Text="Notfall entfernter Monitor Decode" />
 			<Control Id="lblTxSyncWakeTot" Text="Tx Sync Wakeup TOT [ms]" />
 			<Control Id="chkSelCall" Text="Self Call Encode" />
 			<Control Id="lblTxWakeMsgLimit" Text="Tx Wakeup Message Limit" />
@@ -577,114 +577,114 @@
 			<Control Id="lblAutoResetTimer" Text="Auto Reset Timer [s]" />
 		</Controls>
 	</SignalingBasicForm>
-	<ScanBasicForm Text="Scan Basic">
+	<ScanBasicForm Text="Suchlauf Grundeinstellungen">
 		<Controls>
-			<Control Id="lblDigitHang" Text="Digital Hang Time [ms]" />
-			<Control Id="lblAnalogHang" Text="Analog Hang Time [ms]" />
+			<Control Id="lblDigitHang" Text="Digitale Verweilzeit [ms]" />
+			<Control Id="lblAnalogHang" Text="Analoge Verweilzeit [ms]" />
 			<Control Id="lblVoteHang" Text="Vote Scan Hang Time [s]" />
 			<Control Id="lblFastVoteRssi" Text="Fast Vote RSSI Threshold [dB]" />
 			<Control Id="lblStartVoteRssi" Text="Start Vote RSSI Threshold [dB]" />
 			<Control Id="chkPriorityAlert" Text="Priority Alert" />
 		</Controls>
 	</ScanBasicForm>
-	<TextMsgForm Text="Text Message">
+	<TextMsgForm Text="Text Nachrichten">
 		<Controls>
-			<Control Id="dgvMsg" Text="Content">
-				<ControlItem Id="txtMessage" Text="Text Message" />
+			<Control Id="dgvMsg" Text="Inhalt">
+				<ControlItem Id="txtMessage" Text="Text Nachricht" />
 			</Control>
-			<Control Id="btnAdd" Text="Add" />
-			<Control Id="btnDel" Text="Delete" />
+			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnDel" Text="Löschen" />
 		</Controls>
 	</TextMsgForm>
-	<TreeForm Text="TreeView">
+	<TreeForm Text="Baum">
 		<Controls />
 	</TreeForm>
-	<VfoForm Text="Vfo">
+	<VfoForm Text="VFO">
 		<Controls>
 			<Control Id="btnCopy" Text=">>" />
-			<Control Id="lblSquelch" Text="Squelch" />
-			<Control Id="lblSql" Text="Squelch Level" />
+			<Control Id="lblSquelch" Text="Rauschsperre" />
+			<Control Id="lblSql" Text="Rauschsperren-Niveau" />
 			<Control Id="grpDigit" Text="Digital" />
-			<Control Id="lblTimingPreference" Text="Timing Leader Prefernce" />
-			<Control Id="lblRepeaterSlot" Text="Repeater Slot" />
+			<Control Id="lblTimingPreference" Text="Timing Leader Voreinstellung" />
+			<Control Id="lblRepeaterSlot" Text="Zeitschlitz" />
 			<Control Id="lblArs" Text="ARS" />
-			<Control Id="lblKeySwitch" Text="Privacy" />
-			<Control Id="lblKey" Text="Privacy Group" />
+			<Control Id="lblKeySwitch" Text="Verschlüsselung" />
+			<Control Id="lblKey" Text="Verschlüsselungsgruppe" />
 			<Control Id="lblTxColor" Text="Color Code" />
-			<Control Id="lblEmgSystem" Text="Emergency System" />
-			<Control Id="lblContact" Text="Contact" />
+			<Control Id="lblEmgSystem" Text="Notfall-System" />
+			<Control Id="lblContact" Text="Kontakt" />
 			<Control Id="chkDualCapacity" Text="Dual Capacity Direct Mode" />
-			<Control Id="chkUdpDataHead" Text="Compressed UDP Data Header" />
-			<Control Id="chkAllowTxInterupt" Text="Allow Interruption" />
-			<Control Id="chkTxInteruptFreq" Text="Tx Interruptible Frequencies" />
-			<Control Id="chkPrivateCall" Text="Private Call Confirmed" />
-			<Control Id="chkDataCall" Text="Data Call Confirmed" />
-			<Control Id="chkEmgConfirmed" Text="Emergency Alarm Ack" />
-			<Control Id="chkEnhancedChAccess" Text="Enhanced Channel Access" />
-			<Control Id="lblRxColor" Text="Rx Color Code" />
-			<Control Id="lblRxGroup" Text="Rx Group List" />
-			<Control Id="chkRxOnly" Text="Rx Only" />
+			<Control Id="chkUdpDataHead" Text="Komprimierter UDP Daten Header" />
+			<Control Id="chkAllowTxInterupt" Text="Unterbrechung erlaubt" />
+			<Control Id="chkTxInteruptFreq" Text="Unterbrechbare TX-Frequenzen" />
+			<Control Id="chkPrivateCall" Text="Bestätigter Direktruf" />
+			<Control Id="chkDataCall" Text="Bestätigter Datenruf" />
+			<Control Id="chkEmgConfirmed" Text="Bestätigter Notfall-Alarm" />
+			<Control Id="chkEnhancedChAccess" Text="Eweiterter Kanalzugriff" />
+			<Control Id="lblRxColor" Text="RX Color Code" />
+			<Control Id="lblRxGroup" Text="RX Gruppen-Liste" />
+			<Control Id="chkRxOnly" Text="nur RX" />
 			<Control Id="chkAllowTalkaround" Text="Allow Talkaround" />
 			<Control Id="grpAnalog" Text="Analog" />
-			<Control Id="lblChBandwidth" Text="Bandwidth [KHz]" />
-			<Control Id="lblVoiceEmphasis" Text="Voice Emphasis" />
+			<Control Id="lblChBandwidth" Text="Bandbreite [KHz]" />
+			<Control Id="lblVoiceEmphasis" Text="Sprach-Emphase" />
 			<Control Id="lblSte" Text="STE" />
-			<Control Id="lblNonSte" Text="Non STE" />
-			<Control Id="lblRxTone" Text="Rx Tone [Hz]" />
-			<Control Id="lblRxSignaling" Text="Rx Signaling System" />
-			<Control Id="lblUnmuteRule" Text="Unmute Rule" />
-			<Control Id="lblArtsInterval" Text="ARTS Interval [s]" />
+			<Control Id="lblNonSte" Text="Kein STE" />
+			<Control Id="lblRxTone" Text="RX Ton [Hz]" />
+			<Control Id="lblRxSignaling" Text="RX Signalisierungs-System" />
+			<Control Id="lblUnmuteRule" Text="Unmute Regel" />
+			<Control Id="lblArtsInterval" Text="ARTS Intervall [s]" />
 			<Control Id="lblArts" Text="ARTS" />
-			<Control Id="lblPttidType" Text="PTTID Type" />
-			<Control Id="lblTxSignaling" Text="Tx Signaling System" />
-			<Control Id="lblTxTone" Text="Tx Tone [Hz]" />
-			<Control Id="chkDataPl" Text="PL for Data" />
+			<Control Id="lblPttidType" Text="PTTID Typ" />
+			<Control Id="lblTxSignaling" Text="TX Signalisierungs-System" />
+			<Control Id="lblTxTone" Text="TX Ton [Hz]" />
+			<Control Id="chkDataPl" Text="PL für Daten" />
 			<Control Id="chkLoneWoker" Text="Lone Work" />
 			<Control Id="chkVox" Text="Vox" />
-			<Control Id="chkAutoScan" Text="Auto Scan" />
+			<Control Id="chkAutoScan" Text="Auto Suchlauf" />
 			<Control Id="lblChName" Text="Name" />
-			<Control Id="lblChMode" Text="Mode" />
-			<Control Id="lblTot" Text="TOT [s]" />
+			<Control Id="lblChMode" Text="Betriebsart" />
+			<Control Id="lblTot" Text="Spreczeitbegrenzung (TOT) [s]" />
 			<Control Id="lblTotRekey" Text="TOT Rekey Delay [s]" />
-			<Control Id="lblRssiThreshold" Text="RSSI Threshold [dBm]" />
-			<Control Id="lblRxRefFreq" Text="Rx Reference Frequency" />
-			<Control Id="lblTxRefFreq" Text="Tx Reference Frequency" />
-			<Control Id="lblRxFreq" Text="Rx Freq [MHz]" />
-			<Control Id="lblPower" Text="Power Level" />
-			<Control Id="lblAdmitCriteria" Text="Admit Criteria" />
-			<Control Id="lblTxFreq" Text="Tx Freq [MHz]" />
-			<Control Id="lblScanList" Text="Scan List" />
-			<Control Id="lblOffsetStep" Text="Offset Step" />
-			<Control Id="lblOffsetDirection" Text="Offset Direction" />
-			<Control Id="lblOffsetFreq" Text="Offset Freq" />
+			<Control Id="lblRssiThreshold" Text="RSSI Vorspannung [dBm]" />
+			<Control Id="lblRxRefFreq" Text="RX Referenz-Frequenz" />
+			<Control Id="lblTxRefFreq" Text="TX Referenz-Frequenz" />
+			<Control Id="lblRxFreq" Text="RX Freq [MHz]" />
+			<Control Id="lblPower" Text="Sendeleistung" />
+			<Control Id="lblAdmitCriteria" Text="TX erlaubt" />
+			<Control Id="lblTxFreq" Text="TX Freq [MHz]" />
+			<Control Id="lblScanList" Text="Scan Liste" />
+			<Control Id="lblOffsetStep" Text="Ablage" />
+			<Control Id="lblOffsetDirection" Text="Ablage Richtung" />
+			<Control Id="lblOffsetFreq" Text="Ablage Freq" />
 		</Controls>
 		<Commons>
 			<Item Id="ChMode" Text="Analog,Digital" />
-			<Item Id="RefFreq" Text="Low,Middle,High" />
-			<Item Id="Power" Text="Low,High" />
-			<Item Id="AdmitCriterica" Text="Always,Channel Free,CTCSS/DCS" />
-			<Item Id="AdmitCritericaD" Text="Always,Channel Free,Color Code" />
-			<Item Id="Squelch" Text="Tight,Normal" />
-			<Item Id="VoiceEmphasis" Text="None,De and Pre,De,Pre" />
-			<Item Id="Ste" Text="Frequency,120°,180°,240°" />
-			<Item Id="NonSte" Text="None,Frequency" />
-			<Item Id="SignalingSystem" Text="Off,DTMF" />
+			<Item Id="RefFreq" Text="Niedrig,Mittel,Hoch" />
+			<Item Id="Power" Text="Niedrig,Hoch" />
+			<Item Id="AdmitCriterica" Text="Immer,Kanal Frei,CTCSS/DCS" />
+			<Item Id="AdmitCritericaD" Text="Immer,Kanal Frei,Color Code" />
+			<Item Id="Squelch" Text="Stramm,Normal" />
+			<Item Id="VoiceEmphasis" Text="Keine,De und Pre,De,Pre" />
+			<Item Id="Ste" Text="Frequenz,120°,180°,240°" />
+			<Item Id="NonSte" Text="Kein,Frequenz" />
+			<Item Id="SignalingSystem" Text="Aus,DTMF" />
 			<Item Id="UnmuteRule" Text="Std Unmute Mute,And Unmute Mute,And Unmute Or Mute" />
-			<Item Id="PttidType" Text="None,Only Front,Only Post,Front and Post" />
-			<Item Id="Arts" Text="Disable,Tx,Rx,Tx and Rx" />
-			<Item Id="TimingPreference" Text="Preferred,Eligible,Ineligible" />
-			<Item Id="Ars" Text="Disable,System Change" />
-			<Item Id="KeySwitch" Text="Off,On" />
-			<Item Id="" Text="None,+,-" />
+			<Item Id="PttidType" Text="Kein,Nur vor,Nur nach,Vor und nach" />
+			<Item Id="Arts" Text="Deaktiviert,TX,RX,TX und RX" />
+			<Item Id="TimingPreference" Text="Bevorzugt,Berechtigt,Unberechtigt" />
+			<Item Id="Ars" Text="Deaktiviert,System geändert" />
+			<Item Id="KeySwitch" Text="Aus,Ein" />
+			<Item Id="" Text="Keine,+,-" />
 		</Commons>
 	</VfoForm>
-	<ZoneBasicForm Text="Zone Basic">
+	<ZoneBasicForm Text="Zonen Grundeinstellungen">
 		<Controls>
-			<Control Id="grpSub" Text="Down" />
-			<Control Id="lblSubCh" Text="Channel" />
+			<Control Id="grpSub" Text="Runter" />
+			<Control Id="lblSubCh" Text="Kanal" />
 			<Control Id="lblSubZone" Text="Zone" />
-			<Control Id="grpMain" Text="Up" />
-			<Control Id="lblMainCh" Text="Channel" />
+			<Control Id="grpMain" Text="Hoch" />
+			<Control Id="lblMainCh" Text="Kanal" />
 			<Control Id="lblCurZone" Text="Zone" />
 		</Controls>
 	</ZoneBasicForm>
@@ -692,51 +692,54 @@
 		<Controls>
 			<Control Id="tsrZone" Text="toolStrip1">
 				<ToolStripItem Id="tslblInfo" Text="" />
-				<ToolStripItem Id="tsbtnFirst" Text="First" />
-				<ToolStripItem Id="tsbtnPrev" Text="Previou" />
-				<ToolStripItem Id="tsbtnNext" Text="Next" />
-				<ToolStripItem Id="tsbtnLast" Text="Last" />
-				<ToolStripItem Id="tsbtnAdd" Text="Add" />
-				<ToolStripItem Id="tsbtnDel" Text="Delete" />
+				<ToolStripItem Id="tsbtnFirst" Text="Erster" />
+				<ToolStripItem Id="tsbtnPrev" Text="Vorheriger" />
+				<ToolStripItem Id="tsbtnNext" Text="Nächster" />
+				<ToolStripItem Id="tsbtnLast" Text="Letzter" />
+				<ToolStripItem Id="tsbtnAdd" Text="Hinzufügen" />
+				<ToolStripItem Id="tsbtnDel" Text="Löschen" />
 			</Control>
-			<Control Id="btnDown" Text="Down" />
-			<Control Id="btnUp" Text="Up" />
-			<Control Id="grpSelected" Text="Member" />
-			<Control Id="btnAdd" Text="Add" />
-			<Control Id="grpUnselected" Text="Available" />
-			<Control Id="btnDel" Text="Delete" />
+			<Control Id="btnDown" Text="Runter" />
+			<Control Id="btnUp" Text="Hoch" />
+			<Control Id="grpSelected" Text="Mitglied" />
+			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="grpUnselected" Text="Verfügbar" />
+			<Control Id="btnDel" Text="Löschen" />
 			<Control Id="lblName" Text="Name" />
 		</Controls>
 	</ZoneForm>
 	<Commons>
-		<Item Id="None" Text="None" />
-		<Item Id="Selected" Text="Selected" />
-		<Item Id="RadioIdNotEmpty" Text="Radio ID can not be empty!" />
-		<Item Id="RadioIdOutOfRange" Text="Radio ID out of range!" />
-		<Item Id="Read" Text="Read" />
-		<Item Id="Write" Text="Write" />
-		<Item Id="ReadComplete" Text="Read Complete" />
-		<Item Id="WriteComplete" Text="Write Complete" />
-		<Item Id="NameExist" Text="Name exists" />
-		<Item Id="FirstChNotDelete" Text="The first channel in the first zone cannot be deleted" />
-		<Item Id="FirstNotDelete" Text="The first cannot be deleted" />
-		<Item Id="FileFormatError" Text="File format error" />
-		<Item Id="OpenSuccessfully" Text="Open successfully" />
-		<Item Id="SaveSuccessfully" Text="Save successfully" />
-		<Item Id="TypeNotMatch" Text="Type does not match" />
-		<Item Id="NotSelectItemNotCopyItem" Text="Not select item or Not copyitem" />
-		<Item Id="KeyPressHex" Text="Please input : " />
-		<Item Id="KeyPressDigit" Text="Please input : Digit and {0}" />
-		<Item Id="KeyPressPrint" Text="Please input print" />
-		<Item Id="DeviceNotFound" Text="Device not found" />
-		<Item Id="ModelNotMatch" Text="Model mismatch" />
-		<Item Id="PromptKey1" Text="Do you want to save the codeplug before exiting?" />
-		<Item Id="PromptKey2" Text="Do you want to load a new default codeplug? All current data will be replaced." />
-		<Item Id="DataFormatError" Text="Data format error" />
-		<Item Id="FirstNotDelete" Text="The first row cannot be deleted" />
-		<Item Id="OpenPortFail" Text="Failed to open serial port" />
-		<Item Id="CommError" Text="Communication error" />
-		<Item Id="Add" Text="Add: " />
-		<Item Id="ScanSelected" Text="Unable to operate selected" />
+		<Item Id="None" Text="Kein" />
+		<Item Id="Selected" Text="Ausgewählt" />
+		<Item Id="RadioIdNotEmpty" Text="Geräte ID kann nicht leer sein!" />
+		<Item Id="RadioIdOutOfRange" Text="Geräte ID außerhalb des erlaubten Bereichs!" />
+		<Item Id="Read" Text="Lesen" />
+		<Item Id="Write" Text="Schreiben" />
+		<Item Id="ReadComplete" Text="Lesen angeschlossen" />
+		<Item Id="WriteComplete" Text="Schreiben abgeschlossen" />
+		<Item Id="NameExist" Text="Name existiert bereits" />
+		<Item Id="FirstChNotDelete" Text="Der erste Kanal in der ersten Zone kann nicht gelöscht werden" />
+		<Item Id="FirstNotDelete" Text="Der erste Eintrag kann nicht gelöscht werden" />
+		<Item Id="FileFormatError" Text="Dateiformat fehlerhaft" />
+		<Item Id="OpenSuccessfully" Text="Öffnen erfolgreich" />
+		<Item Id="SaveSuccessfully" Text="Speichern erfolgreich" />
+		<Item Id="TypeNotMatch" Text="Typ nicht übereinstimmend" />
+		<Item Id="NotSelectItemNotCopyItem" Text="Kein ausgewählter Eintrag oder kein kopierter Eintrag" />
+		<Item Id="KeyPressHex" Text="Bitte eingeben: " />
+		<Item Id="KeyPressDigit" Text="Bitte eingeben: Ziffern und {0}" />
+		<Item Id="KeyPressPrint" Text="Bitte Ausdruck eingeben" />
+		<Item Id="DeviceNotFound" Text="Gerät nicht gefunden" />
+		<Item Id="ModelNotMatch" Text="Falsches Model" />
+		<Item Id="PromptKey1" Text="Möchten Sie den Codeplug vor dem Beenden des Programms speichern?" />
+		<Item Id="PromptKey2" Text="Möchten Sie einen neuen Grund-Codeplug laden? Alle aktuellen Daten werden hierbei überschrieben!" />
+		<Item Id="DataFormatError" Text="Fehlerhaftes Datenformat" />
+		<Item Id="FirstNotDelete" Text="Die erste Zeile kann nicht gelöscht werden" />
+		<Item Id="OpenPortFail" Text="Fehler beim öffnen der seriellen Schnittstelle (USB)" />
+		<Item Id="CommError" Text="Kommunikationsfehler" />
+		<Item Id="Add" Text="Hinzufügen: " />
+		<Item Id="ScanSelected" Text="Kann Auswahl nicht ausführen" />
+		<Item Id="codePlugReadConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug aus dem GD-77 auslesen möchten?\nDiese Aktion wird den aktuellen Codeplug im Editor überschreiben!" />
+		<Item Id="codePlugWriteConfirm"  Text="Sind Sie sicher, dass Sie den Codeplug in das GD-77 schreiben möchten?\nDiese Aktion wird den aktuellen Codeplug im GD-77 überschreiben!" />
+		<Item Id="pleaseConfirm"  Text="Bitte bestätigen" />
 	</Commons>
 </Resource>
