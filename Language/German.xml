@@ -4,7 +4,7 @@
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
 	<Language Id="Deu" Text="Deutsch" />
-	<AboutForm Text="About">
+	<AboutForm Text="Über">
 		<Controls>
 			<Control Id="lblVersion" Text="v2.0.5" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
@@ -42,7 +42,7 @@
 			<Control Id="lblShortPress" Text="Kurzer Tastendruck" />
 		</Controls>
 		<Commons>
-			<Item Id="ButtonItem" Text="Keine,Alle Benachrichtigungstöne Ein/Aus,Notfall Ein,Notfall Aus,Hohe/Niedrige Sendeleistung,Monitor,Störungsunterdrückung,Kurzwahl 1,Kurzwahl 2,Kurzwahl 3,Kurzwahl 4,Kurzwahl 5,Kurzwahl 6,Repeater/Talkaround,Scan Ein/Aus,Stramme/Normale Rauschsperre,Verschlüsselung Ein/Aus,Vox Ein/Aus,Zonenauswahl,Batterie-Ladestand,Lone Work Ein/Aus,Dauerhafter Monitor,Phonie Aus,Kanal Hoch,Kanal Runter,Kanal Infomation," />
+			<Item Id="ButtonItem" Text="Keine,Alle Töne Ein/Aus,Notfall Ein,Notfall Aus,Hohe/Niedrige Sendeleistung,Monitor,Störungsunterdrückung,Kurzwahl 1,Kurzwahl 2,Kurzwahl 3,Kurzwahl 4,Kurzwahl 5,Kurzwahl 6,Repeater/Talkaround,Scan Ein/Aus,Stramme/Normale Rauschsperre,Verschlüsselung Ein/Aus,Vox Ein/Aus,Zonenauswahl,Batterie-Ladestand,Lone Work Ein/Aus,Dauerhafter Monitor,Phonie Aus,Kanal Hoch,Kanal Runter,Kanal Infomation," />
 			<Item Id="Mode" Text="Keine,Digital,Analog" />
 			<Item Id="CallTypeD" Text="Ruf,Nachricht" />
 			<Item Id="CallTypeA" Text="DTMF Ruf" />
@@ -60,7 +60,7 @@
 			<Control Id="lblKeySwitch" Text="Verschlüsselung" />
 			<Control Id="lblKey" Text="Verschlüsselungsgruppe" />
 			<Control Id="lblTxColor" Text="Color Code" />
-			<Control Id="lblEmgSystem" Text="Notfall System" />
+			<Control Id="lblEmgSystem" Text="Notfall-System" />
 			<Control Id="lblContact" Text="Kontakt" />
 			<Control Id="chkDualCapacity" Text="Dual Capacity Direct Mode" />
 			<Control Id="chkUdpDataHead" Text="Komprimierter UDP Daten Header" />
@@ -71,7 +71,7 @@
 			<Control Id="chkEmgConfirmed" Text="Notrufbestätigung" />
 			<Control Id="chkEnhancedChAccess" Text="Erweiterter Kanalzugriff" />
 			<Control Id="lblRxColor" Text="RX Color Code" />
-			<Control Id="lblRxGroup" Text="RX Empfangsliste" />
+			<Control Id="lblRxGroup" Text="RX Gruppe" />
 			<Control Id="chkRxOnly" Text="Nur RX" />
 			<Control Id="chkAllowTalkaround" Text="Talkaround erlaubt" />
 			<Control Id="grpAnalog" Text="Analog" />
@@ -90,19 +90,19 @@
 			<Control Id="chkDataPl" Text="PL für Daten" />
 			<Control Id="chkLoneWoker" Text="Lone Work" />
 			<Control Id="chkVox" Text="Vox" />
-			<Control Id="chkAutoScan" Text="Autom. Scan" />
+			<Control Id="chkAutoScan" Text="Auto Suchlauf" />
 			<Control Id="lblChName" Text="Name" />
-			<Control Id="lblChMode" Text="Betriebsart" />
-			<Control Id="lblTot" Text="Sprechzeitbegrenzung (TOT) [s]" />
+			<Control Id="lblChMode" Text="Art" />
+			<Control Id="lblTot" Text="TX-Zeit (TOT) [s]" />
 			<Control Id="lblTotRekey" Text="TOT Rekey Delay [s]" />
 			<Control Id="lblRssiThreshold" Text="RSSI Vorspannung [dBm]" />
 			<Control Id="lblRxRefFreq" Text="RX Referenz Frequenz" />
 			<Control Id="lblTxRefFreq" Text="TX Referenz Frequenz" />
 			<Control Id="lblRxFreq" Text="RX Freq. [MHz]" />
 			<Control Id="lblPower" Text="Sendeleistung" />
-			<Control Id="lblAdmitCriteria" Text="Sendeerlaubnis" />
+			<Control Id="lblAdmitCriteria" Text="TX erlaubt" />
 			<Control Id="lblTxFreq" Text="TX Freq. [MHz]" />
-			<Control Id="lblScanList" Text="Scan-Liste" />
+			<Control Id="lblScanList" Text="Scan" />
 			<Control Id="tsrCh" Text="toolStrip1">
 				<ToolStripItem Id="tslblInfo" Text="" />
 				<ToolStripItem Id="tsbtnFirst" Text="Erster" />
@@ -135,12 +135,12 @@
 	</ChannelForm>
 	<ChannelsForm Text="Kanäle">
 			<Controls>
-			<Control Id="btnImport" Text="Importieren" />
-			<Control Id="btnExport" Text="Exportieren" />
+			<Control Id="btnImport" Text="Import" />
+			<Control Id="btnExport" Text="Export" />
 			<Control Id="btnDeleteSelect" Text="Lösche ausgewählte" />
 			<Control Id="btnClear" Text="Leeren" />
 			<Control Id="btnDelete" Text="Löschen" />
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 			<Control Id="dgvChannels" Text="Nummer,Name,RX Freq,TX Freq,Betriebsart,Sendeleistung,RX Ton,TX Ton,Color Code,Rx Gruppen-Liste,Kontakt,Zeitschlitz">
 				<ControlItem Id="" Text="Nummer" />
 				<ControlItem Id="" Text="Name" />
@@ -191,7 +191,7 @@
 			<Control Id="btnDeleteSelect" Text="Lösche Auswahl" />
 			<Control Id="btnClear" Text="Leeren" />
 			<Control Id="btnDelete" Text="Löschen" />
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 			<Control Id="dgvContacts" Text="Nummer,Name,Ruf ID,Typ,Kingelton,Anruf erhalten Ton">
 				<ControlItem Id="" Text="Number" />
 				<ControlItem Id="" Text="Name" />
@@ -254,9 +254,9 @@
 			<Control Id="lblDelimiter" Text="Trenner" />
 			<Control Id="lblGrpCallCode" Text="Gruppen-Code" />
 			<Control Id="lblDecResp" Text="Decode Antwort" />
-			<Control Id="lblFstDlyTime" Text="Verzögerung erstes Zeichen [ms]" />
+			<Control Id="lblFstDlyTime" Text="Pause vorher [ms]" />
 			<Control Id="lblKillWakeDec" Text="Kill/Aufweck Code" />
-			<Control Id="lblFstDur" Text="Dauer erstes Zeichen [ms]" />
+			<Control Id="lblFstDur" Text="Dauer 1. Zeichen [ms]" />
 			<Control Id="lblKillType" Text="Kill Typ" />
 			<Control Id="lblOtherDur" Text="*# Dauer [ms]" />
 			<Control Id="lblRate" Text="DTMF Rate" />
@@ -272,7 +272,7 @@
 		<Controls>
 			<Control Id="lblAlias" Text="Name" />
 			<Control Id="lblAlarmType" Text="Alarm Typ" />
-			<Control Id="lblAlarmMode" Text="Modus" />
+			<Control Id="lblAlarmMode" Text="Art" />
 			<Control Id="lblRevertCh" Text="Revert Channel" />
 			<Control Id="lblImpoliteRetries" Text="Unhöfliche Versuche" />
 			<Control Id="lblPoliteRetries" Text="Höfliche Versuche" />
@@ -286,21 +286,21 @@
 			<Item Id="RevertCh" Text="Kein,Ausgewählter" />
 		</Commons>
 	</EmergencyForm>
-	<EncryptForm Text="Privacy">
+	<EncryptForm Text="Verschlüsselung">
 		<Controls>
 			<Control Id="dgvKey" Text="Schlüssel">
 				<ControlItem Id="txtKey" Text="Schlüssel" />
 			</Control>
-			<Control Id="lblType" Text="Verschlüsselungs-Typ" />
+			<Control Id="lblType" Text="Typ" />
 			<Control Id="btnDel" Text="Löschen" />
 			<Control Id="lblKeyLen" Text="Schlüssellänge" />
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 		</Controls>
 		<Commons>
 			<Item Id="EncryptType" Text="Keine,Basic" />
 		</Commons>
 	</EncryptForm>
-	<GeneralSetForm Text="General Setting">
+	<GeneralSetForm Text="Generelle Einstellungen">
 		<Controls>
 			<Control Id="chkTxExitTone" Text="TX Ende Ton" />
 			<Control Id="grpBeep" Text="Signal Ton" />
@@ -407,7 +407,7 @@
 			<MenuItem Id="tsmiZoneList" Text="Zonen-Liste" />
 			<MenuItem Id="tsmiCh" Text="Kanäle" />
 			<MenuItem Id="tsmiScan" Text="Suchlauf" />
-			<MenuItem Id="tsmiScanList" Text="Scan Liste" />
+			<MenuItem Id="tsmiScanList" Text="Scan" />
 			<MenuItem Id="tsmiProgram" Text="Programmieren" />
 			<MenuItem Id="tsmiRead" Text="Lesen" />
 			<MenuItem Id="tsmiWrite" Text="Schreiben" />
@@ -523,13 +523,13 @@
 			<Control Id="lblPriorityCh1" Text="Prioritäts-Kanal 1" />
 			<Control Id="lblSignalingHold" Text="Verweildauer bei RX [ms]" />
 			<Control Id="lblName" Text="Name" />
-			<Control Id="lblPLType" Text="PL Type" />
+			<Control Id="lblPLType" Text="Prioritäts-Liste" />
 			<Control Id="lblPriorityCh2" Text="Prioritäts-Kanal 2" />
 			<Control Id="lblPrioritySample" Text="Prioritäts-Intervall [ms]" />
 			<Control Id="btnDown" Text="Runter" />
 			<Control Id="btnUp" Text="Hoch" />
 			<Control Id="btnDel" Text="Löschen" />
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 		</Controls>
 		<Commons>
 			<Item Id="PriorityCh" Text="Kein,Ausgewählter" />
@@ -592,7 +592,7 @@
 			<Control Id="dgvMsg" Text="Inhalt">
 				<ControlItem Id="txtMessage" Text="Text Nachricht" />
 			</Control>
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 			<Control Id="btnDel" Text="Löschen" />
 		</Controls>
 	</TextMsgForm>
@@ -619,10 +619,10 @@
 			<Control Id="chkTxInteruptFreq" Text="Unterbrechbare TX-Frequenzen" />
 			<Control Id="chkPrivateCall" Text="Bestätigter Direktruf" />
 			<Control Id="chkDataCall" Text="Bestätigter Datenruf" />
-			<Control Id="chkEmgConfirmed" Text="Bestätigter Notfall-Alarm" />
+			<Control Id="chkEmgConfirmed" Text="Notrufbestätigung" />
 			<Control Id="chkEnhancedChAccess" Text="Eweiterter Kanalzugriff" />
 			<Control Id="lblRxColor" Text="RX Color Code" />
-			<Control Id="lblRxGroup" Text="RX Gruppen-Liste" />
+			<Control Id="lblRxGroup" Text="RX Gruppe" />
 			<Control Id="chkRxOnly" Text="nur RX" />
 			<Control Id="chkAllowTalkaround" Text="Allow Talkaround" />
 			<Control Id="grpAnalog" Text="Analog" />
@@ -643,8 +643,8 @@
 			<Control Id="chkVox" Text="Vox" />
 			<Control Id="chkAutoScan" Text="Auto Suchlauf" />
 			<Control Id="lblChName" Text="Name" />
-			<Control Id="lblChMode" Text="Betriebsart" />
-			<Control Id="lblTot" Text="Spreczeitbegrenzung (TOT) [s]" />
+			<Control Id="lblChMode" Text="Art" />
+			<Control Id="lblTot" Text="TX-Zeit (TOT) [s]" />
 			<Control Id="lblTotRekey" Text="TOT Rekey Delay [s]" />
 			<Control Id="lblRssiThreshold" Text="RSSI Vorspannung [dBm]" />
 			<Control Id="lblRxRefFreq" Text="RX Referenz-Frequenz" />
@@ -653,7 +653,7 @@
 			<Control Id="lblPower" Text="Sendeleistung" />
 			<Control Id="lblAdmitCriteria" Text="TX erlaubt" />
 			<Control Id="lblTxFreq" Text="TX Freq [MHz]" />
-			<Control Id="lblScanList" Text="Scan Liste" />
+			<Control Id="lblScanList" Text="Scan" />
 			<Control Id="lblOffsetStep" Text="Ablage" />
 			<Control Id="lblOffsetDirection" Text="Ablage Richtung" />
 			<Control Id="lblOffsetFreq" Text="Ablage Freq" />
@@ -680,10 +680,10 @@
 	</VfoForm>
 	<ZoneBasicForm Text="Zonen Grundeinstellungen">
 		<Controls>
-			<Control Id="grpSub" Text="Runter" />
+			<Control Id="grpSub" Text="Unterer VFO" />
 			<Control Id="lblSubCh" Text="Kanal" />
 			<Control Id="lblSubZone" Text="Zone" />
-			<Control Id="grpMain" Text="Hoch" />
+			<Control Id="grpMain" Text="Oberer VFO" />
 			<Control Id="lblMainCh" Text="Kanal" />
 			<Control Id="lblCurZone" Text="Zone" />
 		</Controls>
@@ -702,7 +702,7 @@
 			<Control Id="btnDown" Text="Runter" />
 			<Control Id="btnUp" Text="Hoch" />
 			<Control Id="grpSelected" Text="Mitglied" />
-			<Control Id="btnAdd" Text="Hinzufügen" />
+			<Control Id="btnAdd" Text="Hinzu" />
 			<Control Id="grpUnselected" Text="Verfügbar" />
 			<Control Id="btnDel" Text="Löschen" />
 			<Control Id="lblName" Text="Name" />
