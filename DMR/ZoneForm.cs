@@ -515,7 +515,7 @@ namespace DMR
 			{
 				zn = ZoneForm.data.ZoneList[i];
 
-				if (!ZoneForm.data.DataIsValid(i))
+				if (nextFreeIndex == -1 && !ZoneForm.data.DataIsValid(i))
 				{
 					nextFreeIndex = i;
 				}
