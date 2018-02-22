@@ -872,7 +872,7 @@ namespace DMR
 			base.WindowState = FormWindowState.Maximized;
 			base.Load += this.MainForm_Load;
 			base.MdiChildActivate += this.MainForm_MdiChildActivate;
-			base.FormClosing += this.MainForm_FormClosing;
+
 			base.KeyDown += this.MainForm_KeyDown;
 			this.mnsMain.ResumeLayout(false);
 			this.mnsMain.PerformLayout();
@@ -887,6 +887,26 @@ namespace DMR
 			this.tsrMain.PerformLayout();
 			base.ResumeLayout(false);
 			base.PerformLayout();
+
+			if (DialogResult.Yes != MessageBox.Show("This software is supplied 'as is' with no warranties. You use it at your own risk to both your PC and to your DMR Radio. By pressing the  Yes   button you agree and understand."
+, "WARNING", MessageBoxButtons.YesNo))
+			{
+				if (System.Windows.Forms.Application.MessageLoop)
+				{
+					// Use this since we are a WinForms app
+					System.Windows.Forms.Application.Exit();
+				}
+				else
+				{
+					// Use this since we are a console app
+					System.Environment.Exit(1);
+				}
+			}
+			else
+			{
+				base.FormClosing += this.MainForm_FormClosing;
+			}
+
 		}
 
 		private IDockContent method_0(string string_0)
