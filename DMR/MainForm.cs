@@ -2659,6 +2659,7 @@ namespace DMR
 			});
 		}
 
+		//  This function converts the internal data structures into the binary data of the codeplug file
 		public static byte[] DataToByte()
 		{
 			byte[] array = new byte[Class15.EEROM_SPACE];
@@ -2729,6 +2730,7 @@ namespace DMR
 			return array;
 		}
 
+		// This function reads the binary data e.g codeplug file and stores the data into the internal storage structures
 		public static void ByteToData(byte[] eerom)
 		{
 			byte[] array = new byte[Class15.SPACE_DEVICE_INFO];
@@ -2813,6 +2815,7 @@ namespace DMR
 					array = new byte[Class15.SPACE_EX_ZONE];
 					Array.Copy(eerom, Class15.ADDR_EX_ZONE_LIST, array, 0, Class15.SPACE_EX_ZONE);
 					ZoneForm.data = (ZoneForm.Zone)Class15.smethod_62(array, ZoneForm.data.GetType());
+					ZoneForm.CompactZones();
 					array = new byte[Class15.SPACE_EX_EMERGENCY];
 					Array.Copy(eerom, Class15.ADDR_EX_EMERGENCY, array, 0, array.Length);
 					EmergencyForm.dataEx = (EmergencyForm.EmergencyEx)Class15.smethod_62(array, EmergencyForm.dataEx.GetType());
