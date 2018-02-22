@@ -2009,9 +2009,16 @@ namespace DMR
 						}
 						if (treeNodeItem == this.CopyItem)
 						{
-							this.CopyItem = null;
+						    this.CopyItem = null;
 						}
-					}
+                        if (treeNodeItem.Type == typeof(ZoneForm))
+                        {
+                            ZoneForm.CompactZones();
+                            TreeNode parentNode = this.method_9(typeof(ZoneBasicForm), this.tvwMain.Nodes);
+                            parentNode.Nodes.Clear();
+                            this.InitZones(parentNode);
+                        }
+                    }
 				}
 			}
 		}
