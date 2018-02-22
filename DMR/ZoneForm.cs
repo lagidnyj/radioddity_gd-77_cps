@@ -486,12 +486,11 @@ namespace DMR
 		{
 			ZoneOne zn;
 			bool srcIsValid;
-			bool destIsValid;
 			for (int i = sourceZoneNum; i < ZoneForm.data.ZoneList.Length; i++)
 			{
 				zn = ZoneForm.data.ZoneList[i];
 				srcIsValid = ZoneForm.data.DataIsValid(i);
-				ZoneForm.data.ZoneList[destZoneNum] = new ZoneOne(zn);
+				ZoneForm.data.ZoneList[destZoneNum] = zn;// new ZoneOne(zn);
 				if (srcIsValid)
 				{
 					ZoneForm.data.SetIndex(destZoneNum, 1);

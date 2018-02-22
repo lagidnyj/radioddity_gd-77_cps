@@ -171,6 +171,8 @@ namespace DMR
 		private ToolStripSeparator toolStripSeparator4;
 
 		private ToolStripMenuItem tsmiCopy;
+		private ToolStripMenuItem tsmiMoveUp;
+		private ToolStripMenuItem tsmiMoveDown;
 
 		private ToolStripMenuItem tsmiPaste;
 
@@ -309,6 +311,10 @@ namespace DMR
 			this.tsmiRename = new ToolStripMenuItem();
 			this.toolStripSeparator4 = new ToolStripSeparator();
 			this.tsmiCopy = new ToolStripMenuItem();
+
+			this.tsmiMoveUp = new ToolStripMenuItem();
+			this.tsmiMoveDown = new ToolStripMenuItem();
+
 			this.tsmiPaste = new ToolStripMenuItem();
 			this.cmsGroupContact = new ContextMenuStrip(this.components);
 			this.tsmiAddContact = new ToolStripMenuItem();
@@ -619,13 +625,16 @@ namespace DMR
 			this.tsmiClear.Size = new Size(138, 22);
 			this.tsmiClear.Text = "Clear";
 			this.tsmiClear.Click += this.tsmiClear_Click;
-			this.cmsSub.Items.AddRange(new ToolStripItem[5]
+			this.cmsSub.Items.AddRange(new ToolStripItem[8]
 			{
 				this.tsmiDel,
 				this.tsmiRename,
 				this.toolStripSeparator4,
 				this.tsmiCopy,
-				this.tsmiPaste
+				this.tsmiPaste,
+				this.toolStripSeparator4,
+				this.tsmiMoveUp,
+				this.tsmiMoveDown
 			});
 			this.cmsSub.Name = "cmsSub";
 			this.cmsSub.Size = new Size(159, 98);
@@ -653,6 +662,19 @@ namespace DMR
 			this.tsmiPaste.Size = new Size(158, 22);
 			this.tsmiPaste.Text = "Paste";
 			this.tsmiPaste.Click += this.tsmiPaste_Click;
+
+			this.tsmiMoveUp.Name = "tsmiMoveUp";
+			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveUp.Size = new Size(158, 22);
+			this.tsmiMoveUp.Text = "Move up";
+			this.tsmiMoveUp.Click += this.tsmiMoveUp_Click;
+
+			this.tsmiMoveDown.Name = "tsmiMoveDown";
+			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveDown.Size = new Size(158, 22);
+			this.tsmiMoveDown.Text = "Move down";
+			this.tsmiMoveDown.Click += this.tsmiMoveDown_Click;
+
 			this.cmsGroupContact.Items.AddRange(new ToolStripItem[1]
 			{
 				this.tsmiAddContact
@@ -1946,6 +1968,16 @@ namespace DMR
 				TreeNodeItem treeNodeItem = selectedNode.Tag as TreeNodeItem;
 				if (treeNodeItem != null)
 				{
+					switch (treeNodeItem.Type.Name)
+					{
+						case "ZoneForm":
+							break;
+						case "ChannelForm":
+						default:
+							this.tsmiMoveDown.Visible = false;
+							this.tsmiMoveUp.Visible = false;
+							break;
+					}
 					if (treeNodeItem.Type == typeof(ChannelForm))
 					{
 						if (treeNodeItem.Index + 1 == ZoneForm.data.FstZoneFstCh)
@@ -2094,6 +2126,28 @@ namespace DMR
 					MessageBox.Show(Class15.dicCommon["NotSelectItemNotCopyItem"]);
 				}
 			}
+		}
+
+		private void tsmiMoveDown_Click(object sender, EventArgs e)
+		{
+			Console.WriteLine("Move down clicked");
+			TreeNode selectedNode = this.tvwMain.SelectedNode;
+			if (selectedNode != null)
+			{
+				//this.CopyItem = (selectedNode.Tag as TreeNodeItem);
+			}
+
+		}
+
+		private void tsmiMoveUp_Click(object sender, EventArgs e)
+		{
+			Console.WriteLine("Move up clicked");
+			TreeNode selectedNode = this.tvwMain.SelectedNode;
+			if (selectedNode != null)
+			{
+				//this.CopyItem = (selectedNode.Tag as TreeNodeItem);
+			}
+
 		}
 
 		private void cmsGroupContact_Opening(object sender, CancelEventArgs e)
