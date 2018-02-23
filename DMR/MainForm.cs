@@ -171,6 +171,8 @@ namespace DMR
 		private ToolStripSeparator toolStripSeparator4;
 
 		private ToolStripMenuItem tsmiCopy;
+		private ToolStripMenuItem tsmiMoveUp;
+		private ToolStripMenuItem tsmiMoveDown;
 
 		private ToolStripMenuItem tsmiPaste;
 
@@ -309,6 +311,10 @@ namespace DMR
 			this.tsmiRename = new ToolStripMenuItem();
 			this.toolStripSeparator4 = new ToolStripSeparator();
 			this.tsmiCopy = new ToolStripMenuItem();
+
+			this.tsmiMoveUp = new ToolStripMenuItem();
+			this.tsmiMoveDown = new ToolStripMenuItem();
+
 			this.tsmiPaste = new ToolStripMenuItem();
 			this.cmsGroupContact = new ContextMenuStrip(this.components);
 			this.tsmiAddContact = new ToolStripMenuItem();
@@ -619,13 +625,16 @@ namespace DMR
 			this.tsmiClear.Size = new Size(138, 22);
 			this.tsmiClear.Text = "Clear";
 			this.tsmiClear.Click += this.tsmiClear_Click;
-			this.cmsSub.Items.AddRange(new ToolStripItem[5]
+			this.cmsSub.Items.AddRange(new ToolStripItem[8]
 			{
 				this.tsmiDel,
 				this.tsmiRename,
 				this.toolStripSeparator4,
 				this.tsmiCopy,
-				this.tsmiPaste
+				this.tsmiPaste,
+				this.toolStripSeparator4,
+				this.tsmiMoveUp,
+				this.tsmiMoveDown
 			});
 			this.cmsSub.Name = "cmsSub";
 			this.cmsSub.Size = new Size(159, 98);
@@ -653,6 +662,19 @@ namespace DMR
 			this.tsmiPaste.Size = new Size(158, 22);
 			this.tsmiPaste.Text = "Paste";
 			this.tsmiPaste.Click += this.tsmiPaste_Click;
+
+			this.tsmiMoveUp.Name = "tsmiMoveUp";
+			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveUp.Size = new Size(158, 22);
+			this.tsmiMoveUp.Text = "Move up";
+			this.tsmiMoveUp.Click += this.tsmiMoveUp_Click;
+
+			this.tsmiMoveDown.Name = "tsmiMoveDown";
+			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveDown.Size = new Size(158, 22);
+			this.tsmiMoveDown.Text = "Move down";
+			this.tsmiMoveDown.Click += this.tsmiMoveDown_Click;
+
 			this.cmsGroupContact.Items.AddRange(new ToolStripItem[1]
 			{
 				this.tsmiAddContact
@@ -1946,6 +1968,32 @@ namespace DMR
 				TreeNodeItem treeNodeItem = selectedNode.Tag as TreeNodeItem;
 				if (treeNodeItem != null)
 				{
+					switch (treeNodeItem.Type.Name)
+					{
+						case "ZoneForm":
+							if (selectedNode.Index == selectedNode.Parent.Nodes.Count - 1)
+							{
+								this.tsmiMoveDown.Visible = false;
+							}
+							else
+							{
+								this.tsmiMoveDown.Visible = true;
+							}
+							if (selectedNode.Index == 0)
+							{
+								this.tsmiMoveUp.Visible = false;
+							}
+							else
+							{
+								this.tsmiMoveUp.Visible = true;
+							}
+							break;
+						case "ChannelForm":
+						default:
+							this.tsmiMoveDown.Visible = false;
+							this.tsmiMoveUp.Visible = false;
+							break;
+					}
 					if (treeNodeItem.Type == typeof(ChannelForm))
 					{
 						if (treeNodeItem.Index + 1 == ZoneForm.data.FstZoneFstCh)
@@ -2015,6 +2063,7 @@ namespace DMR
 								disp.DispData();
 							}
 						}
+						TreeNode parentNode = selectedNode.Parent;// Always get the parent node as it may be needed after the selected node has been deleted
 						treeNode.Nodes.Remove(selectedNode);
 						if (treeNodeItem != null)
 						{
@@ -2029,9 +2078,15 @@ namespace DMR
 						}
 						if (treeNodeItem == this.CopyItem)
 						{
-							this.CopyItem = null;
+						    this.CopyItem = null;
 						}
-					}
+                        if (treeNodeItem.Type == typeof(ZoneForm))
+                        {
+                            ZoneForm.CompactZones();
+                            parentNode.Nodes.Clear();
+                            this.InitZones(parentNode);
+                        }
+                    }
 				}
 			}
 		}
@@ -2087,6 +2142,49 @@ namespace DMR
 					MessageBox.Show(Class15.dicCommon["NotSelectItemNotCopyItem"]);
 				}
 			}
+		}
+
+		private void tsmiMoveDown_Click(object sender, EventArgs e)
+		{
+			TreeNode selectedNode = this.tvwMain.SelectedNode;
+			if (selectedNode != null)
+			{
+				TreeNodeItem treeNodeItem = (selectedNode.Tag as TreeNodeItem);
+				switch (treeNodeItem.Type.Name)
+				{
+					case "ZoneForm":
+						ZoneForm.MoveZoneDown(selectedNode.Index);
+						TreeNode parentNode = selectedNode.Parent;
+                        parentNode.Nodes.Clear();
+                        this.InitZones(parentNode);
+						break;
+					case "ChannelForm":
+					default:
+						break;
+				}
+			}
+		}
+
+		private void tsmiMoveUp_Click(object sender, EventArgs e)
+		{
+			TreeNode selectedNode = this.tvwMain.SelectedNode;
+			if (selectedNode != null)
+			{
+				TreeNodeItem treeNodeItem = (selectedNode.Tag as TreeNodeItem);
+				switch (treeNodeItem.Type.Name)
+				{
+					case "ZoneForm":
+						ZoneForm.MoveZoneUp(selectedNode.Index);
+						TreeNode parentNode = selectedNode.Parent;
+                        parentNode.Nodes.Clear();
+                        this.InitZones(parentNode);
+						break;
+					case "ChannelForm":
+					default:
+						break;
+				}
+			}
+
 		}
 
 		private void cmsGroupContact_Opening(object sender, CancelEventArgs e)
@@ -2679,6 +2777,7 @@ namespace DMR
 			});
 		}
 
+		//  This function converts the internal data structures into the binary data of the codeplug file
 		public static byte[] DataToByte()
 		{
 			byte[] array = new byte[Class15.EEROM_SPACE];
@@ -2749,6 +2848,7 @@ namespace DMR
 			return array;
 		}
 
+		// This function reads the binary data e.g codeplug file and stores the data into the internal storage structures
 		public static void ByteToData(byte[] eerom)
 		{
 			byte[] array = new byte[Class15.SPACE_DEVICE_INFO];
@@ -2833,6 +2933,7 @@ namespace DMR
 					array = new byte[Class15.SPACE_EX_ZONE];
 					Array.Copy(eerom, Class15.ADDR_EX_ZONE_LIST, array, 0, Class15.SPACE_EX_ZONE);
 					ZoneForm.data = (ZoneForm.Zone)Class15.smethod_62(array, ZoneForm.data.GetType());
+					ZoneForm.CompactZones();
 					array = new byte[Class15.SPACE_EX_EMERGENCY];
 					Array.Copy(eerom, Class15.ADDR_EX_EMERGENCY, array, 0, array.Length);
 					EmergencyForm.dataEx = (EmergencyForm.EmergencyEx)Class15.smethod_62(array, EmergencyForm.dataEx.GetType());

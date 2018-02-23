@@ -9,6 +9,10 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;   
+
 namespace DMR
 {
 	public class ZoneForm : DockContent, IDisp
@@ -55,6 +59,17 @@ namespace DMR
 				this = default(ZoneOne);
 				this.name = new byte[16];
 				this.chList = new ushort[16];
+			}
+
+			// Roger Clark. Added copy constructor
+			public ZoneOne(ZoneOne zone)
+			{
+
+				this = default(ZoneOne);
+				this.name = new byte[16];
+				this.chList = new ushort[16];
+				Array.Copy(zone.name, this.name, 16);
+				Array.Copy(zone.chList, this.chList, 16);
 			}
 
 			public byte[] ToEerom()
@@ -463,6 +478,82 @@ namespace DMR
 						this.zoneList[num].Verify();
 					}
 				}
+			}
+		}
+
+		public static void SwapZones(int zoneId1, int zoneId2)
+		{
+		}
+
+		public static void MoveZoneDown(int zoneIndex)
+		{
+			
+			if (ZoneForm.data.DataIsValid(zoneIndex+1))
+			{
+				ZoneOne tmpZone = ZoneForm.data.ZoneList[zoneIndex + 1];
+				ZoneForm.data.ZoneList[zoneIndex + 1] = ZoneForm.data.ZoneList[zoneIndex];
+				ZoneForm.data.ZoneList[zoneIndex] = tmpZone;
+			}
+		}
+
+		public static void MoveZoneUp(int zoneIndex)
+		{
+			if (zoneIndex > 0)
+			{
+				ZoneOne tmpZone = ZoneForm.data.ZoneList[zoneIndex-1];
+				ZoneForm.data.ZoneList[zoneIndex-1] = ZoneForm.data.ZoneList[zoneIndex];
+				ZoneForm.data.ZoneList[zoneIndex] = tmpZone;
+			}
+		}
+
+		public static void copyZonesDownwards(int sourceZoneNum,int destZoneNum)
+		{
+			ZoneOne zn;
+			bool srcIsValid;
+			for (int i = sourceZoneNum; i < ZoneForm.data.ZoneList.Length; i++)
+			{
+				zn = ZoneForm.data.ZoneList[i];
+				srcIsValid = ZoneForm.data.DataIsValid(i);
+				ZoneForm.data.ZoneList[destZoneNum] = zn;// new ZoneOne(zn);
+				if (srcIsValid)
+				{
+					ZoneForm.data.SetIndex(destZoneNum, 1);
+				}
+				else
+				{
+					ZoneForm.data.ClearIndex(destZoneNum);
+				}
+				destZoneNum++;
+			}
+		}
+
+		// Roger Clark. Added function to shrink the zone list so that there are no empty zone array indexes
+		// This is needed so that when adding a new zone it always goes at the end
+		// and for the new MoveUp and MoveDown feature
+		public static void CompactZones()
+		{
+			int nextFreeIndex = -1;
+			ZoneOne zn;
+			for (int i = 0; i < ZoneForm.data.ZoneList.Length;i++)
+			{
+				zn = ZoneForm.data.ZoneList[i];
+
+				if (nextFreeIndex == -1 && !ZoneForm.data.DataIsValid(i))
+				{
+					nextFreeIndex = i;
+				}
+				else
+				{
+					// This zone has channels
+					if (nextFreeIndex != -1)
+					{
+						// There is a free zone before this zone
+						copyZonesDownwards(i, nextFreeIndex);
+						nextFreeIndex = -1;// Space has been removed
+					}
+					
+				}
+
 			}
 		}
 
@@ -885,7 +976,7 @@ namespace DMR
 			this.tsbtnAdd.ImageTransparentColor = Color.Magenta;
 			this.tsbtnAdd.Name = "tsbtnAdd";
 			this.tsbtnAdd.Size = new Size(23, 22);
-			this.tsbtnAdd.Text = "Add";
+			this.tsbtnAdd.Text = "Add..";
 			this.tsbtnAdd.Click += this.tsmiAdd_Click;
 			this.tsbtnDel.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			this.tsbtnDel.Image = (Image)componentResourceManager.GetObject("tsbtnDel.Image");

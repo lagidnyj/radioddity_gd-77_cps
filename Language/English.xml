@@ -437,7 +437,9 @@
 			<MenuItem Id="tsmiRename" Text="Rename" />
 			<MenuItem Id="tsmiCopy" Text="Copy" />
 			<MenuItem Id="tsmiPaste" Text="Paste" />
-		</ContextMenuStrip>
+      <MenuItem Id="tsmiMoveUp" Text="Move up" />
+      <MenuItem Id="tsmiDownUp" Text="Move down" />
+    </ContextMenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiCollapseAll" Text="Collapse All" />
 			<MenuItem Id="tsmiExpandAll" Text="Expand All" />
