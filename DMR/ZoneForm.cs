@@ -506,8 +506,6 @@ namespace DMR
 			}
 		}
 
-
-
 		public static void copyZonesDownwards(int sourceZoneNum,int destZoneNum)
 		{
 			ZoneOne zn;
