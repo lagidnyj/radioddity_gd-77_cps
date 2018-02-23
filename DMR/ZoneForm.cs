@@ -481,6 +481,32 @@ namespace DMR
 			}
 		}
 
+		public static void SwapZones(int zoneId1, int zoneId2)
+		{
+		}
+
+		public static void MoveZoneDown(int zoneIndex)
+		{
+			
+			if (ZoneForm.data.DataIsValid(zoneIndex+1))
+			{
+				ZoneOne tmpZone = ZoneForm.data.ZoneList[zoneIndex + 1];
+				ZoneForm.data.ZoneList[zoneIndex + 1] = ZoneForm.data.ZoneList[zoneIndex];
+				ZoneForm.data.ZoneList[zoneIndex] = tmpZone;
+			}
+		}
+
+		public static void MoveZoneUp(int zoneIndex)
+		{
+			if (zoneIndex > 0)
+			{
+				ZoneOne tmpZone = ZoneForm.data.ZoneList[zoneIndex-1];
+				ZoneForm.data.ZoneList[zoneIndex-1] = ZoneForm.data.ZoneList[zoneIndex];
+				ZoneForm.data.ZoneList[zoneIndex] = tmpZone;
+			}
+		}
+
+
 
 		public static void copyZonesDownwards(int sourceZoneNum,int destZoneNum)
 		{

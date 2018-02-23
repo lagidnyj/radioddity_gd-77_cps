@@ -1971,6 +1971,22 @@ namespace DMR
 					switch (treeNodeItem.Type.Name)
 					{
 						case "ZoneForm":
+							if (selectedNode.Index == selectedNode.Parent.Nodes.Count - 1)
+							{
+								this.tsmiMoveDown.Visible = false;
+							}
+							else
+							{
+								this.tsmiMoveDown.Visible = true;
+							}
+							if (selectedNode.Index == 0)
+							{
+								this.tsmiMoveUp.Visible = false;
+							}
+							else
+							{
+								this.tsmiMoveUp.Visible = true;
+							}
 							break;
 						case "ChannelForm":
 						default:
@@ -2130,22 +2146,43 @@ namespace DMR
 
 		private void tsmiMoveDown_Click(object sender, EventArgs e)
 		{
-			Console.WriteLine("Move down clicked");
 			TreeNode selectedNode = this.tvwMain.SelectedNode;
 			if (selectedNode != null)
 			{
-				//this.CopyItem = (selectedNode.Tag as TreeNodeItem);
+				TreeNodeItem treeNodeItem = (selectedNode.Tag as TreeNodeItem);
+				switch (treeNodeItem.Type.Name)
+				{
+					case "ZoneForm":
+						ZoneForm.MoveZoneDown(selectedNode.Index);
+						TreeNode parentNode = selectedNode.Parent;
+                        parentNode.Nodes.Clear();
+                        this.InitZones(parentNode);
+						break;
+					case "ChannelForm":
+					default:
+						break;
+				}
 			}
-
 		}
 
 		private void tsmiMoveUp_Click(object sender, EventArgs e)
 		{
-			Console.WriteLine("Move up clicked");
 			TreeNode selectedNode = this.tvwMain.SelectedNode;
 			if (selectedNode != null)
 			{
-				//this.CopyItem = (selectedNode.Tag as TreeNodeItem);
+				TreeNodeItem treeNodeItem = (selectedNode.Tag as TreeNodeItem);
+				switch (treeNodeItem.Type.Name)
+				{
+					case "ZoneForm":
+						ZoneForm.MoveZoneUp(selectedNode.Index);
+						TreeNode parentNode = selectedNode.Parent;
+                        parentNode.Nodes.Clear();
+                        this.InitZones(parentNode);
+						break;
+					case "ChannelForm":
+					default:
+						break;
+				}
 			}
 
 		}
