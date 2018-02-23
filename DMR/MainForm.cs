@@ -664,13 +664,13 @@ namespace DMR
 			this.tsmiPaste.Click += this.tsmiPaste_Click;
 
 			this.tsmiMoveUp.Name = "tsmiMoveUp";
-			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveUp.ShortcutKeys = (Keys)131157;
 			this.tsmiMoveUp.Size = new Size(158, 22);
 			this.tsmiMoveUp.Text = "Move up";
 			this.tsmiMoveUp.Click += this.tsmiMoveUp_Click;
 
 			this.tsmiMoveDown.Name = "tsmiMoveDown";
-			//this.tsmiMoveUp.ShortcutKeys = (Keys)131158;
+			this.tsmiMoveDown.ShortcutKeys = (Keys)131150;
 			this.tsmiMoveDown.Size = new Size(158, 22);
 			this.tsmiMoveDown.Text = "Move down";
 			this.tsmiMoveDown.Click += this.tsmiMoveDown_Click;
@@ -2153,10 +2153,20 @@ namespace DMR
 				switch (treeNodeItem.Type.Name)
 				{
 					case "ZoneForm":
+						closeForm(treeNodeItem);
+						this.tvwMain.Focus();
 						ZoneForm.MoveZoneDown(selectedNode.Index);
 						TreeNode parentNode = selectedNode.Parent;
-                        parentNode.Nodes.Clear();
+						parentNode.Nodes.Clear();
                         this.InitZones(parentNode);
+						if (selectedNode.Index < parentNode.Nodes.Count-1)
+						{
+							this.tvwMain.SelectedNode = parentNode.Nodes[selectedNode.Index + 1];
+						}
+						else
+						{
+							this.tvwMain.SelectedNode = parentNode.Nodes[selectedNode.Index];
+						}
 						break;
 					case "ChannelForm":
 					default:
@@ -2174,10 +2184,20 @@ namespace DMR
 				switch (treeNodeItem.Type.Name)
 				{
 					case "ZoneForm":
+						closeForm(treeNodeItem);
+						this.tvwMain.Focus();
 						ZoneForm.MoveZoneUp(selectedNode.Index);
 						TreeNode parentNode = selectedNode.Parent;
                         parentNode.Nodes.Clear();
                         this.InitZones(parentNode);
+						if(selectedNode.Index>0)
+						{
+							this.tvwMain.SelectedNode = parentNode.Nodes[selectedNode.Index - 1];
+						}
+						else
+						{
+							this.tvwMain.SelectedNode = parentNode.Nodes[selectedNode.Index];
+						}
 						break;
 					case "ChannelForm":
 					default:
@@ -2186,6 +2206,22 @@ namespace DMR
 			}
 
 		}
+
+		private void closeForm(TreeNodeItem treenodeitem)
+		{
+			Form[] mdiChildren = base.MdiChildren;
+			int num = 0;
+			while (num < mdiChildren.Length)
+			{
+				Form form = mdiChildren[num];
+				if (form.GetType() == treenodeitem.Type)
+				{
+					form.Close();
+				}
+				num++;
+			}
+		}
+
 
 		private void cmsGroupContact_Opening(object sender, CancelEventArgs e)
 		{
