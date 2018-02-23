@@ -438,7 +438,7 @@
 			<MenuItem Id="tsmiCopy" Text="Kopieren" />
 			<MenuItem Id="tsmiPaste" Text="Einfügen" />
 			<MenuItem Id="tsmiMoveUp" Text="Nach oben" />
-			<MenuItem Id="tsmiDownUp" Text="Nach unten" />  
+			<MenuItem Id="tsmiMoveDown" Text="Nach unten" />  
 		</ContextMenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiCollapseAll" Text="Alle zuklappen" />
