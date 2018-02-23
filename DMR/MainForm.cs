@@ -2063,6 +2063,7 @@ namespace DMR
 								disp.DispData();
 							}
 						}
+						TreeNode parentNode = selectedNode.Parent;// Always get the parent node as it may be needed after the selected node has been deleted
 						treeNode.Nodes.Remove(selectedNode);
 						if (treeNodeItem != null)
 						{
@@ -2082,7 +2083,6 @@ namespace DMR
                         if (treeNodeItem.Type == typeof(ZoneForm))
                         {
                             ZoneForm.CompactZones();
-                            TreeNode parentNode = this.method_9(typeof(ZoneBasicForm), this.tvwMain.Nodes);
                             parentNode.Nodes.Clear();
                             this.InitZones(parentNode);
                         }
