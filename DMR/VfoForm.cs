@@ -2255,11 +2255,9 @@ namespace DMR
 			this.tsmiLast.Size = new Size(159, 22);
 			this.tsmiLast.Text = "Last";
 			this.tsmiAdd.Name = "tsmiAdd";
-			this.tsmiAdd.ShortcutKeys = (Keys)131137;
 			this.tsmiAdd.Size = new Size(159, 22);
 			this.tsmiAdd.Text = "Add";
 			this.tsmiDel.Name = "tsmiDel";
-			this.tsmiDel.ShortcutKeys = (Keys)131140;
 			this.tsmiDel.Size = new Size(159, 22);
 			this.tsmiDel.Text = "Delete";
 			this.pnlChannel.AutoScroll = true;
