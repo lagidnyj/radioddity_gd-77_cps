@@ -602,16 +602,16 @@ namespace DMR
 				{
 					this.decodeResp = def.decodeResp;
 				}
-				Class15.smethod_11(ref this.autoResetTimer, (byte)5, (byte)60, def.autoResetTimer);
+				Settings.smethod_11(ref this.autoResetTimer, (byte)5, (byte)60, def.autoResetTimer);
 				if (!Enum.IsDefined(typeof(DtmfKillType), this.KillType))
 				{
 					this.KillType = def.KillType;
 				}
-				Class15.smethod_11(ref this.respHoldTime, (byte)5, (byte)100, def.respHoldTime);
-				Class15.smethod_11(ref this.decTime, (byte)5, (byte)50, def.decTime);
-				Class15.smethod_11(ref this.fstDigitDly, (byte)1, (byte)10, def.fstDigitDly);
-				Class15.smethod_11(ref this.fstDur, (byte)0, (byte)10, def.fstDur);
-				Class15.smethod_11(ref this.otherDur, (byte)0, (byte)10, def.otherDur);
+				Settings.smethod_11(ref this.respHoldTime, (byte)5, (byte)100, def.respHoldTime);
+				Settings.smethod_11(ref this.decTime, (byte)5, (byte)50, def.decTime);
+				Settings.smethod_11(ref this.fstDigitDly, (byte)1, (byte)10, def.fstDigitDly);
+				Settings.smethod_11(ref this.fstDur, (byte)0, (byte)10, def.fstDur);
+				Settings.smethod_11(ref this.otherDur, (byte)0, (byte)10, def.otherDur);
 				if (!Enum.IsDefined(typeof(DtmfRate), (int)this.rate))
 				{
 					this.rate = def.rate;
@@ -754,15 +754,15 @@ namespace DMR
 
 		private SGTextBox txtDownCode;
 
-		private Class12 nudRespHoldTime;
+		private CustomNumericUpDown nudRespHoldTime;
 
-		private Class12 nudDecTime;
+		private CustomNumericUpDown nudDecTime;
 
-		private Class12 nudFstDlyTime;
+		private CustomNumericUpDown nudFstDlyTime;
 
-		private Class12 nudFstDur;
+		private CustomNumericUpDown nudFstDur;
 
-		private Class12 nudOtherDur;
+		private CustomNumericUpDown nudOtherDur;
 
 		private Label label_0;
 
@@ -782,27 +782,27 @@ namespace DMR
 
 		private Label lblAutoResetTime;
 
-		private Class12 nudAutoResetTimer;
+		private CustomNumericUpDown nudAutoResetTimer;
 
 		private Label lblDecResp;
 
-		private Class4 cmbDecResp;
+		private CustomCombo cmbDecResp;
 
 		private Label lblKillWakeDec;
 
-		private Class4 cmbKillWakeDec;
+		private CustomCombo cmbKillWakeDec;
 
 		private Label lblKillType;
 
-		private Class4 cmbKillType;
+		private CustomCombo cmbKillType;
 
-		private Class4 cmbDelimiter;
+		private CustomCombo cmbDelimiter;
 
-		private Class4 cmbRate;
+		private CustomCombo cmbRate;
 
-		private Class4 cmbGrpCallCode;
+		private CustomCombo cmbGrpCallCode;
 
-		private Class3 pnlDtmf;
+		private CustomPanel pnlDtmf;
 
 		public TreeNode Node
 		{
@@ -872,7 +872,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblKillCode.Enabled &= flag;
 			this.txtKillCode.Enabled &= flag;
 			this.lblWakeCode.Enabled &= flag;
@@ -900,7 +900,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_1();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -930,7 +930,7 @@ namespace DMR
 			{
 				this.cmbDecResp.method_1(DtmfForm.SZ_DECODE_RESP[num++], value3);
 			}
-			Class15.smethod_36(this.nudAutoResetTimer, new Class13(5, 60, 1, 1m, 2));
+			Settings.smethod_36(this.nudAutoResetTimer, new Class13(5, 60, 1, 1m, 2));
 			num = 0;
 			this.cmbKillWakeDec.Items.Clear();
 			foreach (int value4 in Enum.GetValues(typeof(DtmfKillWakeDec)))
@@ -947,11 +947,11 @@ namespace DMR
 			this.txtUpCode.InputString = "0123456789ABCD*#\b";
 			this.txtDownCode.MaxLength = 30;
 			this.txtDownCode.InputString = "0123456789ABCD*#\b";
-			Class15.smethod_36(this.nudRespHoldTime, new Class13(5, 100, 1, 0.1m, 4));
-			Class15.smethod_36(this.nudDecTime, new Class13(5, 50, 1, 0.1m, 3));
-			Class15.smethod_36(this.nudFstDlyTime, new Class13(1, 10, 1, 100m, 4));
-			Class15.smethod_36(this.nudFstDur, new Class13(0, 10, 1, 100m, 4));
-			Class15.smethod_36(this.nudOtherDur, new Class13(0, 10, 1, 100m, 4));
+			Settings.smethod_36(this.nudRespHoldTime, new Class13(5, 100, 1, 0.1m, 4));
+			Settings.smethod_36(this.nudDecTime, new Class13(5, 50, 1, 0.1m, 3));
+			Settings.smethod_36(this.nudFstDlyTime, new Class13(1, 10, 1, 100m, 4));
+			Settings.smethod_36(this.nudFstDur, new Class13(0, 10, 1, 100m, 4));
+			Settings.smethod_36(this.nudOtherDur, new Class13(0, 10, 1, 100m, 4));
 			num = 0;
 			this.cmbRate.Items.Clear();
 			foreach (int value6 in Enum.GetValues(typeof(DtmfRate)))
@@ -963,16 +963,16 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(DtmfForm).Name;
-			Class15.smethod_78("DecodeResp", DtmfForm.SZ_DECODE_RESP, name);
-			Class15.smethod_78("GroupCode", DtmfForm.SZ_GROUP_CODE, name);
-			Class15.smethod_78("KillType", DtmfForm.SZ_KILL_TYPE, name);
-			Class15.smethod_78("KillWakeDec", DtmfForm.SZ_KILL_WAKE_DEC, name);
+			Settings.smethod_78("DecodeResp", DtmfForm.SZ_DECODE_RESP, name);
+			Settings.smethod_78("GroupCode", DtmfForm.SZ_GROUP_CODE, name);
+			Settings.smethod_78("KillType", DtmfForm.SZ_KILL_TYPE, name);
+			Settings.smethod_78("KillWakeDec", DtmfForm.SZ_KILL_WAKE_DEC, name);
 		}
 
 		private void DtmfForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 
@@ -1018,31 +1018,31 @@ namespace DMR
 
 		private void method_1()
 		{
-			this.pnlDtmf = new Class3();
+			this.pnlDtmf = new CustomPanel();
 			this.chkSideTone = new CheckBox();
-			this.cmbRate = new Class4();
+			this.cmbRate = new CustomCombo();
 			this.lblUpCode = new Label();
-			this.cmbKillType = new Class4();
+			this.cmbKillType = new CustomCombo();
 			this.lblDownCode = new Label();
-			this.cmbKillWakeDec = new Class4();
+			this.cmbKillWakeDec = new CustomCombo();
 			this.label_0 = new Label();
-			this.cmbGrpCallCode = new Class4();
+			this.cmbGrpCallCode = new CustomCombo();
 			this.lblRespHoldTime = new Label();
-			this.cmbDelimiter = new Class4();
+			this.cmbDelimiter = new CustomCombo();
 			this.lblKillCode = new Label();
-			this.cmbDecResp = new Class4();
+			this.cmbDecResp = new CustomCombo();
 			this.lblAutoResetTime = new Label();
-			this.nudOtherDur = new Class12();
+			this.nudOtherDur = new CustomNumericUpDown();
 			this.lblDecTime = new Label();
-			this.nudFstDur = new Class12();
+			this.nudFstDur = new CustomNumericUpDown();
 			this.lblWakeCode = new Label();
-			this.nudFstDlyTime = new Class12();
+			this.nudFstDlyTime = new CustomNumericUpDown();
 			this.lblDelimiter = new Label();
-			this.nudDecTime = new Class12();
+			this.nudDecTime = new CustomNumericUpDown();
 			this.lblGrpCallCode = new Label();
-			this.nudAutoResetTimer = new Class12();
+			this.nudAutoResetTimer = new CustomNumericUpDown();
 			this.lblDecResp = new Label();
-			this.nudRespHoldTime = new Class12();
+			this.nudRespHoldTime = new CustomNumericUpDown();
 			this.lblFstDlyTime = new Label();
 			this.txtDownCode = new SGTextBox();
 			this.lblKillWakeDec = new Label();
@@ -1254,7 +1254,7 @@ namespace DMR
 			});
 			this.nudOtherDur.Name = "nudOtherDur";
 			this.nudOtherDur.method_6(null);
-			Class12 @class = this.nudOtherDur;
+			CustomNumericUpDown @class = this.nudOtherDur;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudOtherDur.Size = new Size(140, 23);
@@ -1285,7 +1285,7 @@ namespace DMR
 			});
 			this.nudFstDur.Name = "nudFstDur";
 			this.nudFstDur.method_6(null);
-			Class12 class2 = this.nudFstDur;
+			CustomNumericUpDown class2 = this.nudFstDur;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudFstDur.Size = new Size(140, 23);
@@ -1322,7 +1322,7 @@ namespace DMR
 			});
 			this.nudFstDlyTime.Name = "nudFstDlyTime";
 			this.nudFstDlyTime.method_6(null);
-			Class12 class3 = this.nudFstDlyTime;
+			CustomNumericUpDown class3 = this.nudFstDlyTime;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudFstDlyTime.Size = new Size(140, 23);
@@ -1367,7 +1367,7 @@ namespace DMR
 			});
 			this.nudDecTime.Name = "nudDecTime";
 			this.nudDecTime.method_6(null);
-			Class12 class4 = this.nudDecTime;
+			CustomNumericUpDown class4 = this.nudDecTime;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudDecTime.Size = new Size(140, 23);
@@ -1405,7 +1405,7 @@ namespace DMR
 			});
 			this.nudAutoResetTimer.Name = "nudAutoResetTimer";
 			this.nudAutoResetTimer.method_6(null);
-			Class12 class5 = this.nudAutoResetTimer;
+			CustomNumericUpDown class5 = this.nudAutoResetTimer;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudAutoResetTimer.Size = new Size(140, 23);
@@ -1450,7 +1450,7 @@ namespace DMR
 			});
 			this.nudRespHoldTime.Name = "nudRespHoldTime";
 			this.nudRespHoldTime.method_6(null);
-			Class12 class6 = this.nudRespHoldTime;
+			CustomNumericUpDown class6 = this.nudRespHoldTime;
 			int[] bits6 = new int[4];
 			class6.method_4(new decimal(bits6));
 			this.nudRespHoldTime.Size = new Size(140, 23);
@@ -1580,7 +1580,7 @@ namespace DMR
 			};
 			DtmfForm.SZ_GROUP_CODE = new string[7]
 			{
-				Class15.SZ_NONE,
+				Settings.SZ_NONE,
 				"A",
 				"B",
 				"C",

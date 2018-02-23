@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-internal class Class7
+internal class Base64Utils
 {
 	public static string smethod_0(string string_0)
 	{
@@ -15,9 +15,7 @@ internal class Class7
 		return Encoding.UTF8.GetString(bytes);
 	}
 
-	public Class7()
+	public Base64Utils()
 	{
-		
-		//base._002Ector();
 	}
 }

@@ -58,7 +58,7 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_14(this.gps, 6, 2) == 0;
+					return Settings.smethod_14(this.gps, 6, 2) == 0;
 				}
 				set
 				{
@@ -77,7 +77,7 @@ namespace DMR
 			{
 				get
 				{
-					int num = Class15.smethod_14(this.gps, 1, 5);
+					int num = Settings.smethod_14(this.gps, 1, 5);
 					if (num >= 0 && num <= 24)
 					{
 						return num;
@@ -86,7 +86,7 @@ namespace DMR
 				}
 				set
 				{
-					Class15.smethod_16(ref this.gps, 1, 5, value);
+					Settings.smethod_16(ref this.gps, 1, 5, value);
 				}
 			}
 
@@ -94,17 +94,17 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_14(this.fm, 6, 2) == 0;
+					return Settings.smethod_14(this.fm, 6, 2) == 0;
 				}
 				set
 				{
 					if (value)
 					{
-						Class15.smethod_15(ref this.fm, 6, 2);
+						Settings.smethod_15(ref this.fm, 6, 2);
 					}
 					else
 					{
-						Class15.smethod_16(ref this.fm, 6, 2, 3);
+						Settings.smethod_16(ref this.fm, 6, 2, 3);
 					}
 				}
 			}
@@ -113,7 +113,7 @@ namespace DMR
 			{
 				get
 				{
-					int num = Class15.smethod_14(this.fm, 1, 5);
+					int num = Settings.smethod_14(this.fm, 1, 5);
 					if (num < 0 || num >= 20)
 					{
 						num = 0;
@@ -122,7 +122,7 @@ namespace DMR
 				}
 				set
 				{
-					Class15.smethod_16(ref this.fm, 1, 5, value);
+					Settings.smethod_16(ref this.fm, 1, 5, value);
 				}
 			}
 
@@ -170,17 +170,17 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_14(this.recording, 7, 1) == 0;
+					return Settings.smethod_14(this.recording, 7, 1) == 0;
 				}
 				set
 				{
 					if (value)
 					{
-						Class15.smethod_15(ref this.recording, 7, 1);
+						Settings.smethod_15(ref this.recording, 7, 1);
 					}
 					else
 					{
-						Class15.smethod_16(ref this.recording, 7, 1, 1);
+						Settings.smethod_16(ref this.recording, 7, 1, 1);
 					}
 				}
 			}
@@ -189,7 +189,7 @@ namespace DMR
 			{
 				get
 				{
-					int num = Class15.smethod_14(this.recording, 1, 5);
+					int num = Settings.smethod_14(this.recording, 1, 5);
 					if (num < 0 || num >= 31)
 					{
 						num = 0;
@@ -198,7 +198,7 @@ namespace DMR
 				}
 				set
 				{
-					Class15.smethod_16(ref this.recording, 1, 5, value);
+					Settings.smethod_16(ref this.recording, 1, 5, value);
 				}
 			}
 
@@ -293,17 +293,17 @@ namespace DMR
 
 		private DataGridView dgvAttachment;
 
-		private Class3 pnlAttachment;
+		private CustomPanel pnlAttachment;
 
 		private Label lblTimeZone;
 
 		private CheckBox chkGpsSwitch;
 
-		private Class4 cmbTimeZone;
+		private CustomCombo cmbTimeZone;
 
 		private Label lblP1Key;
 
-		private Class4 cmbP1Key;
+		private CustomCombo cmbP1Key;
 
 		private CheckBox chkFmSwitch;
 
@@ -321,15 +321,15 @@ namespace DMR
 
 		private CheckBox chkRecordingSwitch;
 
-		private Class4 cmbRecordingInterval;
+		private CustomCombo cmbRecordingInterval;
 
 		private Label lblRecordingInterval;
 
-		private Class4 cmbCallCh;
+		private CustomCombo cmbCallCh;
 
 		private Label lblCallCh;
 
-		private Class4 cmbCallZone;
+		private CustomCombo cmbCallZone;
 
 		private Label lblCallZone;
 
@@ -364,22 +364,22 @@ namespace DMR
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			this.pnlAttachment = new Class3();
+			this.pnlAttachment = new CustomPanel();
 			this.grpCall = new GroupBox();
-			this.cmbCallCh = new Class4();
+			this.cmbCallCh = new CustomCombo();
 			this.lblCallCh = new Label();
-			this.cmbCallZone = new Class4();
+			this.cmbCallZone = new CustomCombo();
 			this.lblCallZone = new Label();
 			this.grpRecording = new GroupBox();
 			this.chkRecordingSwitch = new CheckBox();
-			this.cmbRecordingInterval = new Class4();
+			this.cmbRecordingInterval = new CustomCombo();
 			this.lblRecordingInterval = new Label();
 			this.grpGps = new GroupBox();
 			this.chkGpsSwitch = new CheckBox();
-			this.cmbTimeZone = new Class4();
+			this.cmbTimeZone = new CustomCombo();
 			this.lblTimeZone = new Label();
 			this.grpP1 = new GroupBox();
-			this.cmbP1Key = new Class4();
+			this.cmbP1Key = new CustomCombo();
 			this.lblP1Key = new Label();
 			this.grpFm = new GroupBox();
 			this.cmbBootCh = new ComboBox();
@@ -670,18 +670,18 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			if (MenuForm.data.Fm)
 			{
-				Class15.smethod_37(this.cmbP1Key, AttachmentForm.SZ_PK1_KEY);
+				Settings.smethod_37(this.cmbP1Key, AttachmentForm.SZ_PK1_KEY);
 			}
 			else
 			{
-				Class15.smethod_38(this.cmbP1Key, AttachmentForm.SZ_PK1_KEY, 2);
+				Settings.smethod_38(this.cmbP1Key, AttachmentForm.SZ_PK1_KEY, 2);
 			}
 			string text = "";
 			this.cmbTimeZone.Items.Clear();
@@ -690,18 +690,18 @@ namespace DMR
 				text = string.Format("GMT{0}", (i - 12).ToString("+0;-0"));
 				this.cmbTimeZone.Items.Add(text);
 			}
-			Class15.smethod_41(this.cmbBootCh, 1, 20);
+			Settings.smethod_41(this.cmbBootCh, 1, 20);
 			this.dgvAttachment.RowCount = 20;
 			this.dgvAttachment.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 			this.dgvAttachment.AllowUserToDeleteRows = false;
 			this.dgvAttachment.AllowUserToAddRows = false;
-			Class15.smethod_41(this.cmbRecordingInterval, 1, 32);
+			Settings.smethod_41(this.cmbRecordingInterval, 1, 32);
 		}
 
 		private void AttachmentForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 
@@ -779,11 +779,11 @@ namespace DMR
 			}
 		}
 
-		private void method_3(Class4 class4_0)
+		private void method_3(CustomCombo class4_0)
 		{
 			int num = 0;
 			class4_0.method_0();
-			class4_0.method_1(Class15.SZ_NONE, 255);
+			class4_0.method_1(Settings.SZ_NONE, 255);
 			for (num = 0; num <= 250; num++)
 			{
 				if (ZoneForm.data.ZoneChIsValid(num))
@@ -793,14 +793,14 @@ namespace DMR
 			}
 		}
 
-		private void method_4(int int_0, Class4 class4_0)
+		private void method_4(int int_0, CustomCombo class4_0)
 		{
 			int num = 0;
 			int num2 = 0;
 			class4_0.method_0();
 			if (int_0 == 255)
 			{
-				class4_0.method_1(Class15.SZ_NONE, 255);
+				class4_0.method_1(Settings.SZ_NONE, 255);
 			}
 			else
 			{

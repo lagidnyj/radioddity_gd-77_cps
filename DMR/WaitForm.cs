@@ -56,7 +56,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 			this.Info = info;
 			this.Interval = 1000;
 			this.Timeout = timeout;

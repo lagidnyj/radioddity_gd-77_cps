@@ -114,7 +114,7 @@ namespace DMR
 				int num2 = this[index] - 1;
 				byte[] array = new byte[num2];
 				Array.Copy(this.text, num + index * 144, array, 0, array.Length);
-				return Class15.smethod_25(array);
+				return Settings.smethod_25(array);
 			}
 
 			public void SetText(int index, string msg)
@@ -123,7 +123,7 @@ namespace DMR
 				{
 					this.RemoveAt(index);
 					this[index] = msg.Length + 1;
-					byte[] array = Class15.smethod_23(msg);
+					byte[] array = Settings.smethod_23(msg);
 					this[index] = array.Length + 1;
 					Array.Copy(array, 0, this.text, 0 + index * 144, Math.Min(array.Length, 144));
 				}
@@ -146,7 +146,7 @@ namespace DMR
 
 		private SGTextBox txtContent;
 
-		private Class3 pnlTextMsg;
+		private CustomPanel pnlTextMsg;
 
 		private Class11 txt;
 
@@ -175,7 +175,7 @@ namespace DMR
 			this.btnDel = new Button();
 			this.dgvMsg = new DataGridView();
 			this.txtMessage = new DataGridViewTextBoxColumn();
-			this.pnlTextMsg = new Class3();
+			this.pnlTextMsg = new CustomPanel();
 			this.txtContent = new SGTextBox();
 			((ISupportInitialize)this.dgvMsg).BeginInit();
 			this.pnlTextMsg.SuspendLayout();
@@ -327,7 +327,7 @@ namespace DMR
 			this.txt = new Class11();
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
@@ -341,8 +341,8 @@ namespace DMR
 
 		private void TextMsgForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.txtContent.MaxByteLength = 10;
 			this.txtContent.Visible = false;
 			this.dgvMsg.Controls.Add(this.txtContent);

@@ -136,8 +136,8 @@ namespace DMR
 
 			public void Verify(ScanBasic def)
 			{
-				Class15.smethod_11(ref this.digitHang, (byte)1, (byte)20, def.digitHang);
-				Class15.smethod_11(ref this.analogHang, (byte)0, (byte)20, def.analogHang);
+				Settings.smethod_11(ref this.digitHang, (byte)1, (byte)20, def.digitHang);
+				Settings.smethod_11(ref this.analogHang, (byte)0, (byte)20, def.analogHang);
 			}
 		}
 
@@ -213,17 +213,17 @@ namespace DMR
 
 		private CheckBox chkPriorityAlert;
 
-		private Class12 nudDigitHang;
+		private CustomNumericUpDown nudDigitHang;
 
-		private Class12 nudAnalogHang;
+		private CustomNumericUpDown nudAnalogHang;
 
-		private Class12 nudVoteHang;
+		private CustomNumericUpDown nudVoteHang;
 
-		private Class12 nudFastVoteRssi;
+		private CustomNumericUpDown nudFastVoteRssi;
 
-		private Class12 nudStartVoteRssi;
+		private CustomNumericUpDown nudStartVoteRssi;
 
-		private Class3 pnlScanBasic;
+		private CustomPanel pnlScanBasic;
 
 		public TreeNode Node
 		{
@@ -236,7 +236,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_1();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		public void SaveData()
@@ -276,7 +276,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblDigitHang.Enabled &= flag;
 			this.nudDigitHang.Enabled &= flag;
 			this.lblAnalogHang.Enabled &= flag;
@@ -319,8 +319,8 @@ namespace DMR
 
 		private void ScanBasicForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_0();
 			this.DispData();
 		}
@@ -343,16 +343,16 @@ namespace DMR
 
 		private void method_1()
 		{
-			this.pnlScanBasic = new Class3();
-			this.nudAnalogHang = new Class12();
-			this.nudStartVoteRssi = new Class12();
+			this.pnlScanBasic = new CustomPanel();
+			this.nudAnalogHang = new CustomNumericUpDown();
+			this.nudStartVoteRssi = new CustomNumericUpDown();
 			this.lblDigitHang = new Label();
-			this.nudFastVoteRssi = new Class12();
+			this.nudFastVoteRssi = new CustomNumericUpDown();
 			this.lblAnalogHang = new Label();
-			this.nudVoteHang = new Class12();
+			this.nudVoteHang = new CustomNumericUpDown();
 			this.lblVoteHang = new Label();
 			this.lblFastVoteRssi = new Label();
-			this.nudDigitHang = new Class12();
+			this.nudDigitHang = new CustomNumericUpDown();
 			this.lblStartVoteRssi = new Label();
 			this.chkPriorityAlert = new CheckBox();
 			this.pnlScanBasic.SuspendLayout();
@@ -405,7 +405,7 @@ namespace DMR
 			});
 			this.nudAnalogHang.Name = "nudAnalogHang";
 			this.nudAnalogHang.method_6(null);
-			Class12 @class = this.nudAnalogHang;
+			CustomNumericUpDown @class = this.nudAnalogHang;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudAnalogHang.Size = new Size(140, 23);
@@ -435,7 +435,7 @@ namespace DMR
 			});
 			this.nudStartVoteRssi.Name = "nudStartVoteRssi";
 			this.nudStartVoteRssi.method_6(null);
-			Class12 class2 = this.nudStartVoteRssi;
+			CustomNumericUpDown class2 = this.nudStartVoteRssi;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudStartVoteRssi.Size = new Size(140, 23);
@@ -472,7 +472,7 @@ namespace DMR
 			});
 			this.nudFastVoteRssi.Name = "nudFastVoteRssi";
 			this.nudFastVoteRssi.method_6(null);
-			Class12 class3 = this.nudFastVoteRssi;
+			CustomNumericUpDown class3 = this.nudFastVoteRssi;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudFastVoteRssi.Size = new Size(140, 23);
@@ -510,7 +510,7 @@ namespace DMR
 			});
 			this.nudVoteHang.Name = "nudVoteHang";
 			this.nudVoteHang.method_6(null);
-			Class12 class4 = this.nudVoteHang;
+			CustomNumericUpDown class4 = this.nudVoteHang;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudVoteHang.Size = new Size(140, 23);
@@ -555,7 +555,7 @@ namespace DMR
 			});
 			this.nudDigitHang.Name = "nudDigitHang";
 			this.nudDigitHang.method_6(null);
-			Class12 class5 = this.nudDigitHang;
+			CustomNumericUpDown class5 = this.nudDigitHang;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudDigitHang.Size = new Size(140, 23);

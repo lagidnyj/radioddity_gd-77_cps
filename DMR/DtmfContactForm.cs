@@ -23,11 +23,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -211,7 +211,7 @@ namespace DMR
 
 		private DataGridViewTextBoxColumn txtCode;
 
-		private Class3 pnlDtmfContact;
+		private CustomPanel pnlDtmfContact;
 
 		public TreeNode Node
 		{
@@ -273,7 +273,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_3();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -283,8 +283,8 @@ namespace DMR
 
 		private void DtmfContactForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_0();
 			this.DispData();
 		}
@@ -345,8 +345,8 @@ namespace DMR
 				DataGridViewTextBoxEditingControl dataGridViewTextBoxEditingControl = (DataGridViewTextBoxEditingControl)e.Control;
 				if (dataGridView.CurrentCell.ColumnIndex == 1)
 				{
-					dataGridViewTextBoxEditingControl.KeyPress -= Class15.smethod_57;
-					dataGridViewTextBoxEditingControl.KeyPress += Class15.smethod_57;
+					dataGridViewTextBoxEditingControl.KeyPress -= Settings.smethod_57;
+					dataGridViewTextBoxEditingControl.KeyPress += Settings.smethod_57;
 					dataGridViewTextBoxEditingControl.CharacterCasing = CharacterCasing.Upper;
 					dataGridViewTextBoxEditingControl.MaxLength = 16;
 				}
@@ -386,7 +386,7 @@ namespace DMR
 			this.txtCode = new DataGridViewTextBoxColumn();
 			this.btnDel = new Button();
 			this.btnAdd = new Button();
-			this.pnlDtmfContact = new Class3();
+			this.pnlDtmfContact = new CustomPanel();
 			((ISupportInitialize)this.dgvContact).BeginInit();
 			this.pnlDtmfContact.SuspendLayout();
 			base.SuspendLayout();

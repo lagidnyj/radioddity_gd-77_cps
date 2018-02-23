@@ -956,7 +956,7 @@ namespace DMR
 			this._TextBox.Visible = false;
 			this._TextBox.LostFocus += this._TextBox_LostFocus;
 			this._TextBox.Validating += this._TextBox_Validating;
-			this._TextBox.KeyPress += Class15.smethod_57;
+			this._TextBox.KeyPress += Settings.smethod_57;
 			base.Controls.Add(this._TextBox);
 			this.m_deserializeDockContent = this.method_0;
 			this.method_18();
@@ -965,30 +965,30 @@ namespace DMR
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			Class15.dicCommon.Add("None", Class15.SZ_NONE);
-			Class15.dicCommon.Add("Selected", Class15.SZ_SELECTED);
-			Class15.dicCommon.Add("Read", Class15.SZ_READ);
-			Class15.dicCommon.Add("Write", Class15.SZ_WRITE);
-			Class15.dicCommon.Add("ReadComplete", Class15.SZ_READ_COMPLETE);
-			Class15.dicCommon.Add("WriteComplete", Class15.SZ_WRITE_COMPLETE);
-			Class15.dicCommon.Add(Class15.SZ_NAME_EXIST_NAME, "Name exists");
-			Class15.dicCommon.Add("FirstChNotDelete", Class15.SZ_FIRST_CH_NOT_DELETE);
-			Class15.dicCommon.Add("IdNotEmpty", Class15.SZ_ID_NOT_EMPTY);
-			Class15.dicCommon.Add("IdOutOfRange", Class15.SZ_ID_OUT_OF_RANGE);
-			Class15.dicCommon.Add("OpenSuccessfully", Class15.SZ_OPEN_SUCCESSFULLY);
-			Class15.dicCommon.Add("SaveSuccessfully", Class15.SZ_SAVE_SUCCESSFULLY);
-			Class15.dicCommon.Add("TypeNotMatch", Class15.SZ_TYPE_NOT_MATCH);
-			Class15.dicCommon.Add("NotSelectItemNotCopyItem", Class15.SZ_NOT_SELECT_ITEM_NOT_COPYITEM);
-			Class15.dicCommon.Add("PromptKey1", Class15.SZ_PROMPT_KEY1);
-			Class15.dicCommon.Add("PromptKey2", Class15.SZ_PROMPT_KEY2);
-			Class15.dicCommon.Add("KeyPressDtmf", "");
-			Class15.dicCommon.Add("KeyPressDigit", "");
-			Class15.dicCommon.Add("KeyPressPrint", "");
-			Class15.dicCommon.Add("DeviceNotFound", "");
-			Class15.dicCommon.Add("CommError", "");
-            Class15.dicCommon.Add("codePlugReadConfirm", Class15.SZ_CODEPLUG_READ_CONFIRM);
-            Class15.dicCommon.Add("codePlugWriteConfirm", Class15.SZ_CODEPLUG_WRITE_CONFIRM);
-            Class15.dicCommon.Add("pleaseConfirm", Class15.SZ_PLEASE_CONFIRM);
+			Settings.dicCommon.Add("None", Settings.SZ_NONE);
+			Settings.dicCommon.Add("Selected", Settings.SZ_SELECTED);
+			Settings.dicCommon.Add("Read", Settings.SZ_READ);
+			Settings.dicCommon.Add("Write", Settings.SZ_WRITE);
+			Settings.dicCommon.Add("ReadComplete", Settings.SZ_READ_COMPLETE);
+			Settings.dicCommon.Add("WriteComplete", Settings.SZ_WRITE_COMPLETE);
+			Settings.dicCommon.Add(Settings.SZ_NAME_EXIST_NAME, "Name exists");
+			Settings.dicCommon.Add("FirstChNotDelete", Settings.SZ_FIRST_CH_NOT_DELETE);
+			Settings.dicCommon.Add("IdNotEmpty", Settings.SZ_ID_NOT_EMPTY);
+			Settings.dicCommon.Add("IdOutOfRange", Settings.SZ_ID_OUT_OF_RANGE);
+			Settings.dicCommon.Add("OpenSuccessfully", Settings.SZ_OPEN_SUCCESSFULLY);
+			Settings.dicCommon.Add("SaveSuccessfully", Settings.SZ_SAVE_SUCCESSFULLY);
+			Settings.dicCommon.Add("TypeNotMatch", Settings.SZ_TYPE_NOT_MATCH);
+			Settings.dicCommon.Add("NotSelectItemNotCopyItem", Settings.SZ_NOT_SELECT_ITEM_NOT_COPYITEM);
+			Settings.dicCommon.Add("PromptKey1", Settings.SZ_PROMPT_KEY1);
+			Settings.dicCommon.Add("PromptKey2", Settings.SZ_PROMPT_KEY2);
+			Settings.dicCommon.Add("KeyPressDtmf", "");
+			Settings.dicCommon.Add("KeyPressDigit", "");
+			Settings.dicCommon.Add("KeyPressPrint", "");
+			Settings.dicCommon.Add("DeviceNotFound", "");
+			Settings.dicCommon.Add("CommError", "");
+            Settings.dicCommon.Add("codePlugReadConfirm", Settings.SZ_CODEPLUG_READ_CONFIRM);
+            Settings.dicCommon.Add("codePlugWriteConfirm", Settings.SZ_CODEPLUG_WRITE_CONFIRM);
+            Settings.dicCommon.Add("pleaseConfirm", Settings.SZ_PLEASE_CONFIRM);
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
@@ -997,35 +997,35 @@ namespace DMR
 			}
 			using (Graphics graphics = base.CreateGraphics())
 			{
-				Class15.smethod_7(new SizeF(graphics.DpiX / 96f, graphics.DpiY / 96f));
+				Settings.smethod_7(new SizeF(graphics.DpiX / 96f, graphics.DpiY / 96f));
 			}
-			MainForm.CurCom = Class6.smethod_4("Setup", "Com", "Com1");
-			MainForm.CurCbr = Class6.smethod_2("Setup", "Baudrate", 9600);
-			MainForm.CurModel = Class6.smethod_4("Setup", "Model", "SG");
-			string text2 = Class6.smethod_4("Setup", "Power", "");
+			MainForm.CurCom = IniFileUtils.smethod_4("Setup", "Com", "Com1");
+			MainForm.CurCbr = IniFileUtils.smethod_2("Setup", "Baudrate", 9600);
+			MainForm.CurModel = IniFileUtils.smethod_4("Setup", "Model", "SG");
+			string text2 = IniFileUtils.smethod_4("Setup", "Power", "");
 			if (string.IsNullOrEmpty(text2))
 			{
-				Class15.smethod_9("");
-				Class15.smethod_5(Class15.UserMode.Basic);
-				Class15.CUR_MODE = 0;
+				Settings.smethod_9("");
+				Settings.smethod_5(Settings.UserMode.Basic);
+				Settings.CUR_MODE = 0;
 				this.tsmiBasic.Visible = false;
 			}
 			else
 			{
-				string text3 = Class7.smethod_1(text2);
+				string text3 = Base64Utils.smethod_1(text2);
 				if (text3 == "DMR961510")
 				{
 					this.tsmiBasic.Visible = true;
-					Class15.smethod_9(text3);
-					Class15.smethod_5(Class15.UserMode.Expert);
-					Class15.CUR_MODE = 1;
+					Settings.smethod_9(text3);
+					Settings.smethod_5(Settings.UserMode.Expert);
+					Settings.CUR_MODE = 1;
 				}
 				else if (text3 == "TYT760")
 				{
 					this.tsmiBasic.Visible = true;
-					Class15.smethod_9(text3);
-					Class15.smethod_5(Class15.UserMode.Expert);
-					Class15.CUR_MODE = 2;
+					Settings.smethod_9(text3);
+					Settings.smethod_5(Settings.UserMode.Expert);
+					Settings.CUR_MODE = 2;
 				}
 			}
 			ChannelForm.CurCntCh = 1024;
@@ -1039,22 +1039,22 @@ namespace DMR
 			NormalScanForm.DefaultScan = NormalScanForm.data[0].Clone();
 			ContactForm.DefaultContact = ContactForm.data[0].Clone();
 			EmergencyForm.DefaultEmg = EmergencyForm.data[0].Clone();
-			BootItemForm.DefaultBootItem = Class15.smethod_65(BootItemForm.data);
-			ButtonForm.DefaultSideKey = Class15.smethod_65(ButtonForm.data);
-			ScanBasicForm.DefaultScanBasic = Class15.smethod_65(ScanBasicForm.data);
-			SignalingBasicForm.DefaultSignalingBasic = Class15.smethod_65(SignalingBasicForm.data);
-			DtmfForm.DefaultDtmf = Class15.smethod_65(DtmfForm.data);
-			EncryptForm.DefaultEncrypt = Class15.smethod_65(EncryptForm.data);
-			GeneralSetForm.DefaultGeneralSet = Class15.smethod_65(GeneralSetForm.data);
-			AttachmentForm.DefaultAttachment = Class15.smethod_65(AttachmentForm.data);
+			BootItemForm.DefaultBootItem = Settings.smethod_65(BootItemForm.data);
+			ButtonForm.DefaultSideKey = Settings.smethod_65(ButtonForm.data);
+			ScanBasicForm.DefaultScanBasic = Settings.smethod_65(ScanBasicForm.data);
+			SignalingBasicForm.DefaultSignalingBasic = Settings.smethod_65(SignalingBasicForm.data);
+			DtmfForm.DefaultDtmf = Settings.smethod_65(DtmfForm.data);
+			EncryptForm.DefaultEncrypt = Settings.smethod_65(EncryptForm.data);
+			GeneralSetForm.DefaultGeneralSet = Settings.smethod_65(GeneralSetForm.data);
+			AttachmentForm.DefaultAttachment = Settings.smethod_65(AttachmentForm.data);
 			VfoForm.DefaultCh = VfoForm.data[0].Clone();
-			MenuForm.DefaultMenu = Class15.smethod_65(MenuForm.data);
+			MenuForm.DefaultMenu = Settings.smethod_65(MenuForm.data);
 			this.imgMain.Images.Clear();
 			this.imgMain.Images.AddStrip(Resources.smethod_0());
 			base.AutoScaleMode = AutoScaleMode.Font;
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			this.GetAllLang();
-			string b = Class6.smethod_4("Setup", "Language", "Chinese.xml");
+			string b = IniFileUtils.smethod_4("Setup", "Language", "Chinese.xml");
 			foreach (ToolStripMenuItem dropDownItem in this.tsmiLanguage.DropDownItems)
 			{
 				string fileName = Path.GetFileName(dropDownItem.Tag.ToString());
@@ -1087,7 +1087,7 @@ namespace DMR
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			switch (MessageBox.Show(Class15.dicCommon["PromptKey1"], "", MessageBoxButtons.YesNoCancel))
+			switch (MessageBox.Show(Settings.dicCommon["PromptKey1"], "", MessageBoxButtons.YesNoCancel))
 			{
 			case DialogResult.Cancel:
 				e.Cancel = true;
@@ -1096,7 +1096,7 @@ namespace DMR
 				this.tsmiSave.PerformClick();
 				break;
 			}
-			if (Class6.smethod_2("Setup", "SaveDockPanel", 0) != 0)
+			if (IniFileUtils.smethod_2("Setup", "SaveDockPanel", 0) != 0)
 			{
 				string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 				this.dockPanel.SaveAsXml(fileName);
@@ -1419,7 +1419,7 @@ namespace DMR
 			this.lstFixedNode = this.tvwMain.smethod_5();
 			this.lstFixedNode.ForEach(MainForm.smethod_0);
 			this.InitDynamicNode();
-			Class15.smethod_49(this.tvwMain, 0);
+			Settings.smethod_49(this.tvwMain, 0);
 		}
 
 		public void InitRxGroupLists(TreeNode parentNode)
@@ -1751,7 +1751,7 @@ namespace DMR
 				{
 					return;
 				}
-				if (Class15.smethod_50(e.Node, e.Label))
+				if (Settings.smethod_50(e.Node, e.Label))
 				{
 					MessageBox.Show("Name exists");
 					e.CancelEdit = true;
@@ -1904,7 +1904,7 @@ namespace DMR
 						this.AddTreeViewNode(selectedNode.Nodes, text, new TreeNodeItem(this.cmsSub, treeNodeItem.SubType, null, 0, num, 11, treeNodeItem.Data));
 					}
 					treeNodeItem.Data.SetName(num, text);
-					this.slblComapny.Text = string.Format(Class15.SZ_ADD + text);
+					this.slblComapny.Text = string.Format(Settings.SZ_ADD + text);
 					if (!selectedNode.IsExpanded)
 					{
 						selectedNode.Expand();
@@ -2035,7 +2035,7 @@ namespace DMR
 				{
 					if (treeNodeItem.Type == typeof(ChannelForm) && treeNodeItem.Index + 1 == ZoneForm.data.FstZoneFstCh)
 					{
-						MessageBox.Show(Class15.dicCommon["FirstChNotDelete"]);
+						MessageBox.Show(Settings.dicCommon["FirstChNotDelete"]);
 					}
 					else
 					{
@@ -2112,7 +2112,7 @@ namespace DMR
 				{
 					if (this.CopyItem.Type != treeNodeItem.Type)
 					{
-						MessageBox.Show(Class15.dicCommon["TypeNotMatch"]);
+						MessageBox.Show(Settings.dicCommon["TypeNotMatch"]);
 					}
 					else
 					{
@@ -2139,7 +2139,7 @@ namespace DMR
 				}
 				else
 				{
-					MessageBox.Show(Class15.dicCommon["NotSelectItemNotCopyItem"]);
+					MessageBox.Show(Settings.dicCommon["NotSelectItemNotCopyItem"]);
 				}
 			}
 		}
@@ -2325,7 +2325,7 @@ namespace DMR
 
 		private void tsbtnNew_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show(Class15.dicCommon["PromptKey2"], "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+			if (MessageBox.Show(Settings.dicCommon["PromptKey2"], "", MessageBoxButtons.OKCancel) == DialogResult.OK)
 			{
 				this.method_11();
 				MainForm.CurFileName = "";
@@ -2356,10 +2356,10 @@ namespace DMR
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.sfdMain.FileName))
 				{
 					byte[] array = MainForm.DataToByte();
-					Buffer.BlockCopy(Class15.CUR_MODEL, 0, array, 0, 8);
+					Buffer.BlockCopy(Settings.CUR_MODEL, 0, array, 0, 8);
 					File.WriteAllBytes(this.sfdMain.FileName, array);
 					MainForm.CurFileName = this.sfdMain.FileName;
-					MessageBox.Show(Class15.dicCommon["SaveSuccessfully"]);
+					MessageBox.Show(Settings.dicCommon["SaveSuccessfully"]);
 				}
 			}
 			catch (Exception ex)
@@ -2379,15 +2379,15 @@ namespace DMR
 					int index = 0;
 					byte[] array = File.ReadAllBytes(this.ofdMain.FileName);
                     bool test1 = !array.Take(8).All(MainForm.smethod_1);
-                    bool test2 = !array.Take(8).All((byte x) => x == Class15.CUR_MODEL[index++]);// RC. Note. Had to change preincrement to post increment
+                    bool test2 = !array.Take(8).All((byte x) => x == Settings.CUR_MODEL[index++]);// RC. Note. Had to change preincrement to post increment
                     
                     if (test1 && test2 )
 					{
-						MessageBox.Show(Class15.dicCommon["Model does not match"]);
+						MessageBox.Show(Settings.dicCommon["Model does not match"]);
 					}
 					else
 					{
-						MessageBox.Show(Class15.dicCommon["OpenSuccessfully"]);
+						MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
 						MainForm.CurFileName = this.ofdMain.FileName;
 						this.closeAllForms();
 						MainForm.ByteToData(array);
@@ -2588,7 +2588,7 @@ namespace DMR
 
 		private void tsbtnRead_Click(object sender, EventArgs e)
 		{
-            DialogResult result = MessageBox.Show(Class15.dicCommon["codePlugReadConfirm"], Class15.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(Settings.dicCommon["codePlugReadConfirm"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 this.closeAllForms();
@@ -2605,7 +2605,7 @@ namespace DMR
 
 		private void tsbtnWrite_Click(object sender, EventArgs e)
 		{
-            DialogResult result = MessageBox.Show(Class15.dicCommon["codePlugWriteConfirm"], Class15.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(Settings.dicCommon["codePlugWriteConfirm"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (base.ActiveMdiChild != null)
@@ -2625,10 +2625,10 @@ namespace DMR
 		{
 			this.closeAllForms();
 			this.tsmiBasic.Visible = false;
-			Class15.smethod_5(Class15.UserMode.Basic);
-			Class15.CUR_MODE = 0;
-			Class15.smethod_9("");
-			Class6.smethod_6("Setup", "Power", "");
+			Settings.smethod_5(Settings.UserMode.Basic);
+			Settings.CUR_MODE = 0;
+			Settings.smethod_9("");
+			IniFileUtils.smethod_6("Setup", "Power", "");
 		}
 
 		private void tsmiTree_Click(object sender, EventArgs e)
@@ -2700,7 +2700,7 @@ namespace DMR
 			MenuForm.RefreshCommonLang();
 			NormalScanForm.RefreshCommonLang();
 			VfoForm.RefreshCommonLang();
-			Class15.smethod_10();
+			Settings.smethod_10();
 		}
 
 		private void method_14(object sender, EventArgs e)
@@ -2710,27 +2710,27 @@ namespace DMR
 			this.frmHelp.ShowHelp(null);
 			ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
 			string text = toolStripMenuItem.Tag.ToString();
-			Class6.smethod_6("Setup", "Language", Path.GetFileName(text));
-			Class15.smethod_1(text);
-			Class15.smethod_3(Path.ChangeExtension(text, "chm"));
-			Class15.smethod_76("Read", ref Class15.SZ_READ);
-			Class15.smethod_68(this);
-			Class15.smethod_68(this.frmHelp);
-			Class15.smethod_68(this.frmTree);
-			Class15.smethod_70(this.cmsGroup.smethod_9(), base.Name);
-			Class15.smethod_70(this.cmsGroupContact.smethod_9(), base.Name);
-			Class15.smethod_70(this.cmsTree.smethod_9(), base.Name);
-			Class15.smethod_70(this.cmsSub.smethod_9(), base.Name);
-			Class15.smethod_72(Class15.dicCommon);
+			IniFileUtils.smethod_6("Setup", "Language", Path.GetFileName(text));
+			Settings.smethod_1(text);
+			Settings.smethod_3(Path.ChangeExtension(text, "chm"));
+			Settings.smethod_76("Read", ref Settings.SZ_READ);
+			Settings.smethod_68(this);
+			Settings.smethod_68(this.frmHelp);
+			Settings.smethod_68(this.frmTree);
+			Settings.smethod_70(this.cmsGroup.smethod_9(), base.Name);
+			Settings.smethod_70(this.cmsGroupContact.smethod_9(), base.Name);
+			Settings.smethod_70(this.cmsTree.smethod_9(), base.Name);
+			Settings.smethod_70(this.cmsSub.smethod_9(), base.Name);
+			Settings.smethod_72(Settings.dicCommon);
 			this.method_13();
 			List<string> list = new List<string>();
-			list.Add(Class15.SZ_READ);
-			Class15.smethod_75(list, new List<string>
+			list.Add(Settings.SZ_READ);
+			Settings.smethod_75(list, new List<string>
 			{
 				"Read"
 			});
 			XmlDocument xmlDocument = new XmlDocument();
-			xmlDocument.Load(Class15.smethod_0());
+			xmlDocument.Load(Settings.smethod_0());
 			MainForm.dicTree.Clear();
 			string xpath = "/Resource/MainForm/TreeView/TreeNode";
 			XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
@@ -2780,69 +2780,69 @@ namespace DMR
 		//  This function converts the internal data structures into the binary data of the codeplug file
 		public static byte[] DataToByte()
 		{
-			byte[] array = new byte[Class15.EEROM_SPACE];
+			byte[] array = new byte[Settings.EEROM_SPACE];
 			array.smethod_0((byte)255);
 			MainForm.DataVerify();
-			byte[] array2 = Class15.smethod_61(GeneralSetForm.data, Marshal.SizeOf(GeneralSetForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_GENERAL_SET, array2.Length);
-			array2 = Class15.smethod_61(DeviceInfoForm.data, Marshal.SizeOf(DeviceInfoForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_DEVICE_INFO, array2.Length);
-			array2 = Class15.smethod_61(ButtonForm.data, Marshal.SizeOf(ButtonForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_BUTTON, array2.Length);
-			array2 = Class15.smethod_61(ButtonForm.data1, Marshal.SizeOf(ButtonForm.data1.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_ONE_TOUCH, array2.Length);
-			array2 = Class15.smethod_61(TextMsgForm.data, Marshal.SizeOf(TextMsgForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_TEXT_MSG, array2.Length);
-			array2 = Class15.smethod_61(EncryptForm.data, Marshal.SizeOf(EmergencyForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_ENCRYPT, array2.Length);
-			array2 = Class15.smethod_61(SignalingBasicForm.data, Marshal.SizeOf(SignalingBasicForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_SIGNALING_BASIC, array2.Length);
-			array2 = Class15.smethod_61(DtmfForm.data, Marshal.SizeOf(DtmfForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_DTMF_BASIC, array2.Length);
-			array2 = Class15.smethod_61(EmergencyForm.data, Marshal.SizeOf(EmergencyForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_EMG_SYSTEM, array2.Length);
-			array2 = Class15.smethod_61(ContactForm.data, Marshal.SizeOf(ContactForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_DMR_CONTACT_EX, array2.Length);
-			array2 = Class15.smethod_61(DtmfContactForm.data, Marshal.SizeOf(DtmfContactForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_DTMF_CONTACT, array2.Length);
-			array2 = Class15.smethod_61(RxGroupListForm.data, Marshal.SizeOf(RxGroupListForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_RX_GRP_LIST_EX, array2.Length);
+			byte[] array2 = Settings.smethod_61(GeneralSetForm.data, Marshal.SizeOf(GeneralSetForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_GENERAL_SET, array2.Length);
+			array2 = Settings.smethod_61(DeviceInfoForm.data, Marshal.SizeOf(DeviceInfoForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_DEVICE_INFO, array2.Length);
+			array2 = Settings.smethod_61(ButtonForm.data, Marshal.SizeOf(ButtonForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_BUTTON, array2.Length);
+			array2 = Settings.smethod_61(ButtonForm.data1, Marshal.SizeOf(ButtonForm.data1.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_ONE_TOUCH, array2.Length);
+			array2 = Settings.smethod_61(TextMsgForm.data, Marshal.SizeOf(TextMsgForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_TEXT_MSG, array2.Length);
+			array2 = Settings.smethod_61(EncryptForm.data, Marshal.SizeOf(EmergencyForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_ENCRYPT, array2.Length);
+			array2 = Settings.smethod_61(SignalingBasicForm.data, Marshal.SizeOf(SignalingBasicForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_SIGNALING_BASIC, array2.Length);
+			array2 = Settings.smethod_61(DtmfForm.data, Marshal.SizeOf(DtmfForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_DTMF_BASIC, array2.Length);
+			array2 = Settings.smethod_61(EmergencyForm.data, Marshal.SizeOf(EmergencyForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_EMG_SYSTEM, array2.Length);
+			array2 = Settings.smethod_61(ContactForm.data, Marshal.SizeOf(ContactForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_DMR_CONTACT_EX, array2.Length);
+			array2 = Settings.smethod_61(DtmfContactForm.data, Marshal.SizeOf(DtmfContactForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_DTMF_CONTACT, array2.Length);
+			array2 = Settings.smethod_61(RxGroupListForm.data, Marshal.SizeOf(RxGroupListForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_RX_GRP_LIST_EX, array2.Length);
 			ZoneForm.basicData.Verify();
-			array[Class15.ADDR_ZONE_BASIC] = ZoneForm.data.ZoneIndex[0];
+			array[Settings.ADDR_ZONE_BASIC] = ZoneForm.data.ZoneIndex[0];
 			array2 = ZoneForm.basicData.ToEerom();
-			Array.Copy(array2, 0, array, Class15.ADDR_ZONE_BASIC + 1, array2.Length);
+			Array.Copy(array2, 0, array, Settings.ADDR_ZONE_BASIC + 1, array2.Length);
 			array2 = ZoneForm.data.ToEerom(0, 2);
-			Array.Copy(array2, 0, array, Class15.ADDR_ZONE_LIST, array2.Length);
+			Array.Copy(array2, 0, array, Settings.ADDR_ZONE_LIST, array2.Length);
 			array2 = ChannelForm.data.ToEerom(0);
-			Array.Copy(array2, 0, array, Class15.ADDR_CHANNEL, array2.Length);
-			array2 = Class15.smethod_61(ScanBasicForm.data, Marshal.SizeOf(ScanBasicForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_SCAN, array2.Length);
-			array2 = Class15.smethod_61(NormalScanForm.data, Marshal.SizeOf(NormalScanForm.data.GetType()));
-			Array.Copy(array2, 0, array, Class15.ADDR_SCAN_LIST, array2.Length);
-			array2 = Class15.smethod_61(BootItemForm.data, Class15.SPACE_BOOT_ITEM);
-			Array.Copy(array2, 0, array, Class15.ADDR_BOOT_ITEM, array2.Length);
-			array2 = Class15.smethod_61(DigitalKeyContactForm.data, Class15.SPACE_DIGITAL_KEY_CONTACT);
-			Array.Copy(array2, 0, array, Class15.ADDR_DIGITAL_KEY_CONTACT, Class15.SPACE_DIGITAL_KEY_CONTACT);
-			array2 = Class15.smethod_61(MenuForm.data, Class15.SPACE_MENU_CONFIG);
-			Array.Copy(array2, 0, array, Class15.ADDR_MENU_CONFIG, Class15.SPACE_MENU_CONFIG);
-			array2 = Class15.smethod_61(BootItemForm.dataContent, Class15.SPACE_BOOT_CONTENT);
-			Array.Copy(array2, 0, array, Class15.ADDR_BOOT_CONTENT, Class15.SPACE_BOOT_CONTENT);
-			array2 = Class15.smethod_61(AttachmentForm.data, Class15.SPACE_ATTACHMENT);
-			Array.Copy(array2, 0, array, Class15.ADDR_ATTACHMENT, Class15.SPACE_ATTACHMENT);
+			Array.Copy(array2, 0, array, Settings.ADDR_CHANNEL, array2.Length);
+			array2 = Settings.smethod_61(ScanBasicForm.data, Marshal.SizeOf(ScanBasicForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_SCAN, array2.Length);
+			array2 = Settings.smethod_61(NormalScanForm.data, Marshal.SizeOf(NormalScanForm.data.GetType()));
+			Array.Copy(array2, 0, array, Settings.ADDR_SCAN_LIST, array2.Length);
+			array2 = Settings.smethod_61(BootItemForm.data, Settings.SPACE_BOOT_ITEM);
+			Array.Copy(array2, 0, array, Settings.ADDR_BOOT_ITEM, array2.Length);
+			array2 = Settings.smethod_61(DigitalKeyContactForm.data, Settings.SPACE_DIGITAL_KEY_CONTACT);
+			Array.Copy(array2, 0, array, Settings.ADDR_DIGITAL_KEY_CONTACT, Settings.SPACE_DIGITAL_KEY_CONTACT);
+			array2 = Settings.smethod_61(MenuForm.data, Settings.SPACE_MENU_CONFIG);
+			Array.Copy(array2, 0, array, Settings.ADDR_MENU_CONFIG, Settings.SPACE_MENU_CONFIG);
+			array2 = Settings.smethod_61(BootItemForm.dataContent, Settings.SPACE_BOOT_CONTENT);
+			Array.Copy(array2, 0, array, Settings.ADDR_BOOT_CONTENT, Settings.SPACE_BOOT_CONTENT);
+			array2 = Settings.smethod_61(AttachmentForm.data, Settings.SPACE_ATTACHMENT);
+			Array.Copy(array2, 0, array, Settings.ADDR_ATTACHMENT, Settings.SPACE_ATTACHMENT);
 			array2 = VfoForm.data.ToEerom();
-			Array.Copy(array2, 0, array, Class15.ADDR_VFO, array2.Length);
+			Array.Copy(array2, 0, array, Settings.ADDR_VFO, array2.Length);
 			if (ChannelForm.CurCntCh > 128)
 			{
-				array2 = Class15.smethod_61(ZoneForm.basicData, Marshal.SizeOf(ZoneForm.basicData));
-				Array.Copy(array2, 0, array, Class15.ADDR_EX_ZONE_BASIC, array2.Length);
-				array2 = Class15.smethod_61(ZoneForm.data, Class15.SPACE_EX_ZONE);
-				Array.Copy(array2, 0, array, Class15.ADDR_EX_ZONE_LIST, array2.Length);
-				array2 = Class15.smethod_61(EmergencyForm.dataEx, Marshal.SizeOf(EmergencyForm.dataEx));
-				Array.Copy(array2, 0, array, Class15.ADDR_EX_EMERGENCY, array2.Length);
+				array2 = Settings.smethod_61(ZoneForm.basicData, Marshal.SizeOf(ZoneForm.basicData));
+				Array.Copy(array2, 0, array, Settings.ADDR_EX_ZONE_BASIC, array2.Length);
+				array2 = Settings.smethod_61(ZoneForm.data, Settings.SPACE_EX_ZONE);
+				Array.Copy(array2, 0, array, Settings.ADDR_EX_ZONE_LIST, array2.Length);
+				array2 = Settings.smethod_61(EmergencyForm.dataEx, Marshal.SizeOf(EmergencyForm.dataEx));
+				Array.Copy(array2, 0, array, Settings.ADDR_EX_EMERGENCY, array2.Length);
 				for (int i = 1; i < 8; i++)
 				{
 					array2 = ChannelForm.data.ToEerom(i);
-					Array.Copy(array2, 0, array, Class15.ADDR_EX_CH + (i - 1) * ChannelForm.SPACE_CH_GROUP, ChannelForm.SPACE_CH_GROUP);
+					Array.Copy(array2, 0, array, Settings.ADDR_EX_CH + (i - 1) * ChannelForm.SPACE_CH_GROUP, ChannelForm.SPACE_CH_GROUP);
 				}
 			}
 			return array;
@@ -2851,96 +2851,96 @@ namespace DMR
 		// This function reads the binary data e.g codeplug file and stores the data into the internal storage structures
 		public static void ByteToData(byte[] eerom)
 		{
-			byte[] array = new byte[Class15.SPACE_DEVICE_INFO];
-			Array.Copy(eerom, Class15.ADDR_DEVICE_INFO, array, 0, array.Length);
-			DeviceInfoForm.data = (DeviceInfoForm.DeviceInfo)Class15.smethod_62(array, DeviceInfoForm.data.GetType());
-			Class15.MIN_FREQ[0] = ushort.Parse(DeviceInfoForm.data.MinFreq);
-			Class15.MAX_FREQ[0] = ushort.Parse(DeviceInfoForm.data.MaxFreq);
-			Class15.MIN_FREQ[1] = ushort.Parse(DeviceInfoForm.data.MinFreq2);
-			Class15.MAX_FREQ[1] = ushort.Parse(DeviceInfoForm.data.MaxFreq2);
-			array = new byte[Class15.SPACE_GENERAL_SET];
-			Array.Copy(eerom, Class15.ADDR_GENERAL_SET, array, 0, array.Length);
-			GeneralSetForm.data = (GeneralSetForm.GeneralSet)Class15.smethod_62(array, GeneralSetForm.data.GetType());
-			array = new byte[Class15.SPACE_BUTTON];
-			Array.Copy(eerom, Class15.ADDR_BUTTON, array, 0, array.Length);
-			ButtonForm.data = (ButtonForm.SideKey)Class15.smethod_62(array, ButtonForm.data.GetType());
-			array = new byte[Class15.SPACE_ONE_TOUCH];
-			Array.Copy(eerom, Class15.ADDR_ONE_TOUCH, array, 0, array.Length);
-			ButtonForm.data1 = (ButtonForm.OneTouch)Class15.smethod_62(array, ButtonForm.data1.GetType());
-			array = new byte[Class15.SPACE_TEXT_MSG];
-			Array.Copy(eerom, Class15.ADDR_TEXT_MSG, array, 0, array.Length);
-			TextMsgForm.data = (TextMsgForm.TextMsg)Class15.smethod_62(array, TextMsgForm.data.GetType());
-			array = new byte[Class15.SPACE_ENCRYPT];
-			Array.Copy(eerom, Class15.ADDR_ENCRYPT, array, 0, array.Length);
-			EncryptForm.data = (EncryptForm.Encrypt)Class15.smethod_62(array, EncryptForm.data.GetType());
-			array = new byte[Class15.SPACE_SIGNALING_BASIC];
-			Array.Copy(eerom, Class15.ADDR_SIGNALING_BASIC, array, 0, array.Length);
-			SignalingBasicForm.data = (SignalingBasicForm.SignalingBasic)Class15.smethod_62(array, SignalingBasicForm.data.GetType());
-			array = new byte[Class15.SPACE_DTMF_BASIC];
-			Array.Copy(eerom, Class15.ADDR_DTMF_BASIC, array, 0, array.Length);
-			DtmfForm.data = (DtmfForm.Dtmf)Class15.smethod_62(array, DtmfForm.data.GetType());
-			array = new byte[Class15.SPACE_EMG_SYSTEM];
-			Array.Copy(eerom, Class15.ADDR_EMG_SYSTEM, array, 0, array.Length);
-			EmergencyForm.data = (EmergencyForm.Emergency)Class15.smethod_62(array, EmergencyForm.data.GetType());
-			array = new byte[Class15.SPACE_DMR_CONTACT_EX];
-			Array.Copy(eerom, Class15.ADDR_DMR_CONTACT_EX, array, 0, array.Length);
-			ContactForm.data = (ContactForm.Contact)Class15.smethod_62(array, ContactForm.data.GetType());
-			array = new byte[Class15.SPACE_DTMF_CONTACT];
-			Array.Copy(eerom, Class15.ADDR_DTMF_CONTACT, array, 0, array.Length);
-			DtmfContactForm.data = (DtmfContactForm.DtmfContact)Class15.smethod_62(array, DtmfContactForm.data.GetType());
-			array = new byte[Class15.SPACE_RX_GRP_LIST];
-			Array.Copy(eerom, Class15.ADDR_RX_GRP_LIST_EX, array, 0, array.Length);
-			RxGroupListForm.data = (RxGroupListForm.RxList)Class15.smethod_62(array, RxGroupListForm.data.GetType());
-			ZoneForm.data.ZoneIndex[0] = eerom[Class15.ADDR_ZONE_BASIC];
-			ZoneForm.basicData.CurZone = eerom[Class15.ADDR_ZONE_BASIC + 1];
-			ZoneForm.basicData.MainCh = eerom[Class15.ADDR_ZONE_BASIC + 2];
-			ZoneForm.basicData.SubCh = eerom[Class15.ADDR_ZONE_BASIC + 3];
-			ZoneForm.basicData.SubZone = eerom[Class15.ADDR_ZONE_BASIC + 4];
+			byte[] array = new byte[Settings.SPACE_DEVICE_INFO];
+			Array.Copy(eerom, Settings.ADDR_DEVICE_INFO, array, 0, array.Length);
+			DeviceInfoForm.data = (DeviceInfoForm.DeviceInfo)Settings.smethod_62(array, DeviceInfoForm.data.GetType());
+			Settings.MIN_FREQ[0] = ushort.Parse(DeviceInfoForm.data.MinFreq);
+			Settings.MAX_FREQ[0] = ushort.Parse(DeviceInfoForm.data.MaxFreq);
+			Settings.MIN_FREQ[1] = ushort.Parse(DeviceInfoForm.data.MinFreq2);
+			Settings.MAX_FREQ[1] = ushort.Parse(DeviceInfoForm.data.MaxFreq2);
+			array = new byte[Settings.SPACE_GENERAL_SET];
+			Array.Copy(eerom, Settings.ADDR_GENERAL_SET, array, 0, array.Length);
+			GeneralSetForm.data = (GeneralSetForm.GeneralSet)Settings.smethod_62(array, GeneralSetForm.data.GetType());
+			array = new byte[Settings.SPACE_BUTTON];
+			Array.Copy(eerom, Settings.ADDR_BUTTON, array, 0, array.Length);
+			ButtonForm.data = (ButtonForm.SideKey)Settings.smethod_62(array, ButtonForm.data.GetType());
+			array = new byte[Settings.SPACE_ONE_TOUCH];
+			Array.Copy(eerom, Settings.ADDR_ONE_TOUCH, array, 0, array.Length);
+			ButtonForm.data1 = (ButtonForm.OneTouch)Settings.smethod_62(array, ButtonForm.data1.GetType());
+			array = new byte[Settings.SPACE_TEXT_MSG];
+			Array.Copy(eerom, Settings.ADDR_TEXT_MSG, array, 0, array.Length);
+			TextMsgForm.data = (TextMsgForm.TextMsg)Settings.smethod_62(array, TextMsgForm.data.GetType());
+			array = new byte[Settings.SPACE_ENCRYPT];
+			Array.Copy(eerom, Settings.ADDR_ENCRYPT, array, 0, array.Length);
+			EncryptForm.data = (EncryptForm.Encrypt)Settings.smethod_62(array, EncryptForm.data.GetType());
+			array = new byte[Settings.SPACE_SIGNALING_BASIC];
+			Array.Copy(eerom, Settings.ADDR_SIGNALING_BASIC, array, 0, array.Length);
+			SignalingBasicForm.data = (SignalingBasicForm.SignalingBasic)Settings.smethod_62(array, SignalingBasicForm.data.GetType());
+			array = new byte[Settings.SPACE_DTMF_BASIC];
+			Array.Copy(eerom, Settings.ADDR_DTMF_BASIC, array, 0, array.Length);
+			DtmfForm.data = (DtmfForm.Dtmf)Settings.smethod_62(array, DtmfForm.data.GetType());
+			array = new byte[Settings.SPACE_EMG_SYSTEM];
+			Array.Copy(eerom, Settings.ADDR_EMG_SYSTEM, array, 0, array.Length);
+			EmergencyForm.data = (EmergencyForm.Emergency)Settings.smethod_62(array, EmergencyForm.data.GetType());
+			array = new byte[Settings.SPACE_DMR_CONTACT_EX];
+			Array.Copy(eerom, Settings.ADDR_DMR_CONTACT_EX, array, 0, array.Length);
+			ContactForm.data = (ContactForm.Contact)Settings.smethod_62(array, ContactForm.data.GetType());
+			array = new byte[Settings.SPACE_DTMF_CONTACT];
+			Array.Copy(eerom, Settings.ADDR_DTMF_CONTACT, array, 0, array.Length);
+			DtmfContactForm.data = (DtmfContactForm.DtmfContact)Settings.smethod_62(array, DtmfContactForm.data.GetType());
+			array = new byte[Settings.SPACE_RX_GRP_LIST];
+			Array.Copy(eerom, Settings.ADDR_RX_GRP_LIST_EX, array, 0, array.Length);
+			RxGroupListForm.data = (RxGroupListForm.RxList)Settings.smethod_62(array, RxGroupListForm.data.GetType());
+			ZoneForm.data.ZoneIndex[0] = eerom[Settings.ADDR_ZONE_BASIC];
+			ZoneForm.basicData.CurZone = eerom[Settings.ADDR_ZONE_BASIC + 1];
+			ZoneForm.basicData.MainCh = eerom[Settings.ADDR_ZONE_BASIC + 2];
+			ZoneForm.basicData.SubCh = eerom[Settings.ADDR_ZONE_BASIC + 3];
+			ZoneForm.basicData.SubZone = eerom[Settings.ADDR_ZONE_BASIC + 4];
 			array = new byte[ChannelForm.SPACE_CH_GROUP];
-			Array.Copy(eerom, Class15.ADDR_CHANNEL, array, 0, array.Length);
+			Array.Copy(eerom, Settings.ADDR_CHANNEL, array, 0, array.Length);
 			ChannelForm.data.FromEerom(0, array);
-			array = new byte[Class15.SPACE_SCAN_BASIC];
-			Array.Copy(eerom, Class15.ADDR_SCAN, array, 0, array.Length);
-			ScanBasicForm.data = (ScanBasicForm.ScanBasic)Class15.smethod_62(array, ScanBasicForm.data.GetType());
-			array = new byte[Class15.SPACE_SCAN_LIST];
-			Array.Copy(eerom, Class15.ADDR_SCAN_LIST, array, 0, array.Length);
-			NormalScanForm.data = (NormalScanForm.NormalScan)Class15.smethod_62(array, NormalScanForm.data.GetType());
-			array = new byte[Class15.SPACE_BOOT_ITEM];
-			Array.Copy(eerom, Class15.ADDR_BOOT_ITEM, array, 0, array.Length);
-			BootItemForm.data = (BootItemForm.BootItem)Class15.smethod_62(array, BootItemForm.data.GetType());
-			array = new byte[Class15.SPACE_DIGITAL_KEY_CONTACT];
-			Array.Copy(eerom, Class15.ADDR_DIGITAL_KEY_CONTACT, array, 0, Class15.SPACE_DIGITAL_KEY_CONTACT);
-			DigitalKeyContactForm.data = (DigitalKeyContactForm.NumKeyContact)Class15.smethod_62(array, DigitalKeyContactForm.data.GetType());
-			array = new byte[Class15.SPACE_MENU_CONFIG];
-			Array.Copy(eerom, Class15.ADDR_MENU_CONFIG, array, 0, Class15.SPACE_MENU_CONFIG);
-			MenuForm.data = (MenuForm.MenuSet)Class15.smethod_62(array, MenuForm.data.GetType());
-			array = new byte[Class15.SPACE_BOOT_CONTENT];
-			Array.Copy(eerom, Class15.ADDR_BOOT_CONTENT, array, 0, array.Length);
-			BootItemForm.dataContent = (BootItemForm.BootContent)Class15.smethod_62(array, typeof(BootItemForm.BootContent));
-			array = new byte[Class15.SPACE_ATTACHMENT];
-			Array.Copy(eerom, Class15.ADDR_ATTACHMENT, array, 0, array.Length);
-			AttachmentForm.data = (AttachmentForm.Attachment)Class15.smethod_62(array, typeof(AttachmentForm.Attachment));
-			array = new byte[Class15.SPACE_VFO];
-			Array.Copy(eerom, Class15.ADDR_VFO, array, 0, array.Length);
+			array = new byte[Settings.SPACE_SCAN_BASIC];
+			Array.Copy(eerom, Settings.ADDR_SCAN, array, 0, array.Length);
+			ScanBasicForm.data = (ScanBasicForm.ScanBasic)Settings.smethod_62(array, ScanBasicForm.data.GetType());
+			array = new byte[Settings.SPACE_SCAN_LIST];
+			Array.Copy(eerom, Settings.ADDR_SCAN_LIST, array, 0, array.Length);
+			NormalScanForm.data = (NormalScanForm.NormalScan)Settings.smethod_62(array, NormalScanForm.data.GetType());
+			array = new byte[Settings.SPACE_BOOT_ITEM];
+			Array.Copy(eerom, Settings.ADDR_BOOT_ITEM, array, 0, array.Length);
+			BootItemForm.data = (BootItemForm.BootItem)Settings.smethod_62(array, BootItemForm.data.GetType());
+			array = new byte[Settings.SPACE_DIGITAL_KEY_CONTACT];
+			Array.Copy(eerom, Settings.ADDR_DIGITAL_KEY_CONTACT, array, 0, Settings.SPACE_DIGITAL_KEY_CONTACT);
+			DigitalKeyContactForm.data = (DigitalKeyContactForm.NumKeyContact)Settings.smethod_62(array, DigitalKeyContactForm.data.GetType());
+			array = new byte[Settings.SPACE_MENU_CONFIG];
+			Array.Copy(eerom, Settings.ADDR_MENU_CONFIG, array, 0, Settings.SPACE_MENU_CONFIG);
+			MenuForm.data = (MenuForm.MenuSet)Settings.smethod_62(array, MenuForm.data.GetType());
+			array = new byte[Settings.SPACE_BOOT_CONTENT];
+			Array.Copy(eerom, Settings.ADDR_BOOT_CONTENT, array, 0, array.Length);
+			BootItemForm.dataContent = (BootItemForm.BootContent)Settings.smethod_62(array, typeof(BootItemForm.BootContent));
+			array = new byte[Settings.SPACE_ATTACHMENT];
+			Array.Copy(eerom, Settings.ADDR_ATTACHMENT, array, 0, array.Length);
+			AttachmentForm.data = (AttachmentForm.Attachment)Settings.smethod_62(array, typeof(AttachmentForm.Attachment));
+			array = new byte[Settings.SPACE_VFO];
+			Array.Copy(eerom, Settings.ADDR_VFO, array, 0, array.Length);
 			VfoForm.data.FromEerom(array);
 			try
 			{
 				if (ChannelForm.CurCntCh > 128)
 				{
 					array = new byte[ZoneForm.SPACE_BASIC_ZONE];
-					Array.Copy(eerom, Class15.ADDR_EX_ZONE_BASIC, array, 0, array.Length);
-					ZoneForm.basicData = (ZoneForm.BasicZone)Class15.smethod_62(array, ZoneForm.basicData.GetType());
-					array = new byte[Class15.SPACE_EX_ZONE];
-					Array.Copy(eerom, Class15.ADDR_EX_ZONE_LIST, array, 0, Class15.SPACE_EX_ZONE);
-					ZoneForm.data = (ZoneForm.Zone)Class15.smethod_62(array, ZoneForm.data.GetType());
+					Array.Copy(eerom, Settings.ADDR_EX_ZONE_BASIC, array, 0, array.Length);
+					ZoneForm.basicData = (ZoneForm.BasicZone)Settings.smethod_62(array, ZoneForm.basicData.GetType());
+					array = new byte[Settings.SPACE_EX_ZONE];
+					Array.Copy(eerom, Settings.ADDR_EX_ZONE_LIST, array, 0, Settings.SPACE_EX_ZONE);
+					ZoneForm.data = (ZoneForm.Zone)Settings.smethod_62(array, ZoneForm.data.GetType());
 					ZoneForm.CompactZones();
-					array = new byte[Class15.SPACE_EX_EMERGENCY];
-					Array.Copy(eerom, Class15.ADDR_EX_EMERGENCY, array, 0, array.Length);
-					EmergencyForm.dataEx = (EmergencyForm.EmergencyEx)Class15.smethod_62(array, EmergencyForm.dataEx.GetType());
+					array = new byte[Settings.SPACE_EX_EMERGENCY];
+					Array.Copy(eerom, Settings.ADDR_EX_EMERGENCY, array, 0, array.Length);
+					EmergencyForm.dataEx = (EmergencyForm.EmergencyEx)Settings.smethod_62(array, EmergencyForm.dataEx.GetType());
 					for (int i = 1; i < 8; i++)
 					{
 						array = new byte[ChannelForm.SPACE_CH_GROUP];
-						Array.Copy(eerom, Class15.ADDR_EX_CH + (i - 1) * array.Length, array, 0, array.Length);
+						Array.Copy(eerom, Settings.ADDR_EX_CH + (i - 1) * array.Length, array, 0, array.Length);
 						ChannelForm.data.FromEerom(i, array);
 					}
 				}
@@ -2975,7 +2975,7 @@ namespace DMR
 
 		public void ShowHelp(string helpId)
 		{
-			string str = Class15.smethod_2();
+			string str = Settings.smethod_2();
 			if (MainForm.dicHelp.ContainsKey(helpId) && !string.IsNullOrEmpty(MainForm.dicHelp[helpId].Trim()))
 			{
 				string text = "mk:@MSITStore:" + str + MainForm.dicHelp[helpId];

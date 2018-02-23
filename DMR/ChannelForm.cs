@@ -193,11 +193,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -211,8 +211,8 @@ namespace DMR
 					{
 						uint num = 0u;
 						string s = string.Format("{0:x}", this.rxFreq);
-						double double_ = Class15.smethod_28(int.Parse(s), 100000);
-						if (Class15.smethod_19(double_, ref num) == -1)
+						double double_ = Settings.smethod_28(int.Parse(s), 100000);
+						if (Settings.smethod_19(double_, ref num) == -1)
 						{
 							double_ = (double)num;
 						}
@@ -253,11 +253,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_34(this.rxFreq);
+					return Settings.smethod_34(this.rxFreq);
 				}
 				set
 				{
-					this.rxFreq = Class15.smethod_35(value);
+					this.rxFreq = Settings.smethod_35(value);
 				}
 			}
 
@@ -269,8 +269,8 @@ namespace DMR
 					{
 						uint num = 0u;
 						string s = string.Format("{0:x}", this.txFreq);
-						double double_ = Class15.smethod_28(int.Parse(s), 100000);
-						if (Class15.smethod_19(double_, ref num) == -1)
+						double double_ = Settings.smethod_28(int.Parse(s), 100000);
+						if (Settings.smethod_19(double_, ref num) == -1)
 						{
 							double_ = (double)num;
 						}
@@ -311,11 +311,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_34(this.txFreq);
+					return Settings.smethod_34(this.txFreq);
 				}
 				set
 				{
-					this.txFreq = Class15.smethod_35(value);
+					this.txFreq = Settings.smethod_35(value);
 				}
 			}
 
@@ -517,20 +517,20 @@ namespace DMR
 						{
 							return string.Format("D{0:x3}N", this.rxTone & 0xFFF);
 						}
-						double num = (double)(int)Class15.smethod_32(this.rxTone) * 0.1;
+						double num = (double)(int)Settings.smethod_32(this.rxTone) * 0.1;
 						if (num > 60.0 && num < 260.0)
 						{
 							return num.ToString("f1");
 						}
-						return Class15.SZ_NONE;
+						return Settings.SZ_NONE;
 					}
-					return Class15.SZ_NONE;
+					return Settings.SZ_NONE;
 				}
 				set
 				{
 					string text = "";
 					this.rxTone = 65535;
-					if (!string.IsNullOrEmpty(value) && value != Class15.SZ_NONE)
+					if (!string.IsNullOrEmpty(value) && value != Settings.SZ_NONE)
 					{
 						string pattern = "D[0-7]{3}N$";
 						Regex regex = new Regex(pattern);
@@ -553,7 +553,7 @@ namespace DMR
 								double num = double.Parse(value);
 								if (num > 60.0 && num < 260.0)
 								{
-									this.rxTone = Class15.smethod_33(Convert.ToUInt16(num * 10.0));
+									this.rxTone = Settings.smethod_33(Convert.ToUInt16(num * 10.0));
 								}
 							}
 						}
@@ -575,20 +575,20 @@ namespace DMR
 						{
 							return string.Format("D{0:x3}N", this.txTone & 0xFFF);
 						}
-						double num = (double)(int)Class15.smethod_32(this.txTone) * 0.1;
+						double num = (double)(int)Settings.smethod_32(this.txTone) * 0.1;
 						if (num > 60.0 && num < 260.0)
 						{
 							return num.ToString("f1");
 						}
-						return Class15.SZ_NONE;
+						return Settings.SZ_NONE;
 					}
-					return Class15.SZ_NONE;
+					return Settings.SZ_NONE;
 				}
 				set
 				{
 					string text = "";
 					this.txTone = 65535;
-					if (!string.IsNullOrEmpty(value) && value != Class15.SZ_NONE)
+					if (!string.IsNullOrEmpty(value) && value != Settings.SZ_NONE)
 					{
 						string pattern = "D[0-7]{3}N$";
 						Regex regex = new Regex(pattern);
@@ -611,7 +611,7 @@ namespace DMR
 								double num = double.Parse(value);
 								if (num > 60.0 && num < 260.0)
 								{
-									this.txTone = Class15.smethod_33(Convert.ToUInt16(num * 10.0));
+									this.txTone = Settings.smethod_33(Convert.ToUInt16(num * 10.0));
 								}
 							}
 						}
@@ -778,13 +778,13 @@ namespace DMR
 				{
 					if (this.RxGroupList == 0)
 					{
-						return Class15.SZ_NONE;
+						return Settings.SZ_NONE;
 					}
 					if (this.RxGroupList <= 128)
 					{
 						return RxGroupListForm.data.GetName(this.RxGroupList - 1);
 					}
-					return Class15.SZ_NONE;
+					return Settings.SZ_NONE;
 				}
 			}
 
@@ -852,13 +852,13 @@ namespace DMR
 				{
 					if (this.Contact == 0)
 					{
-						return Class15.SZ_NONE;
+						return Settings.SZ_NONE;
 					}
 					if (this.Contact <= 1024)
 					{
 						return ContactForm.data.GetName(this.Contact - 1);
 					}
-					return Class15.SZ_NONE;
+					return Settings.SZ_NONE;
 				}
 			}
 
@@ -1423,7 +1423,7 @@ namespace DMR
 
 			public ChannelOne Clone()
 			{
-				return Class15.smethod_65(this);
+				return Settings.smethod_65(this);
 			}
 
 			public void Verify(ChannelOne def)
@@ -1440,8 +1440,8 @@ namespace DMR
 				{
 					this.RxRefFreq = def.RxRefFreq;
 				}
-				Class15.smethod_11(ref this.tot, (byte)0, (byte)33, def.tot);
-				Class15.smethod_11(ref this.rssiThreshold, (byte)80, (byte)124, def.rssiThreshold);
+				Settings.smethod_11(ref this.tot, (byte)0, (byte)33, def.tot);
+				Settings.smethod_11(ref this.rssiThreshold, (byte)80, (byte)124, def.rssiThreshold);
 				if (this.scanList != 0 && this.scanList <= 64)
 				{
 					if (!NormalScanForm.data.DataIsValid(this.scanList - 1))
@@ -1469,7 +1469,7 @@ namespace DMR
 				{
 					this.RxSignaling = def.RxSignaling;
 				}
-				Class15.smethod_11(ref this.artsInterval, (byte)22, (byte)55, def.artsInterval);
+				Settings.smethod_11(ref this.artsInterval, (byte)22, (byte)55, def.artsInterval);
 				if (!Enum.IsDefined(typeof(TimingPreference), this.TimingPreference))
 				{
 					this.TimingPreference = def.TimingPreference;
@@ -1478,7 +1478,7 @@ namespace DMR
 				{
 					this.encrypt = 0;
 				}
-				Class15.smethod_11(ref this.rxColor, (byte)0, (byte)15, def.txColor);
+				Settings.smethod_11(ref this.rxColor, (byte)0, (byte)15, def.txColor);
 				this.rxColor = this.txColor;
 				if (this.rxGroupList != 0 && this.rxGroupList <= 128)
 				{
@@ -1756,7 +1756,7 @@ namespace DMR
 				string text = "";
 				num2 = this.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -1766,7 +1766,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -1851,13 +1851,13 @@ namespace DMR
 					if (bitArray[num])
 					{
 						num2 = this.chList[num].RxFreqDec / 100000u;
-						if (Class15.smethod_19((double)num2, ref num4) < 0)
+						if (Settings.smethod_19((double)num2, ref num4) < 0)
 						{
 							num2 = num4 * 100000;
 							this.chList[num].RxFreqDec = num2;
 						}
 						num3 = this.chList[num].TxFreqDec / 100000u;
-						if (Class15.smethod_19((double)num3, ref num4) < 0)
+						if (Settings.smethod_19((double)num3, ref num4) < 0)
 						{
 							this.chList[num].TxFreqDec = this.chList[num].RxFreqDec;
 						}
@@ -1868,13 +1868,13 @@ namespace DMR
 
 			public void SetDefaultFreq(int index)
 			{
-				this.chList[index].UInt32_0 = Class15.smethod_35(Class15.MIN_FREQ[0] * 100000);
+				this.chList[index].UInt32_0 = Settings.smethod_35(Settings.MIN_FREQ[0] * 100000);
 				this.chList[index].UInt32_1 = this.chList[index].UInt32_0;
 			}
 
 			public int FreqIsSameRange(int index)
 			{
-				return Class15.smethod_20((double)(this.chList[index].RxFreqDec / 100000u), (double)(this.chList[index].TxFreqDec / 100000u));
+				return Settings.smethod_20((double)(this.chList[index].RxFreqDec / 100000u), (double)(this.chList[index].TxFreqDec / 100000u));
 			}
 
 			public void SetChMode(int index, ChModeE chMode)
@@ -1982,7 +1982,7 @@ namespace DMR
 				for (num = 0; num < 128; num++)
 				{
 					num3 = chGroupIndex * 128 + num;
-					byte[] array2 = Class15.smethod_61(this.chList[num3], Marshal.SizeOf(this.chList[num3]));
+					byte[] array2 = Settings.smethod_61(this.chList[num3], Marshal.SizeOf(this.chList[num3]));
 					Array.Copy(array2, 0, array, num2, array2.Length);
 					num2 += array2.Length;
 				}
@@ -2002,7 +2002,7 @@ namespace DMR
 					num3 = chGroupIndex * 128 + num;
 					byte[] array = new byte[ChannelForm.SPACE_CH];
 					Array.Copy(data, num2, array, 0, array.Length);
-					this.chList[num3] = (ChannelOne)Class15.smethod_62(array, typeof(ChannelOne));
+					this.chList[num3] = (ChannelOne)Settings.smethod_62(array, typeof(ChannelOne));
 					num2 += array.Length;
 				}
 			}
@@ -2174,17 +2174,17 @@ namespace DMR
 
 		private Label lblContact;
 
-		private Class4 cmbContact;
+		private CustomCombo cmbContact;
 
 		private Label lblEmgSystem;
 
-		private Class4 cmbEmgSystem;
+		private CustomCombo cmbEmgSystem;
 
 		private Label lblTxColor;
 
 		private Label lblRxGroup;
 
-		private Class4 cmbRxGroup;
+		private CustomCombo cmbRxGroup;
 
 		private Label lblRxColor;
 
@@ -2192,7 +2192,7 @@ namespace DMR
 
 		private Label lblKey;
 
-		private Class4 cmbKey;
+		private CustomCombo cmbKey;
 
 		private Label lblKeySwitch;
 
@@ -2226,7 +2226,7 @@ namespace DMR
 
 		private Label lblArtsInterval;
 
-		private Class12 nudArtsInterval;
+		private CustomNumericUpDown nudArtsInterval;
 
 		private CheckBox chkDataPl;
 
@@ -2292,11 +2292,11 @@ namespace DMR
 
 		private Label lblTot;
 
-		private Class12 nudTot;
+		private CustomNumericUpDown nudTot;
 
 		private Label lblTotRekey;
 
-		private Class12 nudTotRekey;
+		private CustomNumericUpDown nudTotRekey;
 
 		private CheckBox chkVox;
 
@@ -2306,11 +2306,11 @@ namespace DMR
 
 		private Label lblRssiThreshold;
 
-		private Class12 nudRssiThreshold;
+		private CustomNumericUpDown nudRssiThreshold;
 
 		private Label lblScanList;
 
-		private Class4 cmbScanList;
+		private CustomCombo cmbScanList;
 
 		private CheckBox chkAutoScan;
 
@@ -2324,11 +2324,11 @@ namespace DMR
 
 		private Class2 grpDigit;
 
-		private Class12 nudTxColor;
+		private CustomNumericUpDown nudTxColor;
 
-		private Class12 nudRxColor;
+		private CustomNumericUpDown nudRxColor;
 
-		private Class4 cmbArts;
+		private CustomCombo cmbArts;
 
 		private Label lblArts;
 
@@ -2372,7 +2372,7 @@ namespace DMR
 
 		private ToolStripSeparator toolStripSeparator2;
 
-		private Class3 pnlChannel;
+		private CustomPanel pnlChannel;
 
 		private Button btnCopy;
 
@@ -2531,7 +2531,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblTot.Enabled &= flag;
 			this.nudTot.Enabled &= flag;
 			this.lblTotRekey.Enabled &= flag;
@@ -2562,38 +2562,38 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_18();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 			ChannelForm.CurCntCh = 1024;
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(ChannelForm).Name;
-			Class15.smethod_78("ChMode", ChannelForm.SZ_CH_MODE, name);
-			Class15.smethod_78("RefFreq", ChannelForm.SZ_REF_FREQ, name);
-			Class15.smethod_78("Power", ChannelForm.SZ_POWER, name);
-			Class15.smethod_78("AdmitCriterica", ChannelForm.SZ_ADMIT_CRITERICA, name);
-			Class15.smethod_78("AdmitCritericaD", ChannelForm.SZ_ADMIT_CRITERICA_D, name);
-			Class15.smethod_78("Squelch", ChannelForm.SZ_SQUELCH, name);
-			Class15.smethod_78("VoiceEmphasis", ChannelForm.SZ_VOICE_EMPHASIS, name);
-			Class15.smethod_78("Ste", ChannelForm.SZ_STE, name);
-			Class15.smethod_78("NonSte", ChannelForm.SZ_NON_STE, name);
-			Class15.smethod_78("SignalingSystem", ChannelForm.SZ_SIGNALING_SYSTEM, name);
-			Class15.smethod_78("UnmuteRule", ChannelForm.SZ_UNMUTE_RULE, name);
-			Class15.smethod_78("PttidType", ChannelForm.SZ_PTTID_TYPE, name);
-			Class15.smethod_78("Arts", ChannelForm.SZ_ARTS, name);
-			Class15.smethod_78("TimingPreference", ChannelForm.SZ_TIMING_PREFERENCE, name);
-			Class15.smethod_78("Ars", ChannelForm.SZ_ARS, name);
-			Class15.smethod_78("KeySwitch", ChannelForm.SZ_KEY_SWITCH, name);
+			Settings.smethod_78("ChMode", ChannelForm.SZ_CH_MODE, name);
+			Settings.smethod_78("RefFreq", ChannelForm.SZ_REF_FREQ, name);
+			Settings.smethod_78("Power", ChannelForm.SZ_POWER, name);
+			Settings.smethod_78("AdmitCriterica", ChannelForm.SZ_ADMIT_CRITERICA, name);
+			Settings.smethod_78("AdmitCritericaD", ChannelForm.SZ_ADMIT_CRITERICA_D, name);
+			Settings.smethod_78("Squelch", ChannelForm.SZ_SQUELCH, name);
+			Settings.smethod_78("VoiceEmphasis", ChannelForm.SZ_VOICE_EMPHASIS, name);
+			Settings.smethod_78("Ste", ChannelForm.SZ_STE, name);
+			Settings.smethod_78("NonSte", ChannelForm.SZ_NON_STE, name);
+			Settings.smethod_78("SignalingSystem", ChannelForm.SZ_SIGNALING_SYSTEM, name);
+			Settings.smethod_78("UnmuteRule", ChannelForm.SZ_UNMUTE_RULE, name);
+			Settings.smethod_78("PttidType", ChannelForm.SZ_PTTID_TYPE, name);
+			Settings.smethod_78("Arts", ChannelForm.SZ_ARTS, name);
+			Settings.smethod_78("TimingPreference", ChannelForm.SZ_TIMING_PREFERENCE, name);
+			Settings.smethod_78("Ars", ChannelForm.SZ_ARS, name);
+			Settings.smethod_78("KeySwitch", ChannelForm.SZ_KEY_SWITCH, name);
 		}
 
 		private void ChannelForm_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				Class15.smethod_59(base.Controls);
-				Class15.smethod_68(this);
-				Class15.smethod_71(this.tsrCh.smethod_10(), base.Name);
+				Settings.smethod_59(base.Controls);
+				Settings.smethod_68(this);
+				Settings.smethod_71(this.tsrCh.smethod_10(), base.Name);
 				ChannelForm.data.ChModeChangeEvent += this.method_2;
 				this.BbRiogasSx();
 				this.method_0();
@@ -2612,57 +2612,57 @@ namespace DMR
 
 		private void method_0()
 		{
-			Class15.smethod_37(this.cmbChMode, ChannelForm.SZ_CH_MODE);
+			Settings.smethod_37(this.cmbChMode, ChannelForm.SZ_CH_MODE);
 			this.txtName.MaxByteLength = 15;
-			this.txtName.KeyPress += Class15.smethod_54;
+			this.txtName.KeyPress += Settings.smethod_54;
 			this.txtRxFreq.MaxLength = 9;
-			this.txtRxFreq.KeyPress += Class15.smethod_55;
+			this.txtRxFreq.KeyPress += Settings.smethod_55;
 			this.txtTxFreq.MaxLength = 9;
-			this.txtTxFreq.KeyPress += Class15.smethod_55;
-			Class15.smethod_37(this.cmbTxRefFreq, ChannelForm.SZ_REF_FREQ);
-			Class15.smethod_37(this.cmbRxRefFreq, ChannelForm.SZ_REF_FREQ);
-			Class15.smethod_37(this.cmbPower, ChannelForm.SZ_POWER);
-			Class15.smethod_36(this.nudTot, new Class13(0, 33, 1, 15m, 3));
+			this.txtTxFreq.KeyPress += Settings.smethod_55;
+			Settings.smethod_37(this.cmbTxRefFreq, ChannelForm.SZ_REF_FREQ);
+			Settings.smethod_37(this.cmbRxRefFreq, ChannelForm.SZ_REF_FREQ);
+			Settings.smethod_37(this.cmbPower, ChannelForm.SZ_POWER);
+			Settings.smethod_36(this.nudTot, new Class13(0, 33, 1, 15m, 3));
 			this.nudTot.method_4(0m);
 			this.nudTot.method_6("∞");
-			Class15.smethod_36(this.nudTotRekey, new Class13(0, 255, 1, 1m, 3));
-			Class15.smethod_36(this.nudRssiThreshold, new Class13(80, 124, 1, -1m, 4));
-			Class15.smethod_37(this.cmbChBandwidth, ChannelForm.SZ_BANDWIDTH);
-			Class15.smethod_37(this.cmbSquelch, ChannelForm.SZ_SQUELCH);
-			Class15.smethod_41(this.cmbSql, 0, 9);
-			Class15.smethod_37(this.cmbVoiceEmphasis, ChannelForm.SZ_VOICE_EMPHASIS);
-			Class15.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
-			Class15.smethod_37(this.cmbNonSte, ChannelForm.SZ_NON_STE);
-			Class15.smethod_37(this.cmbTxSignaling, ChannelForm.SZ_SIGNALING_SYSTEM);
-			Class15.smethod_37(this.cmbUnmuteRule, ChannelForm.SZ_UNMUTE_RULE);
-			Class15.smethod_37(this.cmbRxSignaling, ChannelForm.SZ_SIGNALING_SYSTEM);
-			Class15.smethod_37(this.cmbPttidType, ChannelForm.SZ_PTTID_TYPE);
-			Class15.smethod_39(this.cmbArts, ChannelForm.SZ_ARTS);
-			Class15.smethod_36(this.nudArtsInterval, new Class13(22, 55, 1, 1m, 2));
-			Class15.smethod_37(this.cmbTimingPreference, ChannelForm.SZ_TIMING_PREFERENCE);
-			Class15.smethod_37(this.cmbRepeaterSlot, ChannelForm.SZ_REPEATER_SLOT);
-			Class15.smethod_37(this.cmbArs, ChannelForm.SZ_ARS);
-			Class15.smethod_37(this.cmbKeySwitch, ChannelForm.SZ_KEY_SWITCH);
-			Class15.smethod_36(this.nudRxColor, new Class13(0, 15, 1, 1m, 2));
-			Class15.smethod_36(this.nudTxColor, new Class13(0, 15, 1, 1m, 2));
+			Settings.smethod_36(this.nudTotRekey, new Class13(0, 255, 1, 1m, 3));
+			Settings.smethod_36(this.nudRssiThreshold, new Class13(80, 124, 1, -1m, 4));
+			Settings.smethod_37(this.cmbChBandwidth, ChannelForm.SZ_BANDWIDTH);
+			Settings.smethod_37(this.cmbSquelch, ChannelForm.SZ_SQUELCH);
+			Settings.smethod_41(this.cmbSql, 0, 9);
+			Settings.smethod_37(this.cmbVoiceEmphasis, ChannelForm.SZ_VOICE_EMPHASIS);
+			Settings.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
+			Settings.smethod_37(this.cmbNonSte, ChannelForm.SZ_NON_STE);
+			Settings.smethod_37(this.cmbTxSignaling, ChannelForm.SZ_SIGNALING_SYSTEM);
+			Settings.smethod_37(this.cmbUnmuteRule, ChannelForm.SZ_UNMUTE_RULE);
+			Settings.smethod_37(this.cmbRxSignaling, ChannelForm.SZ_SIGNALING_SYSTEM);
+			Settings.smethod_37(this.cmbPttidType, ChannelForm.SZ_PTTID_TYPE);
+			Settings.smethod_39(this.cmbArts, ChannelForm.SZ_ARTS);
+			Settings.smethod_36(this.nudArtsInterval, new Class13(22, 55, 1, 1m, 2));
+			Settings.smethod_37(this.cmbTimingPreference, ChannelForm.SZ_TIMING_PREFERENCE);
+			Settings.smethod_37(this.cmbRepeaterSlot, ChannelForm.SZ_REPEATER_SLOT);
+			Settings.smethod_37(this.cmbArs, ChannelForm.SZ_ARS);
+			Settings.smethod_37(this.cmbKeySwitch, ChannelForm.SZ_KEY_SWITCH);
+			Settings.smethod_36(this.nudRxColor, new Class13(0, 15, 1, 1m, 2));
+			Settings.smethod_36(this.nudTxColor, new Class13(0, 15, 1, 1m, 2));
 		}
 
 		private void method_1()
 		{
-			Class15.smethod_44(this.cmbScanList, NormalScanForm.data);
-			Class15.smethod_44(this.cmbRxGroup, RxGroupListForm.data);
-			Class15.smethod_44(this.cmbKey, EncryptForm.data);
-			Class15.smethod_44(this.cmbEmgSystem, EmergencyForm.data);
-			Class15.smethod_44(this.cmbContact, ContactForm.data);
+			Settings.smethod_44(this.cmbScanList, NormalScanForm.data);
+			Settings.smethod_44(this.cmbRxGroup, RxGroupListForm.data);
+			Settings.smethod_44(this.cmbKey, EncryptForm.data);
+			Settings.smethod_44(this.cmbEmgSystem, EmergencyForm.data);
+			Settings.smethod_44(this.cmbContact, ContactForm.data);
 			int num = Convert.ToInt32(base.Tag);
 			int index = num % 1024;
 			if (ChannelForm.data[index].ChMode == 0)
 			{
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
 			}
 			else
 			{
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
 			}
 		}
 
@@ -2677,9 +2677,9 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
-					MessageBox.Show(Class15.dicCommon[Class15.SZ_NAME_EXIST_NAME]);
+					MessageBox.Show(Settings.dicCommon[Settings.SZ_NAME_EXIST_NAME]);
 					this.txtName.Text = this.Node.Text;
 				}
 				else
@@ -2703,25 +2703,25 @@ namespace DMR
 				num = 2;
 				this.grpAnalog.Enabled = true;
 				this.grpDigit.Enabled = false;
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
 				break;
 			case 1:
 				num = 6;
 				this.grpAnalog.Enabled = false;
 				this.grpDigit.Enabled = true;
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
 				break;
 			case 2:
 				num = 54;
 				this.grpAnalog.Enabled = true;
 				this.grpDigit.Enabled = true;
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA_D);
 				break;
 			case 3:
 				num = 54;
 				this.grpAnalog.Enabled = true;
 				this.grpDigit.Enabled = true;
-				Class15.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
+				Settings.smethod_37(this.cmbAdmitCriteria, ChannelForm.SZ_ADMIT_CRITERICA);
 				break;
 			}
 			this.method_13();
@@ -2772,11 +2772,11 @@ namespace DMR
 			{
 				uint num3 = 0u;
 				num = double.Parse(text);
-				if (Class15.smethod_19(num, ref num3) >= 0)
+				if (Settings.smethod_19(num, ref num3) >= 0)
 				{
-					int_ = Class15.smethod_27(num, 100000.0);
-					Class15.smethod_29(ref int_, 250, 625);
-					num = Class15.smethod_28(int_, 100000);
+					int_ = Settings.smethod_27(num, 100000.0);
+					Settings.smethod_29(ref int_, 250, 625);
+					num = Settings.smethod_28(int_, 100000);
 					this.txtRxFreq.Text = string.Format("{0:f5}", num);
 				}
 				else
@@ -2785,7 +2785,7 @@ namespace DMR
 				}
 				num = double.Parse(this.txtRxFreq.Text);
 				num2 = double.Parse(this.txtTxFreq.Text);
-				if (Class15.smethod_20(num, num2) < 0)
+				if (Settings.smethod_20(num, num2) < 0)
 				{
                     this.lblxband.Visible = true;
 				}
@@ -2799,7 +2799,7 @@ namespace DMR
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				this.txtRxFreq.Text = string.Format("{0:f5}", Class15.MIN_FREQ[0]);
+				this.txtRxFreq.Text = string.Format("{0:f5}", Settings.MIN_FREQ[0]);
 			}
 		}
 
@@ -2815,11 +2815,11 @@ namespace DMR
 			{
 				uint num3 = 0u;
 				num = double.Parse(text);
-				if (Class15.smethod_19(num, ref num3) >= 0)
+				if (Settings.smethod_19(num, ref num3) >= 0)
 				{
-					int_ = Class15.smethod_27(num, 100000.0);
-					Class15.smethod_29(ref int_, 250, 625);
-					num = Class15.smethod_28(int_, 100000);
+					int_ = Settings.smethod_27(num, 100000.0);
+					Settings.smethod_29(ref int_, 250, 625);
+					num = Settings.smethod_28(int_, 100000);
 					this.txtTxFreq.Text = string.Format("{0:f5}", num);
 				}
 				else
@@ -2828,7 +2828,7 @@ namespace DMR
 				}
 				num2 = double.Parse(this.txtRxFreq.Text);
 				num = double.Parse(this.txtTxFreq.Text);
-				if (Class15.smethod_20(num2, num) < 0)
+				if (Settings.smethod_20(num2, num) < 0)
 				{
                     this.lblxband.Visible = true;
 				}
@@ -2842,7 +2842,7 @@ namespace DMR
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				this.txtTxFreq.Text = string.Format("{0:f5}", Class15.MIN_FREQ[0]);
+				this.txtTxFreq.Text = string.Format("{0:f5}", Settings.MIN_FREQ[0]);
 			}
 		}
 
@@ -2978,7 +2978,7 @@ namespace DMR
 			{
 				string pattern;
 				Regex regex;
-				if (!(text == Class15.SZ_NONE) && !string.IsNullOrEmpty(text))
+				if (!(text == Settings.SZ_NONE) && !string.IsNullOrEmpty(text))
 				{
 					pattern = "D[0-7]{3}N$";
 					regex = new Regex(pattern);
@@ -2988,7 +2988,7 @@ namespace DMR
 						num = Convert.ToUInt16(empty, 8);
 						if (num >= 777)
 						{
-							this.cmbRxTone.Text = Class15.SZ_NONE;
+							this.cmbRxTone.Text = Settings.SZ_NONE;
 							goto IL_0076;
 						}
 						goto end_IL_0015;
@@ -3005,7 +3005,7 @@ namespace DMR
 				}
 				else
 				{
-					this.cmbRxTone.Text = Class15.SZ_NONE;
+					this.cmbRxTone.Text = Settings.SZ_NONE;
 				}
 				goto end_IL_0015;
 				IL_0076:
@@ -3017,7 +3017,7 @@ namespace DMR
 					num = Convert.ToUInt16(empty, 8);
 					if (num >= 777)
 					{
-						this.cmbRxTone.Text = Class15.SZ_NONE;
+						this.cmbRxTone.Text = Settings.SZ_NONE;
 						goto IL_00bc;
 					}
 					goto end_IL_0015;
@@ -3028,7 +3028,7 @@ namespace DMR
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				this.cmbRxTone.Text = Class15.SZ_NONE;
+				this.cmbRxTone.Text = Settings.SZ_NONE;
 			}
 			finally
 			{
@@ -3064,7 +3064,7 @@ namespace DMR
 			{
 				string pattern;
 				Regex regex;
-				if (!(text == Class15.SZ_NONE))
+				if (!(text == Settings.SZ_NONE))
 				{
 					pattern = "D[0-7]{3}N$";
 					regex = new Regex(pattern);
@@ -3074,7 +3074,7 @@ namespace DMR
 						num = Convert.ToUInt16(empty, 8);
 						if (num >= 777)
 						{
-							this.cmbTxTone.Text = Class15.SZ_NONE;
+							this.cmbTxTone.Text = Settings.SZ_NONE;
 							goto IL_006b;
 						}
 						goto end_IL_0015;
@@ -3090,7 +3090,7 @@ namespace DMR
 				}
 				else
 				{
-					this.cmbTxTone.Text = Class15.SZ_NONE;
+					this.cmbTxTone.Text = Settings.SZ_NONE;
 				}
 				goto end_IL_0015;
 				IL_006b:
@@ -3102,7 +3102,7 @@ namespace DMR
 					num = Convert.ToUInt16(empty, 8);
 					if (num >= 777)
 					{
-						this.cmbTxTone.Text = Class15.SZ_NONE;
+						this.cmbTxTone.Text = Settings.SZ_NONE;
 						goto IL_00b1;
 					}
 					goto end_IL_0015;
@@ -3113,7 +3113,7 @@ namespace DMR
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				this.cmbTxTone.Text = Class15.SZ_NONE;
+				this.cmbTxTone.Text = Settings.SZ_NONE;
 			}
 			finally
 			{
@@ -3142,8 +3142,8 @@ namespace DMR
 
 		private void method_9()
 		{
-			this.chkDataPl.Enabled = (this.cmbRxSignaling.SelectedIndex > 0 && this.chkDataPl.Parent.Enabled && this.cmbRxTone.Text != Class15.SZ_NONE);
-			if (this.cmbRxSignaling.SelectedIndex != 0 && !(this.cmbRxTone.Text == Class15.SZ_NONE))
+			this.chkDataPl.Enabled = (this.cmbRxSignaling.SelectedIndex > 0 && this.chkDataPl.Parent.Enabled && this.cmbRxTone.Text != Settings.SZ_NONE);
+			if (this.cmbRxSignaling.SelectedIndex != 0 && !(this.cmbRxTone.Text == Settings.SZ_NONE))
 			{
 				return;
 			}
@@ -3152,7 +3152,7 @@ namespace DMR
 
 		private void method_10()
 		{
-			this.cmbArts.Enabled = (this.cmbRxTone.Text != Class15.SZ_NONE && this.cmbTxTone.Text != Class15.SZ_NONE && this.cmbArts.Parent.Enabled);
+			this.cmbArts.Enabled = (this.cmbRxTone.Text != Settings.SZ_NONE && this.cmbTxTone.Text != Settings.SZ_NONE && this.cmbArts.Parent.Enabled);
 		}
 
 		private void method_11()
@@ -3160,7 +3160,7 @@ namespace DMR
 			string text = this.cmbArts.Text;
 			if (this.chkRxOnly.Checked)
 			{
-				Class15.smethod_40(this.cmbArts, ChannelForm.SZ_ARTS, new int[2]
+				Settings.smethod_40(this.cmbArts, ChannelForm.SZ_ARTS, new int[2]
 				{
 					0,
 					2
@@ -3168,7 +3168,7 @@ namespace DMR
 			}
 			else
 			{
-				Class15.smethod_39(this.cmbArts, ChannelForm.SZ_ARTS);
+				Settings.smethod_39(this.cmbArts, ChannelForm.SZ_ARTS);
 			}
 			int num = this.cmbArts.FindStringExact(text);
 			if (num < 0)
@@ -3187,14 +3187,14 @@ namespace DMR
 			Regex regex = new Regex(pattern);
 			if (regex.IsMatch(string_0))
 			{
-				Class15.smethod_37(this.cmbSte, new string[1]
+				Settings.smethod_37(this.cmbSte, new string[1]
 				{
 					ChannelForm.SZ_STE[0]
 				});
 			}
 			else
 			{
-				Class15.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
+				Settings.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
 			}
 		}
 
@@ -3202,7 +3202,7 @@ namespace DMR
 		{
 			if (this.cmbChMode.SelectedIndex == 0)
 			{
-				if (this.cmbTxTone.Text == Class15.SZ_NONE)
+				if (this.cmbTxTone.Text == Settings.SZ_NONE)
 				{
 					if (this.cmbAdmitCriteria.Text == ChannelForm.SZ_ADMIT_CRITERICA[2])
 					{
@@ -3219,7 +3219,7 @@ namespace DMR
 
 		private void method_14()
 		{
-			this.cmbUnmuteRule.Enabled = (this.cmbRxTone.Text != Class15.SZ_NONE && this.cmbUnmuteRule.Parent.Enabled);
+			this.cmbUnmuteRule.Enabled = (this.cmbRxTone.Text != Settings.SZ_NONE && this.cmbUnmuteRule.Parent.Enabled);
 		}
 
 		private void method_15()
@@ -3228,7 +3228,7 @@ namespace DMR
 			string text = this.cmbRxTone.Text;
 			string pattern = "D[0-7]{3}[N|I]$";
 			Regex regex = new Regex(pattern);
-			if (text == Class15.SZ_NONE)
+			if (text == Settings.SZ_NONE)
 			{
 				this.cmbSte.Enabled = false;
 				this.cmbNonSte.Enabled = true;
@@ -3239,7 +3239,7 @@ namespace DMR
 				this.cmbNonSte.Enabled = false;
 				if (regex.IsMatch(text))
 				{
-					Class15.smethod_37(this.cmbSte, new string[1]
+					Settings.smethod_37(this.cmbSte, new string[1]
 					{
 						ChannelForm.SZ_STE[0]
 					});
@@ -3248,7 +3248,7 @@ namespace DMR
 				else if (double.TryParse(text, out num))
 				{
 					string text2 = this.cmbSte.Text;
-					Class15.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
+					Settings.smethod_37(this.cmbSte, ChannelForm.SZ_STE);
 					if (this.cmbSte.FindString(text2) < 0)
 					{
 						this.cmbSte.SelectedIndex = 0;
@@ -3326,7 +3326,7 @@ namespace DMR
 			{
 				if (ZoneForm.data.FstZoneFstCh == (int)base.Tag + 1)
 				{
-					MessageBox.Show(Class15.dicCommon["FirstChNotDelete"]);
+					MessageBox.Show(Settings.dicCommon["FirstChNotDelete"]);
 				}
 				else
 				{
@@ -3431,19 +3431,19 @@ namespace DMR
 			this.tsmiLast = new ToolStripMenuItem();
 			this.tsmiAdd = new ToolStripMenuItem();
 			this.tsmiDel = new ToolStripMenuItem();
-			this.pnlChannel = new Class3();
+			this.pnlChannel = new CustomPanel();
 			this.btnCopy = new Button();
-			this.cmbScanList = new Class4();
+			this.cmbScanList = new CustomCombo();
 			this.txtName = new SGTextBox();
 			this.cmbSquelch = new ComboBox();
 			this.cmbSql = new ComboBox();
 			this.cmbAdmitCriteria = new ComboBox();
 			this.lblSquelch = new Label();
-			this.nudRssiThreshold = new Class12();
+			this.nudRssiThreshold = new CustomNumericUpDown();
 			this.lblSql = new Label();
 			this.grpDigit = new Class2();
-			this.nudTxColor = new Class12();
-			this.nudRxColor = new Class12();
+			this.nudTxColor = new CustomNumericUpDown();
+			this.nudRxColor = new CustomNumericUpDown();
 			this.cmbTimingPreference = new ComboBox();
 			this.cmbRepeaterSlot = new ComboBox();
 			this.lblTimingPreference = new Label();
@@ -3451,14 +3451,14 @@ namespace DMR
 			this.lblRepeaterSlot = new Label();
 			this.cmbKeySwitch = new ComboBox();
 			this.lblArs = new Label();
-			this.cmbKey = new Class4();
+			this.cmbKey = new CustomCombo();
 			this.lblKeySwitch = new Label();
 			this.lblKey = new Label();
-			this.cmbRxGroup = new Class4();
+			this.cmbRxGroup = new CustomCombo();
 			this.lblTxColor = new Label();
-			this.cmbEmgSystem = new Class4();
+			this.cmbEmgSystem = new CustomCombo();
 			this.lblEmgSystem = new Label();
-			this.cmbContact = new Class4();
+			this.cmbContact = new CustomCombo();
 			this.lblContact = new Label();
 			this.chkDualCapacity = new CheckBox();
 			this.chkUdpDataHead = new CheckBox();
@@ -3474,7 +3474,7 @@ namespace DMR
 			this.cmbRxRefFreq = new ComboBox();
 			this.chkAllowTalkaround = new CheckBox();
 			this.grpAnalog = new Class2();
-			this.nudArtsInterval = new Class12();
+			this.nudArtsInterval = new CustomNumericUpDown();
 			this.cmbChBandwidth = new ComboBox();
 			this.lblChBandwidth = new Label();
 			this.cmbVoiceEmphasis = new ComboBox();
@@ -3488,7 +3488,7 @@ namespace DMR
 			this.lblRxTone = new Label();
 			this.cmbUnmuteRule = new ComboBox();
 			this.lblRxSignaling = new Label();
-			this.cmbArts = new Class4();
+			this.cmbArts = new CustomCombo();
 			this.cmbPttidType = new ComboBox();
 			this.lblUnmuteRule = new Label();
 			this.lblArtsInterval = new Label();
@@ -3517,9 +3517,9 @@ namespace DMR
 			this.cmbTxRefFreq = new ComboBox();
 			this.lblPower = new Label();
 			this.lblAdmitCriteria = new Label();
-			this.nudTotRekey = new Class12();
+			this.nudTotRekey = new CustomNumericUpDown();
 			this.lblTxFreq = new Label();
-			this.nudTot = new Class12();
+			this.nudTot = new CustomNumericUpDown();
 			this.lblScanList = new Label();
             this.lblxband = new Label();
 			this.tsrCh.SuspendLayout();
@@ -3741,7 +3741,7 @@ namespace DMR
 			this.nudRssiThreshold.Location = new Point(909, -3);
 			this.nudRssiThreshold.Name = "nudRssiThreshold";
 			this.nudRssiThreshold.method_6(null);
-			Class12 @class = this.nudRssiThreshold;
+			CustomNumericUpDown @class = this.nudRssiThreshold;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudRssiThreshold.Size = new Size(120, 23);
@@ -3794,7 +3794,7 @@ namespace DMR
 			this.nudTxColor.Location = new Point(233, 118);
 			this.nudTxColor.Name = "nudTxColor";
 			this.nudTxColor.method_6(null);
-			Class12 class2 = this.nudTxColor;
+			CustomNumericUpDown class2 = this.nudTxColor;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudTxColor.Size = new Size(120, 23);
@@ -3804,7 +3804,7 @@ namespace DMR
 			this.nudRxColor.Location = new Point(101, 314);
 			this.nudRxColor.Name = "nudRxColor";
 			this.nudRxColor.method_6(null);
-			Class12 class3 = this.nudRxColor;
+			CustomNumericUpDown class3 = this.nudRxColor;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudRxColor.Size = new Size(120, 23);
@@ -4048,7 +4048,7 @@ namespace DMR
 			this.nudArtsInterval.Location = new Point(417, 263);
 			this.nudArtsInterval.Name = "nudArtsInterval";
 			this.nudArtsInterval.method_6(null);
-			Class12 class4 = this.nudArtsInterval;
+			CustomNumericUpDown class4 = this.nudArtsInterval;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudArtsInterval.Size = new Size(99, 23);
@@ -4332,7 +4332,7 @@ namespace DMR
 			this.nudTotRekey.Location = new Point(659, 116);
 			this.nudTotRekey.Name = "nudTotRekey";
 			this.nudTotRekey.method_6(null);
-			Class12 class5 = this.nudTotRekey;
+			CustomNumericUpDown class5 = this.nudTotRekey;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudTotRekey.Size = new Size(120, 23);
@@ -4347,7 +4347,7 @@ namespace DMR
 			this.nudTot.Location = new Point(659, 86);
 			this.nudTot.Name = "nudTot";
 			this.nudTot.method_6(null);
-			Class12 class6 = this.nudTot;
+			CustomNumericUpDown class6 = this.nudTot;
 			int[] bits6 = new int[4];
 			class6.method_4(new decimal(bits6));
 			this.nudTot.Size = new Size(120, 23);

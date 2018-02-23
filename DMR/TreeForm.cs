@@ -39,7 +39,7 @@ namespace DMR
 		public TreeForm()
 		{
 			this.method_1();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 	}
 }

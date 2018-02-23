@@ -39,15 +39,15 @@ namespace DMR
 			this.data = new byte[40];
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void VoteScanForm_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				Class15.smethod_59(base.Controls);
-				Class15.smethod_68(this);
+				Settings.smethod_59(base.Controls);
+				Settings.smethod_68(this);
 				this.chkChMark.Checked = Convert.ToBoolean(this.data[37] & 0x10);
 				this.chkTalkback.Checked = Convert.ToBoolean(this.data[37] & 0x80);
 				this.chkEarlyUnmute.Checked = Convert.ToBoolean(this.data[37] & 8);

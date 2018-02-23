@@ -256,10 +256,10 @@ namespace DMR
 
 			public void Verify(SignalingBasic def)
 			{
-				Class15.smethod_11(ref this.rmDuration, (byte)1, (byte)12, def.rmDuration);
-				Class15.smethod_11(ref this.txSyncWakeTot, (byte)5, (byte)15, def.txSyncWakeTot);
-				Class15.smethod_11(ref this.selCallHang, (byte)0, (byte)14, def.selCallHang);
-				Class15.smethod_11(ref this.autoResetTimer, (byte)1, (byte)255, def.autoResetTimer);
+				Settings.smethod_11(ref this.rmDuration, (byte)1, (byte)12, def.rmDuration);
+				Settings.smethod_11(ref this.txSyncWakeTot, (byte)5, (byte)15, def.txSyncWakeTot);
+				Settings.smethod_11(ref this.selCallHang, (byte)0, (byte)14, def.selCallHang);
+				Settings.smethod_11(ref this.autoResetTimer, (byte)1, (byte)255, def.autoResetTimer);
 				byte b = Convert.ToByte((this.flag1 & 0x1C) >> 2);
 				if (b >= 0 && b <= 4)
 				{
@@ -360,17 +360,17 @@ namespace DMR
 
 		private Label lblTxWakeMsgLimit;
 
-		private Class12 nudSelCallHang;
+		private CustomNumericUpDown nudSelCallHang;
 
-		private Class12 nudAutoResetTimer;
+		private CustomNumericUpDown nudAutoResetTimer;
 
-		private Class12 nudRMDuration;
+		private CustomNumericUpDown nudRMDuration;
 
-		private Class12 nudTxSyncWakeTot;
+		private CustomNumericUpDown nudTxSyncWakeTot;
 
-		private Class12 nudTxWakeMsgLimit;
+		private CustomNumericUpDown nudTxWakeMsgLimit;
 
-		private Class3 pnlSignalingBasic;
+		private CustomPanel pnlSignalingBasic;
 
 		public TreeNode Node
 		{
@@ -426,7 +426,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.chkRadioDisable.Enabled &= flag;
 			this.chkRemoteMonitor.Enabled &= flag;
 			this.chkEmgRM.Enabled &= flag;
@@ -447,7 +447,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_1();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -460,15 +460,15 @@ namespace DMR
 			this.nudTxSyncWakeTot.Maximum = 375m;
 			this.nudTxSyncWakeTot.Increment = 25m;
 			this.nudTxSyncWakeTot.method_0(3);
-			Class15.smethod_36(this.nudTxWakeMsgLimit, new Class13(0, 4, 1, 1m, 1));
-			Class15.smethod_36(this.nudSelCallHang, new Class13(0, 14, 1, 500m, 4));
-			Class15.smethod_36(this.nudAutoResetTimer, new Class13(1, 255, 1, 1m, 3));
+			Settings.smethod_36(this.nudTxWakeMsgLimit, new Class13(0, 4, 1, 1m, 1));
+			Settings.smethod_36(this.nudSelCallHang, new Class13(0, 14, 1, 500m, 4));
+			Settings.smethod_36(this.nudAutoResetTimer, new Class13(1, 255, 1, 1m, 3));
 		}
 
 		private void SignalingBasicForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 
@@ -489,20 +489,20 @@ namespace DMR
 
 		private void method_1()
 		{
-			this.pnlSignalingBasic = new Class3();
-			this.nudTxSyncWakeTot = new Class12();
+			this.pnlSignalingBasic = new CustomPanel();
+			this.nudTxSyncWakeTot = new CustomNumericUpDown();
 			this.chkCallAlert = new CheckBox();
-			this.nudAutoResetTimer = new Class12();
+			this.nudAutoResetTimer = new CustomNumericUpDown();
 			this.chkRadioDisable = new CheckBox();
-			this.nudTxWakeMsgLimit = new Class12();
+			this.nudTxWakeMsgLimit = new CustomNumericUpDown();
 			this.chkRemoteMonitor = new CheckBox();
-			this.nudRMDuration = new Class12();
+			this.nudRMDuration = new CustomNumericUpDown();
 			this.chkEmgRM = new CheckBox();
 			this.lblTxSyncWakeTot = new Label();
 			this.chkSelCall = new CheckBox();
 			this.lblTxWakeMsgLimit = new Label();
 			this.cmbSelCallToneId = new ComboBox();
-			this.nudSelCallHang = new Class12();
+			this.nudSelCallHang = new CustomNumericUpDown();
 			this.lblSelCallToneId = new Label();
 			this.lblRMDuration = new Label();
 			this.lblSelCallHang = new Label();
@@ -563,7 +563,7 @@ namespace DMR
 			});
 			this.nudTxSyncWakeTot.Name = "nudTxSyncWakeTot";
 			this.nudTxSyncWakeTot.method_6(null);
-			Class12 @class = this.nudTxSyncWakeTot;
+			CustomNumericUpDown @class = this.nudTxSyncWakeTot;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudTxSyncWakeTot.Size = new Size(120, 23);
@@ -601,7 +601,7 @@ namespace DMR
 			});
 			this.nudAutoResetTimer.Name = "nudAutoResetTimer";
 			this.nudAutoResetTimer.method_6(null);
-			Class12 class2 = this.nudAutoResetTimer;
+			CustomNumericUpDown class2 = this.nudAutoResetTimer;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudAutoResetTimer.Size = new Size(120, 23);
@@ -639,7 +639,7 @@ namespace DMR
 			});
 			this.nudTxWakeMsgLimit.Name = "nudTxWakeMsgLimit";
 			this.nudTxWakeMsgLimit.method_6(null);
-			Class12 class3 = this.nudTxWakeMsgLimit;
+			CustomNumericUpDown class3 = this.nudTxWakeMsgLimit;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudTxWakeMsgLimit.Size = new Size(120, 23);
@@ -683,7 +683,7 @@ namespace DMR
 			});
 			this.nudRMDuration.Name = "nudRMDuration";
 			this.nudRMDuration.method_6(null);
-			Class12 class4 = this.nudRMDuration;
+			CustomNumericUpDown class4 = this.nudRMDuration;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudRMDuration.Size = new Size(120, 23);
@@ -752,7 +752,7 @@ namespace DMR
 			});
 			this.nudSelCallHang.Name = "nudSelCallHang";
 			this.nudSelCallHang.method_6(null);
-			Class12 class5 = this.nudSelCallHang;
+			CustomNumericUpDown class5 = this.nudSelCallHang;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudSelCallHang.Size = new Size(120, 23);

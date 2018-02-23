@@ -99,7 +99,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -115,7 +115,7 @@ namespace DMR
 
 		private void ComForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.method_0();
 			this.cmbPort.SelectedItem = MainForm.CurCom;
 		}
@@ -125,7 +125,7 @@ namespace DMR
 			try
 			{
 				MainForm.CurCom = this.cmbPort.SelectedItem.ToString();
-				Class6.smethod_6("Setup", "Com", MainForm.CurCom);
+				IniFileUtils.smethod_6("Setup", "Com", MainForm.CurCom);
 				base.Close();
 			}
 			catch (Exception ex)

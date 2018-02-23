@@ -33,7 +33,7 @@ namespace DMR
 
 		private Button btnAdd;
 
-		private Class4 cmbAddChMode;
+		private CustomCombo cmbAddChMode;
 
 		private SGTextBox txtRxFreq;
 
@@ -102,18 +102,18 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_2();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(ChannelsForm).Name;
-			Class15.smethod_78("HeaderText", ChannelsForm.SZ_HEADER_TEXT, name);
+			Settings.smethod_78("HeaderText", ChannelsForm.SZ_HEADER_TEXT, name);
 		}
 
 		private void ChannelsForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.method_1();
 			this.DispData();
 			this.cmbAddChMode.SelectedIndex = 0;
@@ -151,7 +151,7 @@ namespace DMR
 			int index2 = (int)this.dgvChannels.CurrentRow.Tag;
 			if (index == 0)
 			{
-				MessageBox.Show(Class15.dicCommon["FirstNotDelete"]);
+				MessageBox.Show(Settings.dicCommon["FirstNotDelete"]);
 			}
 			else
 			{
@@ -203,7 +203,7 @@ namespace DMR
 					}
 					continue;
 				}
-				MessageBox.Show(Class15.dicCommon["FirstNotDelete"]);
+				MessageBox.Show(Settings.dicCommon["FirstNotDelete"]);
 				break;
 			}
 			this.method_0();
@@ -358,9 +358,9 @@ namespace DMR
 				dataGridViewTextBoxColumn.Width = array[num++];
 				this.dgvChannels.Columns.Add(dataGridViewTextBoxColumn);
 			}
-			Class15.smethod_37(this.cmbAddChMode, ChannelForm.SZ_CH_MODE);
-			Class15.smethod_37(this.cmbChMode, ChannelForm.SZ_CH_MODE);
-			Class15.smethod_37(this.cmbPower, ChannelForm.SZ_POWER);
+			Settings.smethod_37(this.cmbAddChMode, ChannelForm.SZ_CH_MODE);
+			Settings.smethod_37(this.cmbChMode, ChannelForm.SZ_CH_MODE);
+			Settings.smethod_37(this.cmbPower, ChannelForm.SZ_POWER);
 			this.txtName.MaxLength = 16;
 			this.txtRxFreq.MaxLength = 9;
 			this.txtTxFreq.MaxLength = 9;
@@ -482,13 +482,13 @@ namespace DMR
 			{
 				uint num2 = 0u;
 				num = double.Parse(text);
-				if (Class15.smethod_19(num, ref num2) < 0)
+				if (Settings.smethod_19(num, ref num2) < 0)
 				{
 					return;
 				}
-				int_ = Class15.smethod_27(num, 100000.0);
-				Class15.smethod_29(ref int_, 250, 625);
-				num = Class15.smethod_28(int_, 100000);
+				int_ = Settings.smethod_27(num, 100000.0);
+				Settings.smethod_29(ref int_, 250, 625);
+				num = Settings.smethod_28(int_, 100000);
 				text = string.Format("{0:f5}", num);
 			}
 			catch
@@ -516,13 +516,13 @@ namespace DMR
 			{
 				uint num2 = 0u;
 				num = double.Parse(text);
-				if (Class15.smethod_19(num, ref num2) < 0)
+				if (Settings.smethod_19(num, ref num2) < 0)
 				{
 					return;
 				}
-				int_ = Class15.smethod_27(num, 100000.0);
-				Class15.smethod_29(ref int_, 250, 625);
-				num = Class15.smethod_28(int_, 100000);
+				int_ = Settings.smethod_27(num, 100000.0);
+				Settings.smethod_29(ref int_, 250, 625);
+				num = Settings.smethod_28(int_, 100000);
 				text = string.Format("{0:f5}", num);
 			}
 			catch
@@ -594,7 +594,7 @@ namespace DMR
 			this.txtName = new SGTextBox();
 			this.cmbPower = new ComboBox();
 			this.cmbChMode = new ComboBox();
-			this.cmbAddChMode = new Class4();
+			this.cmbAddChMode = new CustomCombo();
 			this.btnClear = new Button();
 			this.btnDelete = new Button();
 			this.btnAdd = new Button();

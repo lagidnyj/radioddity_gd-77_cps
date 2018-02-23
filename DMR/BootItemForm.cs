@@ -113,8 +113,8 @@ namespace DMR
 
 			public void Verify(BootItem def)
 			{
-				Class15.smethod_11(ref this.bootScreen, BootItemForm.MIN_BOOT_SCREEN, BootItemForm.MAX_BOOT_SCREEN, def.bootScreen);
-				Class15.smethod_11(ref this.bootPwdEnable, (byte)0, (byte)1, def.bootPwdEnable);
+				Settings.smethod_11(ref this.bootScreen, BootItemForm.MIN_BOOT_SCREEN, BootItemForm.MAX_BOOT_SCREEN, def.bootScreen);
+				Settings.smethod_11(ref this.bootPwdEnable, (byte)0, (byte)1, def.bootPwdEnable);
 			}
 		}
 
@@ -131,11 +131,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.booLine1);
+					return Settings.smethod_25(this.booLine1);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.booLine1.smethod_0((byte)255);
 					Array.Copy(array, 0, this.booLine1, 0, Math.Min(array.Length, this.booLine1.Length));
 				}
@@ -145,11 +145,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.booLine2);
+					return Settings.smethod_25(this.booLine2);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.booLine2.smethod_0((byte)255);
 					Array.Copy(array, 0, this.booLine2, 0, Math.Min(array.Length, this.booLine2.Length));
 				}
@@ -382,7 +382,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.grpBootScreen.Enabled &= flag;
 			this.chkBootPwdEnable.Enabled &= flag;
 			this.lblBootPwd.Enabled &= flag;
@@ -398,14 +398,14 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			this.txtBootPwd.MaxLength = 6;
 			this.txtBootPwd.InputString = "0123456789\b";
-			Class15.smethod_37(this.cmbBootScreen, BootItemForm.SZ_BOOT_SCREEN);
+			Settings.smethod_37(this.cmbBootScreen, BootItemForm.SZ_BOOT_SCREEN);
 			this.txtLine1.MaxByteLength = 15;
 			this.txtLine2.MaxByteLength = 15;
 		}
@@ -413,13 +413,13 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(BootItemForm).Name;
-			Class15.smethod_78("BootScreen", BootItemForm.SZ_BOOT_SCREEN, name);
+			Settings.smethod_78("BootScreen", BootItemForm.SZ_BOOT_SCREEN, name);
 		}
 
 		private void BootItemForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_1();
 			this.DispData();
 		}

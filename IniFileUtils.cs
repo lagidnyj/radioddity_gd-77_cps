@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-internal class Class6
+internal class IniFileUtils
 {
 	private static string iniPath;
 
@@ -25,64 +25,62 @@ internal class Class6
 
 	public static string smethod_0()
 	{
-		return Class6.iniPath;
+		return IniFileUtils.iniPath;
 	}
 
 	public static void smethod_1(string string_0)
 	{
-		Class6.iniPath = string_0;
+		IniFileUtils.iniPath = string_0;
 	}
 
-	private Class6(string string_0)
+	private IniFileUtils(string string_0)
 	{
-		
-		//base._002Ector();
-		Class6.smethod_1(string_0);
+		IniFileUtils.smethod_1(string_0);
 	}
 
 	public static int smethod_2(string string_0, string string_1, int int_0)
 	{
-		return Class6.GetPrivateProfileInt(string_0, string_1, int_0, Class6.iniPath);
+		return IniFileUtils.GetPrivateProfileInt(string_0, string_1, int_0, IniFileUtils.iniPath);
 	}
 
 	public static void smethod_3(string string_0, string string_1, int int_0)
 	{
-		Class6.WritePrivateProfileString(string_0, string_1, int_0.ToString(), Class6.iniPath);
+		IniFileUtils.WritePrivateProfileString(string_0, string_1, int_0.ToString(), IniFileUtils.iniPath);
 	}
 
 	public static string smethod_4(string string_0, string string_1, string string_2)
 	{
 		StringBuilder stringBuilder = new StringBuilder(1024);
-		Class6.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, 1024, Class6.iniPath);
+		IniFileUtils.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, 1024, IniFileUtils.iniPath);
 		return stringBuilder.ToString();
 	}
 
 	public static string smethod_5(string string_0, string string_1, string string_2, int int_0)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
-		Class6.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, int_0, Class6.iniPath);
+		IniFileUtils.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, int_0, IniFileUtils.iniPath);
 		return stringBuilder.ToString();
 	}
 
 	public static void smethod_6(string string_0, string string_1, string string_2)
 	{
-		Class6.WritePrivateProfileString(string_0, string_1, string_2, Class6.iniPath);
+		IniFileUtils.WritePrivateProfileString(string_0, string_1, string_2, IniFileUtils.iniPath);
 	}
 
 	public static void smethod_7(string string_0, string string_1)
 	{
-		Class6.WritePrivateProfileString(string_0, string_1, null, Class6.iniPath);
+		IniFileUtils.WritePrivateProfileString(string_0, string_1, null, IniFileUtils.iniPath);
 	}
 
 	public static void smethod_8(string string_0)
 	{
-		Class6.WritePrivateProfileString(string_0, null, null, Class6.iniPath);
+		IniFileUtils.WritePrivateProfileString(string_0, null, null, IniFileUtils.iniPath);
 	}
 
 	public static int smethod_9(out string[] string_0)
 	{
 		IntPtr intPtr = Marshal.AllocCoTaskMem(32767);
-		int privateProfileSectionNames = Class6.GetPrivateProfileSectionNames(intPtr, 32767, Class6.iniPath);
+		int privateProfileSectionNames = IniFileUtils.GetPrivateProfileSectionNames(intPtr, 32767, IniFileUtils.iniPath);
 		if (privateProfileSectionNames == 0)
 		{
 			string_0 = null;
@@ -99,7 +97,7 @@ internal class Class6
 	public static int smethod_10(string string_0, out string[] string_1, out string[] string_2)
 	{
 		byte[] array = new byte[65535];
-		Class6.GetPrivateProfileSection(string_0, array, array.Length, Class6.iniPath);
+		IniFileUtils.GetPrivateProfileSection(string_0, array, array.Length, IniFileUtils.iniPath);
 		string @string = Encoding.Default.GetString(array);
 		string text = @string;
 		char[] separator = new char[1];
@@ -137,9 +135,9 @@ internal class Class6
 		return 0;
 	}
 
-	static Class6()
+	static IniFileUtils()
 	{
 		
-		Class6.iniPath = Application.StartupPath + "\\Setup.ini";
+		IniFileUtils.iniPath = Application.StartupPath + "\\Setup.ini";
 	}
 }

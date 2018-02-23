@@ -798,19 +798,19 @@ namespace DMR
 
 			public void Verify(GeneralSet def)
 			{
-				Class15.smethod_11(ref this.txPreambleDur, (byte)0, (byte)144, def.txPreambleDur);
+				Settings.smethod_11(ref this.txPreambleDur, (byte)0, (byte)144, def.txPreambleDur);
 				if (!Enum.IsDefined(typeof(MonitorType), (int)this.monitorType))
 				{
 					this.monitorType = def.monitorType;
 				}
-				Class15.smethod_11(ref this.voxSense, (byte)1, (byte)10, def.voxSense);
-				Class15.smethod_11(ref this.rxLowBatt, (byte)0, (byte)127, def.rxLowBatt);
-				Class15.smethod_11(ref this.callAlertDur, (byte)0, (byte)240, def.callAlertDur);
-				Class15.smethod_11(ref this.reminderTmr, (byte)1, (byte)255, def.reminderTmr);
-				Class15.smethod_11(ref this.respTmr, (byte)1, (byte)255, def.respTmr);
-				Class15.smethod_11(ref this.grpHang, (byte)0, (byte)14, def.grpHang);
-				Class15.smethod_11(ref this.privateHang, (byte)0, (byte)14, def.privateHang);
-				int num = Class15.smethod_14(this.flag1, 6, 2);
+				Settings.smethod_11(ref this.voxSense, (byte)1, (byte)10, def.voxSense);
+				Settings.smethod_11(ref this.rxLowBatt, (byte)0, (byte)127, def.rxLowBatt);
+				Settings.smethod_11(ref this.callAlertDur, (byte)0, (byte)240, def.callAlertDur);
+				Settings.smethod_11(ref this.reminderTmr, (byte)1, (byte)255, def.reminderTmr);
+				Settings.smethod_11(ref this.respTmr, (byte)1, (byte)255, def.respTmr);
+				Settings.smethod_11(ref this.grpHang, (byte)0, (byte)14, def.grpHang);
+				Settings.smethod_11(ref this.privateHang, (byte)0, (byte)14, def.privateHang);
+				int num = Settings.smethod_14(this.flag1, 6, 2);
 				if (!Enum.IsDefined(typeof(ArtsTone), num))
 				{
 					this.ArtsTone = def.ArtsTone;
@@ -962,7 +962,7 @@ namespace DMR
 
 		private SGTextBox txtProgramPwd;
 
-		private Class12 nudTxPreambleDur;
+		private CustomNumericUpDown nudTxPreambleDur;
 
 		private CheckBox chkBatteryPreamble;
 
@@ -982,27 +982,27 @@ namespace DMR
 
 		private Label lblCallAlertDur;
 
-		private Class12 nudCallAlertDur;
+		private CustomNumericUpDown nudCallAlertDur;
 
 		private Label lblPrivateHang;
 
-		private Class12 nudPrivateHang;
+		private CustomNumericUpDown nudPrivateHang;
 
 		private Label lblGrpHold;
 
-		private Class12 nudGrpHang;
+		private CustomNumericUpDown nudGrpHang;
 
 		private Label lblReminderTmr;
 
 		private Label lblRespTmr;
 
-		private Class12 nudReminderTmr;
+		private CustomNumericUpDown nudReminderTmr;
 
-		private Class12 nudRespTmr;
+		private CustomNumericUpDown nudRespTmr;
 
 		private Label lblRxLowBatt;
 
-		private Class12 nudRxLowBatt;
+		private CustomNumericUpDown nudRxLowBatt;
 
 		private Label lblArtsTone;
 
@@ -1018,7 +1018,7 @@ namespace DMR
 
 		private Label lblArsInitDly;
 
-		private Class12 nudArsInitDly;
+		private CustomNumericUpDown nudArsInitDly;
 
 		private GroupBox grpSaveMode;
 
@@ -1026,7 +1026,7 @@ namespace DMR
 
 		private GroupBox grpTalkAround;
 
-		private Class3 pnlFill;
+		private CustomPanel pnlFill;
 
 		private GroupBox grpBeep;
 
@@ -1086,7 +1086,7 @@ namespace DMR
 
 		private void method_0()
 		{
-			this.pnlFill = new Class3();
+			this.pnlFill = new CustomPanel();
 			this.lblDownChMode = new Label();
 			this.lblUpChMode = new Label();
 			this.cmbDownChMode = new ComboBox();
@@ -1099,7 +1099,7 @@ namespace DMR
 			this.chkResetTone = new CheckBox();
 			this.chkUnifamiliarNumber = new CheckBox();
 			this.lblCallAlertDur = new Label();
-			this.nudCallAlertDur = new Class12();
+			this.nudCallAlertDur = new CustomNumericUpDown();
 			this.chkSelfTestPassTone = new CheckBox();
 			this.chkCrescendoTone = new CheckBox();
 			this.chkChFreeTone = new CheckBox();
@@ -1116,13 +1116,13 @@ namespace DMR
 			this.chkBatteryRx = new CheckBox();
 			this.chkBatteryPreamble = new CheckBox();
 			this.grpLoneWork = new GroupBox();
-			this.nudRespTmr = new Class12();
+			this.nudRespTmr = new CustomNumericUpDown();
 			this.lblReminderTmr = new Label();
 			this.lblRespTmr = new Label();
-			this.nudReminderTmr = new Class12();
+			this.nudReminderTmr = new CustomNumericUpDown();
 			this.grpTalkAround = new GroupBox();
-			this.nudGrpHang = new Class12();
-			this.nudPrivateHang = new Class12();
+			this.nudGrpHang = new CustomNumericUpDown();
+			this.nudPrivateHang = new CustomNumericUpDown();
 			this.lblPrivateHang = new Label();
 			this.lblGrpHold = new Label();
 			this.chkDisableAllLeds = new CheckBox();
@@ -1130,11 +1130,11 @@ namespace DMR
 			this.txtRadioName = new TextBox();
 			this.label_0 = new Label();
 			this.lblTxPreambleDur = new Label();
-			this.nudArsInitDly = new Class12();
+			this.nudArsInitDly = new CustomNumericUpDown();
 			this.lblProgramPwd = new Label();
-			this.nudRxLowBatt = new Class12();
+			this.nudRxLowBatt = new CustomNumericUpDown();
 			this.txtRadioId = new SGTextBox();
-			this.nudTxPreambleDur = new Class12();
+			this.nudTxPreambleDur = new CustomNumericUpDown();
 			this.lblRxLowBatt = new Label();
 			this.chkKillState = new CheckBox();
 			this.chkTestMode = new CheckBox();
@@ -1336,7 +1336,7 @@ namespace DMR
 			});
 			this.nudCallAlertDur.Name = "nudCallAlertDur";
 			this.nudCallAlertDur.method_6(null);
-			Class12 @class = this.nudCallAlertDur;
+			CustomNumericUpDown @class = this.nudCallAlertDur;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudCallAlertDur.Size = new Size(120, 23);
@@ -1499,7 +1499,7 @@ namespace DMR
 			});
 			this.nudRespTmr.Name = "nudRespTmr";
 			this.nudRespTmr.method_6(null);
-			Class12 class2 = this.nudRespTmr;
+			CustomNumericUpDown class2 = this.nudRespTmr;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudRespTmr.Size = new Size(120, 23);
@@ -1541,7 +1541,7 @@ namespace DMR
 			});
 			this.nudReminderTmr.Name = "nudReminderTmr";
 			this.nudReminderTmr.method_6(null);
-			Class12 class3 = this.nudReminderTmr;
+			CustomNumericUpDown class3 = this.nudReminderTmr;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudReminderTmr.Size = new Size(120, 23);
@@ -1581,7 +1581,7 @@ namespace DMR
 			});
 			this.nudGrpHang.Name = "nudGrpHang";
 			this.nudGrpHang.method_6(null);
-			Class12 class4 = this.nudGrpHang;
+			CustomNumericUpDown class4 = this.nudGrpHang;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudGrpHang.Size = new Size(120, 23);
@@ -1611,7 +1611,7 @@ namespace DMR
 			});
 			this.nudPrivateHang.Name = "nudPrivateHang";
 			this.nudPrivateHang.method_6(null);
-			Class12 class5 = this.nudPrivateHang;
+			CustomNumericUpDown class5 = this.nudPrivateHang;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudPrivateHang.Size = new Size(120, 23);
@@ -1682,7 +1682,7 @@ namespace DMR
 			});
 			this.nudArsInitDly.Name = "nudArsInitDly";
 			this.nudArsInitDly.method_6(null);
-			Class12 class6 = this.nudArsInitDly;
+			CustomNumericUpDown class6 = this.nudArsInitDly;
 			int[] bits6 = new int[4];
 			class6.method_4(new decimal(bits6));
 			this.nudArsInitDly.Size = new Size(120, 23);
@@ -1719,7 +1719,7 @@ namespace DMR
 			});
 			this.nudRxLowBatt.Name = "nudRxLowBatt";
 			this.nudRxLowBatt.method_6(null);
-			Class12 class7 = this.nudRxLowBatt;
+			CustomNumericUpDown class7 = this.nudRxLowBatt;
 			int[] bits7 = new int[4];
 			class7.method_4(new decimal(bits7));
 			this.nudRxLowBatt.Size = new Size(120, 23);
@@ -1757,7 +1757,7 @@ namespace DMR
 			});
 			this.nudTxPreambleDur.Name = "nudTxPreambleDur";
 			this.nudTxPreambleDur.method_6(null);
-			Class12 class8 = this.nudTxPreambleDur;
+			CustomNumericUpDown class8 = this.nudTxPreambleDur;
 			int[] bits8 = new int[4];
 			class8.method_4(new decimal(bits8));
 			this.nudTxPreambleDur.Size = new Size(120, 23);
@@ -1939,7 +1939,7 @@ namespace DMR
 				GeneralSetForm.data.TxExitTone = this.chkTxExitTone.Checked;
 				GeneralSetForm.data.ScanMode = this.cmbScanMode.SelectedIndex;
 				GeneralSetForm.data.PrgPwd = this.txtProgramPwd.Text;
-				Class15.smethod_61(GeneralSetForm.data, Marshal.SizeOf(GeneralSetForm.data.GetType()));
+				Settings.smethod_61(GeneralSetForm.data, Marshal.SizeOf(GeneralSetForm.data.GetType()));
 			}
 			catch (Exception ex)
 			{
@@ -1997,7 +1997,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblTxPreambleDur.Enabled &= flag;
 			this.nudTxPreambleDur.Enabled &= flag;
 			this.lblRxLowBatt.Enabled &= flag;
@@ -2040,7 +2040,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
@@ -2048,24 +2048,24 @@ namespace DMR
 			this.txtRadioName.MaxLength = 8;
 			this.txtRadioId.MaxLength = 8;
 			this.txtRadioId.InputString = "0123456789\b";
-			Class15.smethod_36(this.nudArsInitDly, new Class13(0, 8, 1, 30m, 3));
-			Class15.smethod_36(this.nudTxPreambleDur, new Class13(0, 144, 1, 60m, 4));
-			Class15.smethod_37(this.cmbMonitorType, GeneralSetForm.SZ_MONITOR_TYPE);
-			Class15.smethod_41(this.cmbVoxSense, 1, 10);
-			Class15.smethod_37(this.cmbTalkPermitTone, GeneralSetForm.SZ_TALK_PERMIT_TONE);
-			Class15.smethod_36(this.nudRxLowBatt, new Class13(0, 127, 1, 5m, 3));
-			Class15.smethod_36(this.nudCallAlertDur, new Class13(0, 240, 1, 5m, 4));
+			Settings.smethod_36(this.nudArsInitDly, new Class13(0, 8, 1, 30m, 3));
+			Settings.smethod_36(this.nudTxPreambleDur, new Class13(0, 144, 1, 60m, 4));
+			Settings.smethod_37(this.cmbMonitorType, GeneralSetForm.SZ_MONITOR_TYPE);
+			Settings.smethod_41(this.cmbVoxSense, 1, 10);
+			Settings.smethod_37(this.cmbTalkPermitTone, GeneralSetForm.SZ_TALK_PERMIT_TONE);
+			Settings.smethod_36(this.nudRxLowBatt, new Class13(0, 127, 1, 5m, 3));
+			Settings.smethod_36(this.nudCallAlertDur, new Class13(0, 240, 1, 5m, 4));
 			this.nudCallAlertDur.method_4(0m);
 			this.nudCallAlertDur.method_6("∞");
-			Class15.smethod_37(this.cmbUpChMode, GeneralSetForm.SZ_CH_MODE);
-			Class15.smethod_37(this.cmbDownChMode, GeneralSetForm.SZ_CH_MODE);
-			Class15.smethod_37(this.cmbArtsTone, GeneralSetForm.SZ_ARTS_TONE);
-			Class15.smethod_36(this.nudRespTmr, new Class13(1, 255, 1, 1m, 3));
-			Class15.smethod_36(this.nudReminderTmr, new Class13(1, 255, 1, 1m, 3));
-			Class15.smethod_36(this.nudGrpHang, new Class13(0, 14, 1, 500m, 4));
-			Class15.smethod_36(this.nudPrivateHang, new Class13(0, 14, 1, 500m, 4));
-			Class15.smethod_37(this.cmbVoiceLang, GeneralSetForm.SZ_VOICE_LANG);
-			Class15.smethod_37(this.cmbScanMode, GeneralSetForm.SZ_SCAN_MODE);
+			Settings.smethod_37(this.cmbUpChMode, GeneralSetForm.SZ_CH_MODE);
+			Settings.smethod_37(this.cmbDownChMode, GeneralSetForm.SZ_CH_MODE);
+			Settings.smethod_37(this.cmbArtsTone, GeneralSetForm.SZ_ARTS_TONE);
+			Settings.smethod_36(this.nudRespTmr, new Class13(1, 255, 1, 1m, 3));
+			Settings.smethod_36(this.nudReminderTmr, new Class13(1, 255, 1, 1m, 3));
+			Settings.smethod_36(this.nudGrpHang, new Class13(0, 14, 1, 500m, 4));
+			Settings.smethod_36(this.nudPrivateHang, new Class13(0, 14, 1, 500m, 4));
+			Settings.smethod_37(this.cmbVoiceLang, GeneralSetForm.SZ_VOICE_LANG);
+			Settings.smethod_37(this.cmbScanMode, GeneralSetForm.SZ_SCAN_MODE);
 			this.txtProgramPwd.MaxByteLength = 8;
 			this.txtProgramPwd.InputString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\b";
 		}
@@ -2073,17 +2073,17 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(GeneralSetForm).Name;
-			Class15.smethod_78("MonitorType", GeneralSetForm.SZ_MONITOR_TYPE, name);
-			Class15.smethod_78("TalkPermitTone", GeneralSetForm.SZ_TALK_PERMIT_TONE, name);
-			Class15.smethod_78("ArtsToneName", GeneralSetForm.SZ_ARTS_TONE, name);
-			Class15.smethod_78("ChannelMode", GeneralSetForm.SZ_CH_MODE, name);
-			Class15.smethod_78("ScanMode", GeneralSetForm.SZ_SCAN_MODE, name);
+			Settings.smethod_78("MonitorType", GeneralSetForm.SZ_MONITOR_TYPE, name);
+			Settings.smethod_78("TalkPermitTone", GeneralSetForm.SZ_TALK_PERMIT_TONE, name);
+			Settings.smethod_78("ArtsToneName", GeneralSetForm.SZ_ARTS_TONE, name);
+			Settings.smethod_78("ChannelMode", GeneralSetForm.SZ_CH_MODE, name);
+			Settings.smethod_78("ScanMode", GeneralSetForm.SZ_SCAN_MODE, name);
 		}
 
 		private void GeneralSetForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 
@@ -2097,7 +2097,7 @@ namespace DMR
 			if (string.IsNullOrEmpty(this.txtRadioId.Text))
 			{
 				e.Cancel = true;
-				MessageBox.Show(Class15.dicCommon["IdNotEmpty"]);
+				MessageBox.Show(Settings.dicCommon["IdNotEmpty"]);
 				this.txtRadioId.Focus();
 				this.txtRadioId.SelectAll();
 			}
@@ -2109,7 +2109,7 @@ namespace DMR
 					return;
 				}
 				e.Cancel = true;
-				MessageBox.Show(Class15.dicCommon["IdOutOfRange"]);
+				MessageBox.Show(Settings.dicCommon["IdOutOfRange"]);
 				this.txtRadioId.Text = 16776415.ToString();
 				this.txtRadioId.Focus();
 				this.txtRadioId.SelectAll();

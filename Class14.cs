@@ -14,18 +14,18 @@ internal class Class14
 		set;
 	}
 
-    int _003CDispNum_003Ek__BackingField;
+    int _DispNum;
 
 	[CompilerGenerated]
 	public int method_0()
 	{
-		return this._003CDispNum_003Ek__BackingField;
+		return this._DispNum;
 	}
 
 	[CompilerGenerated]
 	public void method_1(int int_0)
 	{
-		this._003CDispNum_003Ek__BackingField = int_0;
+		this._DispNum = int_0;
 	}
 
 	public Class14(int int_0, int int_1, string string_0)

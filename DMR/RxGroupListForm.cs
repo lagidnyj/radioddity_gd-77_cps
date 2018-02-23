@@ -27,11 +27,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -278,7 +278,7 @@ namespace DMR
 				string text = "";
 				num2 = this.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -288,7 +288,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -367,7 +367,7 @@ namespace DMR
 
 		private Button btnDown;
 
-		private Class3 pnlRxGrpList;
+		private CustomPanel pnlRxGrpList;
 
 		public static RxList data;
 
@@ -396,7 +396,7 @@ namespace DMR
 			this.lblName = new Label();
 			this.grpUnselected = new GroupBox();
 			this.grpSelected = new GroupBox();
-			this.pnlRxGrpList = new Class3();
+			this.pnlRxGrpList = new CustomPanel();
 			this.btnDown = new Button();
 			this.btnUp = new Button();
 			this.txtName = new SGTextBox();
@@ -603,19 +603,19 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			this.txtName.MaxByteLength = 15;
-			this.txtName.KeyPress += Class15.smethod_54;
+			this.txtName.KeyPress += Settings.smethod_54;
 		}
 
 		private void RxGroupListForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_1();
 			this.DispData();
 		}
@@ -788,7 +788,7 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
 					this.txtName.Text = this.Node.Text;
 				}

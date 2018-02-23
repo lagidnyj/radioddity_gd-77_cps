@@ -36,11 +36,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -190,7 +190,7 @@ namespace DMR
 				{
 					if (this.ringStyle == 0)
 					{
-						return Class15.SZ_NONE;
+						return Settings.SZ_NONE;
 					}
 					return this.ringStyle.ToString();
 				}
@@ -198,7 +198,7 @@ namespace DMR
 				{
 					try
 					{
-						if (value == Class15.SZ_NONE)
+						if (value == Settings.SZ_NONE)
 						{
 							this.ringStyle = 0;
 						}
@@ -228,7 +228,7 @@ namespace DMR
 
 			public ContactOne Clone()
 			{
-				return Class15.smethod_65(this);
+				return Settings.smethod_65(this);
 			}
 
 			public void Default()
@@ -252,8 +252,8 @@ namespace DMR
 				{
 					this.callType = def.callType;
 				}
-				Class15.smethod_11(ref this.callRxTone, (byte)0, (byte)1, def.callRxTone);
-				Class15.smethod_11(ref this.ringStyle, (byte)0, (byte)10, def.ringStyle);
+				Settings.smethod_11(ref this.callRxTone, (byte)0, (byte)1, def.callRxTone);
+				Settings.smethod_11(ref this.ringStyle, (byte)0, (byte)10, def.ringStyle);
 			}
 		}
 
@@ -670,7 +670,7 @@ namespace DMR
 				string text = "";
 				num2 = ContactForm.data.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -680,7 +680,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -759,11 +759,11 @@ namespace DMR
 		private Label lblName;
 		private Label lblCallId;
 		private Label lblCallType;
-		private Class4 cmbCallType;
+		private CustomCombo cmbCallType;
 		private SGTextBox txtCallId;
-		private Class4 cmbRingStyle;
+		private CustomCombo cmbRingStyle;
 		private Label lblRingStyle;
-		private Class3 pnlContact;
+		private CustomPanel pnlContact;
 		public static readonly string[] SZ_CALL_TYPE;
 		public static readonly string[] SZ_CALL_RX_TONE;
 		public static ContactOne DefaultContact;
@@ -790,10 +790,10 @@ namespace DMR
 			this.lblName = new Label();
 			this.lblCallId = new Label();
 			this.lblCallType = new Label();
-			this.pnlContact = new Class3();
+			this.pnlContact = new CustomPanel();
 			this.txtCallId = new SGTextBox();
-			this.cmbRingStyle = new Class4();
-			this.cmbCallType = new Class4();
+			this.cmbRingStyle = new CustomCombo();
+			this.cmbCallType = new CustomCombo();
 			this.lblRingStyle = new Label();
 			this.txtName = new SGTextBox();
 			this.pnlContact.SuspendLayout();
@@ -961,7 +961,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblRingStyle.Enabled &= flag;
 			this.cmbRingStyle.Enabled &= flag;
 			this.chkCallRxTone.Enabled &= flag;
@@ -978,14 +978,14 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		public void InitData()
 		{
 			int i = 0;
 			this.txtName.MaxLength = 16;
-			this.txtName.KeyPress += Class15.smethod_54;
+			this.txtName.KeyPress += Settings.smethod_54;
 			this.txtCallId.MaxLength = 8;
 			i = 0;
 			this.cmbCallType.Items.Clear();
@@ -994,7 +994,7 @@ namespace DMR
 				this.cmbCallType.method_1(ContactForm.SZ_CALL_TYPE[i++], value);
 			}
 			this.cmbRingStyle.Items.Clear();
-			this.cmbRingStyle.Items.Add(Class15.SZ_NONE);
+			this.cmbRingStyle.Items.Add(Settings.SZ_NONE);
 			for (i = 1; i <= 10; i++)
 			{
 				this.cmbRingStyle.Items.Add(i.ToString());
@@ -1005,8 +1005,8 @@ namespace DMR
 		{
 			try
 			{
-				Class15.smethod_59(base.Controls);
-				Class15.smethod_68(this);
+				Settings.smethod_59(base.Controls);
+				Settings.smethod_68(this);
 				this.InitData();
 				this.DispData();
 				this.method_3();
@@ -1025,8 +1025,8 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(ContactForm).Name;
-			Class15.smethod_78("CallType", ContactForm.SZ_CALL_TYPE, name);
-			Class15.smethod_78("CallRxTone", ContactForm.SZ_CALL_RX_TONE, name);
+			Settings.smethod_78("CallType", ContactForm.SZ_CALL_TYPE, name);
+			Settings.smethod_78("CallRxTone", ContactForm.SZ_CALL_RX_TONE, name);
 		}
 
 		private void method_3()
@@ -1072,7 +1072,7 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
 					this.txtName.Text = this.Node.Text;
 				}
@@ -1098,7 +1098,7 @@ namespace DMR
 			if (num2 < 1 || num2 > 16776415)
 			{
 				e.Cancel = true;
-				MessageBox.Show(Class15.dicCommon["IdOutOfRange"]);
+				MessageBox.Show(Settings.dicCommon["IdOutOfRange"]);
 				this.txtCallId.Focus();
 				this.txtCallId.SelectAll();
 				base.Activate();
@@ -1107,7 +1107,7 @@ namespace DMR
 			if (ContactForm.data.CallIdExist(index, selectedIndex, text2))
 			{
 				e.Cancel = true;
-				MessageBox.Show(Class15.dicCommon["IdAlreadyExists"]);
+				MessageBox.Show(Settings.dicCommon["IdAlreadyExists"]);
 				this.txtCallId.Focus();
 				this.txtCallId.SelectAll();
 				base.Activate();

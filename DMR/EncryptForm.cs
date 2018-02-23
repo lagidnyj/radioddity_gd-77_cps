@@ -308,7 +308,7 @@ namespace DMR
 
 		private DataGridViewTextBoxColumn txtKey;
 
-		private Class3 pnlEncrypt;
+		private CustomPanel pnlEncrypt;
 
 		public TreeNode Node
 		{
@@ -321,7 +321,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_4();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
         int _003CPreKeyLen_003Ek__BackingField;
@@ -379,7 +379,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblType.Enabled &= flag;
 			this.cmbType.Enabled &= flag;
 			this.lblKeyLen.Enabled &= flag;
@@ -399,21 +399,21 @@ namespace DMR
 			dataGridViewTextBoxColumn.MaxInputLength = 8;
 			dataGridViewTextBoxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-			Class15.smethod_37(this.cmbType, EncryptForm.SZ_ENCRYPT_TYPE);
+			Settings.smethod_37(this.cmbType, EncryptForm.SZ_ENCRYPT_TYPE);
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(EncryptForm).Name;
-			Class15.smethod_78("EncryptType", EncryptForm.SZ_ENCRYPT_TYPE, name);
+			Settings.smethod_78("EncryptType", EncryptForm.SZ_ENCRYPT_TYPE, name);
 		}
 
 		private void EncryptForm_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				Class15.smethod_59(base.Controls);
-				Class15.smethod_68(this);
+				Settings.smethod_59(base.Controls);
+				Settings.smethod_68(this);
 				this.method_2();
 				this.DispData();
 			}
@@ -551,8 +551,8 @@ namespace DMR
 			if (e.Control is DataGridViewTextBoxEditingControl)
 			{
 				DataGridViewTextBoxEditingControl dataGridViewTextBoxEditingControl = (DataGridViewTextBoxEditingControl)e.Control;
-				dataGridViewTextBoxEditingControl.KeyPress -= Class15.smethod_58;
-				dataGridViewTextBoxEditingControl.KeyPress += Class15.smethod_58;
+				dataGridViewTextBoxEditingControl.KeyPress -= Settings.smethod_58;
+				dataGridViewTextBoxEditingControl.KeyPress += Settings.smethod_58;
 				dataGridViewTextBoxEditingControl.CharacterCasing = CharacterCasing.Upper;
 			}
 		}
@@ -604,7 +604,7 @@ namespace DMR
 			this.txtKey = new DataGridViewTextBoxColumn();
 			this.btnDel = new Button();
 			this.btnAdd = new Button();
-			this.pnlEncrypt = new Class3();
+			this.pnlEncrypt = new CustomPanel();
 			((ISupportInitialize)this.dgvKey).BeginInit();
 			this.pnlEncrypt.SuspendLayout();
 			base.SuspendLayout();

@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Windows.Forms;
 
-internal class Class4 : ComboBox
+internal class CustomCombo : ComboBox
 {
 	private Hashtable ItemList;
 
-	public Class4():base()
+	public CustomCombo():base()
 	{
 		
 		this.ItemList = new Hashtable();

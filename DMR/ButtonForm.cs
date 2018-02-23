@@ -152,7 +152,7 @@ namespace DMR
 
 			public void ShortKeyIsValid(ref byte shortKey, ref byte longKey, byte defShortKey)
 			{
-				if (Class15.smethod_12(shortKey, ButtonForm.MIN_KEY, ButtonForm.MAX_KEY))
+				if (Settings.smethod_12(shortKey, ButtonForm.MIN_KEY, ButtonForm.MAX_KEY))
 				{
 					if (shortKey == 21)
 					{
@@ -175,7 +175,7 @@ namespace DMR
 
 			public void LongKeyIsValid(ref byte longKey, ref byte shortKey, byte defLongKey)
 			{
-				if (Class15.smethod_12(longKey, ButtonForm.MIN_KEY, ButtonForm.MAX_KEY))
+				if (Settings.smethod_12(longKey, ButtonForm.MIN_KEY, ButtonForm.MAX_KEY))
 				{
 					if (longKey == 2)
 					{
@@ -194,8 +194,8 @@ namespace DMR
 
 			public void Verify(SideKey def)
 			{
-				Class15.smethod_11(ref this.emgShortDur, (byte)1, (byte)15, def.emgShortDur);
-				Class15.smethod_11(ref this.longDur, (byte)4, (byte)15, def.longDur);
+				Settings.smethod_11(ref this.emgShortDur, (byte)1, (byte)15, def.emgShortDur);
+				Settings.smethod_11(ref this.longDur, (byte)4, (byte)15, def.longDur);
 				this.ShortKeyIsValid(ref this.sk1Short, ref this.sk1Long, def.sk1Short);
 				this.LongKeyIsValid(ref this.sk1Long, ref this.sk1Short, def.sk1Long);
 				this.ShortKeyIsValid(ref this.sk2Short, ref this.sk2Long, def.sk2Short);
@@ -386,19 +386,19 @@ namespace DMR
 
 		//private IContainer components;
 
-		private Class12 nudLongDur;
+		private CustomNumericUpDown nudLongDur;
 
-		private Class12 nudEmgShortDur;
+		private CustomNumericUpDown nudEmgShortDur;
 
 		private Label lblLongDur;
 
 		private Label lblEmgShortDur;
 
-		private Class4 cmbTkShort;
+		private CustomCombo cmbTkShort;
 
-		private Class4 class4_0;
+		private CustomCombo class4_0;
 
-		private Class4 class4_1;
+		private CustomCombo class4_1;
 
 		private Label lblTK;
 
@@ -408,13 +408,13 @@ namespace DMR
 
 		private Label lblShortPress;
 
-		private Class4 class4_2;
+		private CustomCombo class4_2;
 
 		private DataGridView dgvOneTouch;
 
-		private Class4 class4_3;
+		private CustomCombo class4_3;
 
-		private Class4 cmbTkLong;
+		private CustomCombo cmbTkLong;
 
 		private Label lblLongPress;
 
@@ -426,7 +426,7 @@ namespace DMR
 
 		private DataGridViewComboBoxColumn cmbMsg;
 
-		private Class3 pnlButton;
+		private CustomPanel pnlButton;
 
 		private static readonly string[] SZ_BUTTON_ITEM;
 
@@ -467,23 +467,23 @@ namespace DMR
 		private void method_0()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
-			this.pnlButton = new Class3();
-			this.class4_1 = new Class4();
+			this.pnlButton = new CustomPanel();
+			this.class4_1 = new CustomCombo();
 			this.dgvOneTouch = new DataGridView();
 			this.cmbMode = new DataGridViewComboBoxColumn();
 			this.cmbCallType = new DataGridViewComboBoxColumn();
 			this.cmbCallList = new DataGridViewComboBoxColumn();
 			this.cmbMsg = new DataGridViewComboBoxColumn();
 			this.lblEmgShortDur = new Label();
-			this.class4_2 = new Class4();
+			this.class4_2 = new CustomCombo();
 			this.lblLongDur = new Label();
-			this.cmbTkLong = new Class4();
-			this.nudEmgShortDur = new Class12();
-			this.cmbTkShort = new Class4();
-			this.nudLongDur = new Class12();
-			this.class4_3 = new Class4();
+			this.cmbTkLong = new CustomCombo();
+			this.nudEmgShortDur = new CustomNumericUpDown();
+			this.cmbTkShort = new CustomCombo();
+			this.nudLongDur = new CustomNumericUpDown();
+			this.class4_3 = new CustomCombo();
 			this.lblSK1 = new Label();
-			this.class4_0 = new Class4();
+			this.class4_0 = new CustomCombo();
 			this.lblSK2 = new Label();
 			this.lblLongPress = new Label();
 			this.lblTK = new Label();
@@ -608,7 +608,7 @@ namespace DMR
 			});
 			this.nudEmgShortDur.Name = "nudEmgShortDur";
 			this.nudEmgShortDur.method_6(null);
-			Class12 @class = this.nudEmgShortDur;
+			CustomNumericUpDown @class = this.nudEmgShortDur;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudEmgShortDur.Size = new Size(120, 23);
@@ -653,7 +653,7 @@ namespace DMR
 			});
 			this.nudLongDur.Name = "nudLongDur";
 			this.nudLongDur.method_6(null);
-			Class12 class2 = this.nudLongDur;
+			CustomNumericUpDown class2 = this.nudLongDur;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudLongDur.Size = new Size(120, 23);
@@ -779,7 +779,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblLongDur.Enabled &= flag;
 			this.nudLongDur.Enabled &= flag;
 		}
@@ -794,14 +794,14 @@ namespace DMR
 			this.dicCom = new Dictionary<string, string>();
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			int num = 0;
-			Class15.smethod_36(this.nudEmgShortDur, new Class13(1, 15, 1, 50m, 3));
-			Class15.smethod_36(this.nudLongDur, new Class13(4, 15, 1, 250m, 4));
+			Settings.smethod_36(this.nudEmgShortDur, new Class13(1, 15, 1, 50m, 3));
+			Settings.smethod_36(this.nudLongDur, new Class13(4, 15, 1, 250m, 4));
 			this.class4_1.Items.Clear();
 			this.class4_2.Items.Clear();
 			this.class4_0.Items.Clear();
@@ -836,8 +836,8 @@ namespace DMR
 		{
 			try
 			{
-				Class15.smethod_59(base.Controls);
-				Class15.smethod_68(this);
+				Settings.smethod_59(base.Controls);
+				Settings.smethod_68(this);
 				this.method_1();
 				this.DispData();
 			}
@@ -855,10 +855,10 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(ButtonForm).Name;
-			Class15.smethod_78("ButtonItem", ButtonForm.SZ_BUTTON_ITEM, name);
-			Class15.smethod_78("Mode", ButtonForm.SZ_MODE, name);
-			Class15.smethod_78("CallTypeD", ButtonForm.SZ_CALL_TYPE_D, name);
-			Class15.smethod_78("CallTypeA", ButtonForm.SZ_CALL_TYPE_A, name);
+			Settings.smethod_78("ButtonItem", ButtonForm.SZ_BUTTON_ITEM, name);
+			Settings.smethod_78("Mode", ButtonForm.SZ_MODE, name);
+			Settings.smethod_78("CallTypeD", ButtonForm.SZ_CALL_TYPE_D, name);
+			Settings.smethod_78("CallTypeA", ButtonForm.SZ_CALL_TYPE_A, name);
 		}
 
 		private void method_2()
@@ -868,7 +868,7 @@ namespace DMR
 			string text = "";
 			string text2 = "";
 			this.cmbMsg.Items.Clear();
-			this.cmbMsg.Items.Add(new Class5(Class15.dicCommon["None"], 0));
+			this.cmbMsg.Items.Add(new Class5(Settings.dicCommon["None"], 0));
 			for (num = 0; num < 32; num++)
 			{
 				if (TextMsgForm.data[num] >= 1 && TextMsgForm.data[num] <= 145)
@@ -913,7 +913,7 @@ namespace DMR
 					dataGridViewComboBoxCell.Items.Add(new Class5(string_2, num++));
 				}
 				dataGridViewComboBoxCell2.Items.Clear();
-				dataGridViewComboBoxCell2.Items.Add(new Class5(Class15.SZ_NONE, 0));
+				dataGridViewComboBoxCell2.Items.Add(new Class5(Settings.SZ_NONE, 0));
 				for (num = 0; num < 1024; num++)
 				{
 					if (ContactForm.data.DataIsValid(num))
@@ -934,7 +934,7 @@ namespace DMR
 					dataGridViewComboBoxCell.Items.Add(new Class5(string_, num++));
 				}
 				dataGridViewComboBoxCell2.Items.Clear();
-				dataGridViewComboBoxCell2.Items.Add(new Class5(Class15.SZ_NONE, 0));
+				dataGridViewComboBoxCell2.Items.Add(new Class5(Settings.SZ_NONE, 0));
 				for (num = 0; num < 32; num++)
 				{
 					if (DtmfContactForm.data.Valid(num))

@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-internal class Class3 : Panel
+internal class CustomPanel : Panel
 {
 	protected override void OnClick(EventArgs e)
 	{
@@ -9,7 +9,7 @@ internal class Class3 : Panel
 		base.OnClick(e);
 	}
 
-	public Class3() : base()
+	public CustomPanel() : base()
 	{
 		
 		////base._002Ector();

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Xml;
 using WeifenLuo.WinFormsUI.Docking;
 
-internal class Class15
+internal class Settings
 {
 	public enum UserMode
 	{
@@ -322,78 +322,78 @@ internal class Class15
 	[CompilerGenerated]
 	public static string smethod_0()
 	{
-		return Class15._003CLangXml_003Ek__BackingField;
+		return Settings._003CLangXml_003Ek__BackingField;
 	}
 
 	[CompilerGenerated]
 	public static void smethod_1(string string_0)
 	{
-		Class15._003CLangXml_003Ek__BackingField = string_0;
+		Settings._003CLangXml_003Ek__BackingField = string_0;
 	}
     static string _003CLangChm_003Ek__BackingField;
 	[CompilerGenerated]
 	public static string smethod_2()
 	{
-		return Class15._003CLangChm_003Ek__BackingField;
+		return Settings._003CLangChm_003Ek__BackingField;
 	}
 
 	[CompilerGenerated]
 	public static void smethod_3(string string_0)
 	{
-		Class15._003CLangChm_003Ek__BackingField = string_0;
+		Settings._003CLangChm_003Ek__BackingField = string_0;
 	}
 
 	public static UserMode smethod_4()
 	{
-		return Class15.curUserMode;
+		return Settings.curUserMode;
 	}
 
 	public static void smethod_5(UserMode userMode_0)
 	{
-		Class15.curUserMode = userMode_0;
+		Settings.curUserMode = userMode_0;
 	}
 
     static SizeF _003CFactor_003Ek__BackingField;
 	[CompilerGenerated]
 	public static SizeF smethod_6()
 	{
-		return Class15._003CFactor_003Ek__BackingField;
+		return Settings._003CFactor_003Ek__BackingField;
 	}
 
 	[CompilerGenerated]
 	public static void smethod_7(SizeF sizeF_0)
 	{
-		Class15._003CFactor_003Ek__BackingField = sizeF_0;
+		Settings._003CFactor_003Ek__BackingField = sizeF_0;
 	}
 
     static string _003CCurUserPwd_003Ek__BackingField;
 	[CompilerGenerated]
 	public static string smethod_8()
 	{
-		return Class15._003CCurUserPwd_003Ek__BackingField;
+		return Settings._003CCurUserPwd_003Ek__BackingField;
 	}
 
 	[CompilerGenerated]
 	public static void smethod_9(string string_0)
 	{
-		Class15._003CCurUserPwd_003Ek__BackingField = string_0;
+		Settings._003CCurUserPwd_003Ek__BackingField = string_0;
 	}
 
 	public static void smethod_10()
 	{
-		Class15.smethod_76("None", ref Class15.SZ_NONE);
-		Class15.smethod_76("Selected", ref Class15.SZ_SELECTED);
-		Class15.smethod_76("Add", ref Class15.SZ_ADD);
-		Class15.smethod_76("Off", ref Class15.SZ_OFF);
-		Class15.smethod_76("DeviceNotFound", ref Class15.SZ_DEVICE_NOT_FOUND);
-		Class15.smethod_76("CommError", ref Class15.SZ_COMM_ERROR);
-		Class15.smethod_76("Model does not match", ref Class15.SZ_MODEL_NOT_MATCH);
-		Class15.smethod_76("DataFormatError", ref Class15.SZ_DATA_FORMAT_ERROR);
+		Settings.smethod_76("None", ref Settings.SZ_NONE);
+		Settings.smethod_76("Selected", ref Settings.SZ_SELECTED);
+		Settings.smethod_76("Add", ref Settings.SZ_ADD);
+		Settings.smethod_76("Off", ref Settings.SZ_OFF);
+		Settings.smethod_76("DeviceNotFound", ref Settings.SZ_DEVICE_NOT_FOUND);
+		Settings.smethod_76("CommError", ref Settings.SZ_COMM_ERROR);
+		Settings.smethod_76("Model does not match", ref Settings.SZ_MODEL_NOT_MATCH);
+		Settings.smethod_76("DataFormatError", ref Settings.SZ_DATA_FORMAT_ERROR);
 	}
 
 	public static void smethod_11(ref byte byte_0, byte byte_1, byte byte_2, byte byte_3)
 	{
-		if (!Class15.smethod_12(byte_0, byte_1, byte_2))
+		if (!Settings.smethod_12(byte_0, byte_1, byte_2))
 		{
 			byte_0 = byte_3;
 		}
@@ -476,13 +476,13 @@ internal class Class15
 		num = 0;
 		while (true)
 		{
-			if (num < Class15.MIN_FREQ.Length)
+			if (num < Settings.MIN_FREQ.Length)
 			{
-				if (Class15.MIN_FREQ[num] < Class15.MAX_FREQ[num] && uint_0 == 0)
+				if (Settings.MIN_FREQ[num] < Settings.MAX_FREQ[num] && uint_0 == 0)
 				{
-					uint_0 = Class15.MIN_FREQ[num];
+					uint_0 = Settings.MIN_FREQ[num];
 				}
-				if (double_0 >= (double)Class15.MIN_FREQ[num] && !(double_0 > (double)Class15.MAX_FREQ[num]))
+				if (double_0 >= (double)Settings.MIN_FREQ[num] && !(double_0 > (double)Settings.MAX_FREQ[num]))
 				{
 					break;
 				}
@@ -500,9 +500,9 @@ internal class Class15
 		int num2 = -1;
 		int num3 = -1;
 		num = 0;
-		while (num < Class15.MIN_FREQ.Length)
+		while (num < Settings.MIN_FREQ.Length)
 		{
-			if (!(double_0 >= (double)Class15.MIN_FREQ[num]) || double_0 > (double)Class15.MAX_FREQ[num])
+			if (!(double_0 >= (double)Settings.MIN_FREQ[num]) || double_0 > (double)Settings.MAX_FREQ[num])
 			{
 				num++;
 				continue;
@@ -511,9 +511,9 @@ internal class Class15
 			break;
 		}
 		num = 0;
-		while (num < Class15.MAX_FREQ.Length)
+		while (num < Settings.MAX_FREQ.Length)
 		{
-			if (!(double_1 >= (double)Class15.MIN_FREQ[num]) || double_1 > (double)Class15.MAX_FREQ[num])
+			if (!(double_1 >= (double)Settings.MIN_FREQ[num]) || double_1 > (double)Settings.MAX_FREQ[num])
 			{
 				num++;
 				continue;
@@ -535,13 +535,13 @@ internal class Class15
 		num = 0;
 		while (true)
 		{
-			if (num < Class15.MIN_FREQ.Length)
+			if (num < Settings.MIN_FREQ.Length)
 			{
-				if (Class15.VALID_MIN_FREQ[num] < Class15.VALID_MAX_FREQ[num] && int_0 < 0)
+				if (Settings.VALID_MIN_FREQ[num] < Settings.VALID_MAX_FREQ[num] && int_0 < 0)
 				{
 					int_0 = num;
 				}
-				if (uint_0 >= Class15.VALID_MIN_FREQ[num] && uint_0 <= Class15.VALID_MAX_FREQ[num])
+				if (uint_0 >= Settings.VALID_MIN_FREQ[num] && uint_0 <= Settings.VALID_MAX_FREQ[num])
 				{
 					break;
 				}
@@ -559,9 +559,9 @@ internal class Class15
 		int num2 = -1;
 		int num3 = -1;
 		num = 0;
-		while (num < Class15.VALID_MIN_FREQ.Length)
+		while (num < Settings.VALID_MIN_FREQ.Length)
 		{
-			if (!(double_0 >= (double)Class15.VALID_MIN_FREQ[num]) || double_0 > (double)Class15.VALID_MAX_FREQ[num])
+			if (!(double_0 >= (double)Settings.VALID_MIN_FREQ[num]) || double_0 > (double)Settings.VALID_MAX_FREQ[num])
 			{
 				num++;
 				continue;
@@ -570,9 +570,9 @@ internal class Class15
 			break;
 		}
 		num = 0;
-		while (num < Class15.VALID_MAX_FREQ.Length)
+		while (num < Settings.VALID_MAX_FREQ.Length)
 		{
-			if (!(double_1 >= (double)Class15.VALID_MIN_FREQ[num]) || double_1 > (double)Class15.VALID_MAX_FREQ[num])
+			if (!(double_1 >= (double)Settings.VALID_MIN_FREQ[num]) || double_1 > (double)Settings.VALID_MAX_FREQ[num])
 			{
 				num++;
 				continue;
@@ -589,7 +589,7 @@ internal class Class15
 
 	public static byte[] smethod_23(string string_0)
 	{
-		return Class15.smethod_24(string_0, "gb2312");
+		return Settings.smethod_24(string_0, "gb2312");
 	}
 
 	public static byte[] smethod_24(string string_0, string string_1)
@@ -604,7 +604,7 @@ internal class Class15
 
 	public static string smethod_25(byte[] byte_0)
 	{
-		return Class15.smethod_26(byte_0, "gb2312");
+		return Settings.smethod_26(byte_0, "gb2312");
 	}
 
 	public static string smethod_26(byte[] byte_0, string string_0)
@@ -773,7 +773,7 @@ internal class Class15
 		return num3;
 	}
 
-	public static void smethod_36(Class12 class12_0, Class13 class13_0)
+	public static void smethod_36(CustomNumericUpDown class12_0, Class13 class13_0)
 	{
 		if (class13_0.method_6() < 0m)
 		{
@@ -811,7 +811,7 @@ internal class Class15
 		}
 	}
 
-	public static void smethod_39(Class4 class4_0, string[] string_0)
+	public static void smethod_39(CustomCombo class4_0, string[] string_0)
 	{
 		int num = 0;
 		class4_0.method_0();
@@ -821,7 +821,7 @@ internal class Class15
 		}
 	}
 
-	public static void smethod_40(Class4 class4_0, string[] string_0, int[] int_0)
+	public static void smethod_40(CustomCombo class4_0, string[] string_0, int[] int_0)
 	{
 		class4_0.method_0();
 		foreach (int num in int_0)
@@ -868,12 +868,12 @@ internal class Class15
 		}
 	}
 
-	public static void smethod_44(Class4 class4_0, IData idata_0)
+	public static void smethod_44(CustomCombo class4_0, IData idata_0)
 	{
 		int num = 0;
 		string text = "";
 		class4_0.method_0();
-		class4_0.method_1(Class15.SZ_NONE, 0);
+		class4_0.method_1(Settings.SZ_NONE, 0);
 		for (num = 0; num < idata_0.Count; num++)
 		{
 			if (idata_0.DataIsValid(num))
@@ -884,7 +884,7 @@ internal class Class15
 		}
 	}
 
-	public static void smethod_45(Class4 class4_0, string[] string_0, IData idata_0)
+	public static void smethod_45(CustomCombo class4_0, string[] string_0, IData idata_0)
 	{
 		int num = 0;
 		string text = "";
@@ -903,7 +903,7 @@ internal class Class15
 		}
 	}
 
-	public static void smethod_46(Class4 class4_0, string[] string_0, ListBox listBox_0)
+	public static void smethod_46(CustomCombo class4_0, string[] string_0, ListBox listBox_0)
 	{
 		int num = 0;
 		string text = "";
@@ -951,7 +951,7 @@ internal class Class15
 			treeNode_0.Expand();
 			foreach (TreeNode node in treeNode_0.Nodes)
 			{
-				Class15.smethod_48(node, int_0);
+				Settings.smethod_48(node, int_0);
 			}
 		}
 	}
@@ -960,7 +960,7 @@ internal class Class15
 	{
 		foreach (TreeNode node in treeView_0.Nodes)
 		{
-			Class15.smethod_48(node, int_0);
+			Settings.smethod_48(node, int_0);
 		}
 	}
 
@@ -1015,7 +1015,7 @@ internal class Class15
 		}
 		if (e.KeyChar != '\b' && e.KeyChar != '.')
 		{
-			MessageBox.Show(Class15.dicCommon["KeyPressPrint"]);
+			MessageBox.Show(Settings.dicCommon["KeyPressPrint"]);
 			e.Handled = true;
 		}
 	}
@@ -1035,7 +1035,7 @@ internal class Class15
 			}
 			if (!numberFormat.NumberDecimalSeparator.Contains(e.KeyChar))
 			{
-				MessageBox.Show(string.Format(Class15.dicCommon["KeyPressDigit"], numberFormat.NumberDecimalSeparator));
+				MessageBox.Show(string.Format(Settings.dicCommon["KeyPressDigit"], numberFormat.NumberDecimalSeparator));
 				e.Handled = true;
 			}
 		}
@@ -1071,7 +1071,7 @@ internal class Class15
 		if ("0123456789ABCD*#\b".IndexOf(char.ToUpper(e.KeyChar)) < 0 && e.KeyChar != '\b' && e.KeyChar != '.')
 		{
 			string str = Regex.Replace("0123456789ABCD*#\b", "[^\\dA-D\\*#]*", "");
-			MessageBox.Show(Class15.dicCommon["KeyPressDtmf"] + str);
+			MessageBox.Show(Settings.dicCommon["KeyPressDtmf"] + str);
 			e.Handled = true;
 		}
 	}
@@ -1094,16 +1094,16 @@ internal class Class15
 				if (item is DataGridView)
 				{
 					DataGridView dataGridView = item as DataGridView;
-					dataGridView.CellEnter += Class15.smethod_52;
+					dataGridView.CellEnter += Settings.smethod_52;
 				}
 				else if (item.Controls.Count > 0)
 				{
-					Class15.smethod_59(item.Controls);
+					Settings.smethod_59(item.Controls);
 				}
 			}
 			else
 			{
-				item.Enter += Class15.smethod_60;
+				item.Enter += Settings.smethod_60;
 			}
 		}
 	}
@@ -1200,9 +1200,9 @@ internal class Class15
 
 	public static string smethod_66(string string_0)
 	{
-		if (Class15.dicCommon.ContainsKey(string_0))
+		if (Settings.dicCommon.ContainsKey(string_0))
 		{
-			return Class15.dicCommon[string_0];
+			return Settings.dicCommon[string_0];
 		}
 		return "";
 	}
@@ -1210,7 +1210,7 @@ internal class Class15
 	public static string smethod_67(string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/Settings/Item[@Id='{0}']", string_0);
 		try
@@ -1231,7 +1231,7 @@ internal class Class15
 	public static void smethod_68(Form form_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}", form_0.Name);
 		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
@@ -1243,7 +1243,7 @@ internal class Class15
 			{
 				dockContent.TabText = xmlNode.Attributes["Text"].Value;
 			}
-			Class15.smethod_69(form_0.smethod_12(), form_0.Name);
+			Settings.smethod_69(form_0.smethod_12(), form_0.Name);
 		}
 		catch (Exception ex)
 		{
@@ -1254,7 +1254,7 @@ internal class Class15
 	public static void smethod_69(List<Control> Db4kySLQw7tX1WlNpo, string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/Controls/Control", string_0);
 		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
@@ -1287,7 +1287,7 @@ internal class Class15
 	public static void smethod_70(List<ToolStripMenuItem> gku9yQXy4fa3WZdpnA, string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/ContextMenuStrip/MenuItem", string_0);
 		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
@@ -1309,7 +1309,7 @@ internal class Class15
 	public static void smethod_71(List<ToolStripItem> LE9oY1wrram2m8Ao56, string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/Controls/Control/ToolStripItem", string_0);
 		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
@@ -1331,7 +1331,7 @@ internal class Class15
 	public static void smethod_72(Dictionary<string, string> I2YgnU9gqyioPitkyF)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/Commons/Item");
 		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
@@ -1348,7 +1348,7 @@ internal class Class15
 	public static void smethod_73(Dictionary<string, string> uxSTPFh3sq4yXxEkYo, string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item", string_0);
 		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
@@ -1365,7 +1365,7 @@ internal class Class15
 	public static void smethod_74(List<string[]> n2SR3VmEodXx385mq9, List<string> AMMonO7JcQ5lQDAuEr, string string_0)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		for (int i = 0; i < n2SR3VmEodXx385mq9.Count; i++)
 		{
 			string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}']", string_0, AMMonO7JcQ5lQDAuEr[i]);
@@ -1385,7 +1385,7 @@ internal class Class15
 	public static void smethod_75(List<string> mTBilSHhIiS5P1HoGl, List<string> QaKAVsVaOpyU5FW5pp)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		for (int i = 0; i < mTBilSHhIiS5P1HoGl.Count; i++)
 		{
 			string xpath = string.Format("/Resource/Commons/Item[@Id='{0}']", QaKAVsVaOpyU5FW5pp[i]);
@@ -1400,7 +1400,7 @@ internal class Class15
 	public static void smethod_76(string string_0, ref string string_1)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/Commons/Item[@Id='{0}' and @Text]", string_0);
 		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
 		if (xmlNode != null)
@@ -1412,7 +1412,7 @@ internal class Class15
 	public static void smethod_77(string string_0, ref string string_1, string string_2)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}' and @Text]", string_2, string_0);
 		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
 		if (xmlNode != null)
@@ -1424,7 +1424,7 @@ internal class Class15
 	public static void smethod_78(string string_0, string[] string_1, string string_2)
 	{
 		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Class15._003CLangXml_003Ek__BackingField);
+		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}' and @Text]", string_2, string_0);
 		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
 		if (xmlNode != null)
@@ -1438,16 +1438,16 @@ internal class Class15
 		}
 	}
 
-	public Class15()
+	public Settings()
 	{
 //		
 	}
 
-	static Class15()
+	static Settings()
 	{
 		
-		Class15.curUserMode = UserMode.Basic;
-		Class15.CUR_MODEL = new byte[8]
+		Settings.curUserMode = UserMode.Basic;
+		Settings.CUR_MODEL = new byte[8]
 		{
 			77,
 			68,
@@ -1458,136 +1458,136 @@ internal class Class15
 			80,
 			255
 		};
-		Class15.SZ_NONE = "None";
-		Class15.SZ_SELECTED = "Selected";
-		Class15.SZ_ADD = "Add";
-		Class15.SZ_OFF = "Off";
-		Class15.SZ_DEVICE_NOT_FOUND = "Device not found";
-		Class15.SZ_OPEN_PORT_FAIL = "";
-		Class15.SZ_COMM_ERROR = "Communication error";
-		Class15.SZ_MODEL_NOT_MATCH = "";
-		Class15.SZ_READ = "Read";
-		Class15.SZ_WRITE = "Write";
-		Class15.SZ_READ_COMPLETE = "Read Complete";
-		Class15.SZ_WRITE_COMPLETE = "Write Complete";
-        Class15.SZ_CODEPLUG_READ_CONFIRM = "Are you sure you want to read the codeplug from the GD-77?\nThis will overwrite the current codeplug.";
-        Class15.SZ_CODEPLUG_WRITE_CONFIRM = "Are you sure you want to write this codeplug to the GD-77?\nThis will overwrite codeplug currently in the GD-77";
-        Class15.SZ_PLEASE_CONFIRM = "Please confirm";
+		Settings.SZ_NONE = "None";
+		Settings.SZ_SELECTED = "Selected";
+		Settings.SZ_ADD = "Add";
+		Settings.SZ_OFF = "Off";
+		Settings.SZ_DEVICE_NOT_FOUND = "Device not found";
+		Settings.SZ_OPEN_PORT_FAIL = "";
+		Settings.SZ_COMM_ERROR = "Communication error";
+		Settings.SZ_MODEL_NOT_MATCH = "";
+		Settings.SZ_READ = "Read";
+		Settings.SZ_WRITE = "Write";
+		Settings.SZ_READ_COMPLETE = "Read Complete";
+		Settings.SZ_WRITE_COMPLETE = "Write Complete";
+        Settings.SZ_CODEPLUG_READ_CONFIRM = "Are you sure you want to read the codeplug from the GD-77?\nThis will overwrite the current codeplug.";
+        Settings.SZ_CODEPLUG_WRITE_CONFIRM = "Are you sure you want to write this codeplug to the GD-77?\nThis will overwrite codeplug currently in the GD-77";
+        Settings.SZ_PLEASE_CONFIRM = "Please confirm";
 
 
-		Class15.SZ_KEYPRESS_DTMF = "";
-		Class15.SZ_KEYPRESS_HEX = "Please Input: ";
-		Class15.SZ_KEYPRESS_DIGIT = "Please input: Digit and {0}";
-		Class15.SZ_KEYPRESS_PRINT = "Please input Alphanumeric symbol";
-		Class15.SZ_DATA_FORMAT_ERROR = "";
-		Class15.SZ_FIRST_CH_NOT_DELETE = "The first channel in the first zone cannot be deleted";
-		Class15.SZ_FIRST_NOT_DELETE = "The first cannot be deleted";
-		Class15.SZ_NAME_EXIST_NAME = "NameExist";
-		Class15.SZ_FILE_FORMAT_ERROR = "File format error!";
-		Class15.SZ_OPEN_SUCCESSFULLY = "Open Successfully!";
-		Class15.SZ_SAVE_SUCCESSFULLY = "Save Successfully";
-		Class15.SZ_TYPE_NOT_MATCH = "Type does not match";
-		Class15.SZ_EXPORT_SUCCESS = "Export Success";
-		Class15.SZ_IMPORT_SUCCESS = "Import Success";
-		Class15.SZ_ID_NOT_EMPTY = "ID can not be empty!";
-		Class15.SZ_ID_OUT_OF_RANGE = "ID out of range!";
-		Class15.SZ_ID_ALREADY_EXISTS = "ID already exists！";
-		Class15.SZ_NOT_SELECT_ITEM_NOT_COPYITEM = "Not select item or Not copyitem";
-		Class15.SZ_PROMPT_KEY1 = "Does the software exit and save the file?";
-		Class15.SZ_PROMPT_KEY2 = "Whether the new, will be restored to the initial state!";
-		Class15.SZ_PROMPT = "Prompt";
-		Class15.SZ_ERROR = "Error";
-		Class15.SZ_WARNING = "Warning";
-		Class15.CUR_MODE = 0;
-		Class15.MIN_FREQ = new uint[2]
+		Settings.SZ_KEYPRESS_DTMF = "";
+		Settings.SZ_KEYPRESS_HEX = "Please Input: ";
+		Settings.SZ_KEYPRESS_DIGIT = "Please input: Digit and {0}";
+		Settings.SZ_KEYPRESS_PRINT = "Please input Alphanumeric symbol";
+		Settings.SZ_DATA_FORMAT_ERROR = "";
+		Settings.SZ_FIRST_CH_NOT_DELETE = "The first channel in the first zone cannot be deleted";
+		Settings.SZ_FIRST_NOT_DELETE = "The first cannot be deleted";
+		Settings.SZ_NAME_EXIST_NAME = "NameExist";
+		Settings.SZ_FILE_FORMAT_ERROR = "File format error!";
+		Settings.SZ_OPEN_SUCCESSFULLY = "Open Successfully!";
+		Settings.SZ_SAVE_SUCCESSFULLY = "Save Successfully";
+		Settings.SZ_TYPE_NOT_MATCH = "Type does not match";
+		Settings.SZ_EXPORT_SUCCESS = "Export Success";
+		Settings.SZ_IMPORT_SUCCESS = "Import Success";
+		Settings.SZ_ID_NOT_EMPTY = "ID can not be empty!";
+		Settings.SZ_ID_OUT_OF_RANGE = "ID out of range!";
+		Settings.SZ_ID_ALREADY_EXISTS = "ID already exists！";
+		Settings.SZ_NOT_SELECT_ITEM_NOT_COPYITEM = "Not select item or Not copyitem";
+		Settings.SZ_PROMPT_KEY1 = "Does the software exit and save the file?";
+		Settings.SZ_PROMPT_KEY2 = "Whether the new, will be restored to the initial state!";
+		Settings.SZ_PROMPT = "Prompt";
+		Settings.SZ_ERROR = "Error";
+		Settings.SZ_WARNING = "Warning";
+		Settings.CUR_MODE = 0;
+		Settings.MIN_FREQ = new uint[2]
 		{
 			400u,
 			136u
 		};
-		Class15.MAX_FREQ = new uint[2]
+		Settings.MAX_FREQ = new uint[2]
 		{
 			480u,
 			174u
 		};
-		Class15.VALID_MIN_FREQ = new uint[2]
+		Settings.VALID_MIN_FREQ = new uint[2]
 		{
 			130u,
 			130u
 		};
-		Class15.VALID_MAX_FREQ = new uint[2]
+		Settings.VALID_MAX_FREQ = new uint[2]
 		{
 			520u,
 			470u
 		};
-		Class15.CUR_CH_GROUP = 0;
-		Class15.CUR_ZONE_GROUP = 0;
-		Class15.CUR_ZONE = 0;
-		Class15.CUR_PWD = "";
-		Class15.EEROM_SPACE = 131072u;
-		Class15.SPACE_DEVICE_INFO = Marshal.SizeOf(typeof(DeviceInfoForm.DeviceInfo));
-		Class15.ADDR_DEVICE_INFO = 128;
-		Class15.OFS_LAST_PRG_TIME = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "lastPrgTime").ToInt32();
-		Class15.OFS_CPS_SW_VER = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "cpsSwVer").ToInt32();
-		Class15.OFS_MODEL = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "model").ToInt32();
-		Class15.SPACE_GENERAL_SET = Marshal.SizeOf(typeof(GeneralSetForm.GeneralSet));
-		Class15.ADDR_GENERAL_SET = 224;
-		Class15.ADDR_PWD = Class15.ADDR_GENERAL_SET + Marshal.OffsetOf(typeof(GeneralSetForm.GeneralSet), "prgPwd").ToInt32();
-		Class15.SPACE_BUTTON = Marshal.SizeOf(typeof(ButtonForm.SideKey));
-		Class15.ADDR_BUTTON = 264;
-		Class15.SPACE_ONE_TOUCH = Marshal.SizeOf(typeof(ButtonForm.OneTouch));
-		Class15.ADDR_ONE_TOUCH = 272;
-		Class15.SPACE_TEXT_MSG = Marshal.SizeOf(typeof(TextMsgForm.TextMsg));
-		Class15.ADDR_TEXT_MSG = 296;
-		Class15.SPACE_ENCRYPT = Marshal.SizeOf(typeof(EncryptForm.Encrypt));
-		Class15.ADDR_ENCRYPT = 4976;
-		Class15.SPACE_SIGNALING_BASIC = Marshal.SizeOf(typeof(SignalingBasicForm.SignalingBasic));
-		Class15.ADDR_SIGNALING_BASIC = 5112;
-		Class15.SPACE_DTMF_BASIC = Marshal.SizeOf(typeof(DtmfForm.Dtmf));
-		Class15.ADDR_DTMF_BASIC = 5120;
-		Class15.SPACE_EMG_SYSTEM = Marshal.SizeOf(typeof(EmergencyForm.Emergency));
-		Class15.ADDR_EMG_SYSTEM = 5512;
-		Class15.SPACE_DMR_CONTACT = Marshal.SizeOf(typeof(ContactForm.Contact));
-		Class15.ADDR_DMR_CONTACT = 6024;
-		Class15.SPACE_DMR_CONTACT_EX = Marshal.SizeOf(typeof(ContactForm.Contact));
-		Class15.ADDR_DMR_CONTACT_EX = 95776;
-		Class15.SPACE_DTMF_CONTACT = Marshal.SizeOf(typeof(DtmfContactForm.DtmfContact));
-		Class15.ADDR_DTMF_CONTACT = 12168;
-		Class15.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxGroupListForm.RxList));
-		Class15.ADDR_RX_GRP_LIST = 13352;
-		Class15.ADDR_RX_GRP_LIST_EX = 120352;
-		Class15.ADDR_ZONE_BASIC = 14136;
-		Class15.ADDR_ZONE_LIST = 14144;
-		Class15.ADDR_CHANNEL = 14208;
-		Class15.SPACE_SCAN_BASIC = Marshal.SizeOf(typeof(ScanBasicForm.ScanBasic));
-		Class15.ADDR_SCAN = 6024;
-		Class15.SPACE_SCAN_LIST = Marshal.SizeOf(typeof(NormalScanForm.NormalScan));
-		Class15.ADDR_SCAN_LIST = Class15.ADDR_SCAN + Class15.SPACE_SCAN_BASIC;
-		Class15.SPACE_BOOT_ITEM = Marshal.SizeOf(typeof(BootItemForm.BootItem));
-		Class15.ADDR_BOOT_ITEM = 29976;
-		Class15.SPACE_DIGITAL_KEY_CONTACT = Marshal.SizeOf(typeof(DigitalKeyContactForm.NumKeyContact));
-		Class15.ADDR_DIGITAL_KEY_CONTACT = 29984;
-		Class15.SPACE_MENU_CONFIG = Marshal.SizeOf(typeof(MenuForm.MenuSet));
-		Class15.ADDR_MENU_CONFIG = 30008;
-		Class15.SPACE_BOOT_CONTENT = Marshal.SizeOf(typeof(BootItemForm.BootContent));
-		Class15.ADDR_BOOT_CONTENT = 30016;
-		Class15.SPACE_ATTACHMENT = Marshal.SizeOf(typeof(AttachmentForm.Attachment));
-		Class15.ADDR_ATTACHMENT = 30048;
-		Class15.SPACE_VFO = Marshal.SizeOf(typeof(VfoForm.Vfo));
-		Class15.ADDR_VFO = 30096;
-		Class15.SPACE_EX_ZONE = Marshal.SizeOf(typeof(ZoneForm.Zone));
-		Class15.ADDR_EX_ZONE = 32768;
-		Class15.ADDR_EX_ZONE_BASIC = Class15.ADDR_EX_ZONE;
-		Class15.ADDR_EX_ZONE_LIST = Class15.ADDR_EX_ZONE + 16;
-		Class15.SPACE_EX_SCAN = Marshal.SizeOf(typeof(NormalScanForm.NormalScanEx));
-		Class15.ADDR_EX_SCAN = 44816;
-		Class15.ADDR_EX_SCAN_PRI_CH1 = 44816;
-		Class15.ADDR_EX_SCAN_PRI_CH2 = 44848;
-		Class15.ADDR_EX_SCAN_SPECIFY_CH = 44880;
-		Class15.ADDR_EX_SCAN_CH_LIST = 44912;
-		Class15.SPACE_EX_EMERGENCY = Marshal.SizeOf(typeof(EmergencyForm.EmergencyEx));
-		Class15.ADDR_EX_EMERGENCY = 45424;
-		Class15.SPACE_EX_CH = ChannelForm.SPACE_CH_GROUP * 7;
-		Class15.ADDR_EX_CH = 45488;
-		Class15.dicCommon = new Dictionary<string, string>();
+		Settings.CUR_CH_GROUP = 0;
+		Settings.CUR_ZONE_GROUP = 0;
+		Settings.CUR_ZONE = 0;
+		Settings.CUR_PWD = "";
+		Settings.EEROM_SPACE = 131072u;
+		Settings.SPACE_DEVICE_INFO = Marshal.SizeOf(typeof(DeviceInfoForm.DeviceInfo));
+		Settings.ADDR_DEVICE_INFO = 128;
+		Settings.OFS_LAST_PRG_TIME = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "lastPrgTime").ToInt32();
+		Settings.OFS_CPS_SW_VER = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "cpsSwVer").ToInt32();
+		Settings.OFS_MODEL = Marshal.OffsetOf(typeof(DeviceInfoForm.DeviceInfo), "model").ToInt32();
+		Settings.SPACE_GENERAL_SET = Marshal.SizeOf(typeof(GeneralSetForm.GeneralSet));
+		Settings.ADDR_GENERAL_SET = 224;
+		Settings.ADDR_PWD = Settings.ADDR_GENERAL_SET + Marshal.OffsetOf(typeof(GeneralSetForm.GeneralSet), "prgPwd").ToInt32();
+		Settings.SPACE_BUTTON = Marshal.SizeOf(typeof(ButtonForm.SideKey));
+		Settings.ADDR_BUTTON = 264;
+		Settings.SPACE_ONE_TOUCH = Marshal.SizeOf(typeof(ButtonForm.OneTouch));
+		Settings.ADDR_ONE_TOUCH = 272;
+		Settings.SPACE_TEXT_MSG = Marshal.SizeOf(typeof(TextMsgForm.TextMsg));
+		Settings.ADDR_TEXT_MSG = 296;
+		Settings.SPACE_ENCRYPT = Marshal.SizeOf(typeof(EncryptForm.Encrypt));
+		Settings.ADDR_ENCRYPT = 4976;
+		Settings.SPACE_SIGNALING_BASIC = Marshal.SizeOf(typeof(SignalingBasicForm.SignalingBasic));
+		Settings.ADDR_SIGNALING_BASIC = 5112;
+		Settings.SPACE_DTMF_BASIC = Marshal.SizeOf(typeof(DtmfForm.Dtmf));
+		Settings.ADDR_DTMF_BASIC = 5120;
+		Settings.SPACE_EMG_SYSTEM = Marshal.SizeOf(typeof(EmergencyForm.Emergency));
+		Settings.ADDR_EMG_SYSTEM = 5512;
+		Settings.SPACE_DMR_CONTACT = Marshal.SizeOf(typeof(ContactForm.Contact));
+		Settings.ADDR_DMR_CONTACT = 6024;
+		Settings.SPACE_DMR_CONTACT_EX = Marshal.SizeOf(typeof(ContactForm.Contact));
+		Settings.ADDR_DMR_CONTACT_EX = 95776;
+		Settings.SPACE_DTMF_CONTACT = Marshal.SizeOf(typeof(DtmfContactForm.DtmfContact));
+		Settings.ADDR_DTMF_CONTACT = 12168;
+		Settings.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxGroupListForm.RxList));
+		Settings.ADDR_RX_GRP_LIST = 13352;
+		Settings.ADDR_RX_GRP_LIST_EX = 120352;
+		Settings.ADDR_ZONE_BASIC = 14136;
+		Settings.ADDR_ZONE_LIST = 14144;
+		Settings.ADDR_CHANNEL = 14208;
+		Settings.SPACE_SCAN_BASIC = Marshal.SizeOf(typeof(ScanBasicForm.ScanBasic));
+		Settings.ADDR_SCAN = 6024;
+		Settings.SPACE_SCAN_LIST = Marshal.SizeOf(typeof(NormalScanForm.NormalScan));
+		Settings.ADDR_SCAN_LIST = Settings.ADDR_SCAN + Settings.SPACE_SCAN_BASIC;
+		Settings.SPACE_BOOT_ITEM = Marshal.SizeOf(typeof(BootItemForm.BootItem));
+		Settings.ADDR_BOOT_ITEM = 29976;
+		Settings.SPACE_DIGITAL_KEY_CONTACT = Marshal.SizeOf(typeof(DigitalKeyContactForm.NumKeyContact));
+		Settings.ADDR_DIGITAL_KEY_CONTACT = 29984;
+		Settings.SPACE_MENU_CONFIG = Marshal.SizeOf(typeof(MenuForm.MenuSet));
+		Settings.ADDR_MENU_CONFIG = 30008;
+		Settings.SPACE_BOOT_CONTENT = Marshal.SizeOf(typeof(BootItemForm.BootContent));
+		Settings.ADDR_BOOT_CONTENT = 30016;
+		Settings.SPACE_ATTACHMENT = Marshal.SizeOf(typeof(AttachmentForm.Attachment));
+		Settings.ADDR_ATTACHMENT = 30048;
+		Settings.SPACE_VFO = Marshal.SizeOf(typeof(VfoForm.Vfo));
+		Settings.ADDR_VFO = 30096;
+		Settings.SPACE_EX_ZONE = Marshal.SizeOf(typeof(ZoneForm.Zone));
+		Settings.ADDR_EX_ZONE = 32768;
+		Settings.ADDR_EX_ZONE_BASIC = Settings.ADDR_EX_ZONE;
+		Settings.ADDR_EX_ZONE_LIST = Settings.ADDR_EX_ZONE + 16;
+		Settings.SPACE_EX_SCAN = Marshal.SizeOf(typeof(NormalScanForm.NormalScanEx));
+		Settings.ADDR_EX_SCAN = 44816;
+		Settings.ADDR_EX_SCAN_PRI_CH1 = 44816;
+		Settings.ADDR_EX_SCAN_PRI_CH2 = 44848;
+		Settings.ADDR_EX_SCAN_SPECIFY_CH = 44880;
+		Settings.ADDR_EX_SCAN_CH_LIST = 44912;
+		Settings.SPACE_EX_EMERGENCY = Marshal.SizeOf(typeof(EmergencyForm.EmergencyEx));
+		Settings.ADDR_EX_EMERGENCY = 45424;
+		Settings.SPACE_EX_CH = ChannelForm.SPACE_CH_GROUP * 7;
+		Settings.ADDR_EX_CH = 45488;
+		Settings.dicCommon = new Dictionary<string, string>();
 	}
 }

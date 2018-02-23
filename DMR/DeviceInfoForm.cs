@@ -57,7 +57,7 @@ namespace DMR
 				set
 				{
 					this.minFreq = ushort.Parse(value, NumberStyles.HexNumber);
-					Class15.MIN_FREQ[0] = ushort.Parse(value);
+					Settings.MIN_FREQ[0] = ushort.Parse(value);
 				}
 			}
 
@@ -70,7 +70,7 @@ namespace DMR
 				set
 				{
 					this.maxFreq = ushort.Parse(value, NumberStyles.HexNumber);
-					Class15.MAX_FREQ[0] = ushort.Parse(value);
+					Settings.MAX_FREQ[0] = ushort.Parse(value);
 				}
 			}
 
@@ -83,7 +83,7 @@ namespace DMR
 				set
 				{
 					this.minFreq2 = ushort.Parse(value, NumberStyles.HexNumber);
-					Class15.MIN_FREQ[1] = ushort.Parse(value);
+					Settings.MIN_FREQ[1] = ushort.Parse(value);
 				}
 			}
 
@@ -96,7 +96,7 @@ namespace DMR
 				set
 				{
 					this.maxFreq2 = ushort.Parse(value, NumberStyles.HexNumber);
-					Class15.MAX_FREQ[1] = ushort.Parse(value);
+					Settings.MAX_FREQ[1] = ushort.Parse(value);
 				}
 			}
 
@@ -315,7 +315,7 @@ namespace DMR
 
 		private Label lblTo1;
 
-		private Class3 pnlDeviceInfo;
+		private CustomPanel pnlDeviceInfo;
 
 		public static DeviceInfo data;
 
@@ -337,7 +337,7 @@ namespace DMR
 
 		private void method_0()
 		{
-			this.pnlDeviceInfo = new Class3();
+			this.pnlDeviceInfo = new CustomPanel();
 			this.lblTo1 = new Label();
 			this.lblTo2 = new Label();
 			this.lblSection1 = new Label();
@@ -559,7 +559,7 @@ namespace DMR
 			DeviceInfoForm.data.MaxFreq = this.txtMaxFreq.Text;
 			DeviceInfoForm.data.MinFreq2 = this.txtMinFreq2.Text;
 			DeviceInfoForm.data.MaxFreq2 = this.txtMaxFreq2.Text;
-			if (Class15.CUR_MODE > 0)
+			if (Settings.CUR_MODE > 0)
 			{
 				DeviceInfoForm.data.Sn = this.txtSn.Text;
 				DeviceInfoForm.data.Model = this.txtModel.Text;
@@ -587,9 +587,9 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			Class15.smethod_4();
-			bool flag = Class15.CUR_MODE > 0;
-			bool flag2 = Class15.CUR_MODE > 1;
+			Settings.smethod_4();
+			bool flag = Settings.CUR_MODE > 0;
+			bool flag2 = Settings.CUR_MODE > 1;
 			this.txtMinFreq.ReadOnly = !flag;
 			this.txtMaxFreq.ReadOnly = !flag;
 			this.txtMinFreq2.ReadOnly = !flag;
@@ -609,12 +609,12 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
-			if (Class15.CUR_MODE > 0)
+			if (Settings.CUR_MODE > 0)
 			{
 				this.txtModel.ReadOnly = true;
 				this.txtSn.ReadOnly = true;
@@ -637,8 +637,8 @@ namespace DMR
 
 		private void DeviceInfoForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_1();
 			this.DispData();
 		}
@@ -662,34 +662,34 @@ namespace DMR
 			uint num6 = 0u;
 			num3 = uint.Parse(this.txtMinFreq.Text);
 			num6 = uint.Parse(this.txtMaxFreq.Text);
-			num = Class15.smethod_21(num3, ref num2);
-			num4 = Class15.smethod_21(num6, ref num5);
+			num = Settings.smethod_21(num3, ref num2);
+			num4 = Settings.smethod_21(num6, ref num5);
 			if (num >= 0)
 			{
-				if (Class15.smethod_22((double)num3, (double)num6) >= 0)
+				if (Settings.smethod_22((double)num3, (double)num6) >= 0)
 				{
 					if (num3 >= num6)
 					{
-						this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num].ToString();
+						this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num].ToString();
 					}
 				}
 				else
 				{
-					this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num].ToString();
-					if (num3 == Class15.VALID_MAX_FREQ[num])
+					this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num].ToString();
+					if (num3 == Settings.VALID_MAX_FREQ[num])
 					{
-						this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num].ToString();
+						this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num].ToString();
 					}
 				}
 			}
 			else if (num4 >= 0)
 			{
-				this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num4].ToString();
+				this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num4].ToString();
 			}
 			else
 			{
-				this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num2].ToString();
-				this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num2].ToString();
+				this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num2].ToString();
+				this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num2].ToString();
 			}
 		}
 
@@ -703,34 +703,34 @@ namespace DMR
 			uint num6 = 0u;
 			num3 = uint.Parse(this.txtMinFreq.Text);
 			num6 = uint.Parse(this.txtMaxFreq.Text);
-			num = Class15.smethod_21(num3, ref num2);
-			num4 = Class15.smethod_21(num6, ref num5);
+			num = Settings.smethod_21(num3, ref num2);
+			num4 = Settings.smethod_21(num6, ref num5);
 			if (num4 >= 0)
 			{
-				if (Class15.smethod_22((double)num3, (double)num6) >= 0)
+				if (Settings.smethod_22((double)num3, (double)num6) >= 0)
 				{
 					if (num3 >= num6)
 					{
-						this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num4].ToString();
+						this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num4].ToString();
 					}
 				}
 				else
 				{
-					this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num4].ToString();
-					if (num6 == Class15.VALID_MIN_FREQ[num4])
+					this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num4].ToString();
+					if (num6 == Settings.VALID_MIN_FREQ[num4])
 					{
-						this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num4].ToString();
+						this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num4].ToString();
 					}
 				}
 			}
 			else if (num >= 0)
 			{
-				this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num].ToString();
+				this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num].ToString();
 			}
 			else
 			{
-				this.txtMinFreq.Text = Class15.VALID_MIN_FREQ[num2].ToString();
-				this.txtMaxFreq.Text = Class15.VALID_MAX_FREQ[num2].ToString();
+				this.txtMinFreq.Text = Settings.VALID_MIN_FREQ[num2].ToString();
+				this.txtMaxFreq.Text = Settings.VALID_MAX_FREQ[num2].ToString();
 			}
 		}
 
@@ -744,34 +744,34 @@ namespace DMR
 			uint num6 = 0u;
 			num3 = uint.Parse(this.txtMinFreq2.Text);
 			num6 = uint.Parse(this.txtMaxFreq2.Text);
-			num = Class15.smethod_21(num3, ref num2);
-			num4 = Class15.smethod_21(num6, ref num5);
+			num = Settings.smethod_21(num3, ref num2);
+			num4 = Settings.smethod_21(num6, ref num5);
 			if (num >= 0)
 			{
-				if (Class15.smethod_22((double)num3, (double)num6) >= 0)
+				if (Settings.smethod_22((double)num3, (double)num6) >= 0)
 				{
 					if (num3 >= num6)
 					{
-						this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num].ToString();
+						this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num].ToString();
 					}
 				}
 				else
 				{
-					this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num].ToString();
-					if (num3 == Class15.VALID_MAX_FREQ[num])
+					this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num].ToString();
+					if (num3 == Settings.VALID_MAX_FREQ[num])
 					{
-						this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num].ToString();
+						this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num].ToString();
 					}
 				}
 			}
 			else if (num4 >= 0)
 			{
-				this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num4].ToString();
+				this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num4].ToString();
 			}
 			else
 			{
-				this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num2].ToString();
-				this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num2].ToString();
+				this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num2].ToString();
+				this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num2].ToString();
 			}
 		}
 
@@ -785,34 +785,34 @@ namespace DMR
 			uint num6 = 0u;
 			num3 = uint.Parse(this.txtMinFreq2.Text);
 			num6 = uint.Parse(this.txtMaxFreq2.Text);
-			num = Class15.smethod_21(num3, ref num2);
-			num4 = Class15.smethod_21(num6, ref num5);
+			num = Settings.smethod_21(num3, ref num2);
+			num4 = Settings.smethod_21(num6, ref num5);
 			if (num4 >= 0)
 			{
-				if (Class15.smethod_22((double)num3, (double)num6) >= 0)
+				if (Settings.smethod_22((double)num3, (double)num6) >= 0)
 				{
 					if (num3 >= num6)
 					{
-						this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num4].ToString();
+						this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num4].ToString();
 					}
 				}
 				else
 				{
-					this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num4].ToString();
-					if (num6 == Class15.VALID_MIN_FREQ[num4])
+					this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num4].ToString();
+					if (num6 == Settings.VALID_MIN_FREQ[num4])
 					{
-						this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num4].ToString();
+						this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num4].ToString();
 					}
 				}
 			}
 			else if (num >= 0)
 			{
-				this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num].ToString();
+				this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num].ToString();
 			}
 			else
 			{
-				this.txtMinFreq2.Text = Class15.VALID_MIN_FREQ[num2].ToString();
-				this.txtMaxFreq2.Text = Class15.VALID_MAX_FREQ[num2].ToString();
+				this.txtMinFreq2.Text = Settings.VALID_MIN_FREQ[num2].ToString();
+				this.txtMaxFreq2.Text = Settings.VALID_MAX_FREQ[num2].ToString();
 			}
 		}
 

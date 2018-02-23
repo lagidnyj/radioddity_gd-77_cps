@@ -8,7 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using UsbLibrary;
 
-internal class Class19
+internal class CodeplugComms
 {
 	public delegate void Delegate1(object sender, FirmwareUpdateProgressEventArgs e);
 
@@ -102,7 +102,7 @@ internal class Class19
 		int num2 = 0;
 		int num3 = 0;
 		int num4 = 0;
-		byte[] array = new byte[Class15.EEROM_SPACE];
+		byte[] array = new byte[Settings.EEROM_SPACE];
 		byte[] array2 = new byte[160];
 		List<int> list = new List<int>();
 		List<int> list2 = new List<int>();
@@ -124,7 +124,7 @@ internal class Class19
 			{
 				if (this.OnFirmwareUpdateProgress != null)
 				{
-					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_DEVICE_NOT_FOUND, true, true));
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_DEVICE_NOT_FOUND, true, true));
 				}
 			}
 			else
@@ -132,27 +132,27 @@ internal class Class19
 				while (true)
 				{
 					Array.Clear(array2, 0, array2.Length);
-					specifiedDevice.SendData(Class19.CMD_PRG);
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG);
 					specifiedDevice.ReceiveData(array2);
-					if (array2[0] != Class19.CMD_ACK[0])
+					if (array2[0] != CodeplugComms.CMD_ACK[0])
 					{
 						break;
 					}
-					specifiedDevice.SendData(Class19.CMD_PRG2);
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG2);
 					Array.Clear(array2, 0, array2.Length);
 					specifiedDevice.ReceiveData(array2);
 					byte[] array3 = new byte[8];
 					Buffer.BlockCopy(array2, 0, array3, 0, 8);
-					if (array3.smethod_4(Class15.CUR_MODEL))
+					if (array3.smethod_4(Settings.CUR_MODEL))
 					{
-						specifiedDevice.SendData(Class19.CMD_ACK);
+						specifiedDevice.SendData(CodeplugComms.CMD_ACK);
 						Array.Clear(array2, 0, array2.Length);
 						specifiedDevice.ReceiveData(array2);
-						if (array2[0] == Class19.CMD_ACK[0])
+						if (array2[0] == CodeplugComms.CMD_ACK[0])
 						{
-							if (!flag && Class15.CUR_PWD != "DT8168")
+							if (!flag && Settings.CUR_PWD != "DT8168")
 							{
-								i = Class15.ADDR_PWD;
+								i = Settings.ADDR_PWD;
 								num5 = 8;
 								byte[] data = new byte[4]
 								{
@@ -177,9 +177,9 @@ internal class Class19
 								if (string.IsNullOrEmpty(text))
 								{
 									Array.Clear(array2, 0, array2.Length);
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
-									if (array2[0] != Class19.CMD_ACK[0])
+									if (array2[0] != CodeplugComms.CMD_ACK[0])
 									{
 										break;
 									}
@@ -187,16 +187,16 @@ internal class Class19
 								}
 								else
 								{
-									if (text != Class15.CUR_PWD)
+									if (text != Settings.CUR_PWD)
 									{
 										Array.Clear(array2, 0, array2.Length);
-										specifiedDevice.SendData(Class19.CMD_ENDR);
+										specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 										specifiedDevice.ReceiveData(array2);
-										if (array2[0] != Class19.CMD_ACK[0])
+										if (array2[0] != CodeplugComms.CMD_ACK[0])
 										{
 											break;
 										}
-										Class15.CUR_PWD = "";
+										Settings.CUR_PWD = "";
 										PasswordForm passwordForm = new PasswordForm();
 										if (passwordForm.ShowDialog() == DialogResult.OK)
 										{
@@ -214,9 +214,9 @@ internal class Class19
 										return;
 									}
 									Array.Clear(array2, 0, array2.Length);
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
-									if (array2[0] != Class19.CMD_ACK[0])
+									if (array2[0] != CodeplugComms.CMD_ACK[0])
 									{
 										break;
 									}
@@ -226,15 +226,15 @@ internal class Class19
 							}
 							List<int> list3 = new List<int>();
 							List<int> list4 = new List<int>();
-							list3.Add(Class15.ADDR_CHANNEL);
-							list4.Add(Class15.ADDR_CHANNEL + 16);
+							list3.Add(Settings.ADDR_CHANNEL);
+							list4.Add(Settings.ADDR_CHANNEL + 16);
 							for (num2 = 1; num2 < 8; num2++)
 							{
-								num8 = Class15.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
+								num8 = Settings.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
 								list3.Add(num8);
 								list4.Add(num8 + 16);
 							}
-							num8 = Class15.ADDR_EX_ZONE_LIST;
+							num8 = Settings.ADDR_EX_ZONE_LIST;
 							list3.Add(num8);
 							list4.Add(num8 + 32);
 							num3 = 0;
@@ -284,7 +284,7 @@ internal class Class19
 												Array.Clear(array2, 0, array2.Length);
 												specifiedDevice.SendData(array4, 0, array4.Length);
 												specifiedDevice.ReceiveData(array2);
-												if (array2[0] != Class19.CMD_ACK[0])
+												if (array2[0] != CodeplugComms.CMD_ACK[0])
 												{
 													goto end_IL_02a2;
 												}
@@ -313,7 +313,7 @@ internal class Class19
 											i += num5;
 											continue;
 										}
-										specifiedDevice.SendData(Class19.CMD_ENDR);
+										specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 										specifiedDevice.ReceiveData(array2);
 										return;
 									}
@@ -321,15 +321,15 @@ internal class Class19
 									continue;
 								}
 								byte[] array5 = new byte[16];
-								Array.Copy(array, Class15.ADDR_CHANNEL, array5, 0, array5.Length);
+								Array.Copy(array, Settings.ADDR_CHANNEL, array5, 0, array5.Length);
 								BitArray bitArray = new BitArray(array5);
-								list.Add(Class15.ADDR_CHANNEL);
-								list2.Add(Class15.ADDR_CHANNEL + 16);
+								list.Add(Settings.ADDR_CHANNEL);
+								list2.Add(Settings.ADDR_CHANNEL + 16);
 								for (num = 0; num < 128; num++)
 								{
 									if (bitArray[num])
 									{
-										num9 = Class15.ADDR_CHANNEL + 16 + num * ChannelForm.SPACE_CH;
+										num9 = Settings.ADDR_CHANNEL + 16 + num * ChannelForm.SPACE_CH;
 										num10 = num9 + ChannelForm.SPACE_CH;
 										list.Add(num9);
 										list2.Add(num10);
@@ -337,7 +337,7 @@ internal class Class19
 								}
 								for (num2 = 1; num2 < 8; num2++)
 								{
-									num8 = Class15.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
+									num8 = Settings.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
 									Array.Copy(array, num8, array5, 0, array5.Length);
 									bitArray = new BitArray(array5);
 									list.Add(num8);
@@ -354,14 +354,14 @@ internal class Class19
 									}
 								}
 								byte[] array6 = new byte[32];
-								num8 = Class15.ADDR_EX_ZONE_LIST;
+								num8 = Settings.ADDR_EX_ZONE_LIST;
 								Array.Copy(array, num8, array6, 0, array6.Length);
 								bitArray = new BitArray(array6);
 								list.Add(num8);
 								list2.Add(num8 + 32);
 								for (num = 0; num < 250; num++)
 								{
-									num8 = Class15.ADDR_EX_ZONE_LIST + 32;
+									num8 = Settings.ADDR_EX_ZONE_LIST + 32;
 									if (bitArray[num])
 									{
 										num9 = num8 + num * ZoneForm.SPACE_ZONE;
@@ -422,7 +422,7 @@ internal class Class19
 													Array.Clear(array2, 0, array2.Length);
 													specifiedDevice.SendData(array7, 0, array7.Length);
 													specifiedDevice.ReceiveData(array2);
-													if (array2[0] == Class19.CMD_ACK[0])
+													if (array2[0] == CodeplugComms.CMD_ACK[0])
 													{
 														goto IL_08b4;
 													}
@@ -430,7 +430,7 @@ internal class Class19
 												}
 												goto IL_08b4;
 											}
-											specifiedDevice.SendData(Class19.CMD_ENDR);
+											specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 											specifiedDevice.ReceiveData(array2);
 											return;
 											IL_08b4:
@@ -448,7 +448,7 @@ internal class Class19
 											specifiedDevice.SendData(array8, 0, 4);
 											if (specifiedDevice.ReceiveData(array2))
 											{
-												if (Class15.smethod_18(array8, array2, 4))
+												if (Settings.smethod_18(array8, array2, 4))
 												{
 													Array.Copy(array2, 4, array, i, num5);
 													if (this.OnFirmwareUpdateProgress != null)
@@ -467,9 +467,9 @@ internal class Class19
 										continue;
 									}
 									Array.Clear(array2, 0, array2.Length);
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
-									if (array2[0] != Class19.CMD_ACK[0])
+									if (array2[0] != CodeplugComms.CMD_ACK[0])
 									{
 										break;
 									}
@@ -480,15 +480,15 @@ internal class Class19
 									}
 									return;
 									IL_0a51:
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
 									break;
 									IL_0a38:
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
 									break;
 									IL_0a1f:
-									specifiedDevice.SendData(Class19.CMD_ENDR);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 									specifiedDevice.ReceiveData(array2);
 									break;
 								}
@@ -499,7 +499,7 @@ internal class Class19
 					}
 					if (this.OnFirmwareUpdateProgress != null)
 					{
-						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_MODEL_NOT_MATCH, true, true));
+						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_MODEL_NOT_MATCH, true, true));
 					}
 					return;
 					continue;// Roger Clark. There is a known compiler warning here. This may be an artifact caused by the decompiler
@@ -508,7 +508,7 @@ internal class Class19
 				}
 				if (this.OnFirmwareUpdateProgress != null)
 				{
-					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_COMM_ERROR, true, true));
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_COMM_ERROR, true, true));
 				}
 			}
 		}
@@ -517,7 +517,7 @@ internal class Class19
 			Console.WriteLine(ex.Message);
 			if (this.OnFirmwareUpdateProgress != null)
 			{
-				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_COMM_ERROR, false, false));
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_COMM_ERROR, false, false));
 			}
 		}
 		finally
@@ -559,13 +559,13 @@ internal class Class19
 		array3[3] = (byte)(day / 10 << 4 | day % 10);
 		array3[4] = (byte)(hour / 10 << 4 | hour % 10);
 		array3[5] = (byte)(minute / 10 << 4 | minute % 10);
-		Array.Copy(array3, 0, array2, Class15.ADDR_DEVICE_INFO + Class15.OFS_LAST_PRG_TIME, 6);
+		Array.Copy(array3, 0, array2, Settings.ADDR_DEVICE_INFO + Settings.OFS_LAST_PRG_TIME, 6);
 		SpecifiedDevice specifiedDevice = SpecifiedDevice.FindSpecifiedDevice(HID_VID, 0x0073);
 		if (specifiedDevice == null)
 		{
 			if (this.OnFirmwareUpdateProgress != null)
 			{
-				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_DEVICE_NOT_FOUND, true, true));
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_DEVICE_NOT_FOUND, true, true));
 			}
 		}
 		else
@@ -574,28 +574,28 @@ internal class Class19
 			{
 				while (true)
 				{
-					specifiedDevice.SendData(Class19.CMD_PRG);
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG);
 					Array.Clear(array, 0, array.Length);
 					specifiedDevice.ReceiveData(array);
-					if (array[0] != Class19.CMD_ACK[0])
+					if (array[0] != CodeplugComms.CMD_ACK[0])
 					{
 						break;
 					}
-					specifiedDevice.SendData(Class19.CMD_PRG2);
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG2);
 					Array.Clear(array, 0, array.Length);
 					specifiedDevice.ReceiveData(array);
 					byte[] array4 = new byte[8];
 					Buffer.BlockCopy(array, 0, array4, 0, 8);
-					if (array4.smethod_4(Class15.CUR_MODEL))
+					if (array4.smethod_4(Settings.CUR_MODEL))
 					{
-						specifiedDevice.SendData(Class19.CMD_ACK);
+						specifiedDevice.SendData(CodeplugComms.CMD_ACK);
 						Array.Clear(array, 0, array.Length);
 						specifiedDevice.ReceiveData(array);
-						if (array[0] == Class19.CMD_ACK[0])
+						if (array[0] == CodeplugComms.CMD_ACK[0])
 						{
-							if (!flag && Class15.CUR_PWD != "DT8168")
+							if (!flag && Settings.CUR_PWD != "DT8168")
 							{
-								i = Class15.ADDR_PWD;
+								i = Settings.ADDR_PWD;
 								num5 = 8;
 								byte[] data = new byte[4]
 								{
@@ -620,9 +620,9 @@ internal class Class19
 								if (string.IsNullOrEmpty(text))
 								{
 									Array.Clear(array, 0, array.Length);
-									specifiedDevice.SendData(Class19.CMD_ENDW);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 									specifiedDevice.ReceiveData(array);
-									if (array[0] != Class19.CMD_ACK[0])
+									if (array[0] != CodeplugComms.CMD_ACK[0])
 									{
 										break;
 									}
@@ -630,16 +630,16 @@ internal class Class19
 								}
 								else
 								{
-									if (text != Class15.CUR_PWD)
+									if (text != Settings.CUR_PWD)
 									{
-										Class15.CUR_PWD = "";
+										Settings.CUR_PWD = "";
 										PasswordForm passwordForm = new PasswordForm();
 										if (passwordForm.ShowDialog() == DialogResult.OK)
 										{
 											Array.Clear(array, 0, array.Length);
-											specifiedDevice.SendData(Class19.CMD_ENDW);
+											specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 											specifiedDevice.ReceiveData(array);
-											if (array[0] != Class19.CMD_ACK[0])
+											if (array[0] != CodeplugComms.CMD_ACK[0])
 											{
 												break;
 											}
@@ -650,9 +650,9 @@ internal class Class19
 										return;
 									}
 									Array.Clear(array, 0, array.Length);
-									specifiedDevice.SendData(Class19.CMD_ENDW);
+									specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 									specifiedDevice.ReceiveData(array);
-									if (array[0] != Class19.CMD_ACK[0])
+									if (array[0] != CodeplugComms.CMD_ACK[0])
 									{
 										break;
 									}
@@ -661,15 +661,15 @@ internal class Class19
 								continue;
 							}
 							byte[] array5 = new byte[16];
-							Array.Copy(array2, Class15.ADDR_CHANNEL, array5, 0, array5.Length);
+							Array.Copy(array2, Settings.ADDR_CHANNEL, array5, 0, array5.Length);
 							BitArray bitArray = new BitArray(array5);
-							list.Add(Class15.ADDR_CHANNEL);
-							list2.Add(Class15.ADDR_CHANNEL + 16);
+							list.Add(Settings.ADDR_CHANNEL);
+							list2.Add(Settings.ADDR_CHANNEL + 16);
 							for (num = 0; num < 128; num++)
 							{
 								if (bitArray[num])
 								{
-									num9 = Class15.ADDR_CHANNEL + 16 + num * ChannelForm.SPACE_CH;
+									num9 = Settings.ADDR_CHANNEL + 16 + num * ChannelForm.SPACE_CH;
 									num10 = num9 + ChannelForm.SPACE_CH;
 									list.Add(num9);
 									list2.Add(num10);
@@ -677,7 +677,7 @@ internal class Class19
 							}
 							for (num2 = 1; num2 < 8; num2++)
 							{
-								num7 = Class15.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
+								num7 = Settings.ADDR_EX_CH + (num2 - 1) * ChannelForm.SPACE_CH_GROUP;
 								Array.Copy(array2, num7, array5, 0, array5.Length);
 								bitArray = new BitArray(array5);
 								list.Add(num7);
@@ -694,14 +694,14 @@ internal class Class19
 								}
 							}
 							byte[] array6 = new byte[32];
-							num7 = Class15.ADDR_EX_ZONE_LIST;
+							num7 = Settings.ADDR_EX_ZONE_LIST;
 							Array.Copy(array2, num7, array6, 0, array6.Length);
 							bitArray = new BitArray(array6);
 							list.Add(num7);
 							list2.Add(num7 + 32);
 							for (num = 0; num < 250; num++)
 							{
-								num7 = Class15.ADDR_EX_ZONE_LIST + 32;
+								num7 = Settings.ADDR_EX_ZONE_LIST + 32;
 								if (bitArray[num])
 								{
 									num9 = num7 + num * ZoneForm.SPACE_ZONE;
@@ -760,7 +760,7 @@ internal class Class19
 												Array.Clear(array, 0, array.Length);
 												specifiedDevice.SendData(array7, 0, array7.Length);
 												specifiedDevice.ReceiveData(array);
-												if (array[0] == Class19.CMD_ACK[0])
+												if (array[0] == CodeplugComms.CMD_ACK[0])
 												{
 													goto IL_06e2;
 												}
@@ -768,7 +768,7 @@ internal class Class19
 											}
 											goto IL_06e2;
 										}
-										specifiedDevice.SendData(Class19.CMD_ENDR);
+										specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
 										specifiedDevice.ReceiveData(array);
 										return;
 										IL_06e2:
@@ -784,7 +784,7 @@ internal class Class19
 										Array.Copy(array2, i, array8, 4, num5);
 										specifiedDevice.SendData(array8, 0, 4 + num5);
 										specifiedDevice.ReceiveData(array);
-										if (array[0] == Class19.CMD_ACK[0])
+										if (array[0] == CodeplugComms.CMD_ACK[0])
 										{
 											if (this.OnFirmwareUpdateProgress != null)
 											{
@@ -799,9 +799,9 @@ internal class Class19
 									continue;
 								}
 								Array.Clear(array, 0, array.Length);
-								specifiedDevice.SendData(Class19.CMD_ENDW);
+								specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 								specifiedDevice.ReceiveData(array);
-								if (array[0] != Class19.CMD_ACK[0])
+								if (array[0] != CodeplugComms.CMD_ACK[0])
 								{
 									break;
 								}
@@ -811,11 +811,11 @@ internal class Class19
 								}
 								return;
 								IL_0857:
-								specifiedDevice.SendData(Class19.CMD_ENDW);
+								specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 								specifiedDevice.ReceiveData(array);
 								break;
 								IL_083e:
-								specifiedDevice.SendData(Class19.CMD_ENDW);
+								specifiedDevice.SendData(CodeplugComms.CMD_ENDW);
 								specifiedDevice.ReceiveData(array);
 								break;
 							}
@@ -824,13 +824,13 @@ internal class Class19
 					}
 					if (this.OnFirmwareUpdateProgress != null)
 					{
-						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_MODEL_NOT_MATCH, true, true));
+						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_MODEL_NOT_MATCH, true, true));
 					}
 					return;
 				}
 				if (this.OnFirmwareUpdateProgress != null)
 				{
-					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_COMM_ERROR, true, true));
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_COMM_ERROR, true, true));
 				}
 			}
 			catch (TimeoutException ex)
@@ -838,7 +838,7 @@ internal class Class19
 				Console.WriteLine(ex.Message);
 				if (this.OnFirmwareUpdateProgress != null)
 				{
-					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.SZ_COMM_ERROR, false, false));
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_COMM_ERROR, false, false));
 				}
 			}
 			finally
@@ -863,7 +863,7 @@ internal class Class19
 		this.OnFirmwareUpdateProgress = (Delegate1)Delegate.Remove(this.OnFirmwareUpdateProgress, delegate1_0);
 	}
 
-	public Class19()
+	public CodeplugComms()
 	{
 		
 		this.START_ADDR = new int[0];

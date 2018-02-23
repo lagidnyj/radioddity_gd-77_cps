@@ -18,7 +18,7 @@ namespace DMR
 			
 			//base._002Ector();
 			this.kslgOgrxhC();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 			base.AllowEndUserDocking = true;
 		}
 

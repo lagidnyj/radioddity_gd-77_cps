@@ -16,7 +16,7 @@ using UsbLibrary;
  * Note. This Class is potentially unused, as it seems to relate to firmware update which is not handled by the CPS application
  */
 
-internal class Class9 : Win32Usb, IFirmwareUpdate
+internal class FirmwareUpdate : Win32Usb, IFirmwareUpdate
 {
 	public class Class18
 	{
@@ -254,7 +254,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 	{
 		int num = 0;
 		//int num2 = -1;
-		uint eEROM_SPACE = Class15.EEROM_SPACE;
+		uint eEROM_SPACE = Settings.EEROM_SPACE;
 		IntPtr intptr_ = IntPtr.Zero;
 		ushort num3 = 0;
 		ushort num4 = 0;
@@ -291,14 +291,14 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 					while (true)
 					{
 						this.method_18(intptr_, array2, num3);
-						if (Class15.CUR_PWD == "DT8168")
+						if (Settings.CUR_PWD == "DT8168")
 						{
 							break;
 						}
 						string text = "";
 						for (num = 0; num < 8; num++)
 						{
-							char c = Convert.ToChar(array2[Class15.ADDR_PWD + num]);
+							char c = Convert.ToChar(array2[Settings.ADDR_PWD + num]);
 							if ("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\b".IndexOf(c) < 0)
 							{
 								break;
@@ -309,11 +309,11 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 						{
 							break;
 						}
-						if (!(text != Class15.CUR_PWD))
+						if (!(text != Settings.CUR_PWD))
 						{
 							break;
 						}
-						Class15.CUR_PWD = "";
+						Settings.CUR_PWD = "";
 						PasswordForm passwordForm = new PasswordForm();
 						if (passwordForm.ShowDialog() == DialogResult.OK)
 						{
@@ -356,7 +356,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		finally
 		{
 			this.method_25(intptr_);
-			Class9.STDFU_Close(ref intptr_);
+			FirmwareUpdate.STDFU_Close(ref intptr_);
 		}
 	}
 
@@ -397,27 +397,27 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 					while (true)
 					{
 						this.method_18(intptr_, array, num3);
-						if (Class15.CUR_MODE <= 0)
+						if (Settings.CUR_MODE <= 0)
 						{
-							int aDDR_DEVICE_INFO = Class15.ADDR_DEVICE_INFO;
+							int aDDR_DEVICE_INFO = Settings.ADDR_DEVICE_INFO;
 							if (array[aDDR_DEVICE_INFO] != array2[aDDR_DEVICE_INFO] || (array[aDDR_DEVICE_INFO + 1] == array2[aDDR_DEVICE_INFO + 1] && array[aDDR_DEVICE_INFO + 2] == array2[aDDR_DEVICE_INFO + 2]))
 							{
 								;
 							}
-							Array.Copy(array, Class15.ADDR_DEVICE_INFO + Class15.OFS_MODEL, array2, Class15.ADDR_DEVICE_INFO + Class15.OFS_MODEL, Class15.SPACE_DEVICE_INFO - Class15.OFS_MODEL);
+							Array.Copy(array, Settings.ADDR_DEVICE_INFO + Settings.OFS_MODEL, array2, Settings.ADDR_DEVICE_INFO + Settings.OFS_MODEL, Settings.SPACE_DEVICE_INFO - Settings.OFS_MODEL);
 						}
 						else
 						{
-							Array.Copy(array, Class15.ADDR_DEVICE_INFO + Class15.OFS_CPS_SW_VER, array2, Class15.ADDR_DEVICE_INFO + Class15.OFS_CPS_SW_VER, Class15.SPACE_DEVICE_INFO - Class15.OFS_CPS_SW_VER);
+							Array.Copy(array, Settings.ADDR_DEVICE_INFO + Settings.OFS_CPS_SW_VER, array2, Settings.ADDR_DEVICE_INFO + Settings.OFS_CPS_SW_VER, Settings.SPACE_DEVICE_INFO - Settings.OFS_CPS_SW_VER);
 						}
-						if (Class15.CUR_PWD == "DT8168")
+						if (Settings.CUR_PWD == "DT8168")
 						{
 							break;
 						}
 						string text = "";
 						for (num = 0; num < 8; num++)
 						{
-							char c = Convert.ToChar(array[Class15.ADDR_PWD + num]);
+							char c = Convert.ToChar(array[Settings.ADDR_PWD + num]);
 							if ("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\b".IndexOf(c) < 0)
 							{
 								break;
@@ -428,11 +428,11 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 						{
 							break;
 						}
-						if (!(text != Class15.CUR_PWD))
+						if (!(text != Settings.CUR_PWD))
 						{
 							break;
 						}
-						Class15.CUR_PWD = "";
+						Settings.CUR_PWD = "";
 						PasswordForm passwordForm = new PasswordForm();
 						if (passwordForm.ShowDialog() != DialogResult.OK)
 						{
@@ -451,7 +451,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 					array3[3] = (byte)(day / 10 << 4 | day % 10);
 					array3[4] = (byte)(hour / 10 << 4 | hour % 10);
 					array3[5] = (byte)(minute / 10 << 4 | minute % 10);
-					Array.Copy(array3, 0, array2, Class15.ADDR_DEVICE_INFO + Class15.OFS_LAST_PRG_TIME, 6);
+					Array.Copy(array3, 0, array2, Settings.ADDR_DEVICE_INFO + Settings.OFS_LAST_PRG_TIME, 6);
 					num4 = (ushort)(num5 / (int)this.MaxWriteBlockSize);
 					num3 = 0;
 					while (true)
@@ -498,7 +498,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		}
 		catch (Exception ex2)
 		{
-			Class9.STDFU_Close(ref intptr_);
+			FirmwareUpdate.STDFU_Close(ref intptr_);
 			if (this.OnFirmwareUpdateProgress != null)
 			{
 				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, ex2.Message, true, true));
@@ -507,7 +507,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		finally
 		{
 			this.method_25(intptr_);
-			Class9.STDFU_Close(ref intptr_);
+			FirmwareUpdate.STDFU_Close(ref intptr_);
 		}
 	}
 
@@ -676,7 +676,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 				BitConverter.ToUInt32(byte_0, 277);
 				if (byte_0[18] != 0)
 				{
-					int num3 = Array.FindIndex(byte_0, 22, Class9.smethod_0);
+					int num3 = Array.FindIndex(byte_0, 22, FirmwareUpdate.smethod_0);
 					this.ImageName = Encoding.UTF8.GetString(byte_0, 22, num3 - 22);
 				}
 				else
@@ -771,14 +771,14 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 			if (Win32Usb.SetupDiGetDeviceInterfaceDetail(intPtr, ref deviceInterfaceData, ref deviceInterfaceDetailData, num3, ref num3, IntPtr.Zero))
 			{
 				this.DFU_DevicePath = deviceInterfaceDetailData.DevicePath.ToUpper();
-				if (305397760 == Class9.STDFU_Open(this.DFU_DevicePath, out zero))
+				if (305397760 == FirmwareUpdate.STDFU_Open(this.DFU_DevicePath, out zero))
 				{
 					if (this.OnFirmwareUpdateProgress != null)
 					{
                         this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(10f, "DFU The device opens successfully", false, false));// 设备打开成功
 					}
 					Struct0 @struct = default(Struct0);
-					if (305397760 == Class9.STDFU_GetDeviceDescriptor(ref zero, ref @struct))
+					if (305397760 == FirmwareUpdate.STDFU_GetDeviceDescriptor(ref zero, ref @struct))
 					{
 						switch (@struct.bcdDevice)
 						{
@@ -795,7 +795,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 						uint num5 = 0u;
 						uint num6 = 0u;
 						Struct1 struct2 = default(Struct1);
-						if (305397760 == Class9.STDFU_GetDFUDescriptor(ref zero, ref num5, ref num6, ref struct2))
+						if (305397760 == FirmwareUpdate.STDFU_GetDFUDescriptor(ref zero, ref num5, ref num6, ref struct2))
 						{
 							if (this.OnFirmwareUpdateProgress != null)
 							{
@@ -844,13 +844,13 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 			255,
 			255
 		};
-		if (305397760 == (num = Class9.STDFU_SelectCurrentConfiguration(ref intptr_0, 0u, 0u, 1u)))
+		if (305397760 == (num = FirmwareUpdate.STDFU_SelectCurrentConfiguration(ref intptr_0, 0u, 0u, 1u)))
 		{
 			if (!this.method_20(ref intptr_0))
 			{
 				return false;
 			}
-			if (305397760 == (num = Class9.STDFU_Dnload(ref intptr_0, byte_, 1u, 0)))
+			if (305397760 == (num = FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_, 1u, 0)))
 			{
 				if (!this.method_20(ref intptr_0))
 				{
@@ -900,13 +900,13 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		array[2] = (byte)(uint_0 >> 8 & 0xFF);
 		array[3] = (byte)(uint_0 >> 16 & 0xFF);
 		array[4] = (byte)(uint_0 >> 24 & 0xFF);
-		if (305397760 == (num = Class9.STDFU_SelectCurrentConfiguration(ref intptr_0, 0u, 0u, 0u)))
+		if (305397760 == (num = FirmwareUpdate.STDFU_SelectCurrentConfiguration(ref intptr_0, 0u, 0u, 0u)))
 		{
 			if (!this.method_20(ref intptr_0))
 			{
 				return false;
 			}
-			if (305397760 == (num = Class9.STDFU_Dnload(ref intptr_0, array, 5u, 0)))
+			if (305397760 == (num = FirmwareUpdate.STDFU_Dnload(ref intptr_0, array, 5u, 0)))
 			{
 				if (!this.method_20(ref intptr_0))
 				{
@@ -933,7 +933,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, byte_0, (uint)byte_0.Length, (ushort)(uint_1 + 2));
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_0, (uint)byte_0.Length, (ushort)(uint_1 + 2));
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -947,7 +947,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Upload(ref intptr_0, byte_0, this.MaxWriteBlockSize, (ushort)(ushort_0 + 2));
+		FirmwareUpdate.STDFU_Upload(ref intptr_0, byte_0, this.MaxWriteBlockSize, (ushort)(ushort_0 + 2));
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -961,7 +961,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, byte_0, this.MaxWriteBlockSize, (ushort)(ushort_0 + 2));
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_0, this.MaxWriteBlockSize, (ushort)(ushort_0 + 2));
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -974,7 +974,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		long num = 50000000L;
 		long ticks = DateTime.Now.Ticks;
 		Struct2 @struct = default(Struct2);
-		Class9.STDFU_Getstatus(ref intptr_0, ref @struct);
+		FirmwareUpdate.STDFU_Getstatus(ref intptr_0, ref @struct);
 		while (true)
 		{
 			if (@struct.bState != 2)
@@ -985,13 +985,13 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 				}
 				Thread.Sleep(100);
 				Application.DoEvents();
-				Class9.STDFU_Clrstatus(ref intptr_0);
-				Class9.STDFU_Getstatus(ref intptr_0, ref @struct);
+				FirmwareUpdate.STDFU_Clrstatus(ref intptr_0);
+				FirmwareUpdate.STDFU_Getstatus(ref intptr_0, ref @struct);
 				continue;
 			}
 			return true;
 		}
-		Class9.STDFU_Close(ref intptr_0);
+		FirmwareUpdate.STDFU_Close(ref intptr_0);
 		return false;
 	}
 
@@ -1003,25 +1003,25 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return result;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, Class9.PACK_PRG, (uint)Class9.PACK_PRG.Length, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, FirmwareUpdate.PACK_PRG, (uint)FirmwareUpdate.PACK_PRG.Length, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return result;
 		}
-		Class9.STDFU_Upload(ref intptr_0, byte_, this.MaxWriteBlockSize, 0);
+		FirmwareUpdate.STDFU_Upload(ref intptr_0, byte_, this.MaxWriteBlockSize, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return result;
 		}
-		if (byte_.smethod_4(Class9.PACK_ACK))
+		if (byte_.smethod_4(FirmwareUpdate.PACK_ACK))
 		{
 			return 0;
 		}
-		if (byte_.smethod_4(Class9.PACK_NACK))
+		if (byte_.smethod_4(FirmwareUpdate.PACK_NACK))
 		{
 			return 1;
 		}
-		if (byte_.smethod_4(Class9.PACK_LOW_VOLT))
+		if (byte_.smethod_4(FirmwareUpdate.PACK_LOW_VOLT))
 		{
 			return 2;
 		}
@@ -1035,19 +1035,19 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, Class9.PACK_READ_INFO, (uint)Class9.PACK_READ_INFO.Length, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, FirmwareUpdate.PACK_READ_INFO, (uint)FirmwareUpdate.PACK_READ_INFO.Length, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
 		}
-		Class9.STDFU_Upload(ref intptr_0, array, this.MaxWriteBlockSize, 0);
+		FirmwareUpdate.STDFU_Upload(ref intptr_0, array, this.MaxWriteBlockSize, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
 		}
 		byte[] array2 = new byte[8];
 		Buffer.BlockCopy(array, 1, array2, 0, 8);
-		if (!array2.smethod_4(Class15.CUR_MODEL))
+		if (!array2.smethod_4(Settings.CUR_MODEL))
 		{
 			return false;
 		}
@@ -1060,7 +1060,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, Class9.PACK_READ, (uint)Class9.PACK_READ.Length, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, FirmwareUpdate.PACK_READ, (uint)FirmwareUpdate.PACK_READ.Length, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -1074,7 +1074,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, Class9.PACK_WRITE, (uint)Class9.PACK_WRITE.Length, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, FirmwareUpdate.PACK_WRITE, (uint)FirmwareUpdate.PACK_WRITE.Length, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -1089,12 +1089,12 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, Class9.PACK_END, (uint)Class9.PACK_END.Length, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, FirmwareUpdate.PACK_END, (uint)FirmwareUpdate.PACK_END.Length, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
 		}
-		Class9.STDFU_Upload(ref intptr_0, byte_, 2u, 0);
+		FirmwareUpdate.STDFU_Upload(ref intptr_0, byte_, 2u, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -1116,7 +1116,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, byte_, 5u, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_, 5u, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -1138,12 +1138,12 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, byte_, 5u, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_, 5u, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
 		}
-		Class9.STDFU_Dnload(ref intptr_0, byte_, 0u, 0);
+		FirmwareUpdate.STDFU_Dnload(ref intptr_0, byte_, 0u, 0);
 		if (!this.method_20(ref intptr_0))
 		{
 			return false;
@@ -1161,16 +1161,16 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		Struct3 struct2 = default(Struct3);
 		uint num3 = 0u;
 		IntPtr intPtr = Marshal.AllocHGlobal(512);
-		if (305397760 == (num = Class9.STDFU_GetDFUDescriptor(ref intptr_0, ref uint_, ref num2, ref @struct)))
+		if (305397760 == (num = FirmwareUpdate.STDFU_GetDFUDescriptor(ref intptr_0, ref uint_, ref num2, ref @struct)))
 		{
 			num3 = 0u;
 			while (num3 < num2)
 			{
-				if (305397760 == (num = Class9.STDFU_GetInterfaceDescriptor(ref intptr_0, 0u, uint_, num3, ref struct2)))
+				if (305397760 == (num = FirmwareUpdate.STDFU_GetInterfaceDescriptor(ref intptr_0, 0u, uint_, num3, ref struct2)))
 				{
 					if (struct2.iInterface != 0)
 					{
-						if (305397760 != (num = Class9.STDFU_GetStringDescriptor(ref intptr_0, struct2.iInterface, intPtr, 512u)))
+						if (305397760 != (num = FirmwareUpdate.STDFU_GetStringDescriptor(ref intptr_0, struct2.iInterface, intPtr, 512u)))
 						{
 							break;
 						}
@@ -1252,7 +1252,7 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 	[DllImport("STDFU.dll", CharSet = CharSet.Ansi)]
 	public static extern uint STDFU_Abort(ref IntPtr intptr_0);
 
-	public Class9()
+	public FirmwareUpdate()
 	{
 		
 		this.INVALID_HANDLE_VALUE = (IntPtr)(-1);
@@ -1530,10 +1530,10 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 		return byte_0 == 0;
 	}
 
-	static Class9()
+	static FirmwareUpdate()
 	{
 		
-		Class9.PACK_PRG = new byte[9]
+		FirmwareUpdate.PACK_PRG = new byte[9]
 		{
 			162,
 			80,
@@ -1545,22 +1545,22 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 			65,
 			77
 		};
-		Class9.PACK_READ_INFO = new byte[2]
+		FirmwareUpdate.PACK_READ_INFO = new byte[2]
 		{
 			162,
 			81
 		};
-		Class9.PACK_READ = new byte[2]
+		FirmwareUpdate.PACK_READ = new byte[2]
 		{
 			162,
 			83
 		};
-		Class9.PACK_WRITE = new byte[2]
+		FirmwareUpdate.PACK_WRITE = new byte[2]
 		{
 			162,
 			82
 		};
-		Class9.PACK_END = new byte[5]
+		FirmwareUpdate.PACK_END = new byte[5]
 		{
 			162,
 			84,
@@ -1568,17 +1568,17 @@ internal class Class9 : Win32Usb, IFirmwareUpdate
 			78,
 			68
 		};
-		Class9.PACK_ACK = new byte[2]
+		FirmwareUpdate.PACK_ACK = new byte[2]
 		{
 			162,
 			65
 		};
-		Class9.PACK_NACK = new byte[2]
+		FirmwareUpdate.PACK_NACK = new byte[2]
 		{
 			162,
 			78
 		};
-		Class9.PACK_LOW_VOLT = new byte[2]
+		FirmwareUpdate.PACK_LOW_VOLT = new byte[2]
 		{
 			162,
 			79

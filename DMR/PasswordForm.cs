@@ -85,20 +85,20 @@ namespace DMR
 			
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void PasswordForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.txtPwd.MaxByteLength = 8;
 			this.txtPwd.InputString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\b";
-			this.txtPwd.Text = Class15.CUR_PWD;
+			this.txtPwd.Text = Settings.CUR_PWD;
 		}
 
 		private void btnOk_Click(object sender, EventArgs e)
 		{
-			Class15.CUR_PWD = this.txtPwd.Text;
+			Settings.CUR_PWD = this.txtPwd.Text;
 		}
 	}
 }

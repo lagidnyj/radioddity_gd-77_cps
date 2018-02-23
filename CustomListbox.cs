@@ -2,7 +2,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 [ToolboxBitmap(typeof(ListBox))]
-internal class Class8 : ListBox
+internal class CustomListbox : ListBox
 {
 	private ToolTip tip;
 
@@ -26,7 +26,7 @@ internal class Class8 : ListBox
 		}
 	}
 
-	public Class8()
+	public CustomListbox()
 	{
 		
 		this.tip = new ToolTip();

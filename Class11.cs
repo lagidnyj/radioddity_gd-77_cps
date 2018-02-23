@@ -4,7 +4,6 @@ using System.Windows.Forms;
 internal class Class11 : NativeWindow
 {
 	private const int WM_CHAR = 258;
-
 	private const int WM_PASTE = 770;
 
 	protected override void WndProc(ref Message m)
@@ -33,9 +32,7 @@ internal class Class11 : NativeWindow
 		}
 	}
 
-	public Class11():base()
+	public Class11()
 	{
-		
-		//base._002Ector();
 	}
 }

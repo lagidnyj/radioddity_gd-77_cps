@@ -2,7 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-internal class Class12 : NumericUpDown
+internal class CustomNumericUpDown : NumericUpDown
 {
 	public void method_0(int int_0)
 	{
@@ -142,9 +142,7 @@ internal class Class12 : NumericUpDown
 		}
 	}
 
-	public Class12():base()
+	public CustomNumericUpDown():base()
 	{
-//		
-
 	}
 }

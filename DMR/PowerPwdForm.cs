@@ -22,12 +22,12 @@ namespace DMR
 			
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void PowerPwdForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.txtPwd.MaxByteLength = 16;
 			this.txtPwd.InputString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\b";
 		}
@@ -37,17 +37,17 @@ namespace DMR
 			base.DialogResult = DialogResult.OK;
 			if (this.txtPwd.Text == "DMR961510")
 			{
-				string string_ = Class7.smethod_0(this.txtPwd.Text.Trim());
-				Class6.smethod_6("setup", "Power", string_);
-				Class15.smethod_5(Class15.UserMode.Expert);
-				Class15.CUR_MODE = 1;
+				string string_ = Base64Utils.smethod_0(this.txtPwd.Text.Trim());
+				IniFileUtils.smethod_6("setup", "Power", string_);
+				Settings.smethod_5(Settings.UserMode.Expert);
+				Settings.CUR_MODE = 1;
 			}
 			else if (this.txtPwd.Text == "TYT760")
 			{
-				string string_2 = Class7.smethod_0(this.txtPwd.Text.Trim());
-				Class15.smethod_5(Class15.UserMode.Expert);
-				Class15.CUR_MODE = 2;
-				Class6.smethod_6("setup", "Power", string_2);
+				string string_2 = Base64Utils.smethod_0(this.txtPwd.Text.Trim());
+				Settings.smethod_5(Settings.UserMode.Expert);
+				Settings.CUR_MODE = 2;
+				IniFileUtils.smethod_6("setup", "Power", string_2);
 			}
 			else
 			{

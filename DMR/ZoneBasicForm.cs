@@ -10,23 +10,23 @@ namespace DMR
 	{
 		//private IContainer components;
 
-		private Class4 cmbMainZone;
+		private CustomCombo cmbMainZone;
 
 		private Label lblCurZone;
 
-		private Class4 cmbSubCh;
+		private CustomCombo cmbSubCh;
 
 		private Label lblSubCh;
 
-		private Class4 cmbMainCh;
+		private CustomCombo cmbMainCh;
 
 		private Label lblMainCh;
 
-		private Class4 cmbSubZone;
+		private CustomCombo cmbSubZone;
 
 		private Label lblSubZone;
 
-		private Class3 pnlZoneBasic;
+		private CustomPanel pnlZoneBasic;
 
 		private GroupBox grpSub;
 
@@ -90,10 +90,8 @@ namespace DMR
 
 		public ZoneBasicForm()
 		{
-			
-			//base._002Ector();
-			this.method_7();
-			base.Scale(Class15.smethod_6());
+			this.InitializeComponent();
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -106,7 +104,7 @@ namespace DMR
 			this.method_2(this.cmbSubZone);
 		}
 
-		private void method_2(Class4 class4_0)
+		private void method_2(CustomCombo class4_0)
 		{
 			int num = 0;
 			class4_0.method_0();
@@ -129,7 +127,7 @@ namespace DMR
 			this.method_5(int_0, this.cmbSubCh);
 		}
 
-		private void method_5(int int_0, Class4 class4_0)
+		private void method_5(int int_0, CustomCombo class4_0)
 		{
 			int num = 0;
 			int num2 = 0;
@@ -159,8 +157,8 @@ namespace DMR
 
 		private void ZoneBasicForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 
@@ -216,18 +214,18 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_7()
+		private void InitializeComponent()
 		{
-			this.pnlZoneBasic = new Class3();
+			this.pnlZoneBasic = new CustomPanel();
 			this.grpSub = new GroupBox();
-			this.cmbSubCh = new Class4();
+			this.cmbSubCh = new CustomCombo();
 			this.lblSubCh = new Label();
-			this.cmbSubZone = new Class4();
+			this.cmbSubZone = new CustomCombo();
 			this.lblSubZone = new Label();
 			this.grpMain = new GroupBox();
-			this.cmbMainCh = new Class4();
+			this.cmbMainCh = new CustomCombo();
 			this.lblMainCh = new Label();
-			this.cmbMainZone = new Class4();
+			this.cmbMainZone = new CustomCombo();
 			this.lblCurZone = new Label();
 			this.pnlZoneBasic.SuspendLayout();
 			this.grpSub.SuspendLayout();
@@ -240,15 +238,16 @@ namespace DMR
 			this.pnlZoneBasic.Dock = DockStyle.Fill;
 			this.pnlZoneBasic.Location = new Point(0, 0);
 			this.pnlZoneBasic.Name = "pnlZoneBasic";
-			this.pnlZoneBasic.Size = new Size(520, 197);
+			this.pnlZoneBasic.Size = new Size(600, 197);
 			this.pnlZoneBasic.TabIndex = 0;
+
 			this.grpSub.Controls.Add(this.cmbSubCh);
 			this.grpSub.Controls.Add(this.lblSubCh);
 			this.grpSub.Controls.Add(this.cmbSubZone);
 			this.grpSub.Controls.Add(this.lblSubZone);
-			this.grpSub.Location = new Point(255, 35);
+			this.grpSub.Location = new Point(300, 35);
 			this.grpSub.Name = "grpSub";
-			this.grpSub.Size = new Size(213, 129);
+			this.grpSub.Size = new Size(250, 129);
 			this.grpSub.TabIndex = 7;
 			this.grpSub.TabStop = false;
 			this.grpSub.Text = "Down";
@@ -256,7 +255,7 @@ namespace DMR
 			this.cmbSubCh.FormattingEnabled = true;
 			this.cmbSubCh.Location = new Point(98, 71);
 			this.cmbSubCh.Name = "cmbSubCh";
-			this.cmbSubCh.Size = new Size(87, 24);
+			this.cmbSubCh.Size = new Size(120, 24);
 			this.cmbSubCh.TabIndex = 5;
 			this.lblSubCh.Location = new Point(19, 71);
 			this.lblSubCh.Name = "lblSubCh";
@@ -268,7 +267,7 @@ namespace DMR
 			this.cmbSubZone.FormattingEnabled = true;
 			this.cmbSubZone.Location = new Point(98, 37);
 			this.cmbSubZone.Name = "cmbSubZone";
-			this.cmbSubZone.Size = new Size(87, 24);
+			this.cmbSubZone.Size = new Size(120, 24);
 			this.cmbSubZone.TabIndex = 1;
 			this.cmbSubZone.SelectedIndexChanged += this.cmbSubZone_SelectedIndexChanged;
 			this.cmbSubZone.DropDown += this.cmbSubZone_DropDown;
@@ -284,7 +283,7 @@ namespace DMR
 			this.grpMain.Controls.Add(this.lblCurZone);
 			this.grpMain.Location = new Point(25, 35);
 			this.grpMain.Name = "grpMain";
-			this.grpMain.Size = new Size(213, 129);
+			this.grpMain.Size = new Size(250, 129);
 			this.grpMain.TabIndex = 6;
 			this.grpMain.TabStop = false;
 			this.grpMain.Text = "Up";
@@ -292,7 +291,7 @@ namespace DMR
 			this.cmbMainCh.FormattingEnabled = true;
 			this.cmbMainCh.Location = new Point(98, 71);
 			this.cmbMainCh.Name = "cmbMainCh";
-			this.cmbMainCh.Size = new Size(87, 24);
+			this.cmbMainCh.Size = new Size(120, 24);
 			this.cmbMainCh.TabIndex = 3;
 			this.lblMainCh.Location = new Point(19, 71);
 			this.lblMainCh.Name = "lblMainCh";
@@ -304,7 +303,7 @@ namespace DMR
 			this.cmbMainZone.FormattingEnabled = true;
 			this.cmbMainZone.Location = new Point(98, 37);
 			this.cmbMainZone.Name = "cmbMainZone";
-			this.cmbMainZone.Size = new Size(87, 24);
+			this.cmbMainZone.Size = new Size(120, 24);
 			this.cmbMainZone.TabIndex = 1;
 			this.cmbMainZone.SelectedIndexChanged += this.cmbMainZone_SelectedIndexChanged;
 			this.cmbMainZone.DropDown += this.cmbMainZone_DropDown;
@@ -316,7 +315,7 @@ namespace DMR
 			this.lblCurZone.TextAlign = ContentAlignment.MiddleRight;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
 			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(520, 197);
+			base.ClientSize = new Size(600, 197);
 			base.Controls.Add(this.pnlZoneBasic);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			base.Name = "ZoneBasicForm";

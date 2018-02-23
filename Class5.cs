@@ -1,7 +1,6 @@
 internal class Class5
 {
 	private string _text;
-
 	private object _value;
 
 	public string Text
@@ -35,8 +34,6 @@ internal class Class5
 
 	public Class5(string string_0, object object_0)
 	{
-		
-		//base._002Ector();
 		this._text = string_0;
 		this._value = object_0;
 	}

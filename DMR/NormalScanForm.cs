@@ -57,11 +57,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -265,7 +265,7 @@ namespace DMR
 
 			public NormalScanOne Clone()
 			{
-				return Class15.smethod_65(this);
+				return Settings.smethod_65(this);
 			}
 
 			public void Verify(NormalScanOne def)
@@ -318,8 +318,8 @@ namespace DMR
 						this.txDesignatedCh = 0;
 					}
 				}
-				Class15.smethod_11(ref this.signalingHold, (byte)2, (byte)255, def.signalingHold);
-				Class15.smethod_11(ref this.prioritySample, (byte)3, (byte)31, def.prioritySample);
+				Settings.smethod_11(ref this.signalingHold, (byte)2, (byte)255, def.signalingHold);
+				Settings.smethod_11(ref this.prioritySample, (byte)3, (byte)31, def.prioritySample);
 			}
 		}
 
@@ -488,7 +488,7 @@ namespace DMR
 				string text = "";
 				num2 = this.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -498,7 +498,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -772,7 +772,7 @@ namespace DMR
 
 		//private IContainer components;
 
-		private Class12 nudSignalingHold;
+		private CustomNumericUpDown nudSignalingHold;
 
 		private Button btnDel;
 
@@ -782,7 +782,7 @@ namespace DMR
 
 		private ListBox lstUnselected;
 
-		private Class4 cmbTxDesignatedCh;
+		private CustomCombo cmbTxDesignatedCh;
 
 		private Label lblSignalingHold;
 
@@ -794,19 +794,19 @@ namespace DMR
 
 		private Label lblPrioritySample;
 
-		private Class12 nudPrioritySample;
+		private CustomNumericUpDown nudPrioritySample;
 
 		private Label label_0;
 
-		private Class4 cmbPlType;
+		private CustomCombo cmbPlType;
 
 		private SGTextBox txtName;
 
 		private Label lblName;
 
-		private Class4 cmbPriorityCh1;
+		private CustomCombo cmbPriorityCh1;
 
-		private Class4 cmbPriorityCh2;
+		private CustomCombo cmbPriorityCh2;
 
 		private Label lblPriorityCh1;
 
@@ -820,7 +820,7 @@ namespace DMR
 
 		private Button btnUp;
 
-		private Class3 panel1;
+		private CustomPanel panel1;
 
 		public TreeNode Node
 		{
@@ -891,7 +891,7 @@ namespace DMR
 					num3 = NormalScanForm.data[num2].ChList[num];
 					if (num3 == 1)
 					{
-						this.lstSelected.Items.Add(new Class14(num, num3, Class15.SZ_SELECTED));
+						this.lstSelected.Items.Add(new Class14(num, num3, Settings.SZ_SELECTED));
 					}
 					else if (num3 > 1 && num3 <= 1025)
 					{
@@ -939,7 +939,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.chkChMark.Enabled &= flag;
 			this.lblSignalingHold.Enabled &= flag;
 			this.nudSignalingHold.Enabled &= flag;
@@ -958,18 +958,18 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_8();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
 		{
-			Class15.smethod_45(this.cmbTxDesignatedCh, NormalScanForm.SZ_TX_DESIGNATED_CH, ChannelForm.data);
+			Settings.smethod_45(this.cmbTxDesignatedCh, NormalScanForm.SZ_TX_DESIGNATED_CH, ChannelForm.data);
 		}
 
 		private void method_1()
 		{
-			Class15.smethod_46(this.cmbPriorityCh1, NormalScanForm.SZ_PRIORITY_CH, this.lstSelected);
-			Class15.smethod_46(this.cmbPriorityCh2, NormalScanForm.SZ_PRIORITY_CH, this.lstSelected);
+			Settings.smethod_46(this.cmbPriorityCh1, NormalScanForm.SZ_PRIORITY_CH, this.lstSelected);
+			Settings.smethod_46(this.cmbPriorityCh2, NormalScanForm.SZ_PRIORITY_CH, this.lstSelected);
 		}
 
 		private void method_2()
@@ -1058,24 +1058,24 @@ namespace DMR
 		private void method_3()
 		{
 			this.txtName.MaxByteLength = 15;
-			this.txtName.KeyPress += Class15.smethod_54;
-			Class15.smethod_37(this.cmbPlType, NormalScanForm.SZ_PL_TYPE);
-			Class15.smethod_36(this.nudSignalingHold, new Class13(2, 255, 1, 25m, 4));
-			Class15.smethod_36(this.nudPrioritySample, new Class13(3, 31, 1, 250m, 4));
+			this.txtName.KeyPress += Settings.smethod_54;
+			Settings.smethod_37(this.cmbPlType, NormalScanForm.SZ_PL_TYPE);
+			Settings.smethod_36(this.nudSignalingHold, new Class13(2, 255, 1, 25m, 4));
+			Settings.smethod_36(this.nudPrioritySample, new Class13(3, 31, 1, 250m, 4));
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(NormalScanForm).Name;
-			Class15.smethod_78("PriorityCh", NormalScanForm.SZ_PRIORITY_CH, name);
-			Class15.smethod_78("TxDesignatedCh", NormalScanForm.SZ_TX_DESIGNATED_CH, name);
-			Class15.smethod_78("PlType", NormalScanForm.SZ_PL_TYPE, name);
+			Settings.smethod_78("PriorityCh", NormalScanForm.SZ_PRIORITY_CH, name);
+			Settings.smethod_78("TxDesignatedCh", NormalScanForm.SZ_TX_DESIGNATED_CH, name);
+			Settings.smethod_78("PlType", NormalScanForm.SZ_PL_TYPE, name);
 		}
 
 		private void NormalScanForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_3();
 			this.DispData();
 		}
@@ -1248,7 +1248,7 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
 					this.txtName.Text = this.Node.Text;
 				}
@@ -1348,16 +1348,16 @@ namespace DMR
 			this.lblPriorityCh2 = new Label();
 			this.grpUnselected = new GroupBox();
 			this.grpSelected = new GroupBox();
-			this.panel1 = new Class3();
+			this.panel1 = new CustomPanel();
 			this.btnDown = new Button();
 			this.btnUp = new Button();
 			this.txtName = new SGTextBox();
-			this.cmbPriorityCh2 = new Class4();
-			this.cmbPriorityCh1 = new Class4();
-			this.nudPrioritySample = new Class12();
-			this.nudSignalingHold = new Class12();
-			this.cmbTxDesignatedCh = new Class4();
-			this.cmbPlType = new Class4();
+			this.cmbPriorityCh2 = new CustomCombo();
+			this.cmbPriorityCh1 = new CustomCombo();
+			this.nudPrioritySample = new CustomNumericUpDown();
+			this.nudSignalingHold = new CustomNumericUpDown();
+			this.cmbTxDesignatedCh = new CustomCombo();
+			this.cmbPlType = new CustomCombo();
 			this.grpUnselected.SuspendLayout();
 			this.grpSelected.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -1553,7 +1553,7 @@ namespace DMR
 			});
 			this.nudPrioritySample.Name = "nudPrioritySample";
 			this.nudPrioritySample.method_6(null);
-			Class12 @class = this.nudPrioritySample;
+			CustomNumericUpDown @class = this.nudPrioritySample;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudPrioritySample.Size = new Size(166, 23);
@@ -1590,7 +1590,7 @@ namespace DMR
 			});
 			this.nudSignalingHold.Name = "nudSignalingHold";
 			this.nudSignalingHold.method_6(null);
-			Class12 class2 = this.nudSignalingHold;
+			CustomNumericUpDown class2 = this.nudSignalingHold;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudSignalingHold.Size = new Size(166, 23);

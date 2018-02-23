@@ -57,11 +57,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -263,7 +263,7 @@ namespace DMR
 
 			public EmergencyOne Clone()
 			{
-				return Class15.smethod_65(this);
+				return Settings.smethod_65(this);
 			}
 
 			public void Verify(EmergencyOne def)
@@ -286,11 +286,11 @@ namespace DMR
 							this.revertCh = 0;
 						}
 					}
-					Class15.smethod_11(ref this.impoliteRetries, (byte)1, (byte)15, def.impoliteRetries);
-					Class15.smethod_11(ref this.politeRetries, (byte)0, (byte)15, def.politeRetries);
-					Class15.smethod_11(ref this.cycles, (byte)1, (byte)10, def.cycles);
-					Class15.smethod_11(ref this.txCycle, (byte)1, (byte)12, def.txCycle);
-					Class15.smethod_11(ref this.rxCycle, (byte)1, (byte)12, def.rxCycle);
+					Settings.smethod_11(ref this.impoliteRetries, (byte)1, (byte)15, def.impoliteRetries);
+					Settings.smethod_11(ref this.politeRetries, (byte)0, (byte)15, def.politeRetries);
+					Settings.smethod_11(ref this.cycles, (byte)1, (byte)10, def.cycles);
+					Settings.smethod_11(ref this.txCycle, (byte)1, (byte)12, def.txCycle);
+					Settings.smethod_11(ref this.rxCycle, (byte)1, (byte)12, def.rxCycle);
 				}
 			}
 		}
@@ -414,7 +414,7 @@ namespace DMR
 				string text = "";
 				num2 = this.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -424,7 +424,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -624,23 +624,23 @@ namespace DMR
 
 		private SGTextBox txtName;
 
-		private Class4 cmbAlarmType;
+		private CustomCombo cmbAlarmType;
 
 		private ComboBox cmbAlarmMode;
 
-		private Class4 cmbRevertCh;
+		private CustomCombo cmbRevertCh;
 
-		private Class12 nudCycles;
+		private CustomNumericUpDown nudCycles;
 
-		private Class12 nudTxCycle;
+		private CustomNumericUpDown nudTxCycle;
 
-		private Class12 nudRxCycle;
+		private CustomNumericUpDown nudRxCycle;
 
-		private Class12 nudImpoliteRetries;
+		private CustomNumericUpDown nudImpoliteRetries;
 
-		private Class12 nudPoliteRetries;
+		private CustomNumericUpDown nudPoliteRetries;
 
-		private Class3 pnlEmergency;
+		private CustomPanel pnlEmergency;
 
 		private static readonly string[] SZ_ALARM_TYPE;
 
@@ -682,14 +682,14 @@ namespace DMR
 			this.lblTxCycle = new Label();
 			this.lblRxCycle = new Label();
 			this.cmbAlarmMode = new ComboBox();
-			this.pnlEmergency = new Class3();
-			this.cmbRevertCh = new Class4();
-			this.nudPoliteRetries = new Class12();
-			this.nudImpoliteRetries = new Class12();
-			this.nudRxCycle = new Class12();
-			this.nudTxCycle = new Class12();
-			this.nudCycles = new Class12();
-			this.cmbAlarmType = new Class4();
+			this.pnlEmergency = new CustomPanel();
+			this.cmbRevertCh = new CustomCombo();
+			this.nudPoliteRetries = new CustomNumericUpDown();
+			this.nudImpoliteRetries = new CustomNumericUpDown();
+			this.nudRxCycle = new CustomNumericUpDown();
+			this.nudTxCycle = new CustomNumericUpDown();
+			this.nudCycles = new CustomNumericUpDown();
+			this.cmbAlarmType = new CustomCombo();
 			this.txtName = new SGTextBox();
 			this.pnlEmergency.SuspendLayout();
 			((ISupportInitialize)this.nudPoliteRetries).BeginInit();
@@ -816,7 +816,7 @@ namespace DMR
 			});
 			this.nudPoliteRetries.Name = "nudPoliteRetries";
 			this.nudPoliteRetries.method_6(null);
-			Class12 @class = this.nudPoliteRetries;
+			CustomNumericUpDown @class = this.nudPoliteRetries;
 			int[] bits = new int[4];
 			@class.method_4(new decimal(bits));
 			this.nudPoliteRetries.Size = new Size(120, 23);
@@ -839,7 +839,7 @@ namespace DMR
 			});
 			this.nudImpoliteRetries.Name = "nudImpoliteRetries";
 			this.nudImpoliteRetries.method_6(null);
-			Class12 class2 = this.nudImpoliteRetries;
+			CustomNumericUpDown class2 = this.nudImpoliteRetries;
 			int[] bits2 = new int[4];
 			class2.method_4(new decimal(bits2));
 			this.nudImpoliteRetries.Size = new Size(120, 23);
@@ -876,7 +876,7 @@ namespace DMR
 			});
 			this.nudRxCycle.Name = "nudRxCycle";
 			this.nudRxCycle.method_6(null);
-			Class12 class3 = this.nudRxCycle;
+			CustomNumericUpDown class3 = this.nudRxCycle;
 			int[] bits3 = new int[4];
 			class3.method_4(new decimal(bits3));
 			this.nudRxCycle.Size = new Size(120, 23);
@@ -914,7 +914,7 @@ namespace DMR
 			});
 			this.nudTxCycle.Name = "nudTxCycle";
 			this.nudTxCycle.method_6(null);
-			Class12 class4 = this.nudTxCycle;
+			CustomNumericUpDown class4 = this.nudTxCycle;
 			int[] bits4 = new int[4];
 			class4.method_4(new decimal(bits4));
 			this.nudTxCycle.Size = new Size(120, 23);
@@ -945,7 +945,7 @@ namespace DMR
 			});
 			this.nudCycles.Name = "nudCycles";
 			this.nudCycles.method_6(null);
-			Class12 class5 = this.nudCycles;
+			CustomNumericUpDown class5 = this.nudCycles;
 			int[] bits5 = new int[4];
 			class5.method_4(new decimal(bits5));
 			this.nudCycles.Size = new Size(120, 23);
@@ -1060,7 +1060,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblCycles.Enabled &= flag;
 			this.nudCycles.Enabled &= flag;
 			this.lblTxCycle.Enabled &= flag;
@@ -1080,14 +1080,14 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			int num = 0;
 			this.txtName.MaxByteLength = 15;
-			this.txtName.KeyPress += Class15.smethod_54;
+			this.txtName.KeyPress += Settings.smethod_54;
 			this.cmbAlarmType.Items.Clear();
 			foreach (byte value in Enum.GetValues(typeof(AlarmType)))
 			{
@@ -1150,15 +1150,15 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(EmergencyForm).Name;
-			Class15.smethod_78("AlarmType", EmergencyForm.SZ_ALARM_TYPE, name);
-			Class15.smethod_78("AlarmMode", EmergencyForm.SZ_ALARM_MODE, name);
-			Class15.smethod_78("RevertCh", EmergencyForm.SZ_REVERT_CH, name);
+			Settings.smethod_78("AlarmType", EmergencyForm.SZ_ALARM_TYPE, name);
+			Settings.smethod_78("AlarmMode", EmergencyForm.SZ_ALARM_MODE, name);
+			Settings.smethod_78("RevertCh", EmergencyForm.SZ_REVERT_CH, name);
 		}
 
 		private void EmergencyForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_1();
 			this.DispData();
 		}
@@ -1219,7 +1219,7 @@ namespace DMR
 			decimal num = this.nudTxCycle.Value % this.nudTxCycle.Increment;
 			if (num != 0m)
 			{
-				Class12 @class = this.nudTxCycle;
+				CustomNumericUpDown @class = this.nudTxCycle;
 				@class.Value -= num;
 			}
 		}
@@ -1229,7 +1229,7 @@ namespace DMR
 			decimal num = this.nudRxCycle.Value % this.nudRxCycle.Increment;
 			if (num != 0m)
 			{
-				Class12 @class = this.nudRxCycle;
+				CustomNumericUpDown @class = this.nudRxCycle;
 				@class.Value -= num;
 			}
 		}
@@ -1239,7 +1239,7 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
 					this.txtName.Text = this.Node.Text;
 				}

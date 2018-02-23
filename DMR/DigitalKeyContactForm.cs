@@ -76,7 +76,7 @@ namespace DMR
 						if (!ContactForm.data.DataIsValid(num2))
 						{
 							this.contact[num] = 0;
-							Class15.smethod_17(ref this.index, num, 1);
+							Settings.smethod_17(ref this.index, num, 1);
 						}
 					}
 				}
@@ -153,7 +153,7 @@ namespace DMR
 			this.dicCom = new Dictionary<string, string>();
 			//base._002Ector();
 			this.method_2();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
@@ -162,7 +162,7 @@ namespace DMR
 			string text = "";
 			this.dgvContact.RowCount = 10;
 			this.cmbContact.Items.Clear();
-			this.cmbContact.Items.Add(new Class5(Class15.SZ_NONE, 0));
+			this.cmbContact.Items.Add(new Class5(Settings.SZ_NONE, 0));
 			for (i = 0; i < 1024; i++)
 			{
 				if (ContactForm.data.DataIsValid(i))
@@ -182,13 +182,13 @@ namespace DMR
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(DigitalKeyContactForm).Name;
-			Class15.smethod_77("DigitKey", ref DigitalKeyContactForm.SZ_DIGIT_KEY_TEXT, name);
+			Settings.smethod_77("DigitKey", ref DigitalKeyContactForm.SZ_DIGIT_KEY_TEXT, name);
 		}
 
 		private void DigitalKeyContactForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.DispData();
 		}
 

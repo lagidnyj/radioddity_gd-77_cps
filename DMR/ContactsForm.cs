@@ -22,7 +22,7 @@ namespace DMR
 		private Button btnClear;
 		private Button btnDelete;
 		private Button btnAdd;
-		private Class4 cmbAddType;
+		private CustomCombo cmbAddType;
 		private SGTextBox txtCallId;
 		private SGTextBox txtName;
 		private ComboBox cmbCallRxTone;
@@ -69,7 +69,7 @@ namespace DMR
 			this.dgvContacts = new DataGridView();
 			this.txtCallId = new SGTextBox();
 			this.txtName = new SGTextBox();
-			this.cmbAddType = new Class4();
+			this.cmbAddType = new CustomCombo();
 			this.dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -291,18 +291,18 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(ContactsForm).Name;
-			Class15.smethod_78("HeaderText", ContactsForm.SZ_HEADER_TEXT, name);
+			Settings.smethod_78("HeaderText", ContactsForm.SZ_HEADER_TEXT, name);
 		}
 
 		private void ContactsForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.method_2();
 			this.DispData();
 			this.cmbAddType.SelectedIndex = 0;
@@ -347,7 +347,7 @@ namespace DMR
 				int index2 = (int)this.dgvContacts.CurrentRow.Tag;
 				if (index == 0)
 				{
-					MessageBox.Show(Class15.dicCommon["FirstNotDelete"]);
+					MessageBox.Show(Settings.dicCommon["FirstNotDelete"]);
 				}
 				else
 				{
@@ -399,7 +399,7 @@ namespace DMR
 					}
 					continue;
 				}
-				MessageBox.Show(Class15.dicCommon["FirstNotDelete"]);
+				MessageBox.Show(Settings.dicCommon["FirstNotDelete"]);
 				break;
 			}
 			this.method_1();
@@ -485,7 +485,7 @@ namespace DMR
 					}
 					else
 					{
-						MessageBox.Show(Class15.SZ_DATA_FORMAT_ERROR);
+						MessageBox.Show(Settings.SZ_DATA_FORMAT_ERROR);
 					}
 				}
 			}
@@ -528,14 +528,14 @@ namespace DMR
 				dataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 				this.dgvContacts.Columns.Add(dataGridViewTextBoxColumn);
 			}
-			Class15.smethod_40(this.cmbAddType, ContactForm.SZ_CALL_TYPE, new int[2]
+			Settings.smethod_40(this.cmbAddType, ContactForm.SZ_CALL_TYPE, new int[2]
 			{
 				0,
 				1
 			});
-			Class15.smethod_37(this.cmbType, ContactForm.SZ_CALL_TYPE);
-			Class15.smethod_37(this.cmbCallRxTone, ContactForm.SZ_CALL_RX_TONE);
-			Class15.smethod_43(this.cmbRingStyle, 0, 10, 0, Class15.SZ_NONE);
+			Settings.smethod_37(this.cmbType, ContactForm.SZ_CALL_TYPE);
+			Settings.smethod_37(this.cmbCallRxTone, ContactForm.SZ_CALL_RX_TONE);
+			Settings.smethod_43(this.cmbRingStyle, 0, 10, 0, Settings.SZ_NONE);
 			this.txtName.MaxLength = 16;
 			this.txtCallId.MaxLength = 8;
 		}
@@ -564,7 +564,7 @@ namespace DMR
 					{
 						return;
 					}
-					if ((e.ColumnIndex == 4 || e.ColumnIndex == 5) && Class15.smethod_4() != Class15.UserMode.Expert)
+					if ((e.ColumnIndex == 4 || e.ColumnIndex == 5) && Settings.smethod_4() != Settings.UserMode.Expert)
 					{
 						return;
 					}

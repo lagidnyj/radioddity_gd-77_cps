@@ -90,7 +90,7 @@ internal class Class10
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
-		byte[] array = new byte[Class15.EEROM_SPACE];
+		byte[] array = new byte[Settings.EEROM_SPACE];
 		byte[] array2 = new byte[160];
 		int num4 = 0;
 		int num5 = 0;
@@ -119,7 +119,7 @@ internal class Class10
 			Console.WriteLine(ex.Message);
 			if (this.OnFirmwareUpdateProgress != null)
 			{
-				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000003"], false, false));
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000003"], false, false));
 			}
 			return;
 		}
@@ -173,9 +173,9 @@ internal class Class10
 						}
 						if (array2[0] == Class10.CMD_ACK[0])
 						{
-							if (!flag && Class15.CUR_PWD != "DT8168")
+							if (!flag && Settings.CUR_PWD != "DT8168")
 							{
-								i = Class15.ADDR_PWD;
+								i = Settings.ADDR_PWD;
 								num5 = 8;
 								byte[] buffer = new byte[4]
 								{
@@ -220,9 +220,9 @@ internal class Class10
 								}
 								else
 								{
-									if (text != Class15.CUR_PWD)
+									if (text != Settings.CUR_PWD)
 									{
-										Class15.CUR_PWD = "";
+										Settings.CUR_PWD = "";
 										PasswordForm passwordForm = new PasswordForm();
 										if (passwordForm.ShowDialog() == DialogResult.OK)
 										{
@@ -322,7 +322,7 @@ internal class Class10
 									MainForm.ByteToData(array);
 									if (this.OnFirmwareUpdateProgress != null)
 									{
-										this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, Class15.dicCommon["80000101"], false, true));
+										this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, Settings.dicCommon["80000101"], false, true));
 									}
 									return;
 								}
@@ -333,7 +333,7 @@ internal class Class10
 					IL_0735:
 					if (this.OnFirmwareUpdateProgress != null)
 					{
-						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000004"], true, true));
+						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000004"], true, true));
 					}
 					serialPort.Close();
 					return;
@@ -345,7 +345,7 @@ internal class Class10
 			Console.WriteLine(ex2.Message);
 			if (this.OnFirmwareUpdateProgress != null)
 			{
-				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000004"], false, false));
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000004"], false, false));
 			}
 			serialPort.Close();
 		}
@@ -378,7 +378,7 @@ internal class Class10
 		array3[3] = (byte)(day / 10 << 4 | day % 10);
 		array3[4] = (byte)(hour / 10 << 4 | hour % 10);
 		array3[5] = (byte)(minute / 10 << 4 | minute % 10);
-		Array.Copy(array3, 0, array2, Class15.ADDR_DEVICE_INFO + Class15.OFS_LAST_PRG_TIME, 6);
+		Array.Copy(array3, 0, array2, Settings.ADDR_DEVICE_INFO + Settings.OFS_LAST_PRG_TIME, 6);
 		Stopwatch stopwatch = Stopwatch.StartNew();
 		SerialPort serialPort = new SerialPort(MainForm.CurCom, MainForm.CurCbr);
 		try
@@ -411,7 +411,7 @@ internal class Class10
 				Console.WriteLine(ex.Message);
 				if (this.OnFirmwareUpdateProgress != null)
 				{
-					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000003"], false, false));
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000003"], false, false));
 				}
 				return;
 			}
@@ -452,9 +452,9 @@ internal class Class10
 						}
 						if (array[0] == Class10.CMD_ACK[0])
 						{
-							if (!flag && Class15.CUR_PWD != "DT8168")
+							if (!flag && Settings.CUR_PWD != "DT8168")
 							{
-								i = Class15.ADDR_PWD;
+								i = Settings.ADDR_PWD;
 								num5 = 8;
 								byte[] buffer = new byte[4]
 								{
@@ -499,9 +499,9 @@ internal class Class10
 								}
 								else
 								{
-									if (text != Class15.CUR_PWD)
+									if (text != Settings.CUR_PWD)
 									{
-										Class15.CUR_PWD = "";
+										Settings.CUR_PWD = "";
 										PasswordForm passwordForm = new PasswordForm();
 										if (passwordForm.ShowDialog() == DialogResult.OK)
 										{
@@ -610,7 +610,7 @@ internal class Class10
 									serialPort.Close();
 									if (this.OnFirmwareUpdateProgress != null)
 									{
-										this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, Class15.dicCommon["80000102"], false, true));
+										this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, Settings.dicCommon["80000102"], false, true));
 									}
 									return;
 								}
@@ -621,7 +621,7 @@ internal class Class10
 					IL_07ef:
 					if (this.OnFirmwareUpdateProgress != null)
 					{
-						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000004"], true, true));
+						this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000004"], true, true));
 					}
 					serialPort.Close();
 					return;
@@ -633,7 +633,7 @@ internal class Class10
 			Console.WriteLine(ex2.Message);
 			if (this.OnFirmwareUpdateProgress != null)
 			{
-				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Class15.dicCommon["80000004"], false, false));
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.dicCommon["80000004"], false, false));
 			}
 			serialPort.Close();
 		}

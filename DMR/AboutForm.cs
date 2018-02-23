@@ -20,13 +20,13 @@ namespace DMR
 			
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void AboutForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
-			this.lblVersion.Text = Class6.smethod_4("Info", "Version", "v1.0.0");
+			Settings.smethod_68(this);
+			this.lblVersion.Text = IniFileUtils.smethod_4("Info", "Version", "v1.0.0");
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)

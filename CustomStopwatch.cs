@@ -1,9 +1,9 @@
 using System;
 using System.Diagnostics;
 
-internal class Class1 : Stopwatch, IDisposable
+internal class CustomStopwatch : Stopwatch, IDisposable
 {
-	public Class1() : base()
+	public CustomStopwatch() : base()
 	{
 //		
 		base.Start();

@@ -30,11 +30,11 @@ namespace DMR
 			{
 				get
 				{
-					return Class15.smethod_25(this.name);
+					return Settings.smethod_25(this.name);
 				}
 				set
 				{
-					byte[] array = Class15.smethod_23(value);
+					byte[] array = Settings.smethod_23(value);
 					this.name.smethod_0((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
@@ -376,7 +376,7 @@ namespace DMR
 				string text = "";
 				num2 = this.GetMinIndex();
 				text = string.Format(this.Format, num2 + 1);
-				if (!Class15.smethod_51(node, text))
+				if (!Settings.smethod_51(node, text))
 				{
 					return text;
 				}
@@ -386,7 +386,7 @@ namespace DMR
 					if (num < this.Count)
 					{
 						text = string.Format(this.Format, num + 1);
-						if (!Class15.smethod_51(node, text))
+						if (!Settings.smethod_51(node, text))
 						{
 							break;
 						}
@@ -750,7 +750,7 @@ namespace DMR
 				}
 			}
 		}
-
+		/* These constants don't seem to be used
 		public const int CNT_ZONE_GROUP = 8;
 
 		public const int CNT_ZONE_PER_ZONE_GROUP = 32;
@@ -766,7 +766,7 @@ namespace DMR
 		public const int LEN_ZONE_NAME = 16;
 
 		public const int CNT_CH_PER_ZONE = 16;
-
+		*/
 		//private IContainer components;
 
 		private Button btnDel;
@@ -825,7 +825,7 @@ namespace DMR
 
 		private ToolStripLabel tslblInfo;
 
-		private Class3 pnlZone;
+		private CustomPanel pnlZone;
 
 		public static readonly int SPACE_ZONE;
 
@@ -866,7 +866,7 @@ namespace DMR
 		private void method_0()
 		{
 			ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ZoneForm));
-			this.pnlZone = new Class3();
+			this.pnlZone = new CustomPanel();
 			this.tsrZone = new ToolStrip();
 			this.tslblInfo = new ToolStripLabel();
 			this.toolStripSeparator2 = new ToolStripSeparator();
@@ -1254,20 +1254,20 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_0();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_1()
 		{
 			this.txtName.MaxByteLength = 15;
-			this.txtName.KeyPress += Class15.smethod_54;
+			this.txtName.KeyPress += Settings.smethod_54;
 		}
 
 		private void ZoneForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
-			Class15.smethod_71(this.tsrZone.smethod_10(), base.Name);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
+			Settings.smethod_71(this.tsrZone.smethod_10(), base.Name);
 			this.method_1();
 			this.DispData();
 		}
@@ -1453,7 +1453,7 @@ namespace DMR
 			this.txtName.Text = this.txtName.Text.Trim();
 			if (this.Node.Text != this.txtName.Text)
 			{
-				if (Class15.smethod_50(this.Node, this.txtName.Text))
+				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
 					this.txtName.Text = this.Node.Text;
 				}
@@ -1558,7 +1558,7 @@ namespace DMR
 			}
 			else
 			{
-				MessageBox.Show(Class15.dicCommon["FirstNotDelete"]);
+				MessageBox.Show(Settings.dicCommon["FirstNotDelete"]);
 			}
 		}
 

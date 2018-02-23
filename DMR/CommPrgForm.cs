@@ -12,9 +12,9 @@ namespace DMR
 		private ProgressBar prgComm;
 		private Button btnCancel;
         private Button btnOK;
-		private Class9 firmwareUpdate;
+		private FirmwareUpdate firmwareUpdate;
 		private Class10 portComm;
-		private Class19 hidComm;
+		private CodeplugComms hidComm;
 
 		public bool IsRead
 		{
@@ -100,27 +100,27 @@ namespace DMR
 		public CommPrgForm()
 		{
 			
-			this.firmwareUpdate = new Class9();
+			this.firmwareUpdate = new FirmwareUpdate();
 			this.portComm = new Class10();
-			this.hidComm = new Class19();
+			this.hidComm = new CodeplugComms();
 			//base._002Ector();
 			this.InitializeComponent();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void CommPrgForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_68(this);
+			Settings.smethod_68(this);
 			this.prgComm.Minimum = 0;
 			this.prgComm.Maximum = 100;
 			this.firmwareUpdate.method_3(this.IsRead);
 			if (this.IsRead)
 			{
-				this.Text = Class15.dicCommon["Read"];
+				this.Text = Settings.dicCommon["Read"];
 			}
 			else
 			{
-				this.Text = Class15.dicCommon["Write"];
+				this.Text = Settings.dicCommon["Write"];
 			}
 			this.hidComm.method_3(this.IsRead);
 			if (this.IsRead)
@@ -203,7 +203,7 @@ namespace DMR
 			{
 				if (!string.IsNullOrEmpty(e.Message))
 				{
-					MessageBox.Show(e.Message, Class15.SZ_PROMPT);
+					MessageBox.Show(e.Message, Settings.SZ_PROMPT);
 				}
 				base.Close();
 			}
@@ -225,12 +225,12 @@ namespace DMR
 					if (this.IsRead)
 					{
 						//MessageBox.Show(Class15.dicCommon["ReadComplete"]);
-                        this.lblPrompt.Text = Class15.dicCommon["ReadComplete"];
+                        this.lblPrompt.Text = Settings.dicCommon["ReadComplete"];
 					}
 					else
 					{
 						//MessageBox.Show(Class15.dicCommon["WriteComplete"]);
-                        this.lblPrompt.Text = Class15.dicCommon["WriteComplete"];
+                        this.lblPrompt.Text = Settings.dicCommon["WriteComplete"];
 					}
                     this.btnOK.Visible = true;
                     this.btnCancel.Visible = false;

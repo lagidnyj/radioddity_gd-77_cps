@@ -805,7 +805,7 @@ namespace DMR
 
 			public void Verify(MenuSet def)
 			{
-				Class15.smethod_11(ref this.menuHangTime, (byte)0, (byte)30, def.menuHangTime);
+				Settings.smethod_11(ref this.menuHangTime, (byte)0, (byte)30, def.menuHangTime);
 				if (!Enum.IsDefined(typeof(WorkModeE), this.WorkMode))
 				{
 					this.WorkMode = def.WorkMode;
@@ -916,15 +916,15 @@ namespace DMR
 
 		private CheckBox chkDoubleWait;
 
-		private Class4 cmbKeyLockTime;
+		private CustomCombo cmbKeyLockTime;
 
-		private Class4 cmbBacklightTime;
+		private CustomCombo cmbBacklightTime;
 
-		private Class4 cmbWorkMode;
+		private CustomCombo cmbWorkMode;
 
-		private Class4 cmbChDispMode;
+		private CustomCombo cmbChDispMode;
 
-		private Class4 cmbMenuHangTime;
+		private CustomCombo cmbMenuHangTime;
 
 		private Label lblMenuHangTime;
 
@@ -952,17 +952,17 @@ namespace DMR
 
 		private Label lblKeyTone;
 
-		private Class4 cmbDwSwitch;
+		private CustomCombo cmbDwSwitch;
 
-		private Class4 cmbKeyTone;
+		private CustomCombo cmbKeyTone;
 
 		private Label lblMenuLang;
 
-		private Class4 cmbMenuLang;
+		private CustomCombo cmbMenuLang;
 
 		private Label lblBrightness;
 
-		private Class4 cmbBrightness;
+		private CustomCombo cmbBrightness;
 
 		private CheckBox chkFm;
 
@@ -1065,7 +1065,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Class15.smethod_4() == Class15.UserMode.Expert;
+			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
 			this.lblMenuHangTime.Enabled &= flag;
 			this.cmbMenuHangTime.Enabled &= flag;
 			this.chkContactEdit.Enabled &= flag;
@@ -1105,44 +1105,44 @@ namespace DMR
 			
 			//base._002Ector();
 			this.method_2();
-			base.Scale(Class15.smethod_6());
+			base.Scale(Settings.smethod_6());
 		}
 
 		private void method_0()
 		{
-			Class15.smethod_41(this.cmbMenuHangTime, 1, 30);
+			Settings.smethod_41(this.cmbMenuHangTime, 1, 30);
 			this.cmbMenuHangTime.Items.Insert(0, "∞");
-			Class15.smethod_37(this.cmbKeyLockTime, MenuForm.SZ_KEY_LOCK_TIME);
-			Class15.smethod_37(this.cmbBacklightTime, MenuForm.SZ_BACKLIGHT_TIME);
-			Class15.smethod_37(this.cmbWorkMode, MenuForm.SZ_WORK_MODE);
-			Class15.smethod_37(this.cmbChDispMode, MenuForm.SZ_CH_DISP_MODE);
-			Class15.smethod_37(this.cmbMenuLang, MenuForm.SZ_MENU_LANG);
-			Class15.smethod_37(this.cmbKeyTone, MenuForm.SZ_KEY_TONE);
-			Class15.smethod_37(this.cmbDwSwitch, MenuForm.SZ_DOUBLE_WAIT);
+			Settings.smethod_37(this.cmbKeyLockTime, MenuForm.SZ_KEY_LOCK_TIME);
+			Settings.smethod_37(this.cmbBacklightTime, MenuForm.SZ_BACKLIGHT_TIME);
+			Settings.smethod_37(this.cmbWorkMode, MenuForm.SZ_WORK_MODE);
+			Settings.smethod_37(this.cmbChDispMode, MenuForm.SZ_CH_DISP_MODE);
+			Settings.smethod_37(this.cmbMenuLang, MenuForm.SZ_MENU_LANG);
+			Settings.smethod_37(this.cmbKeyTone, MenuForm.SZ_KEY_TONE);
+			Settings.smethod_37(this.cmbDwSwitch, MenuForm.SZ_DOUBLE_WAIT);
 			this.grpBasic.method_1(true);
 			this.grpCall.method_1(true);
 			this.grpContact.method_1(true);
 			this.grpScan.method_1(true);
 			this.grpSetting.method_1(true);
-			Class15.smethod_41(this.cmbBrightness, 1, 5);
+			Settings.smethod_41(this.cmbBrightness, 1, 5);
 		}
 
 		public static void RefreshCommonLang()
 		{
 			string name = typeof(MenuForm).Name;
-			Class15.smethod_78("BacklightTime", MenuForm.SZ_BACKLIGHT_TIME, name);
-			Class15.smethod_78("KeyLockTime", MenuForm.SZ_KEY_LOCK_TIME, name);
-			Class15.smethod_78("WorkMode", MenuForm.SZ_WORK_MODE, name);
-			Class15.smethod_78("ChDispMode", MenuForm.SZ_CH_DISP_MODE, name);
-			Class15.smethod_78("KeyTone", MenuForm.SZ_KEY_TONE, name);
-			Class15.smethod_78("DoubleWait", MenuForm.SZ_DOUBLE_WAIT, name);
-			Class15.smethod_78("MenuLang", MenuForm.SZ_MENU_LANG, name);
+			Settings.smethod_78("BacklightTime", MenuForm.SZ_BACKLIGHT_TIME, name);
+			Settings.smethod_78("KeyLockTime", MenuForm.SZ_KEY_LOCK_TIME, name);
+			Settings.smethod_78("WorkMode", MenuForm.SZ_WORK_MODE, name);
+			Settings.smethod_78("ChDispMode", MenuForm.SZ_CH_DISP_MODE, name);
+			Settings.smethod_78("KeyTone", MenuForm.SZ_KEY_TONE, name);
+			Settings.smethod_78("DoubleWait", MenuForm.SZ_DOUBLE_WAIT, name);
+			Settings.smethod_78("MenuLang", MenuForm.SZ_MENU_LANG, name);
 		}
 
 		private void MenuForm_Load(object sender, EventArgs e)
 		{
-			Class15.smethod_59(base.Controls);
-			Class15.smethod_68(this);
+			Settings.smethod_59(base.Controls);
+			Settings.smethod_68(this);
 			this.method_0();
 			this.DispData();
 		}
@@ -1188,7 +1188,7 @@ namespace DMR
 			this.chkFm = new CheckBox();
 			this.chkP1Key = new CheckBox();
 			this.chkGps = new CheckBox();
-			this.cmbBrightness = new Class4();
+			this.cmbBrightness = new CustomCombo();
 			this.grpCall = new Class2();
 			this.chkReceivedCall = new CheckBox();
 			this.chkDialedCall = new CheckBox();
@@ -1211,15 +1211,15 @@ namespace DMR
 			this.chkPower = new CheckBox();
 			this.chkBootScreen = new CheckBox();
 			this.chkEncrypt = new CheckBox();
-			this.cmbChDispMode = new Class4();
+			this.cmbChDispMode = new CustomCombo();
 			this.lblKeyLockTime = new Label();
 			this.chkTalkAround = new CheckBox();
-			this.cmbMenuLang = new Class4();
-			this.cmbWorkMode = new Class4();
-			this.cmbKeyLockTime = new Class4();
-			this.cmbDwSwitch = new Class4();
-			this.cmbKeyTone = new Class4();
-			this.cmbBacklightTime = new Class4();
+			this.cmbMenuLang = new CustomCombo();
+			this.cmbWorkMode = new CustomCombo();
+			this.cmbKeyLockTime = new CustomCombo();
+			this.cmbDwSwitch = new CustomCombo();
+			this.cmbKeyTone = new CustomCombo();
+			this.cmbBacklightTime = new CustomCombo();
 			this.chkChDisp = new CheckBox();
 			this.grpContact = new Class2();
 			this.chkOneKeyDial = new CheckBox();
@@ -1235,7 +1235,7 @@ namespace DMR
 			this.chkScan = new CheckBox();
 			this.grpBasic = new Class2();
 			this.lblMenuHangTime = new Label();
-			this.cmbMenuHangTime = new Class4();
+			this.cmbMenuHangTime = new CustomCombo();
 			this.chkInfo = new CheckBox();
 			this.grpCall.SuspendLayout();
 			this.grpSetting.SuspendLayout();
