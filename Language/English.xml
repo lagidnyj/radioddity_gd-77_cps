@@ -744,5 +744,6 @@
 		<Item Id="codePlugReadConfirm"  Text="Are you sure you want to read the codeplug from the GD-77?.This will overwrite the current codeplug." />
 		<Item Id="codePlugWriteConfirm"  Text="Are you sure you want to write this codeplug to the GD-77?.This will overwrite codeplug currently in the GD-77" />
 		<Item Id="pleaseConfirm"  Text="Please confirm" />
+    <Item Id="userAgreement"  Text="This software is supplied 'as is' with no warranties. You use it at your own risk to both your PC and to your DMR Radio. By pressing the  Yes   button you agree and understand." />    
 	</Commons>
 </Resource>

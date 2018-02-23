@@ -121,7 +121,8 @@ internal class Settings
 
     public static string SZ_CODEPLUG_READ_CONFIRM;
     public static string SZ_CODEPLUG_WRITE_CONFIRM;
-    public static string SZ_PLEASE_CONFIRM;
+	public static string SZ_PLEASE_CONFIRM;
+	public static string SZ_USER_AGREEMENT = "This software is supplied 'as is' with no warranties. You use it at your own risk to both your PC and to your DMR Radio. By pressing the  Yes   button you agree and understand.";
 
 	public static string SZ_KEYPRESS_DTMF;
 

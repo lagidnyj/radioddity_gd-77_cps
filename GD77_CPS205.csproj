@@ -316,6 +316,7 @@
     </Content>
     <Content Include="Language\German.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="STDFU.dll" />
     <Content Include="STTubeDevice30.dll" />

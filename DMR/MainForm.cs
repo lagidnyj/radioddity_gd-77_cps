@@ -910,24 +910,7 @@ namespace DMR
 			base.ResumeLayout(false);
 			base.PerformLayout();
 
-			if (DialogResult.Yes != MessageBox.Show("This software is supplied 'as is' with no warranties. You use it at your own risk to both your PC and to your DMR Radio. By pressing the  Yes   button you agree and understand."
-, "WARNING", MessageBoxButtons.YesNo))
-			{
-				if (System.Windows.Forms.Application.MessageLoop)
-				{
-					// Use this since we are a WinForms app
-					System.Windows.Forms.Application.Exit();
-				}
-				else
-				{
-					// Use this since we are a console app
-					System.Environment.Exit(1);
-				}
-			}
-			else
-			{
-				base.FormClosing += this.MainForm_FormClosing;
-			}
+			
 
 		}
 
@@ -989,6 +972,8 @@ namespace DMR
             Settings.dicCommon.Add("codePlugReadConfirm", Settings.SZ_CODEPLUG_READ_CONFIRM);
             Settings.dicCommon.Add("codePlugWriteConfirm", Settings.SZ_CODEPLUG_WRITE_CONFIRM);
             Settings.dicCommon.Add("pleaseConfirm", Settings.SZ_PLEASE_CONFIRM);
+
+			Settings.dicCommon.Add("userAgreement", Settings.SZ_USER_AGREEMENT);
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
@@ -1064,6 +1049,24 @@ namespace DMR
 				}
 				dropDownItem.PerformClick();
 				break;
+			}
+
+			if (DialogResult.Yes != MessageBox.Show(Settings.dicCommon["userAgreement"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo))
+			{
+				if (System.Windows.Forms.Application.MessageLoop)
+				{
+					// Use this since we are a WinForms app
+					System.Windows.Forms.Application.Exit();
+				}
+				else
+				{
+					// Use this since we are a console app
+					System.Environment.Exit(1);
+				}
+			}
+			else
+			{
+				base.FormClosing += this.MainForm_FormClosing;
 			}
 		}
 
