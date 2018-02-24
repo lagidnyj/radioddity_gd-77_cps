@@ -670,7 +670,7 @@ namespace DMR
 			this.tsmiMoveUp.Click += this.tsmiMoveUp_Click;
 
 			this.tsmiMoveDown.Name = "tsmiMoveDown";
-			this.tsmiMoveDown.ShortcutKeys = (Keys)131150;
+			this.tsmiMoveDown.ShortcutKeys = (Keys)131140;
 			this.tsmiMoveDown.Size = new Size(158, 22);
 			this.tsmiMoveDown.Text = "Move down";
 			this.tsmiMoveDown.Click += this.tsmiMoveDown_Click;
