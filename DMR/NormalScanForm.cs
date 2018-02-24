@@ -854,7 +854,7 @@ namespace DMR
 					value.ChList[num] = 0;
 				}
 				num = 0;
-				foreach (Class14 item in this.lstSelected.Items)
+				foreach (SelectedItemUtils item in this.lstSelected.Items)
 				{
 					value.ChList[num] = (ushort)item.Value;     //G4EML Correct type of scan list item from byte to ushort
 					num++;
@@ -891,7 +891,7 @@ namespace DMR
 					num3 = NormalScanForm.data[num2].ChList[num];
 					if (num3 == 1)
 					{
-						this.lstSelected.Items.Add(new Class14(num, num3, Settings.SZ_SELECTED));
+						this.lstSelected.Items.Add(new SelectedItemUtils(num, num3, Settings.SZ_SELECTED));
 					}
 					else if (num3 > 1 && num3 <= 1025)
 					{
@@ -899,7 +899,7 @@ namespace DMR
 						if (ChannelForm.data.DataIsValid(num4))
 						{
 							text = ChannelForm.data.GetName(num4);
-							this.lstSelected.Items.Add(new Class14(num, num3, text));
+							this.lstSelected.Items.Add(new SelectedItemUtils(num, num3, text));
 						}
 					}
 				}
@@ -918,7 +918,7 @@ namespace DMR
 					if (ChannelForm.data.DataIsValid(num) && !array.Contains(num + 2))
 					{
 						num3 = num + 1;
-						this.lstUnselected.Items.Add(new Class14(-1, num3 + 1, ChannelForm.data.GetName(num)));
+						this.lstUnselected.Items.Add(new SelectedItemUtils(-1, num3 + 1, ChannelForm.data.GetName(num)));
 					}
 				}
 				if (this.lstUnselected.Items.Count > 0)
@@ -980,7 +980,7 @@ namespace DMR
 			this.method_1();
 			if (this.cmbPriorityCh1.FindStringExact(priCh3) < 0)
 			{
-				num = Array.FindIndex(this.cmbPriorityCh1.Items.Cast<Class5>().ToArray(), delegate(Class5 x)
+				num = Array.FindIndex(this.cmbPriorityCh1.Items.Cast<NameValuePair>().ToArray(), delegate(NameValuePair x)
 				{
 					if (x.Text == priCh3)
 					{
@@ -1000,7 +1000,7 @@ namespace DMR
 				else
 				{
 					this.cmbPriorityCh1.SelectedIndex = num;
-					num = Array.FindIndex(this.cmbPriorityCh2.Items.Cast<Class5>().ToArray(), delegate(Class5 x)
+					num = Array.FindIndex(this.cmbPriorityCh2.Items.Cast<NameValuePair>().ToArray(), delegate(NameValuePair x)
 					{
 						if (x.Text == priCh2)
 						{
@@ -1027,7 +1027,7 @@ namespace DMR
 				this.cmbPriorityCh1.Text = priCh3;
 				if (this.cmbPriorityCh2.FindStringExact(priCh2) < 0)
 				{
-					num = Array.FindIndex(this.cmbPriorityCh2.Items.Cast<Class5>().ToArray(), delegate(Class5 x)
+					num = Array.FindIndex(this.cmbPriorityCh2.Items.Cast<NameValuePair>().ToArray(), delegate(NameValuePair x)
 					{
 						if (x.Text == priCh2)
 						{
@@ -1114,7 +1114,7 @@ namespace DMR
 			this.lstSelected.SelectedItems.Clear();
 			while (this.lstUnselected.SelectedItems.Count > 0 && this.lstSelected.Items.Count < 32)
 			{
-				Class14 @class = (Class14)this.lstUnselected.SelectedItems[0];
+				SelectedItemUtils @class = (SelectedItemUtils)this.lstUnselected.SelectedItems[0];
 				@class.method_1(this.lstSelected.Items.Count);
 				num = this.lstSelected.Items.Add(@class);
 				this.lstSelected.SetSelected(num, true);
@@ -1148,7 +1148,7 @@ namespace DMR
 				this.lstUnselected.SelectedItems.Clear();
 				while (this.lstSelected.SelectedItems.Count > 0)
 				{
-					Class14 @class = (Class14)this.lstSelected.SelectedItems[0];
+					SelectedItemUtils @class = (SelectedItemUtils)this.lstSelected.SelectedItems[0];
 					num = this.method_6(@class);
 					@class.method_1(-1);
 					this.lstUnselected.Items.Insert(num, @class);
@@ -1167,7 +1167,7 @@ namespace DMR
 			}
 		}
 
-		private int method_6(Class14 class14_0)
+		private int method_6(SelectedItemUtils class14_0)
 		{
 			int num = 0;
 			num = 0;
@@ -1175,7 +1175,7 @@ namespace DMR
 			{
 				if (num < this.lstUnselected.Items.Count)
 				{
-					Class14 @class = (Class14)this.lstUnselected.Items[num];
+					SelectedItemUtils @class = (SelectedItemUtils)this.lstUnselected.Items[num];
 					if (class14_0.Value < @class.Value)
 					{
 						break;
@@ -1287,7 +1287,7 @@ namespace DMR
 			this.lstSelected.BeginUpdate();
 			for (num = 0; num < this.lstSelected.Items.Count; num++)
 			{
-				Class14 @class = (Class14)this.lstSelected.Items[num];
+				SelectedItemUtils @class = (SelectedItemUtils)this.lstSelected.Items[num];
 				if (@class.method_0() != num)
 				{
 					@class.method_1(num);
@@ -1311,7 +1311,7 @@ namespace DMR
 		{
 			if (this.lstSelected.SelectedItem != null)
 			{
-				Class14 @class = this.lstSelected.SelectedItem as Class14;
+				SelectedItemUtils @class = this.lstSelected.SelectedItem as SelectedItemUtils;
 				MainForm mainForm = base.MdiParent as MainForm;
 				if (mainForm != null)
 				{

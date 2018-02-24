@@ -74,29 +74,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class16.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Class20.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CustomStopwatch.cs" />
     <Compile Include="Class10.cs" />
-    <Compile Include="Class11.cs" />
+    <Compile Include="TextMsgFormCustomPasteWndProc.cs" />
     <Compile Include="CustomNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Class13.cs" />
-    <Compile Include="Class14.cs" />
+    <Compile Include="SelectedItemUtils.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Class16.cs" />
-    <Compile Include="Class17.cs" />
     <Compile Include="CodeplugComms.cs" />
-    <Compile Include="Class2.cs">
+    <Compile Include="DoubleClickGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Class20.cs" />
     <Compile Include="CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomCombo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Class5.cs" />
+    <Compile Include="NameValuePair.cs" />
     <Compile Include="IniFileUtils.cs" />
     <Compile Include="Base64Utils.cs" />
     <Compile Include="CustomListbox.cs">

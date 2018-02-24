@@ -826,7 +826,7 @@ namespace DMR
 			string[] sZ_MODE = ButtonForm.SZ_MODE;
 			foreach (string string_ in sZ_MODE)
 			{
-				this.cmbMode.Items.Add(new Class5(string_, num++));
+				this.cmbMode.Items.Add(new NameValuePair(string_, num++));
 			}
 			this.cmbMode.DisplayMember = "Text";
 			this.cmbMode.ValueMember = "Value";
@@ -868,7 +868,7 @@ namespace DMR
 			string text = "";
 			string text2 = "";
 			this.cmbMsg.Items.Clear();
-			this.cmbMsg.Items.Add(new Class5(Settings.dicCommon["None"], 0));
+			this.cmbMsg.Items.Add(new NameValuePair(Settings.dicCommon["None"], 0));
 			for (num = 0; num < 32; num++)
 			{
 				if (TextMsgForm.data[num] >= 1 && TextMsgForm.data[num] <= 145)
@@ -883,7 +883,7 @@ namespace DMR
 						num2 = Math.Min(20, text2.Length);
 						text = text2.Substring(0, num2);
 					}
-					this.cmbMsg.Items.Add(new Class5(text, num + 1));
+					this.cmbMsg.Items.Add(new NameValuePair(text, num + 1));
 				}
 			}
 			this.cmbMsg.ValueMember = "Value";
@@ -910,16 +910,16 @@ namespace DMR
 				string[] sZ_CALL_TYPE_D = ButtonForm.SZ_CALL_TYPE_D;
 				foreach (string string_2 in sZ_CALL_TYPE_D)
 				{
-					dataGridViewComboBoxCell.Items.Add(new Class5(string_2, num++));
+					dataGridViewComboBoxCell.Items.Add(new NameValuePair(string_2, num++));
 				}
 				dataGridViewComboBoxCell2.Items.Clear();
-				dataGridViewComboBoxCell2.Items.Add(new Class5(Settings.SZ_NONE, 0));
+				dataGridViewComboBoxCell2.Items.Add(new NameValuePair(Settings.SZ_NONE, 0));
 				for (num = 0; num < 1024; num++)
 				{
 					if (ContactForm.data.DataIsValid(num))
 					{
 						text = ContactForm.data[num].Name;
-						dataGridViewComboBoxCell2.Items.Add(new Class5(text, num + 1));
+						dataGridViewComboBoxCell2.Items.Add(new NameValuePair(text, num + 1));
 					}
 				}
 				break;
@@ -931,16 +931,16 @@ namespace DMR
 				string[] sZ_CALL_TYPE_A = ButtonForm.SZ_CALL_TYPE_A;
 				foreach (string string_ in sZ_CALL_TYPE_A)
 				{
-					dataGridViewComboBoxCell.Items.Add(new Class5(string_, num++));
+					dataGridViewComboBoxCell.Items.Add(new NameValuePair(string_, num++));
 				}
 				dataGridViewComboBoxCell2.Items.Clear();
-				dataGridViewComboBoxCell2.Items.Add(new Class5(Settings.SZ_NONE, 0));
+				dataGridViewComboBoxCell2.Items.Add(new NameValuePair(Settings.SZ_NONE, 0));
 				for (num = 0; num < 32; num++)
 				{
 					if (DtmfContactForm.data.Valid(num))
 					{
 						text = DtmfContactForm.data.GetName(num);
-						dataGridViewComboBoxCell2.Items.Add(new Class5(text, num + 1));
+						dataGridViewComboBoxCell2.Items.Add(new NameValuePair(text, num + 1));
 					}
 				}
 				break;

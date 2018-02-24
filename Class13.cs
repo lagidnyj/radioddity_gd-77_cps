@@ -4,9 +4,9 @@ public class Class13
 {
     private int _minVal;
     private int _maxVal;
-	int _incVal;
-	decimal _SdVal;
-	int _MaxLen;
+	private int _incVal;
+	private decimal _SdVal;
+	private int _MaxLen;
 
 	public Class13() 
 	{

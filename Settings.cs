@@ -916,7 +916,7 @@ internal class Settings
 		for (num = 0; num < listBox_0.Items.Count; num++)
 		{
 			text = listBox_0.Items[num].ToString();
-			Class14 @class = listBox_0.Items[num] as Class14;
+			SelectedItemUtils @class = listBox_0.Items[num] as SelectedItemUtils;
 			if (@class != null)
 			{
 				class4_0.method_1(text, @class.Value);
@@ -924,7 +924,7 @@ internal class Settings
 		}
 	}
 
-	public static int smethod_47(ListBox listBox_0, Class14 class14_0)
+	public static int smethod_47(ListBox listBox_0, SelectedItemUtils class14_0)
 	{
 		int num = 0;
 		num = 0;
@@ -932,7 +932,7 @@ internal class Settings
 		{
 			if (num < listBox_0.Items.Count)
 			{
-				Class14 @class = (Class14)listBox_0.Items[num];
+				SelectedItemUtils @class = (SelectedItemUtils)listBox_0.Items[num];
 				if (class14_0.Value < @class.Value)
 				{
 					break;

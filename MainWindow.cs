@@ -2,7 +2,7 @@ using DMR;
 using System;
 using System.Windows.Forms;
 
-internal static class Class17
+internal static class MainWindow
 {
 	[STAThread]
 	private static void Main()

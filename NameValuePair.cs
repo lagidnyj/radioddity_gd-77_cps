@@ -1,4 +1,4 @@
-internal class Class5
+internal class NameValuePair
 {
 	private string _text;
 	private object _value;
@@ -32,7 +32,7 @@ internal class Class5
 		return this._text;
 	}
 
-	public Class5(string string_0, object object_0)
+	public NameValuePair(string string_0, object object_0)
 	{
 		this._text = string_0;
 		this._value = object_0;

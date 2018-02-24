@@ -1,6 +1,13 @@
+using DMR;
+using System;
+using System.Diagnostics;
+using System.IO.Ports;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
-internal class Class14
+internal class SelectedItemUtils
 {
 	public int Value
 	{
@@ -28,7 +35,7 @@ internal class Class14
 		this._DispNum = int_0;
 	}
 
-	public Class14(int int_0, int int_1, string string_0)
+	public SelectedItemUtils(int int_0, int int_1, string string_0)
 	{
 		
 		this.Value = int_1;
@@ -42,6 +49,8 @@ internal class Class14
 		{
 			return this.Name;
 		}
-		return string.Format("{0:d3}:{1}", this.method_0() + 1, this.Name);
+		string s = string.Format("{0:d3}:{1}", this.method_0() + 1, this.Name);
+		Console.WriteLine(s);
+		return s;
 	}
 }

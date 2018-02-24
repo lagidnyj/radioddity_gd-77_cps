@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-internal class Class11 : NativeWindow
+internal class TextMsgFormCustomPasteWndProc : NativeWindow
 {
 	private const int WM_CHAR = 258;
 	private const int WM_PASTE = 770;
@@ -32,7 +32,7 @@ internal class Class11 : NativeWindow
 		}
 	}
 
-	public Class11()
+	public TextMsgFormCustomPasteWndProc()
 	{
 	}
 }

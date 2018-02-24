@@ -148,7 +148,7 @@ namespace DMR
 
 		private CustomPanel pnlTextMsg;
 
-		private Class11 txt;
+		private TextMsgFormCustomPasteWndProc txt;
 
 		public static TextMsg data;
 
@@ -324,7 +324,7 @@ namespace DMR
 		public TextMsgForm()
 		{
 			
-			this.txt = new Class11();
+			this.txt = new TextMsgFormCustomPasteWndProc();
 			//base._002Ector();
 			this.method_0();
 			base.Scale(Settings.smethod_6());

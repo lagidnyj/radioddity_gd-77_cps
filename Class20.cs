@@ -20,13 +20,10 @@ internal class Class20
 
 	public Class20()
 	{
-		
-		//base._002Ector();
 	}
 
 	static Class20()
 	{
-		
 		Class20.module_0 = typeof(Class20).Assembly.ManifestModule;
 	}
 }

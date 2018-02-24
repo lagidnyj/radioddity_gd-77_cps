@@ -21,7 +21,7 @@ internal class CustomCombo : ComboBox
 
 	public void method_1(string string_0, int int_0)
 	{
-		int num = base.Items.Add(new Class5(string_0, int_0));
+		int num = base.Items.Add(new NameValuePair(string_0, int_0));
 		if (!this.ItemList.Contains(int_0))
 		{
 			this.ItemList.Add(int_0, num);
@@ -46,7 +46,7 @@ internal class CustomCombo : ComboBox
 
 	public int method_3()
 	{
-		Class5 @class = base.SelectedItem as Class5;
+		NameValuePair @class = base.SelectedItem as NameValuePair;
 		if (@class != null)
 		{
 			return Convert.ToInt32(@class.Value);

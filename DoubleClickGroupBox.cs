@@ -2,38 +2,36 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-internal class Class2 : GroupBox
+internal class DoubleClickGroupBox : GroupBox
 {
-    bool _003CDoubleClickSelectCheckBox_003Ek__BackingField;
+    bool _DoubleClickSelectCheckBox;
 	[CompilerGenerated]
 	public bool method_0()
 	{
-		return this._003CDoubleClickSelectCheckBox_003Ek__BackingField;
+		return this._DoubleClickSelectCheckBox;
 	}
 
 	[CompilerGenerated]
 	public void method_1(bool bool_0)
 	{
-		this._003CDoubleClickSelectCheckBox_003Ek__BackingField = bool_0;
+		this._DoubleClickSelectCheckBox = bool_0;
 	}
 
-    bool _003CClickFocus_003Ek__BackingField;
+    bool _ClickFocus;
 	[CompilerGenerated]
 	public bool method_2()
 	{
-		return this._003CClickFocus_003Ek__BackingField;
+		return this._ClickFocus;
 	}
 
 	[CompilerGenerated]
 	public void method_3(bool bool_0)
 	{
-		this._003CClickFocus_003Ek__BackingField = bool_0;
+		this._ClickFocus = bool_0;
 	}
 
-	public Class2()
+	public DoubleClickGroupBox()
 	{
-		
-		//base._002Ector();
 		this.method_1(false);
 		this.method_3(true);
 	}

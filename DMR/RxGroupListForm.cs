@@ -524,7 +524,7 @@ namespace DMR
 				num2 = this.lstSelected.Items.Count;
 				ushort[] array = new ushort[num2];
 				RxGroupListForm.data.SetIndex(num3, num2 + 1);
-				foreach (Class14 item in this.lstSelected.Items)
+				foreach (SelectedItemUtils item in this.lstSelected.Items)
 				{
 					array[num++] = (ushort)item.Value;
 				}
@@ -559,7 +559,7 @@ namespace DMR
 						if (ContactForm.data.IsGroupCall(num3 - 1))
 						{
 							text = ContactForm.data[num3 - 1].Name;
-							this.lstSelected.Items.Add(new Class14(num, num3, text));
+							this.lstSelected.Items.Add(new SelectedItemUtils(num, num3, text));
 						}
 						num5++;
 					}
@@ -577,7 +577,7 @@ namespace DMR
 				{
 					if (!RxGroupListForm.data[num2].ContactList.Contains((ushort)(num + 1)) && ContactForm.data.DataIsValid(num) && ContactForm.data[num].CallType == 0)
 					{
-						this.lstUnselected.Items.Add(new Class14(-1, num + 1, ContactForm.data[num].Name));
+						this.lstUnselected.Items.Add(new SelectedItemUtils(-1, num + 1, ContactForm.data[num].Name));
 					}
 				}
 				if (this.lstUnselected.Items.Count > 0)
@@ -635,7 +635,7 @@ namespace DMR
 			while (this.lstUnselected.SelectedItems.Count > 0 && this.lstSelected.Items.Count < 15)
 			{
 				num = this.lstSelected.Items.Count;
-				Class14 @class = (Class14)this.lstUnselected.SelectedItems[0];
+				SelectedItemUtils @class = (SelectedItemUtils)this.lstUnselected.SelectedItems[0];
 				@class.method_1(num);
 				num3 = this.lstSelected.Items.Add(@class);
 				this.lstSelected.SetSelected(num3, true);
@@ -666,7 +666,7 @@ namespace DMR
 			this.lstUnselected.SelectedItems.Clear();
 			while (this.lstSelected.SelectedItems.Count > 0)
 			{
-				Class14 @class = (Class14)this.lstSelected.SelectedItems[0];
+				SelectedItemUtils @class = (SelectedItemUtils)this.lstSelected.SelectedItems[0];
 				num = this.method_2(@class);
 				@class.method_1(-1);
 				this.lstUnselected.Items.Insert(num, @class);
@@ -730,7 +730,7 @@ namespace DMR
 			this.method_3();
 		}
 
-		private int method_2(Class14 class14_0)
+		private int method_2(SelectedItemUtils class14_0)
 		{
 			int num = 0;
 			num = 0;
@@ -738,7 +738,7 @@ namespace DMR
 			{
 				if (num < this.lstUnselected.Items.Count)
 				{
-					Class14 @class = (Class14)this.lstUnselected.Items[num];
+					SelectedItemUtils @class = (SelectedItemUtils)this.lstUnselected.Items[num];
 					if (class14_0.Value < @class.Value)
 					{
 						break;
@@ -758,7 +758,7 @@ namespace DMR
 			this.lstSelected.BeginUpdate();
 			for (num = 0; num < this.lstSelected.Items.Count; num++)
 			{
-				Class14 @class = (Class14)this.lstSelected.Items[num];
+				SelectedItemUtils @class = (SelectedItemUtils)this.lstSelected.Items[num];
 				if (@class.method_0() != num)
 				{
 					@class.method_1(num);
@@ -808,7 +808,7 @@ namespace DMR
 		{
 			if (this.lstSelected.SelectedItem != null)
 			{
-				Class14 @class = this.lstSelected.SelectedItem as Class14;
+				SelectedItemUtils @class = this.lstSelected.SelectedItem as SelectedItemUtils;
 				MainForm mainForm = base.MdiParent as MainForm;
 				if (mainForm != null)
 				{

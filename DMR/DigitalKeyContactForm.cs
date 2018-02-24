@@ -162,13 +162,13 @@ namespace DMR
 			string text = "";
 			this.dgvContact.RowCount = 10;
 			this.cmbContact.Items.Clear();
-			this.cmbContact.Items.Add(new Class5(Settings.SZ_NONE, 0));
+			this.cmbContact.Items.Add(new NameValuePair(Settings.SZ_NONE, 0));
 			for (i = 0; i < 1024; i++)
 			{
 				if (ContactForm.data.DataIsValid(i))
 				{
 					text = ContactForm.data[i].Name;
-					this.cmbContact.Items.Add(new Class5(text, i + 1));
+					this.cmbContact.Items.Add(new NameValuePair(text, i + 1));
 				}
 			}
 			this.cmbContact.DisplayMember = "Text";

@@ -938,15 +938,15 @@ namespace DMR
 
 		private CheckBox chkChDisp;
 
-		private Class2 grpBasic;
+		private DoubleClickGroupBox grpBasic;
 
-		private Class2 grpScan;
+		private DoubleClickGroupBox grpScan;
 
-		private Class2 grpContact;
+		private DoubleClickGroupBox grpContact;
 
-		private Class2 grpSetting;
+		private DoubleClickGroupBox grpSetting;
 
-		private Class2 grpCall;
+		private DoubleClickGroupBox grpCall;
 
 		private Label lblDwSwitch;
 
@@ -1189,11 +1189,11 @@ namespace DMR
 			this.chkP1Key = new CheckBox();
 			this.chkGps = new CheckBox();
 			this.cmbBrightness = new CustomCombo();
-			this.grpCall = new Class2();
+			this.grpCall = new DoubleClickGroupBox();
 			this.chkReceivedCall = new CheckBox();
 			this.chkDialedCall = new CheckBox();
 			this.chkMissedCall = new CheckBox();
-			this.grpSetting = new Class2();
+			this.grpSetting = new DoubleClickGroupBox();
 			this.chkDoubleWait = new CheckBox();
 			this.lblDwSwitch = new Label();
 			this.lblKeyTone = new Label();
@@ -1221,7 +1221,7 @@ namespace DMR
 			this.cmbKeyTone = new CustomCombo();
 			this.cmbBacklightTime = new CustomCombo();
 			this.chkChDisp = new CheckBox();
-			this.grpContact = new Class2();
+			this.grpContact = new DoubleClickGroupBox();
 			this.chkOneKeyDial = new CheckBox();
 			this.chkRadioDetect = new CheckBox();
 			this.chkRadioActive = new CheckBox();
@@ -1230,10 +1230,10 @@ namespace DMR
 			this.chkManualDial = new CheckBox();
 			this.chkRemoteMonitor = new CheckBox();
 			this.chkCallPrompt = new CheckBox();
-			this.grpScan = new Class2();
+			this.grpScan = new DoubleClickGroupBox();
 			this.chkScanEditList = new CheckBox();
 			this.chkScan = new CheckBox();
-			this.grpBasic = new Class2();
+			this.grpBasic = new DoubleClickGroupBox();
 			this.lblMenuHangTime = new Label();
 			this.cmbMenuHangTime = new CustomCombo();
 			this.chkInfo = new CheckBox();

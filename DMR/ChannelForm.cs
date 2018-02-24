@@ -2320,9 +2320,9 @@ namespace DMR
 
 		private CheckBox chkRxOnly;
 
-		private Class2 grpAnalog;
+		private DoubleClickGroupBox grpAnalog;
 
-		private Class2 grpDigit;
+		private DoubleClickGroupBox grpDigit;
 
 		private CustomNumericUpDown nudTxColor;
 
@@ -3441,7 +3441,7 @@ namespace DMR
 			this.lblSquelch = new Label();
 			this.nudRssiThreshold = new CustomNumericUpDown();
 			this.lblSql = new Label();
-			this.grpDigit = new Class2();
+			this.grpDigit = new DoubleClickGroupBox();
 			this.nudTxColor = new CustomNumericUpDown();
 			this.nudRxColor = new CustomNumericUpDown();
 			this.cmbTimingPreference = new ComboBox();
@@ -3473,7 +3473,7 @@ namespace DMR
 			this.chkRxOnly = new CheckBox();
 			this.cmbRxRefFreq = new ComboBox();
 			this.chkAllowTalkaround = new CheckBox();
-			this.grpAnalog = new Class2();
+			this.grpAnalog = new DoubleClickGroupBox();
 			this.nudArtsInterval = new CustomNumericUpDown();
 			this.cmbChBandwidth = new ComboBox();
 			this.lblChBandwidth = new Label();
