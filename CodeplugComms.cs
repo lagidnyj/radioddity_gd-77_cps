@@ -96,6 +96,156 @@ internal class CodeplugComms
 		this.thread.Start();
 	}
 
+	public static string ByteArrayToString(byte[] ba)
+	{
+		string hex = BitConverter.ToString(ba);
+		return hex.Replace("-", "");
+	}
+
+	// Test function added by Roger Clark to read all 1Mb from the external Flash chip on the GD-77.
+	// It outputs the data dummp to the file c:\\gd-77_datadump.bin
+	
+	// However depending on the mode in which the GD-77 is booted,  addresses 0x000000 - 0x01FFFF  (for codeplug mode)
+	// or addresses 0x030000 - 0x03FFFF for DMR-ID mode are returned with anything other than 0x00 in them
+
+	// Its strange that address 0x020000 - 0x02FFFF does not seem to be accessible
+	// Note. Valid transfer lengths seem to be 8,16 or 32 bytes.  64 bytes does not work, as it just returns 0x00 in addresses after 32 bytes
+
+	public void dumpFlash()
+	{
+		byte[] masterBuf = new byte[1024 * 1024];// entire external flash chip
+		byte[] usbBuf = new byte[160];
+
+		int transferLen = 0;
+		int addr32 = 0;
+		int addr16 = 0;
+		int pageAddr = 0;
+		SpecifiedDevice specifiedDevice = null;
+		try
+		{
+			specifiedDevice = SpecifiedDevice.FindSpecifiedDevice(HID_VID, HID_PID);//0x152A HID_PID
+			if (specifiedDevice == null)
+			{
+				if (this.OnFirmwareUpdateProgress != null)
+				{
+					this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_DEVICE_NOT_FOUND, true, true));
+				}
+			}
+			else
+			{
+				while (true)
+				{
+					Array.Clear(usbBuf, 0, usbBuf.Length);
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG);// Send PROGRA command to initiate comms
+					specifiedDevice.ReceiveData(usbBuf);// Wait for response
+					if (usbBuf[0] != CodeplugComms.CMD_ACK[0])
+					{
+						break;// Exit if not ack
+					}
+					specifiedDevice.SendData(CodeplugComms.CMD_PRG2);// Send second half of comms init sequence
+					Array.Clear(usbBuf, 0, usbBuf.Length);
+					specifiedDevice.ReceiveData(usbBuf);// GD77 send back device information
+					byte[] array3 = new byte[8];
+					Buffer.BlockCopy(usbBuf, 0, array3, 0, 8);// Extract the first 8 bytes from the response
+					if (array3.smethod_4(Settings.CUR_MODEL))
+					{
+						// its the correct model number
+						specifiedDevice.SendData(CodeplugComms.CMD_ACK);// send ACK
+						Array.Clear(usbBuf, 0, usbBuf.Length);
+						specifiedDevice.ReceiveData(usbBuf);// Wait for response (of ACK)
+
+
+						if (usbBuf[0] == CodeplugComms.CMD_ACK[0])
+						{
+							// --------------- removed the password checking
+							transferLen = 32;// Max transfer length is 32 bytes
+							int currentPage = 0;
+							int bankSize = 65536;
+							int numBlocks= 1024*1024 / transferLen;
+							for (int block = 0; block < numBlocks; block++)
+							{
+								if (currentPage != (block * transferLen) / bankSize)
+								{
+									currentPage = (block * transferLen) / bankSize;
+									addr32 = transferLen * block;
+									byte[] array4 = new byte[8] { (byte)'C', (byte)'W', (byte)'B', 4, 0, 0, 0, 0 };
+									pageAddr = addr32 >> 16 << 16;
+									array4[4] = (byte)(pageAddr >> 24);
+									array4[5] = (byte)(pageAddr >> 16);
+									array4[6] = (byte)(pageAddr >> 8);
+									array4[7] = (byte)pageAddr;
+									Console.WriteLine(SpecifiedDevice.ByteArrayToString(array4));
+									Array.Clear(usbBuf, 0, usbBuf.Length);
+									specifiedDevice.SendData(array4, 0, array4.Length);
+									specifiedDevice.ReceiveData(usbBuf);
+									if (usbBuf[0] != CodeplugComms.CMD_ACK[0])
+									{
+										goto end_IL_02a2;
+									}
+								}
+
+								addr16 = (block * transferLen) & 0xffff;
+								// Send request for dcata
+								byte[] data2 = new byte[4] { 82, (byte)(addr16 >> 8), (byte)addr16, (byte)transferLen };
+								
+								Array.Clear(usbBuf, 0, usbBuf.Length);
+								specifiedDevice.SendData(data2, 0, 4);
+								if (!specifiedDevice.ReceiveData(usbBuf))
+								{
+									goto end_IL_02a2;
+								}
+								byte[] outBuf = new byte[transferLen];
+								if (false)
+								{
+									Buffer.BlockCopy(usbBuf, 0, outBuf, 0, transferLen);// Extract the first 8 bytes from the response
+									Console.WriteLine(SpecifiedDevice.ByteArrayToString(outBuf));
+								}
+								else
+								{
+									Buffer.BlockCopy(usbBuf, 4, masterBuf, (block * transferLen), transferLen);// Extract the first 8 bytes from the response
+								}
+								if (this.OnFirmwareUpdateProgress != null)
+								{
+									this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs((float)(block+1) *100 / (float)numBlocks, "", false, false));
+								}
+							}
+							// SEND END OF READ
+							specifiedDevice.SendData(CodeplugComms.CMD_ENDR);
+							specifiedDevice.ReceiveData(usbBuf);
+
+							System.IO.File.WriteAllBytes("c:\\gd-77_datadump.bin", masterBuf);
+						}
+						break;
+					}
+					return;
+				end_IL_02a2:
+					break;
+				}
+
+			}
+		}
+		catch (TimeoutException ex)
+		{
+			Console.WriteLine(ex.Message);
+			if (this.OnFirmwareUpdateProgress != null)
+			{
+				this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(0f, Settings.SZ_COMM_ERROR, false, false));
+			}
+		}
+		finally
+		{
+			if (specifiedDevice != null)
+			{
+				specifiedDevice.Dispose();
+			}
+		}
+
+		if (this.OnFirmwareUpdateProgress != null)
+		{
+			this.OnFirmwareUpdateProgress(this, new FirmwareUpdateProgressEventArgs(100f, "", false, true));
+		}
+	}
+
 	public void readCodeplug()
 	{
 		int num = 0;
@@ -116,6 +266,7 @@ internal class CodeplugComms
 		bool flag = false;
 		float num11 = 0f;
 		int num12 = 0;
+
 		SpecifiedDevice specifiedDevice = null;
 		try
 		{
@@ -265,17 +416,7 @@ internal class CodeplugComms
 										{
 											if (num8 >> 16 != i >> 16)
 											{
-												byte[] array4 = new byte[8]
-												{
-													67,
-													87,
-													66,
-													4,
-													0,
-													0,
-													0,
-													0
-												};
+												byte[] array4 = new byte[8]	{(byte)'C',(byte)'W',(byte)'B',4,0,0,0,0};
 												num8 = i >> 16 << 16;
 												array4[4] = (byte)(num8 >> 24);
 												array4[5] = (byte)(num8 >> 16);
@@ -404,16 +545,8 @@ internal class CodeplugComms
 												if (num8 >> 16 != i >> 16)
 												{
 													byte[] array7 = new byte[8]
-													{
-														67,
-														87,
-														66,
-														4,
-														0,
-														0,
-														0,
-														0
-													};
+												{
+													(byte)'C',(byte)'W',(byte)'B',4,0,0,0,0};// Change page in flash.
 													num8 = i >> 16 << 16;
 													array7[4] = (byte)(num8 >> 24);
 													array7[5] = (byte)(num8 >> 16);
