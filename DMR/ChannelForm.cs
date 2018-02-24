@@ -841,7 +841,7 @@ namespace DMR
 				{
 					if (value <= ContactForm.data.Count)
 					{
-						this.contact = (byte)value;
+						this.contact = (ushort)value;
 					}
 				}
 			}
