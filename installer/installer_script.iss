@@ -46,6 +46,10 @@ Source: "..\bin\Release\Language\English.chm"; DestDir: "{app}\Language"; Flags:
 Source: "..\bin\Release\Language\English.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Release\Language\German.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Release\Language\German.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\Polski.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\Polski.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\Spanish.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\bin\Release\Language\Spanish.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
