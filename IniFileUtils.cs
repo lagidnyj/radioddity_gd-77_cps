@@ -62,7 +62,7 @@ internal class IniFileUtils
 		return stringBuilder.ToString();
 	}
 
-	public static void smethod_6(string string_0, string string_1, string string_2)
+	public static void WriteProfileString(string string_0, string string_1, string string_2)
 	{
 		IniFileUtils.WritePrivateProfileString(string_0, string_1, string_2, IniFileUtils.iniPath);
 	}

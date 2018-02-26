@@ -38,7 +38,7 @@ namespace DMR
 			if (this.txtPwd.Text == "DMR961510")
 			{
 				string string_ = Base64Utils.smethod_0(this.txtPwd.Text.Trim());
-				IniFileUtils.smethod_6("setup", "Power", string_);
+				IniFileUtils.WriteProfileString("setup", "Power", string_);
 				Settings.smethod_5(Settings.UserMode.Expert);
 				Settings.CUR_MODE = 1;
 			}
@@ -47,7 +47,7 @@ namespace DMR
 				string string_2 = Base64Utils.smethod_0(this.txtPwd.Text.Trim());
 				Settings.smethod_5(Settings.UserMode.Expert);
 				Settings.CUR_MODE = 2;
-				IniFileUtils.smethod_6("setup", "Power", string_2);
+				IniFileUtils.WriteProfileString("setup", "Power", string_2);
 			}
 			else
 			{

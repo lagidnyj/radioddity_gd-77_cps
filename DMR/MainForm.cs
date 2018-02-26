@@ -2382,7 +2382,8 @@ namespace DMR
 			{
 				if (string.IsNullOrEmpty(MainForm.CurFileName))
 				{
-					this.sfdMain.FileName = DateTime.Now.ToString("MMdd_HHmmss") + ".dat";
+					//Console.WriteLine(GeneralSetForm.data.RadioName);
+					this.sfdMain.FileName = GeneralSetForm.data.RadioName + "_" +  DateTime.Now.ToString("MMdd_HHmmss") + ".dat";
 					this.sfdMain.InitialDirectory = text;
 				}
 				else
@@ -2399,6 +2400,7 @@ namespace DMR
 					File.WriteAllBytes(this.sfdMain.FileName, array);
 					MainForm.CurFileName = this.sfdMain.FileName;
 					MessageBox.Show(Settings.dicCommon["SaveSuccessfully"]);
+					IniFileUtils.WriteProfileString("Setup", "LastSavedFile", this.sfdMain.FileName);
 				}
 			}
 			catch (Exception ex)
@@ -2411,7 +2413,8 @@ namespace DMR
 		{
 			try
 			{
-				this.ofdMain.InitialDirectory = Application.StartupPath + "\\Data";
+				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.smethod_4("Setup", "LastSavedFile", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
+
 				DialogResult dialogResult = this.ofdMain.ShowDialog();
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.ofdMain.FileName))
 				{
@@ -2667,7 +2670,7 @@ namespace DMR
 			Settings.smethod_5(Settings.UserMode.Basic);
 			Settings.CUR_MODE = 0;
 			Settings.smethod_9("");
-			IniFileUtils.smethod_6("Setup", "Power", "");
+			IniFileUtils.WriteProfileString("Setup", "Power", "");
 		}
 
 		private void tsmiTree_Click(object sender, EventArgs e)
@@ -2742,14 +2745,14 @@ namespace DMR
 			Settings.smethod_10();
 		}
 
-		private void method_14(object sender, EventArgs e)
+		private void languageChangeHandler(object sender, EventArgs e)
 		{
 			this.slblComapny.Text = "";
 			this.closeAllForms();
 			this.frmHelp.ShowHelp(null);
 			ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
 			string text = toolStripMenuItem.Tag.ToString();
-			IniFileUtils.smethod_6("Setup", "Language", Path.GetFileName(text));
+			IniFileUtils.WriteProfileString("Setup", "Language", Path.GetFileName(text));
 			Settings.smethod_1(text);
 			Settings.smethod_3(Path.ChangeExtension(text, "chm"));
 			Settings.smethod_76("Read", ref Settings.SZ_READ);
@@ -3135,7 +3138,7 @@ namespace DMR
 						toolStripMenuItem.Name = this.GetLangName(text);
 						toolStripMenuItem.Tag = text;
 						this.tsmiLanguage.DropDownItems.Add(toolStripMenuItem);
-						toolStripMenuItem.Click += this.method_14;
+						toolStripMenuItem.Click += this.languageChangeHandler;
 					}
 					catch
 					{
@@ -3400,7 +3403,14 @@ namespace DMR
 		{
 			if (MainForm.dicTree.ContainsKey(treeNode_0.Name))
 			{
-				treeNode_0.Text = MainForm.dicTree[treeNode_0.Name];
+				if (treeNode_0.Name == "Model")
+				{
+					treeNode_0.Text = GeneralSetForm.data.RadioName;// MainForm.dicTree[treeNode_0.Name];
+				}
+				else
+				{
+					treeNode_0.Text = MainForm.dicTree[treeNode_0.Name];
+				}
 			}
 		}
 
@@ -3415,7 +3425,14 @@ namespace DMR
 		{
 			if (MainForm.dicTree.ContainsKey(treeNode_0.Name))
 			{
-				treeNode_0.Text = MainForm.dicTree[treeNode_0.Name];
+				if (treeNode_0.Name == "Model")
+				{
+					treeNode_0.Text = GeneralSetForm.data.RadioName;// MainForm.dicTree[treeNode_0.Name];
+				}
+				else
+				{
+					treeNode_0.Text = MainForm.dicTree[treeNode_0.Name];
+				}
 			}
 		}
 
@@ -3443,6 +3460,7 @@ namespace DMR
 			MainForm.PreActiveMdiChild = null;
 			MainForm.dicHelp = new Dictionary<string, string>();
 			MainForm.dicTree = new Dictionary<string, string>();
+			/*
 			MainForm.TREENODE_KEY = new string[21]
 			{
 				"Model",
@@ -3466,7 +3484,7 @@ namespace DMR
 				"VFO",
 				"VFOA",
 				"VFOB"
-			};
+			};*/
 		}
 	}
 }
