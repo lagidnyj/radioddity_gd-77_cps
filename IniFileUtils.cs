@@ -137,7 +137,6 @@ internal class IniFileUtils
 
 	static IniFileUtils()
 	{
-		
-		IniFileUtils.iniPath = Application.StartupPath + "\\Setup.ini";
+		IniFileUtils.iniPath = Application.LocalUserAppDataPath + "\\Setup.ini";// was Application.StartupPath	
 	}
 }

@@ -38,7 +38,7 @@ Source: "..\bin\Release\Default.dat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\DMR.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\DockPanel.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\help.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Release\Setup.ini"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Release\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\CPS205CommunityEdition\1.0.0.0"; Flags: ignoreversion
 Source: "..\bin\Release\Tone.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\Data\Default.dat"; DestDir: "{app}\Data"; Flags: ignoreversion
