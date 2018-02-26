@@ -204,7 +204,7 @@ namespace DMR
 
 		private List<TreeNodeItem> lstTreeNodeItem;
 
-		private static readonly string[] TREENODE_KEY;
+		//private static readonly string[] TREENODE_KEY;
 
 		public static int CurCbr
 		{
@@ -2400,7 +2400,7 @@ namespace DMR
 					File.WriteAllBytes(this.sfdMain.FileName, array);
 					MainForm.CurFileName = this.sfdMain.FileName;
 					MessageBox.Show(Settings.dicCommon["SaveSuccessfully"]);
-					IniFileUtils.WriteProfileString("Setup", "LastSavedFile", this.sfdMain.FileName);
+					IniFileUtils.WriteProfileString("Setup", "LastFilePath", this.sfdMain.FileName);
 				}
 			}
 			catch (Exception ex)
@@ -2413,7 +2413,7 @@ namespace DMR
 		{
 			try
 			{
-				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.smethod_4("Setup", "LastSavedFile", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
+				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.smethod_4("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
 
 				DialogResult dialogResult = this.ofdMain.ShowDialog();
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.ofdMain.FileName))
@@ -2431,6 +2431,7 @@ namespace DMR
 					{
 						//MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
 						MainForm.CurFileName = this.ofdMain.FileName;
+						IniFileUtils.WriteProfileString("Setup", "LastFilePath", this.ofdMain.FileName);
 						this.closeAllForms();
 						MainForm.ByteToData(array);
 						this.InitTree();
