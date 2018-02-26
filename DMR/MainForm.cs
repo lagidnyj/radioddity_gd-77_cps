@@ -2429,7 +2429,7 @@ namespace DMR
 					}
 					else
 					{
-						MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
+						//MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
 						MainForm.CurFileName = this.ofdMain.FileName;
 						this.closeAllForms();
 						MainForm.ByteToData(array);
