@@ -1065,7 +1065,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.lblMenuHangTime.Enabled &= flag;
 			this.cmbMenuHangTime.Enabled &= flag;
 			this.chkContactEdit.Enabled &= flag;

@@ -587,7 +587,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			Settings.smethod_4();
+			Settings.getUserExpertSettings();
 			bool flag = Settings.CUR_MODE > 0;
 			bool flag2 = Settings.CUR_MODE > 1;
 			this.txtMinFreq.ReadOnly = !flag;

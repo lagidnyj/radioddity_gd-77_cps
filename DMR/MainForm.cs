@@ -520,11 +520,11 @@ namespace DMR
 			this.tsmiScanList.Size = new Size(126, 22);
 			this.tsmiScanList.Text = "Scan List";
 			this.tsmiScanList.Click += this.tsmiScanList_Click;
-			this.tsmiProgram.DropDownItems.AddRange(new ToolStripItem[3]
+			this.tsmiProgram.DropDownItems.AddRange(new ToolStripItem[2]// was 3
 			{
 				this.tsmiRead,
-				this.tsmiWrite,
-				this.tsmiBasic
+				this.tsmiWrite//,
+				//this.tsmiBasic
 			});
 			this.tsmiProgram.Name = "tsmiProgram";
 			this.tsmiProgram.Size = new Size(71, 21);
@@ -539,11 +539,15 @@ namespace DMR
 			this.tsmiWrite.Size = new Size(156, 22);
 			this.tsmiWrite.Text = "Write";
 			this.tsmiWrite.Click += this.tsbtnWrite_Click;
+			/*
+			 * Roger Clark
+			 * Removed basic mode select
 			this.tsmiBasic.Name = "tsmiBasic";
 			this.tsmiBasic.Size = new Size(156, 22);
 			this.tsmiBasic.Text = "Basic";
 			this.tsmiBasic.Visible = false;
 			this.tsmiBasic.Click += this.tsmiBasic_Click;
+			 */ 
 			this.tsmiView.DropDownItems.AddRange(new ToolStripItem[4]
 			{
 				this.tsmiTree,
@@ -987,32 +991,45 @@ namespace DMR
 			MainForm.CurCom = IniFileUtils.smethod_4("Setup", "Com", "Com1");
 			MainForm.CurCbr = IniFileUtils.smethod_2("Setup", "Baudrate", 9600);
 			MainForm.CurModel = IniFileUtils.smethod_4("Setup", "Model", "SG");
-			string text2 = IniFileUtils.smethod_4("Setup", "Power", "");
-			if (string.IsNullOrEmpty(text2))
-			{
-				Settings.smethod_9("");
-				Settings.smethod_5(Settings.UserMode.Basic);
-				Settings.CUR_MODE = 0;
-				this.tsmiBasic.Visible = false;
-			}
-			else
-			{
-				string text3 = Base64Utils.smethod_1(text2);
-				if (text3 == "DMR961510")
-				{
-					this.tsmiBasic.Visible = true;
-					Settings.smethod_9(text3);
-					Settings.smethod_5(Settings.UserMode.Expert);
-					Settings.CUR_MODE = 1;
-				}
-				else if (text3 == "TYT760")
-				{
-					this.tsmiBasic.Visible = true;
-					Settings.smethod_9(text3);
-					Settings.smethod_5(Settings.UserMode.Expert);
-					Settings.CUR_MODE = 2;
-				}
-			}
+			//
+
+	/* Roger Clark
+	 * No not read Exprert / basic mode from Setup any more is the CPS is now permanently set in Expert mode 2.
+	string text2 = IniFileUtils.smethod_4("Setup", "Power", "");
+
+	if (string.IsNullOrEmpty(text2))
+	{
+		Settings.smethod_9("");
+		Settings.smethod_5(Settings.UserMode.Basic);
+		Settings.CUR_MODE = 0;
+		this.tsmiBasic.Visible = false;
+	}
+	else
+	{
+		
+		string text3 = Base64Utils.smethod_1(text2);
+		if (text3 == "DMR961510")
+		{
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9(text3);
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 1;
+		}
+		else if (text3 == "TYT760")
+		{
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9(text3);
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 2;
+		}
+	}*/
+
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9("TYT760");
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 2;
+
+
 			ChannelForm.CurCntCh = 1024;
 			this.method_15();
 			this.method_11();
@@ -2664,6 +2681,8 @@ namespace DMR
             }
 		}
 
+		/* Roger Clark. 
+		 * Basic functionality request has been removed as the CPS will now always be in expert mode
 		private void tsmiBasic_Click(object sender, EventArgs e)
 		{
 			this.closeAllForms();
@@ -2672,7 +2691,7 @@ namespace DMR
 			Settings.CUR_MODE = 0;
 			Settings.smethod_9("");
 			IniFileUtils.WriteProfileString("Setup", "Power", "");
-		}
+		}*/
 
 		private void tsmiTree_Click(object sender, EventArgs e)
 		{
@@ -3102,6 +3121,9 @@ namespace DMR
 
 		private void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
+			/*
+			 * Roger Clark
+			 * Disabled secret password entry system as mode is permantly set to "Expert"
 			if (e.Alt && e.Control && e.Shift)
 			{
 				if (e.KeyCode != Keys.D5 && e.KeyCode != Keys.F11)
@@ -3114,7 +3136,7 @@ namespace DMR
 					this.closeAllForms();
 					this.tsmiBasic.Visible = true;
 				}
-			}
+			}*/
 		}
 
 		public void GetAllLang()

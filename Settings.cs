@@ -344,9 +344,10 @@ internal class Settings
 		Settings._003CLangChm_003Ek__BackingField = string_0;
 	}
 
-	public static UserMode smethod_4()
+	public static UserMode getUserExpertSettings()
 	{
-		return Settings.curUserMode;
+		return Settings.UserMode.Expert;
+//		return Settings.curUserMode;
 	}
 
 	public static void smethod_5(UserMode userMode_0)
@@ -1499,7 +1500,7 @@ internal class Settings
 		Settings.SZ_PROMPT = "Prompt";
 		Settings.SZ_ERROR = "Error";
 		Settings.SZ_WARNING = "Warning";
-		Settings.CUR_MODE = 0;
+		Settings.CUR_MODE = 2;// Roger Clark. Changed from 0 to 2 as this seems to be the Expert settings mode.
 		Settings.MIN_FREQ = new uint[2]
 		{
 			400u,

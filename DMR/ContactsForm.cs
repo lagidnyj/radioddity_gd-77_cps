@@ -564,7 +564,7 @@ namespace DMR
 					{
 						return;
 					}
-					if ((e.ColumnIndex == 4 || e.ColumnIndex == 5) && Settings.smethod_4() != Settings.UserMode.Expert)
+					if ((e.ColumnIndex == 4 || e.ColumnIndex == 5) && Settings.getUserExpertSettings() != Settings.UserMode.Expert)
 					{
 						return;
 					}

@@ -276,7 +276,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.lblDigitHang.Enabled &= flag;
 			this.nudDigitHang.Enabled &= flag;
 			this.lblAnalogHang.Enabled &= flag;

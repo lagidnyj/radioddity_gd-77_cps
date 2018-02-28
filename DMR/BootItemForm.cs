@@ -382,7 +382,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.grpBootScreen.Enabled &= flag;
 			this.chkBootPwdEnable.Enabled &= flag;
 			this.lblBootPwd.Enabled &= flag;
