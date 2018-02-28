@@ -949,7 +949,7 @@ namespace DMR
 			this._TextBox.KeyPress += Settings.smethod_57;
 			base.Controls.Add(this._TextBox);
 			this.m_deserializeDockContent = this.method_0;
-			this.method_18();
+			this.initialiseTree();
 			this.method_20(this.method_19());
 		}
 
@@ -1068,6 +1068,8 @@ namespace DMR
 			base.AutoScaleMode = AutoScaleMode.Font;
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			this.GetAllLang();
+
+
 			string b = IniFileUtils.smethod_4("Setup", "Language", "Chinese.xml");
 			foreach (ToolStripMenuItem dropDownItem in this.tsmiLanguage.DropDownItems)
 			{
@@ -1079,6 +1081,7 @@ namespace DMR
 				dropDownItem.PerformClick();
 				break;
 			}
+			this.Text += " [Build "+DateTime.Today.ToString("yyyy:MM:dd")+"]";
 
 			if (DialogResult.Yes != MessageBox.Show(Settings.dicCommon["userAgreement"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo))
 			{
@@ -1448,7 +1451,7 @@ namespace DMR
 		public void InitTree()
 		{
 			this.tvwMain.Nodes.Clear();
-			this.method_18();
+			this.initialiseTree();
 			this.method_20(this.method_19());
 			this.lstFixedNode = this.tvwMain.smethod_5();
 			this.lstFixedNode.ForEach(MainForm.smethod_0);
@@ -3204,7 +3207,7 @@ namespace DMR
 			return "";
 		}
 
-		private void method_18()
+		private void initialiseTree()
 		{
 			this.lstTreeNodeItem.Clear();
 			this.lstTreeNodeItem.Add(new TreeNodeItem(null, null, null, 0, -1, 18, null));
