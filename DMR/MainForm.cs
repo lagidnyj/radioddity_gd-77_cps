@@ -711,8 +711,8 @@ namespace DMR
 			this.tsmiAllCall.Size = new Size(231, 22);
 			this.tsmiAllCall.Text = "All Call";
 			this.tsmiAllCall.Click += this.tsmiAllCall_Click;
-			this.ofdMain.Filter = "Data (*.dat)|*.dat";
-			this.sfdMain.Filter = "Data (*.dat)|*.dat";
+			this.ofdMain.Filter = "GD-77 codeplug (*.dat,*.g77)|*.dat;*.g77";
+			this.sfdMain.Filter = "GD-77 codeplug (*.dat,*.g77)|*.dat;*.g77";
 			this.cmsTree.Items.AddRange(new ToolStripItem[2]
 			{
 				this.tsmiCollapseAll,
@@ -931,9 +931,12 @@ namespace DMR
 			return null;
 		}
 
-		public MainForm()
+		public static string[] StartupArgs;
+
+		public MainForm(string[] args)
 		{
-			
+			MainForm.StartupArgs = args;
+
 			this.frmHelp = new HelpForm();
 			this.frmTree = new TreeForm();
 			this.lstTreeNodeItem = new List<TreeNodeItem>();
@@ -1032,7 +1035,16 @@ namespace DMR
 
 			ChannelForm.CurCntCh = 1024;
 			this.method_15();
-			this.method_11();
+
+			if (MainForm.StartupArgs.Length > 0)
+			{
+				this.loadDefaultOrInitialFile(StartupArgs[0]);
+			}
+			else
+			{	
+				this.loadDefaultOrInitialFile();
+			}
+
 			this.frmHelp.Show(this.dockPanel);
 			this.frmTree.Show(this.dockPanel);
 			this.pnlTvw.Dock = DockStyle.Fill;
@@ -1085,6 +1097,8 @@ namespace DMR
 			{
 				base.FormClosing += this.MainForm_FormClosing;
 			}
+
+
 		}
 
 		private void MainForm_MdiChildActivate(object sender, EventArgs e)
@@ -2367,9 +2381,14 @@ namespace DMR
 			this.tsmiCh.Visible = !ChannelForm.data.ListIsEmpty;
 		}
 
-		private void method_11()
+		private void loadDefaultOrInitialFile(string overRideWithFile=null)
 		{
 			string text = Application.StartupPath + "\\Default.dat";
+			if (overRideWithFile != null)
+			{
+				text = overRideWithFile;
+			}
+
 			if (!string.IsNullOrEmpty(text) && File.Exists(text))
 			{
 				byte[] eerom = File.ReadAllBytes(text);
@@ -2383,7 +2402,7 @@ namespace DMR
 		{
 			if (MessageBox.Show(Settings.dicCommon["PromptKey2"], "", MessageBoxButtons.OKCancel) == DialogResult.OK)
 			{
-				this.method_11();
+				this.loadDefaultOrInitialFile();
 				MainForm.CurFileName = "";
 			}
 		}
