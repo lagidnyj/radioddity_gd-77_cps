@@ -446,7 +446,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_1();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -487,7 +487,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_1()
+		private void InitializeComponent()
 		{
 			this.pnlSignalingBasic = new CustomPanel();
 			this.nudTxSyncWakeTot = new CustomNumericUpDown();
@@ -565,7 +565,7 @@ namespace DMR
 			this.nudTxSyncWakeTot.method_6(null);
 			CustomNumericUpDown @class = this.nudTxSyncWakeTot;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudTxSyncWakeTot.method_4(new decimal(bits));
 			this.nudTxSyncWakeTot.Size = new Size(120, 23);
 			this.nudTxSyncWakeTot.TabIndex = 8;
 			this.nudTxSyncWakeTot.Value = new decimal(new int[4]
@@ -603,7 +603,7 @@ namespace DMR
 			this.nudAutoResetTimer.method_6(null);
 			CustomNumericUpDown class2 = this.nudAutoResetTimer;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudAutoResetTimer.method_4(new decimal(bits2));
 			this.nudAutoResetTimer.Size = new Size(120, 23);
 			this.nudAutoResetTimer.TabIndex = 16;
 			this.nudAutoResetTimer.Value = new decimal(new int[4]
@@ -641,7 +641,7 @@ namespace DMR
 			this.nudTxWakeMsgLimit.method_6(null);
 			CustomNumericUpDown class3 = this.nudTxWakeMsgLimit;
 			int[] bits3 = new int[4];
-			class3.method_4(new decimal(bits3));
+			this.nudTxWakeMsgLimit.method_4(new decimal(bits3));
 			this.nudTxWakeMsgLimit.Size = new Size(120, 23);
 			this.nudTxWakeMsgLimit.TabIndex = 4;
 			this.nudTxWakeMsgLimit.Value = new decimal(new int[4]
@@ -685,7 +685,7 @@ namespace DMR
 			this.nudRMDuration.method_6(null);
 			CustomNumericUpDown class4 = this.nudRMDuration;
 			int[] bits4 = new int[4];
-			class4.method_4(new decimal(bits4));
+			this.nudRMDuration.method_4(new decimal(bits4));
 			this.nudRMDuration.Size = new Size(120, 23);
 			this.nudRMDuration.TabIndex = 6;
 			this.nudRMDuration.Value = new decimal(new int[4]
@@ -754,7 +754,7 @@ namespace DMR
 			this.nudSelCallHang.method_6(null);
 			CustomNumericUpDown class5 = this.nudSelCallHang;
 			int[] bits5 = new int[4];
-			class5.method_4(new decimal(bits5));
+			this.nudSelCallHang.method_4(new decimal(bits5));
 			this.nudSelCallHang.Size = new Size(120, 23);
 			this.nudSelCallHang.TabIndex = 14;
 			this.nudSelCallHang.Visible = false;
@@ -786,7 +786,7 @@ namespace DMR
 			this.lblAutoResetTimer.TextAlign = ContentAlignment.MiddleRight;
 			this.lblAutoResetTimer.Visible = false;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(521, 397);
 			base.Controls.Add(this.pnlSignalingBasic);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);

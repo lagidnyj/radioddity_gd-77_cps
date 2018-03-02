@@ -71,7 +71,7 @@ namespace DMR
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += this.btnClose_Click;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(409, 299);
 			base.Controls.Add(this.btnClose);
 			base.Controls.Add(this.lblCompany);

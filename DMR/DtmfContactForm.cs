@@ -272,7 +272,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_3();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -378,7 +378,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_3()
+		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
 			this.dgvContact = new DataGridView();
@@ -439,7 +439,7 @@ namespace DMR
 			this.pnlDtmfContact.Name = "pnlDtmfContact";
 			this.pnlDtmfContact.Size = new Size(454, 498);
 			this.pnlDtmfContact.TabIndex = 3;
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(454, 498);
 			base.Controls.Add(this.pnlDtmfContact);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular, GraphicsUnit.Point, 0);

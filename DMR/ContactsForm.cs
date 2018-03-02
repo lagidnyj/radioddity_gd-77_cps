@@ -54,7 +54,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.pnlContact = new Panel();
 			this.btnImport = new Button();
@@ -218,10 +218,10 @@ namespace DMR
 			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
 			this.dataGridViewTextBoxColumn5.ReadOnly = true;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(800, 381);
 			base.Controls.Add(this.pnlContact);
-            this.Font = this.Font = new Font("Arial", 10f, FontStyle.Regular);
+            this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			base.Name = "ContactsForm";
 			this.Text = "Contacts";
 			base.Load += this.ContactsForm_Load;
@@ -290,7 +290,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

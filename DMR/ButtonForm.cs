@@ -464,7 +464,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
 			this.pnlButton = new CustomPanel();
@@ -716,7 +716,7 @@ namespace DMR
 			this.lblShortPress.Text = "Short Press";
 			this.lblShortPress.TextAlign = ContentAlignment.MiddleCenter;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(627, 499);
 			base.Controls.Add(this.pnlButton);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -793,7 +793,7 @@ namespace DMR
 			
 			this.dicCom = new Dictionary<string, string>();
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

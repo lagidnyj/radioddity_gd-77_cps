@@ -1084,7 +1084,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.pnlFill = new CustomPanel();
 			this.lblDownChMode = new Label();
@@ -1336,9 +1336,9 @@ namespace DMR
 			});
 			this.nudCallAlertDur.Name = "nudCallAlertDur";
 			this.nudCallAlertDur.method_6(null);
-			CustomNumericUpDown @class = this.nudCallAlertDur;
+			CustomNumericUpDown __class = this.nudCallAlertDur;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudCallAlertDur.method_4(new decimal(bits));
 			this.nudCallAlertDur.Size = new Size(120, 23);
 			this.nudCallAlertDur.TabIndex = 17;
 			this.nudCallAlertDur.Value = new decimal(new int[4]
@@ -1501,7 +1501,7 @@ namespace DMR
 			this.nudRespTmr.method_6(null);
 			CustomNumericUpDown class2 = this.nudRespTmr;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudRespTmr.method_4(new decimal(bits2));
 			this.nudRespTmr.Size = new Size(120, 23);
 			this.nudRespTmr.TabIndex = 17;
 			this.nudRespTmr.Value = new decimal(new int[4]
@@ -1543,7 +1543,7 @@ namespace DMR
 			this.nudReminderTmr.method_6(null);
 			CustomNumericUpDown class3 = this.nudReminderTmr;
 			int[] bits3 = new int[4];
-			class3.method_4(new decimal(bits3));
+			this.nudReminderTmr.method_4(new decimal(bits3));
 			this.nudReminderTmr.Size = new Size(120, 23);
 			this.nudReminderTmr.TabIndex = 17;
 			this.nudReminderTmr.Value = new decimal(new int[4]
@@ -1583,7 +1583,7 @@ namespace DMR
 			this.nudGrpHang.method_6(null);
 			CustomNumericUpDown class4 = this.nudGrpHang;
 			int[] bits4 = new int[4];
-			class4.method_4(new decimal(bits4));
+			this.nudGrpHang.method_4(new decimal(bits4));
 			this.nudGrpHang.Size = new Size(120, 23);
 			this.nudGrpHang.TabIndex = 17;
 			this.nudGrpHang.Value = new decimal(new int[4]
@@ -1613,7 +1613,7 @@ namespace DMR
 			this.nudPrivateHang.method_6(null);
 			CustomNumericUpDown class5 = this.nudPrivateHang;
 			int[] bits5 = new int[4];
-			class5.method_4(new decimal(bits5));
+			this.nudPrivateHang.method_4(new decimal(bits5));
 			this.nudPrivateHang.Size = new Size(120, 23);
 			this.nudPrivateHang.TabIndex = 17;
 			this.nudPrivateHang.Value = new decimal(new int[4]
@@ -1684,7 +1684,7 @@ namespace DMR
 			this.nudArsInitDly.method_6(null);
 			CustomNumericUpDown class6 = this.nudArsInitDly;
 			int[] bits6 = new int[4];
-			class6.method_4(new decimal(bits6));
+			this.nudArsInitDly.method_4(new decimal(bits6));
 			this.nudArsInitDly.Size = new Size(120, 23);
 			this.nudArsInitDly.TabIndex = 5;
 			this.nudArsInitDly.Value = new decimal(new int[4]
@@ -1721,7 +1721,7 @@ namespace DMR
 			this.nudRxLowBatt.method_6(null);
 			CustomNumericUpDown class7 = this.nudRxLowBatt;
 			int[] bits7 = new int[4];
-			class7.method_4(new decimal(bits7));
+			this.nudRxLowBatt.method_4(new decimal(bits7));
 			this.nudRxLowBatt.Size = new Size(120, 23);
 			this.nudRxLowBatt.TabIndex = 17;
 			this.nudRxLowBatt.Value = new decimal(new int[4]
@@ -1759,7 +1759,7 @@ namespace DMR
 			this.nudTxPreambleDur.method_6(null);
 			CustomNumericUpDown class8 = this.nudTxPreambleDur;
 			int[] bits8 = new int[4];
-			class8.method_4(new decimal(bits8));
+			this.nudTxPreambleDur.method_4(new decimal(bits8));
 			this.nudTxPreambleDur.Size = new Size(120, 23);
 			this.nudTxPreambleDur.TabIndex = 7;
 			this.nudTxPreambleDur.Value = new decimal(new int[4]
@@ -1870,7 +1870,7 @@ namespace DMR
 			this.chkTxInhibit.Text = "Tx Inhibit Quick Key Override";
 			this.chkTxInhibit.UseVisualStyleBackColor = true;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(961, 613);
 			base.Controls.Add(this.pnlFill);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -2039,7 +2039,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

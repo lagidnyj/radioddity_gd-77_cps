@@ -899,7 +899,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_1();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -1016,7 +1016,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_1()
+		private void InitializeComponent()
 		{
 			this.pnlDtmf = new CustomPanel();
 			this.chkSideTone = new CheckBox();
@@ -1547,7 +1547,7 @@ namespace DMR
 			this.lblRate.Text = "DTMF Rate";
 			this.lblRate.TextAlign = ContentAlignment.MiddleRight;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(729, 512);
 			base.Controls.Add(this.pnlDtmf);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular, GraphicsUnit.Point, 0);

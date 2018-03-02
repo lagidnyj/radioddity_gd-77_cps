@@ -121,7 +121,7 @@ namespace DMR
 			this.lblInfo.Text = "Prompt";
 			this.tmrClose.Tick += this.tmrClose_Tick;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(373, 192);
 			base.Controls.Add(this.lblInfo);
 			base.Controls.Add(this.btnClose);

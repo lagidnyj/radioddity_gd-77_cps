@@ -957,7 +957,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_8();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -1331,7 +1331,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_8()
+		private void InitializeComponent()
 		{
 			this.btnDel = new Button();
 			this.btnAdd = new Button();
@@ -1555,7 +1555,7 @@ namespace DMR
 			this.nudPrioritySample.method_6(null);
 			CustomNumericUpDown @class = this.nudPrioritySample;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudPrioritySample.method_4(new decimal(bits));
 			this.nudPrioritySample.Size = new Size(166, 23);
 			this.nudPrioritySample.TabIndex = 15;
 			this.nudPrioritySample.Value = new decimal(new int[4]
@@ -1592,7 +1592,7 @@ namespace DMR
 			this.nudSignalingHold.method_6(null);
 			CustomNumericUpDown class2 = this.nudSignalingHold;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudSignalingHold.method_4(new decimal(bits2));
 			this.nudSignalingHold.Size = new Size(166, 23);
 			this.nudSignalingHold.TabIndex = 13;
 			this.nudSignalingHold.Value = new decimal(new int[4]
@@ -1622,7 +1622,7 @@ namespace DMR
 			this.cmbPlType.Size = new Size(166, 24);
 			this.cmbPlType.TabIndex = 11;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(793, 607);
 			base.Controls.Add(this.panel1);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);

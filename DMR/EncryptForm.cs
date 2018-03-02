@@ -320,7 +320,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_4();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -594,7 +594,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_4()
+		private void InitializeComponent()
 		{
 			this.lblType = new Label();
 			this.cmbType = new ComboBox();
@@ -688,7 +688,7 @@ namespace DMR
 			this.pnlEncrypt.Size = new Size(390, 539);
 			this.pnlEncrypt.TabIndex = 0;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(390, 539);
 			base.Controls.Add(this.pnlEncrypt);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular, GraphicsUnit.Point, 0);

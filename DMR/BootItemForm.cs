@@ -232,7 +232,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.chkBootScreen = new CheckBox();
 			this.chkBootPwdEnable = new CheckBox();
@@ -339,7 +339,7 @@ namespace DMR
 			this.txtBootPwd.Size = new Size(120, 23);
 			this.txtBootPwd.TabIndex = 4;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(350, 336);
 			base.Controls.Add(this.grpBootScreen);
 			base.Controls.Add(this.txtBootPwd);
@@ -397,7 +397,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

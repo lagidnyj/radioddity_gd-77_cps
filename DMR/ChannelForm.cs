@@ -2561,7 +2561,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_18();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 			ChannelForm.CurCntCh = 1024;
 		}
@@ -3410,7 +3410,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_18()
+		private void InitializeComponent()
 		{
 			ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ChannelForm));
 			this.tsrCh = new ToolStrip();
@@ -4373,7 +4373,7 @@ namespace DMR
             this.lblxband.Visible = false;
             this.lblxband.TextAlign = ContentAlignment.MiddleLeft;
             base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(1104, 684);
 			base.Controls.Add(this.pnlChannel);
 			base.Controls.Add(this.tsrCh);

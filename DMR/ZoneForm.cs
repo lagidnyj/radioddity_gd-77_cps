@@ -863,7 +863,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ZoneForm));
 			this.pnlZone = new CustomPanel();
@@ -1104,7 +1104,7 @@ namespace DMR
 			this.lblName.Text = "Name";
 			this.lblName.TextAlign = ContentAlignment.MiddleRight;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(794, 560);
 			base.Controls.Add(this.pnlZone);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -1251,7 +1251,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
