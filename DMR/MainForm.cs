@@ -1841,7 +1841,32 @@ namespace DMR
 						ToolStripMenuItem toolStripMenuItem = this.method_10(treeNodeItem.Cms.Items, keys);
 						if (toolStripMenuItem != null)
 						{
-							toolStripMenuItem.Visible = true;
+							switch (treeNodeItem.Type.Name)
+							{
+								case "ZoneForm":
+									if (selectedNode.Index == selectedNode.Parent.Nodes.Count - 1)
+									{
+										this.tsmiMoveDown.Visible = false;
+									}
+									else
+									{
+										this.tsmiMoveDown.Visible = true;
+									}
+									if (selectedNode.Index == 0)
+									{
+										this.tsmiMoveUp.Visible = false;
+									}
+									else
+									{
+										this.tsmiMoveUp.Visible = true;
+									}
+									break;
+								case "ChannelForm":
+								default:
+									this.tsmiMoveDown.Visible = false;
+									this.tsmiMoveUp.Visible = false;
+									break;
+							}
 							toolStripMenuItem.PerformClick();
 						}
 					}
