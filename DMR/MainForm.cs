@@ -1841,6 +1841,7 @@ namespace DMR
 						ToolStripMenuItem toolStripMenuItem = this.method_10(treeNodeItem.Cms.Items, keys);
 						if (toolStripMenuItem != null)
 						{
+							toolStripMenuItem.Visible = true;
 							toolStripMenuItem.PerformClick();
 						}
 					}
