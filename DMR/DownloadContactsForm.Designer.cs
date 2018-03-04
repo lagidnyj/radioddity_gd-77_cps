@@ -55,7 +55,6 @@
             this.callsign,
             this.name,
             this.lastheard});
-			this.dgvDownloadeContacts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvDownloadeContacts.Location = new System.Drawing.Point(21, 39);
 			this.dgvDownloadeContacts.Name = "dgvDownloadeContacts";
 			this.dgvDownloadeContacts.ReadOnly = true;
@@ -88,7 +87,6 @@
 			// 
 			// btnImport
 			// 
-			this.btnImport.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnImport.Location = new System.Drawing.Point(560, 448);
 			this.btnImport.Name = "btnImport";
 			this.btnImport.Size = new System.Drawing.Size(129, 30);
@@ -99,7 +97,6 @@
 			// 
 			// btnDownload
 			// 
-			this.btnDownload.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDownload.Location = new System.Drawing.Point(499, 90);
 			this.btnDownload.Name = "btnDownload";
 			this.btnDownload.Size = new System.Drawing.Size(197, 45);
@@ -110,7 +107,6 @@
 			// 
 			// txtIDStart
 			// 
-			this.txtIDStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtIDStart.Location = new System.Drawing.Point(626, 43);
 			this.txtIDStart.Name = "txtIDStart";
 			this.txtIDStart.Size = new System.Drawing.Size(63, 26);
@@ -120,7 +116,6 @@
 			// lblIDStart
 			// 
 			this.lblIDStart.AutoSize = true;
-			this.lblIDStart.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblIDStart.Location = new System.Drawing.Point(495, 43);
 			this.lblIDStart.Name = "lblIDStart";
 			this.lblIDStart.Size = new System.Drawing.Size(125, 20);
@@ -130,7 +125,6 @@
 			// lblMessage
 			// 
 			this.lblMessage.AutoSize = true;
-			this.lblMessage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblMessage.Location = new System.Drawing.Point(18, 9);
 			this.lblMessage.Name = "lblMessage";
 			this.lblMessage.Size = new System.Drawing.Size(466, 19);
@@ -175,6 +169,7 @@
 			this.Name = "DownloadContactsForm";
 			this.Text = "Download contacts from \'Last Heard\'";
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).EndInit();
+			this.Font = new System.Drawing.Font("Arial", 10F);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
