@@ -87,9 +87,9 @@
 			// 
 			// btnImport
 			// 
-			this.btnImport.Location = new System.Drawing.Point(560, 448);
+			this.btnImport.Location = new System.Drawing.Point(560, 450);
 			this.btnImport.Name = "btnImport";
-			this.btnImport.Size = new System.Drawing.Size(129, 30);
+			this.btnImport.Size = new System.Drawing.Size(129, 28);
 			this.btnImport.TabIndex = 1;
 			this.btnImport.Text = "Import selected";
 			this.btnImport.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
 			// 
 			this.btnDownload.Location = new System.Drawing.Point(499, 90);
 			this.btnDownload.Name = "btnDownload";
-			this.btnDownload.Size = new System.Drawing.Size(197, 45);
+			this.btnDownload.Size = new System.Drawing.Size(197, 32);
 			this.btnDownload.TabIndex = 2;
 			this.btnDownload.Text = "Download \'Last Heard\' data";
 			this.btnDownload.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
 			// 
 			this.txtIDStart.Location = new System.Drawing.Point(626, 43);
 			this.txtIDStart.Name = "txtIDStart";
-			this.txtIDStart.Size = new System.Drawing.Size(63, 26);
+			this.txtIDStart.Size = new System.Drawing.Size(63, 23);
 			this.txtIDStart.TabIndex = 3;
 			this.txtIDStart.Text = "505";
 			// 
@@ -118,7 +118,7 @@
 			this.lblIDStart.AutoSize = true;
 			this.lblIDStart.Location = new System.Drawing.Point(495, 43);
 			this.lblIDStart.Name = "lblIDStart";
-			this.lblIDStart.Size = new System.Drawing.Size(125, 20);
+			this.lblIDStart.Size = new System.Drawing.Size(127, 16);
 			this.lblIDStart.TabIndex = 4;
 			this.lblIDStart.Text = "Region Prefix code";
 			// 
@@ -127,7 +127,7 @@
 			this.lblMessage.AutoSize = true;
 			this.lblMessage.Location = new System.Drawing.Point(18, 9);
 			this.lblMessage.Name = "lblMessage";
-			this.lblMessage.Size = new System.Drawing.Size(466, 19);
+			this.lblMessage.Size = new System.Drawing.Size(386, 16);
 			this.lblMessage.TabIndex = 5;
 			this.lblMessage.Text = "Enter the ID prefix code for your region and press Download";
 			// 
@@ -157,7 +157,7 @@
 			// 
 			// DownloadContactsForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(708, 494);
 			this.Controls.Add(this.lblMessage);
@@ -166,10 +166,10 @@
 			this.Controls.Add(this.btnDownload);
 			this.Controls.Add(this.btnImport);
 			this.Controls.Add(this.dgvDownloadeContacts);
+			this.Font = new System.Drawing.Font("Arial", 10F);
 			this.Name = "DownloadContactsForm";
 			this.Text = "Download contacts from \'Last Heard\'";
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).EndInit();
-			this.Font = new System.Drawing.Font("Arial", 10F);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

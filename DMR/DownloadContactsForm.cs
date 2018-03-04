@@ -79,8 +79,7 @@ namespace DMR
 					this.dgvDownloadeContacts.Rows.Insert(0, lineArr[2], lineArr[1], lineArr[3], lineArr[4]);
 				}
 			}
-			lblMessage.Text = "Added " + this.dgvDownloadeContacts.RowCount;
-			dgvDownloadeContacts.ResumeLayout();
+			lblMessage.Text = string.Format("There are {0} new ID's which are not already in your contacts", this.dgvDownloadeContacts.RowCount);
 		}
 
 		private void btnImport_Click(object sender, EventArgs e)

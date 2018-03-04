@@ -717,7 +717,7 @@
       <Control Id="lblIDStart" Text="Region Prefix code" />
       <Control Id="txtIDStart" Text="505" />
       <Control Id="lblIDStartAlert" Text="Please enter ID number starting digits. e.g. 505 for Australia." />
-      <Control Id="lblMessageAdded" Text="Added " />
+      <Control Id="lblMessageAdded" Text="There are {0} new ID's which are not already in your contacts" />
       <Control Id="lblMessageDownloading" Text="Downloading" />
       <Control Id="dgvDownloadeContacts" Text="ID,Callsign,Name,Last heard">
         <ControlItem Id="" Text="ID." />

@@ -329,7 +329,15 @@ internal class Settings
 	[CompilerGenerated]
 	public static void smethod_1(string string_0)
 	{
-		Settings._003CLangXml_003Ek__BackingField = string_0;
+		if (string_0 != null)
+		{
+			Settings._003CLangXml_003Ek__BackingField = string_0;
+		}
+		else
+		{
+			System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
+			MessageBox.Show(t.ToString(),"Warning. Code attempted to set language xml path to null");
+		}
 	}
     static string _003CLangChm_003Ek__BackingField;
 	[CompilerGenerated]

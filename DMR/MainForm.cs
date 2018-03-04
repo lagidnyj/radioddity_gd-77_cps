@@ -1070,7 +1070,7 @@ namespace DMR
 			this.GetAllLang();
 
 
-			string b = IniFileUtils.smethod_4("Setup", "Language", "Chinese.xml");
+			string b = IniFileUtils.smethod_4("Setup", "Language", "English.xml");
 			foreach (ToolStripMenuItem dropDownItem in this.tsmiLanguage.DropDownItems)
 			{
 				string fileName = Path.GetFileName(dropDownItem.Tag.ToString());
