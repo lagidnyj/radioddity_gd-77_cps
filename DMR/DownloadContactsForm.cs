@@ -19,9 +19,13 @@ namespace DMR
 			InitializeComponent();
 		}
 
-		private void addPrivateContact(string id,string callsignAndName)
+		private bool addPrivateContact(string id,string callsignAndName)
 		{
 			int minIndex = ContactForm.data.GetMinIndex();
+			if (minIndex < 0)
+			{
+				return false;
+			}
 			ContactForm.data.SetIndex(minIndex, 1);// Not sure what this does
 			ContactForm.ContactOne value = new ContactForm.ContactOne(minIndex);// get next available index
 			value.Name = callsignAndName;
@@ -33,6 +37,7 @@ namespace DMR
 
 			int[] array = new int[3] {8,10,7};// Note array index 1 appears to be Private call in terms of the tree view
 			(parentForm.MdiParent as MainForm).InsertTreeViewNode(parentForm.Node, minIndex, typeof(ContactForm), array[1], ContactForm.data);
+			return true;
 		}
 
 		private void btnDownload_Click(object sender, EventArgs e)
@@ -88,7 +93,11 @@ namespace DMR
 			{
 				foreach (DataGridViewRow row in this.dgvDownloadeContacts.SelectedRows)
 				{
-					addPrivateContact(row.Cells[0].Value+"", row.Cells[1].Value + " " + row.Cells[2].Value);
+					if (addPrivateContact(row.Cells[0].Value + "", row.Cells[1].Value + " " + row.Cells[2].Value) == false)
+					{
+						MessageBox.Show("Not all contacts could be imported because the maximum number of Digital Contacts has been reached","Warning");
+						break;
+					}
 				}
 				parentForm.DispData();
 				(parentForm.MdiParent as MainForm).RefreshRelatedForm(base.GetType());
