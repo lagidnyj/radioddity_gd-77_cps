@@ -101,7 +101,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_2();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -583,7 +583,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_2()
+		private void InitializeComponent()
 		{
 			this.pnlChannel = new Panel();
 			this.btnImport = new Button();
@@ -625,7 +625,7 @@ namespace DMR
 			this.pnlChannel.Dock = DockStyle.Fill;
 			this.pnlChannel.Location = new Point(0, 0);
 			this.pnlChannel.Name = "pnlChannel";
-			this.pnlChannel.Size = new Size(1102, 493);
+			this.pnlChannel.Size = new Size(1200, 493);
 			this.pnlChannel.TabIndex = 0;
 			this.btnImport.Location = new Point(660, 28);
 			this.btnImport.Name = "btnImport";
@@ -724,7 +724,7 @@ namespace DMR
 			this.dgvChannels.ReadOnly = true;
 			this.dgvChannels.RowHeadersWidth = 50;
 			this.dgvChannels.RowTemplate.Height = 23;
-			this.dgvChannels.Size = new Size(1055, 419);
+			this.dgvChannels.Size = new Size(1110, 419);
 			this.dgvChannels.TabIndex = 9;
 			this.dgvChannels.RowPostPaint += this.NligzloMrR;
 			this.dgvChannels.RowHeaderMouseDoubleClick += this.dgvChannels_RowHeaderMouseDoubleClick;
@@ -745,10 +745,10 @@ namespace DMR
 			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
 			this.dataGridViewTextBoxColumn5.ReadOnly = true;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(1102, 493);
+//			base.AutoScaleMode = AutoScaleMode.Font;
+			base.ClientSize = new Size(1200, 493);
 			base.Controls.Add(this.pnlChannel);
-			this.Font = this.Font = new Font("Arial", 10f, FontStyle.Regular);
+			this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			base.Name = "ChannelsForm";
 			this.Text = "Channels";
 			base.Load += this.ChannelsForm_Load;

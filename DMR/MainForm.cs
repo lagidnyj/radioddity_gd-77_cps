@@ -520,11 +520,11 @@ namespace DMR
 			this.tsmiScanList.Size = new Size(126, 22);
 			this.tsmiScanList.Text = "Scan List";
 			this.tsmiScanList.Click += this.tsmiScanList_Click;
-			this.tsmiProgram.DropDownItems.AddRange(new ToolStripItem[3]
+			this.tsmiProgram.DropDownItems.AddRange(new ToolStripItem[2]// was 3
 			{
 				this.tsmiRead,
-				this.tsmiWrite,
-				this.tsmiBasic
+				this.tsmiWrite//,
+				//this.tsmiBasic
 			});
 			this.tsmiProgram.Name = "tsmiProgram";
 			this.tsmiProgram.Size = new Size(71, 21);
@@ -539,11 +539,15 @@ namespace DMR
 			this.tsmiWrite.Size = new Size(156, 22);
 			this.tsmiWrite.Text = "Write";
 			this.tsmiWrite.Click += this.tsbtnWrite_Click;
+			/*
+			 * Roger Clark
+			 * Removed basic mode select
 			this.tsmiBasic.Name = "tsmiBasic";
 			this.tsmiBasic.Size = new Size(156, 22);
 			this.tsmiBasic.Text = "Basic";
 			this.tsmiBasic.Visible = false;
 			this.tsmiBasic.Click += this.tsmiBasic_Click;
+			 */ 
 			this.tsmiView.DropDownItems.AddRange(new ToolStripItem[4]
 			{
 				this.tsmiTree,
@@ -707,8 +711,8 @@ namespace DMR
 			this.tsmiAllCall.Size = new Size(231, 22);
 			this.tsmiAllCall.Text = "All Call";
 			this.tsmiAllCall.Click += this.tsmiAllCall_Click;
-			this.ofdMain.Filter = "Data (*.dat)|*.dat";
-			this.sfdMain.Filter = "Data (*.dat)|*.dat";
+			this.ofdMain.Filter = "GD-77 codeplug (*.dat,*.g77)|*.dat;*.g77";
+			this.sfdMain.Filter = "GD-77 codeplug (*.dat,*.g77)|*.dat;*.g77";
 			this.cmsTree.Items.AddRange(new ToolStripItem[2]
 			{
 				this.tsmiCollapseAll,
@@ -927,9 +931,12 @@ namespace DMR
 			return null;
 		}
 
-		public MainForm()
+		public static string[] StartupArgs;
+
+		public MainForm(string[] args)
 		{
-			
+			MainForm.StartupArgs = args;
+
 			this.frmHelp = new HelpForm();
 			this.frmTree = new TreeForm();
 			this.lstTreeNodeItem = new List<TreeNodeItem>();
@@ -942,7 +949,7 @@ namespace DMR
 			this._TextBox.KeyPress += Settings.smethod_57;
 			base.Controls.Add(this._TextBox);
 			this.m_deserializeDockContent = this.method_0;
-			this.method_18();
+			this.initialiseTree();
 			this.method_20(this.method_19());
 		}
 
@@ -987,35 +994,57 @@ namespace DMR
 			MainForm.CurCom = IniFileUtils.smethod_4("Setup", "Com", "Com1");
 			MainForm.CurCbr = IniFileUtils.smethod_2("Setup", "Baudrate", 9600);
 			MainForm.CurModel = IniFileUtils.smethod_4("Setup", "Model", "SG");
-			string text2 = IniFileUtils.smethod_4("Setup", "Power", "");
-			if (string.IsNullOrEmpty(text2))
-			{
-				Settings.smethod_9("");
-				Settings.smethod_5(Settings.UserMode.Basic);
-				Settings.CUR_MODE = 0;
-				this.tsmiBasic.Visible = false;
-			}
-			else
-			{
-				string text3 = Base64Utils.smethod_1(text2);
-				if (text3 == "DMR961510")
-				{
-					this.tsmiBasic.Visible = true;
-					Settings.smethod_9(text3);
-					Settings.smethod_5(Settings.UserMode.Expert);
-					Settings.CUR_MODE = 1;
-				}
-				else if (text3 == "TYT760")
-				{
-					this.tsmiBasic.Visible = true;
-					Settings.smethod_9(text3);
-					Settings.smethod_5(Settings.UserMode.Expert);
-					Settings.CUR_MODE = 2;
-				}
-			}
+			//
+
+	/* Roger Clark
+	 * No not read Exprert / basic mode from Setup any more is the CPS is now permanently set in Expert mode 2.
+	string text2 = IniFileUtils.smethod_4("Setup", "Power", "");
+
+	if (string.IsNullOrEmpty(text2))
+	{
+		Settings.smethod_9("");
+		Settings.smethod_5(Settings.UserMode.Basic);
+		Settings.CUR_MODE = 0;
+		this.tsmiBasic.Visible = false;
+	}
+	else
+	{
+		
+		string text3 = Base64Utils.smethod_1(text2);
+		if (text3 == "DMR961510")
+		{
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9(text3);
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 1;
+		}
+		else if (text3 == "TYT760")
+		{
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9(text3);
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 2;
+		}
+	}*/
+
+			this.tsmiBasic.Visible = true;
+			Settings.smethod_9("TYT760");
+			Settings.smethod_5(Settings.UserMode.Expert);
+			Settings.CUR_MODE = 2;
+
+
 			ChannelForm.CurCntCh = 1024;
 			this.method_15();
-			this.method_11();
+
+			if (MainForm.StartupArgs.Length > 0)
+			{
+				this.loadDefaultOrInitialFile(StartupArgs[0]);
+			}
+			else
+			{	
+				this.loadDefaultOrInitialFile();
+			}
+
 			this.frmHelp.Show(this.dockPanel);
 			this.frmTree.Show(this.dockPanel);
 			this.pnlTvw.Dock = DockStyle.Fill;
@@ -1039,6 +1068,8 @@ namespace DMR
 			base.AutoScaleMode = AutoScaleMode.Font;
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
 			this.GetAllLang();
+
+
 			string b = IniFileUtils.smethod_4("Setup", "Language", "Chinese.xml");
 			foreach (ToolStripMenuItem dropDownItem in this.tsmiLanguage.DropDownItems)
 			{
@@ -1050,6 +1081,7 @@ namespace DMR
 				dropDownItem.PerformClick();
 				break;
 			}
+			this.Text += " [Build "+DateTime.Today.ToString("yyyy:MM:dd")+"]";
 
 			if (DialogResult.Yes != MessageBox.Show(Settings.dicCommon["userAgreement"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo))
 			{
@@ -1068,6 +1100,8 @@ namespace DMR
 			{
 				base.FormClosing += this.MainForm_FormClosing;
 			}
+
+
 		}
 
 		private void MainForm_MdiChildActivate(object sender, EventArgs e)
@@ -1417,7 +1451,7 @@ namespace DMR
 		public void InitTree()
 		{
 			this.tvwMain.Nodes.Clear();
-			this.method_18();
+			this.initialiseTree();
 			this.method_20(this.method_19());
 			this.lstFixedNode = this.tvwMain.smethod_5();
 			this.lstFixedNode.ForEach(MainForm.smethod_0);
@@ -1807,6 +1841,32 @@ namespace DMR
 						ToolStripMenuItem toolStripMenuItem = this.method_10(treeNodeItem.Cms.Items, keys);
 						if (toolStripMenuItem != null)
 						{
+							switch (treeNodeItem.Type.Name)
+							{
+								case "ZoneForm":
+									if (selectedNode.Index == selectedNode.Parent.Nodes.Count - 1)
+									{
+										this.tsmiMoveDown.Visible = false;
+									}
+									else
+									{
+										this.tsmiMoveDown.Visible = true;
+									}
+									if (selectedNode.Index == 0)
+									{
+										this.tsmiMoveUp.Visible = false;
+									}
+									else
+									{
+										this.tsmiMoveUp.Visible = true;
+									}
+									break;
+								case "ChannelForm":
+								default:
+									this.tsmiMoveDown.Visible = false;
+									this.tsmiMoveUp.Visible = false;
+									break;
+							}
 							toolStripMenuItem.PerformClick();
 						}
 					}
@@ -2350,9 +2410,14 @@ namespace DMR
 			this.tsmiCh.Visible = !ChannelForm.data.ListIsEmpty;
 		}
 
-		private void method_11()
+		private void loadDefaultOrInitialFile(string overRideWithFile=null)
 		{
 			string text = Application.StartupPath + "\\Default.dat";
+			if (overRideWithFile != null)
+			{
+				text = overRideWithFile;
+			}
+
 			if (!string.IsNullOrEmpty(text) && File.Exists(text))
 			{
 				byte[] eerom = File.ReadAllBytes(text);
@@ -2366,7 +2431,7 @@ namespace DMR
 		{
 			if (MessageBox.Show(Settings.dicCommon["PromptKey2"], "", MessageBoxButtons.OKCancel) == DialogResult.OK)
 			{
-				this.method_11();
+				this.loadDefaultOrInitialFile();
 				MainForm.CurFileName = "";
 			}
 		}
@@ -2664,6 +2729,8 @@ namespace DMR
             }
 		}
 
+		/* Roger Clark. 
+		 * Basic functionality request has been removed as the CPS will now always be in expert mode
 		private void tsmiBasic_Click(object sender, EventArgs e)
 		{
 			this.closeAllForms();
@@ -2672,7 +2739,7 @@ namespace DMR
 			Settings.CUR_MODE = 0;
 			Settings.smethod_9("");
 			IniFileUtils.WriteProfileString("Setup", "Power", "");
-		}
+		}*/
 
 		private void tsmiTree_Click(object sender, EventArgs e)
 		{
@@ -3102,6 +3169,9 @@ namespace DMR
 
 		private void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
+			/*
+			 * Roger Clark
+			 * Disabled secret password entry system as mode is permantly set to "Expert"
 			if (e.Alt && e.Control && e.Shift)
 			{
 				if (e.KeyCode != Keys.D5 && e.KeyCode != Keys.F11)
@@ -3114,7 +3184,7 @@ namespace DMR
 					this.closeAllForms();
 					this.tsmiBasic.Visible = true;
 				}
-			}
+			}*/
 		}
 
 		public void GetAllLang()
@@ -3163,7 +3233,7 @@ namespace DMR
 			return "";
 		}
 
-		private void method_18()
+		private void initialiseTree()
 		{
 			this.lstTreeNodeItem.Clear();
 			this.lstTreeNodeItem.Add(new TreeNodeItem(null, null, null, 0, -1, 18, null));

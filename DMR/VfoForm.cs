@@ -2099,7 +2099,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.mnsCh = new MenuStrip();
 			this.tsmiCh = new ToolStripMenuItem();
@@ -2326,7 +2326,7 @@ namespace DMR
 			this.nudOffsetFreq.method_6(null);
 			CustomNumericUpDown @class = this.nudOffsetFreq;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudOffsetFreq.method_4(new decimal(bits));
 			this.nudOffsetFreq.Size = new Size(120, 21);
 			this.nudOffsetFreq.TabIndex = 37;
 			this.lblOffsetFreq.Location = new Point(245, 199);
@@ -2411,7 +2411,7 @@ namespace DMR
 			this.nudRssiThreshold.method_6(null);
 			CustomNumericUpDown class2 = this.nudRssiThreshold;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudRssiThreshold.method_4(new decimal(bits2));
 			this.nudRssiThreshold.Size = new Size(120, 21);
 			this.nudRssiThreshold.TabIndex = 22;
 			this.nudRssiThreshold.Visible = false;
@@ -2464,7 +2464,7 @@ namespace DMR
 			this.nudTxColor.method_6(null);
 			CustomNumericUpDown class3 = this.nudTxColor;
 			int[] bits3 = new int[4];
-			class3.method_4(new decimal(bits3));
+			this.nudTxColor.method_4(new decimal(bits3));
 			this.nudTxColor.Size = new Size(120, 21);
 			this.nudTxColor.TabIndex = 17;
 			this.nudRxColor.method_2(null);
@@ -2473,7 +2473,7 @@ namespace DMR
 			this.nudRxColor.method_6(null);
 			CustomNumericUpDown class4 = this.nudRxColor;
 			int[] bits4 = new int[4];
-			class4.method_4(new decimal(bits4));
+			this.nudRxColor.method_4(new decimal(bits4));
 			this.nudRxColor.Size = new Size(120, 21);
 			this.nudRxColor.TabIndex = 13;
 			this.nudRxColor.Visible = false;
@@ -2714,7 +2714,7 @@ namespace DMR
 			this.nudArtsInterval.method_6(null);
 			CustomNumericUpDown class5 = this.nudArtsInterval;
 			int[] bits5 = new int[4];
-			class5.method_4(new decimal(bits5));
+			this.nudArtsInterval.method_4(new decimal(bits5));
 			this.nudArtsInterval.Size = new Size(120, 21);
 			this.nudArtsInterval.TabIndex = 25;
 			this.nudArtsInterval.Visible = false;
@@ -3011,7 +3011,7 @@ namespace DMR
 			this.nudTotRekey.method_6(null);
 			CustomNumericUpDown class6 = this.nudTotRekey;
 			int[] bits6 = new int[4];
-			class6.method_4(new decimal(bits6));
+			this.nudTotRekey.method_4(new decimal(bits6));
 			this.nudTotRekey.Size = new Size(120, 21);
 			this.nudTotRekey.TabIndex = 17;
 			this.lblTxFreq.Location = new Point(524, 26);
@@ -3026,7 +3026,7 @@ namespace DMR
 			this.nudTot.method_6(null);
 			CustomNumericUpDown class7 = this.nudTot;
 			int[] bits7 = new int[4];
-			class7.method_4(new decimal(bits7));
+			this.nudTot.method_4(new decimal(bits7));
 			this.nudTot.Size = new Size(120, 21);
 			this.nudTot.TabIndex = 15;
 			this.nudTot.Value = new decimal(new int[4]
@@ -3044,7 +3044,7 @@ namespace DMR
 			this.lblScanList.Text = "Scan List";
 			this.lblScanList.TextAlign = ContentAlignment.MiddleRight;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(1104, 684);
 			base.Controls.Add(this.pnlChannel);
 			base.Controls.Add(this.mnsCh);
@@ -3230,7 +3230,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			VfoForm.CurCntCh = 1024;
 		}
 

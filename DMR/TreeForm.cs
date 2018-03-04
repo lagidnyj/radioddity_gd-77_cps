@@ -20,7 +20,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_1()
+		private void InitializeComponent()
 		{
 			base.SuspendLayout();
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
@@ -38,7 +38,7 @@ namespace DMR
 
 		public TreeForm()
 		{
-			this.method_1();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 	}

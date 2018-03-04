@@ -50,24 +50,14 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Windows.Forms">
-      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="System">
-      <HintPath>C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Core">
       <HintPath>C:\Windows\assembly\GAC_MSIL\System.Core\3.5.0.0__b77a5c561934e089\System.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data">
-      <HintPath>C:\Windows\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml">
-      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing">
-      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.4.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
@@ -76,6 +66,12 @@
   <ItemGroup>
     <Compile Include="Class16.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DMR\DownloadContactsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DMR\DownloadContactsForm.Designer.cs">
+      <DependentUpon>DownloadContactsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
@@ -297,6 +293,9 @@
     <EmbeddedResource Include="DMR\DtmfForm.resx" />
     <EmbeddedResource Include="DMR\EmergencyForm.resx" />
     <EmbeddedResource Include="DMR\EncryptForm.resx" />
+    <EmbeddedResource Include="DMR\DownloadContactsForm.resx">
+      <DependentUpon>DownloadContactsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DMR\g.resx" />
     <EmbeddedResource Include="DMR\GeneralSetForm.resx" />
     <EmbeddedResource Include="DMR\HelpForm.resx" />

@@ -939,7 +939,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.chkChMark.Enabled &= flag;
 			this.lblSignalingHold.Enabled &= flag;
 			this.nudSignalingHold.Enabled &= flag;
@@ -957,7 +957,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_8();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -1331,7 +1331,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_8()
+		private void InitializeComponent()
 		{
 			this.btnDel = new Button();
 			this.btnAdd = new Button();
@@ -1380,19 +1380,19 @@ namespace DMR
 			this.btnAdd.Click += this.btnAdd_Click;
 			this.lstSelected.FormattingEnabled = true;
 			this.lstSelected.ItemHeight = 16;
-			this.lstSelected.Location = new Point(45, 31);
+			this.lstSelected.Location = new Point(30, 31);
 			this.lstSelected.Name = "lstSelected";
 			this.lstSelected.SelectionMode = SelectionMode.MultiExtended;
-			this.lstSelected.Size = new Size(120, 212);
+			this.lstSelected.Size = new Size(150, 212);
 			this.lstSelected.TabIndex = 5;
 			this.lstSelected.SelectedIndexChanged += this.lstSelected_SelectedIndexChanged;
 			this.lstSelected.DoubleClick += this.lstSelected_DoubleClick;
 			this.lstUnselected.FormattingEnabled = true;
 			this.lstUnselected.ItemHeight = 16;
-			this.lstUnselected.Location = new Point(47, 31);
+			this.lstUnselected.Location = new Point(32, 31);
 			this.lstUnselected.Name = "lstUnselected";
 			this.lstUnselected.SelectionMode = SelectionMode.MultiExtended;
-			this.lstUnselected.Size = new Size(120, 212);
+			this.lstUnselected.Size = new Size(150, 212);
 			this.lstUnselected.TabIndex = 0;
 			this.lblSignalingHold.Location = new Point(186, 474);
 			this.lblSignalingHold.Name = "lblSignalingHold";
@@ -1555,7 +1555,7 @@ namespace DMR
 			this.nudPrioritySample.method_6(null);
 			CustomNumericUpDown @class = this.nudPrioritySample;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudPrioritySample.method_4(new decimal(bits));
 			this.nudPrioritySample.Size = new Size(166, 23);
 			this.nudPrioritySample.TabIndex = 15;
 			this.nudPrioritySample.Value = new decimal(new int[4]
@@ -1592,7 +1592,7 @@ namespace DMR
 			this.nudSignalingHold.method_6(null);
 			CustomNumericUpDown class2 = this.nudSignalingHold;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudSignalingHold.method_4(new decimal(bits2));
 			this.nudSignalingHold.Size = new Size(166, 23);
 			this.nudSignalingHold.TabIndex = 13;
 			this.nudSignalingHold.Value = new decimal(new int[4]
@@ -1622,7 +1622,7 @@ namespace DMR
 			this.cmbPlType.Size = new Size(166, 24);
 			this.cmbPlType.TabIndex = 11;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(793, 607);
 			base.Controls.Add(this.panel1);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);

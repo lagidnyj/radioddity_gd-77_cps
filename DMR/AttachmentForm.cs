@@ -360,7 +360,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -552,7 +552,7 @@ namespace DMR
 			this.dgvAttachment.AllowUserToAddRows = false;
 			dataGridViewCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle.BackColor = SystemColors.Control;
-			dataGridViewCellStyle.Font = this.Font = new Font("Arial", 10f, FontStyle.Regular);
+			dataGridViewCellStyle.Font = new Font("Arial", 10f, FontStyle.Regular);
 			dataGridViewCellStyle.ForeColor = SystemColors.WindowText;
 			dataGridViewCellStyle.SelectionBackColor = SystemColors.Highlight;
 			dataGridViewCellStyle.SelectionForeColor = SystemColors.HighlightText;
@@ -575,7 +575,7 @@ namespace DMR
 			this.txtMessage.Name = "txtMessage";
 			this.txtMessage.Width = 200;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(759, 553);
 			base.Controls.Add(this.pnlAttachment);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -669,7 +669,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

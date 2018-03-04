@@ -168,7 +168,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
 			this.btnAdd = new Button();
@@ -235,7 +235,7 @@ namespace DMR
 			this.txtContent.Size = new Size(100, 21);
 			this.txtContent.TabIndex = 3;
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(796, 573);
 			base.Controls.Add(this.pnlTextMsg);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -326,7 +326,7 @@ namespace DMR
 			
 			this.txt = new TextMsgFormCustomPasteWndProc();
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

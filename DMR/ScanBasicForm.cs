@@ -235,7 +235,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_1();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -276,7 +276,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.lblDigitHang.Enabled &= flag;
 			this.nudDigitHang.Enabled &= flag;
 			this.lblAnalogHang.Enabled &= flag;
@@ -341,7 +341,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_1()
+		private void InitializeComponent()
 		{
 			this.pnlScanBasic = new CustomPanel();
 			this.nudAnalogHang = new CustomNumericUpDown();
@@ -407,7 +407,7 @@ namespace DMR
 			this.nudAnalogHang.method_6(null);
 			CustomNumericUpDown @class = this.nudAnalogHang;
 			int[] bits = new int[4];
-			@class.method_4(new decimal(bits));
+			this.nudAnalogHang.method_4(new decimal(bits));
 			this.nudAnalogHang.Size = new Size(140, 23);
 			this.nudAnalogHang.TabIndex = 3;
 			this.nudAnalogHang.Value = new decimal(new int[4]
@@ -437,7 +437,7 @@ namespace DMR
 			this.nudStartVoteRssi.method_6(null);
 			CustomNumericUpDown class2 = this.nudStartVoteRssi;
 			int[] bits2 = new int[4];
-			class2.method_4(new decimal(bits2));
+			this.nudStartVoteRssi.method_4(new decimal(bits2));
 			this.nudStartVoteRssi.Size = new Size(140, 23);
 			this.nudStartVoteRssi.TabIndex = 10;
 			this.nudStartVoteRssi.Value = new decimal(new int[4]
@@ -474,7 +474,7 @@ namespace DMR
 			this.nudFastVoteRssi.method_6(null);
 			CustomNumericUpDown class3 = this.nudFastVoteRssi;
 			int[] bits3 = new int[4];
-			class3.method_4(new decimal(bits3));
+			this.nudFastVoteRssi.method_4(new decimal(bits3));
 			this.nudFastVoteRssi.Size = new Size(140, 23);
 			this.nudFastVoteRssi.TabIndex = 8;
 			this.nudFastVoteRssi.Value = new decimal(new int[4]
@@ -512,7 +512,7 @@ namespace DMR
 			this.nudVoteHang.method_6(null);
 			CustomNumericUpDown class4 = this.nudVoteHang;
 			int[] bits4 = new int[4];
-			class4.method_4(new decimal(bits4));
+			this.nudVoteHang.method_4(new decimal(bits4));
 			this.nudVoteHang.Size = new Size(140, 23);
 			this.nudVoteHang.TabIndex = 6;
 			this.nudVoteHang.Visible = false;
@@ -557,7 +557,7 @@ namespace DMR
 			this.nudDigitHang.method_6(null);
 			CustomNumericUpDown class5 = this.nudDigitHang;
 			int[] bits5 = new int[4];
-			class5.method_4(new decimal(bits5));
+			this.nudDigitHang.method_4(new decimal(bits5));
 			this.nudDigitHang.Size = new Size(140, 23);
 			this.nudDigitHang.TabIndex = 1;
 			this.nudDigitHang.Value = new decimal(new int[4]
@@ -582,7 +582,7 @@ namespace DMR
 			this.chkPriorityAlert.Text = "Priority Alert";
 			this.chkPriorityAlert.UseVisualStyleBackColor = true;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(465, 328);
 			base.Controls.Add(this.pnlScanBasic);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);

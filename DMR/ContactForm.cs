@@ -784,7 +784,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.chkCallRxTone = new CheckBox();
 			this.lblName = new Label();
@@ -879,7 +879,7 @@ namespace DMR
 			this.txtName.TabIndex = 1;
 			this.txtName.Leave += this.txtName_Leave;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(355, 228);
 			base.Controls.Add(this.pnlContact);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -961,7 +961,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.lblRingStyle.Enabled &= flag;
 			this.cmbRingStyle.Enabled &= flag;
 			this.chkCallRxTone.Enabled &= flag;
@@ -977,7 +977,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
