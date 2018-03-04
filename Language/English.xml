@@ -193,7 +193,8 @@
 			<Control Id="btnClear" Text="Clear" />
 			<Control Id="btnDelete" Text="Delete" />
 			<Control Id="btnAdd" Text="Add" />
-			<Control Id="dgvContacts" Text="Number,Name,Call ID,Type,Ring Style,Call Receive Tone">
+      <Control Id="btnInternetDownload" Text="Internet download" />      
+      <Control Id="dgvContacts" Text="Number,Name,Call ID,Type,Ring Style,Call Receive Tone">
 				<ControlItem Id="" Text="Number" />
 				<ControlItem Id="" Text="Name" />
 				<ControlItem Id="" Text="Call ID" />
@@ -711,6 +712,24 @@
 			<Control Id="lblName" Text="Name" />
 		</Controls>
 	</ZoneForm>
+  <DownloadContactsForm Text="Download contacts from 'Last Heard'">
+    <Controls>
+      <Control Id="lblMessage" Text="Enter the ID prefix code for your region and press Download..." />
+      <Control Id="btnImport" Text="Import selected" />
+      <Control Id="btnDownload" Text="Download 'Last Heard' data" />
+      <Control Id="lblIDStart" Text="Region Prefix code" />
+      <Control Id="txtIDStart" Text="505" />
+      <Control Id="lblIDStartAlert" Text="Please enter ID number starting digits. e.g. 505 for Australia." />
+      <Control Id="lblMessageAdded" Text="Added " />
+      <Control Id="lblMessageDownloading" Text="Downloading" />
+      <Control Id="dgvDownloadeContacts" Text="ID,Callsign,Name,Last heard">
+        <ControlItem Id="" Text="ID." />
+        <ControlItem Id="" Text="Callsign" />
+        <ControlItem Id="" Text="Name" />
+        <ControlItem Id="" Text="Last heard" />
+      </Control>      
+    </Controls>
+  </DownloadContactsForm>
 	<Commons>
 		<Item Id="None" Text="None" />
 		<Item Id="Selected" Text="Selected" />

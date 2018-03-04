@@ -10,11 +10,11 @@ using System.Net;
 
 namespace DMR
 {
-	public partial class frmDownloadContacts : Form
+	public partial class DownloadContactsForm : Form
 	{
 		public ContactsForm parentForm;
 
-		public frmDownloadContacts()
+		public DownloadContactsForm()
 		{
 			InitializeComponent();
 		}
@@ -22,8 +22,8 @@ namespace DMR
 		private void addPrivateContact(string id,string callsignAndName)
 		{
 			int minIndex = ContactForm.data.GetMinIndex();
-			ContactForm.data.SetIndex(minIndex, 1);
-			ContactForm.ContactOne value = new ContactForm.ContactOne(minIndex);
+			ContactForm.data.SetIndex(minIndex, 1);// Not sure what this does
+			ContactForm.ContactOne value = new ContactForm.ContactOne(minIndex);// get next available index
 			value.Name = callsignAndName;
 			value.CallId = string.Format("{0:d8}", int.Parse(id));
 			value.CallTypeS = ContactForm.SZ_CALL_TYPE[1];// Private call 
@@ -32,10 +32,7 @@ namespace DMR
 			ContactForm.data[minIndex] = value;
 
 			int[] array = new int[3] {8,10,7};// Note array index 1 appears to be Private call in terms of the tree view
-
 			(parentForm.MdiParent as MainForm).InsertTreeViewNode(parentForm.Node, minIndex, typeof(ContactForm), array[1], ContactForm.data);
-
-
 		}
 
 		private void btnDownload_Click(object sender, EventArgs e)
@@ -49,10 +46,8 @@ namespace DMR
 			this.Refresh();
 			WebClient wc = new WebClient();
 			string str = wc.DownloadString("https://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1000");
-			lblMessage.Text = "Parsing";
-			this.Refresh();
 
-			dataGridView1.SuspendLayout();
+			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
 			string[] lineArr;
 			bool found;
@@ -76,22 +71,22 @@ namespace DMR
 				}
 				if (found == false)
 				{
-					this.dataGridView1.Rows.Insert(0, lineArr[2], lineArr[1], lineArr[3], lineArr[4]);
+					this.dgvDownloadeContacts.Rows.Insert(0, lineArr[2], lineArr[1], lineArr[3], lineArr[4]);
 				}
 			}
-			lblMessage.Text = "Added " + this.dataGridView1.RowCount;
-			dataGridView1.ResumeLayout();
+			lblMessage.Text = "Added " + this.dgvDownloadeContacts.RowCount;
+			dgvDownloadeContacts.ResumeLayout();
 		}
 
 		private void btnImport_Click(object sender, EventArgs e)
 		{
-			if (this.dataGridView1.SelectedRows.Count == 0)
+			if (this.dgvDownloadeContacts.SelectedRows.Count == 0)
 			{
 				MessageBox.Show("Please select the contacts you would like to import");
 			}
 			else
 			{
-				foreach (DataGridViewRow row in this.dataGridView1.SelectedRows)
+				foreach (DataGridViewRow row in this.dgvDownloadeContacts.SelectedRows)
 				{
 					addPrivateContact(row.Cells[0].Value+"", row.Cells[1].Value + " " + row.Cells[2].Value);
 				}
@@ -99,7 +94,11 @@ namespace DMR
 				(parentForm.MdiParent as MainForm).RefreshRelatedForm(base.GetType());
 				this.Close();
 			}
+		}
 
+		private void DownloadContacts_Load(object sender, EventArgs e)
+		{
+			Settings.smethod_68(this);// Update texts etc from language xml file
 		}
 	}
 }

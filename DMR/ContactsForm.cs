@@ -36,7 +36,7 @@ namespace DMR
 		private Button btnDeleteSelect;
 		private Button btnImport;
 		private Button btnExport;
-		private Button btnDownload;
+		private Button btnInternetDownload;
 		private static readonly string[] SZ_HEADER_TEXT;
 
 		public DataGridView getDataGridView()
@@ -63,7 +63,7 @@ namespace DMR
 		private void InitializeComponent()
 		{
 			this.pnlContact = new System.Windows.Forms.Panel();
-			this.btnDownload = new System.Windows.Forms.Button();
+			this.btnInternetDownload = new System.Windows.Forms.Button();
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnExport = new System.Windows.Forms.Button();
 			this.btnDeleteSelect = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@ namespace DMR
 			// 
 			this.pnlContact.AutoScroll = true;
 			this.pnlContact.AutoSize = true;
-			this.pnlContact.Controls.Add(this.btnDownload);
+			this.pnlContact.Controls.Add(this.btnInternetDownload);
 			this.pnlContact.Controls.Add(this.btnImport);
 			this.pnlContact.Controls.Add(this.btnExport);
 			this.pnlContact.Controls.Add(this.btnDeleteSelect);
@@ -110,15 +110,15 @@ namespace DMR
 			this.pnlContact.Size = new System.Drawing.Size(800, 381);
 			this.pnlContact.TabIndex = 0;
 			// 
-			// btnDownload
+			// btnInternetDownload
 			// 
-			this.btnDownload.Location = new System.Drawing.Point(616, 12);
-			this.btnDownload.Name = "btnDownload";
-			this.btnDownload.Size = new System.Drawing.Size(156, 23);
-			this.btnDownload.TabIndex = 12;
-			this.btnDownload.Text = "Internet Download";
-			this.btnDownload.UseVisualStyleBackColor = true;
-			this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+			this.btnInternetDownload.Location = new System.Drawing.Point(616, 12);
+			this.btnInternetDownload.Name = "btnInternetDownload";
+			this.btnInternetDownload.Size = new System.Drawing.Size(156, 23);
+			this.btnInternetDownload.TabIndex = 12;
+			this.btnInternetDownload.Text = "Internet Download";
+			this.btnInternetDownload.UseVisualStyleBackColor = true;
+			this.btnInternetDownload.Click += new System.EventHandler(this.btnDownload_Click);
 			// 
 			// btnImport
 			// 
@@ -834,7 +834,7 @@ namespace DMR
 
 		private void btnDownload_Click(object sender, EventArgs e)
 		{
-			frmDownloadContacts dlc = new frmDownloadContacts();
+			DownloadContactsForm dlc = new DownloadContactsForm();
 			dlc.parentForm = this;
 			dlc.ShowDialog();
 		}

@@ -1,6 +1,6 @@
 ﻿namespace DMR
 {
-	partial class frmDownloadContacts
+	partial class DownloadContactsForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvDownloadeContacts = new System.Windows.Forms.DataGridView();
+			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnDownload = new System.Windows.Forms.Button();
 			this.txtIDStart = new System.Windows.Forms.TextBox();
@@ -38,29 +42,49 @@
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// dgvDownloadeContacts
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dgvDownloadeContacts.AllowUserToAddRows = false;
+			this.dgvDownloadeContacts.AllowUserToDeleteRows = false;
+			this.dgvDownloadeContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvDownloadeContacts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.callsign,
             this.name,
             this.lastheard});
-			this.dataGridView1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dataGridView1.Location = new System.Drawing.Point(21, 39);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(463, 439);
-			this.dataGridView1.TabIndex = 0;
+			this.dgvDownloadeContacts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dgvDownloadeContacts.Location = new System.Drawing.Point(21, 39);
+			this.dgvDownloadeContacts.Name = "dgvDownloadeContacts";
+			this.dgvDownloadeContacts.ReadOnly = true;
+			this.dgvDownloadeContacts.Size = new System.Drawing.Size(463, 439);
+			this.dgvDownloadeContacts.TabIndex = 0;
+			// 
+			// id
+			// 
+			this.id.HeaderText = "ID";
+			this.id.Name = "id";
+			this.id.ReadOnly = true;
+			// 
+			// callsign
+			// 
+			this.callsign.HeaderText = "Callsign";
+			this.callsign.Name = "callsign";
+			this.callsign.ReadOnly = true;
+			// 
+			// name
+			// 
+			this.name.HeaderText = "Name";
+			this.name.Name = "name";
+			this.name.ReadOnly = true;
+			// 
+			// lastheard
+			// 
+			this.lastheard.HeaderText = "Last heard";
+			this.lastheard.Name = "lastheard";
+			this.lastheard.ReadOnly = true;
 			// 
 			// btnImport
 			// 
@@ -137,31 +161,7 @@
 			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
 			this.dataGridViewTextBoxColumn4.ReadOnly = true;
 			// 
-			// id
-			// 
-			this.id.HeaderText = "ID";
-			this.id.Name = "id";
-			this.id.ReadOnly = true;
-			// 
-			// callsign
-			// 
-			this.callsign.HeaderText = "Callsign";
-			this.callsign.Name = "callsign";
-			this.callsign.ReadOnly = true;
-			// 
-			// name
-			// 
-			this.name.HeaderText = "Name";
-			this.name.Name = "name";
-			this.name.ReadOnly = true;
-			// 
-			// lastheard
-			// 
-			this.lastheard.HeaderText = "Last heard";
-			this.lastheard.Name = "lastheard";
-			this.lastheard.ReadOnly = true;
-			// 
-			// frmDownloadContacts
+			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,10 +171,10 @@
 			this.Controls.Add(this.txtIDStart);
 			this.Controls.Add(this.btnDownload);
 			this.Controls.Add(this.btnImport);
-			this.Controls.Add(this.dataGridView1);
-			this.Name = "frmDownloadContacts";
+			this.Controls.Add(this.dgvDownloadeContacts);
+			this.Name = "DownloadContactsForm";
 			this.Text = "Download contacts from \'Last Heard\'";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -182,7 +182,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvDownloadeContacts;
 		private System.Windows.Forms.DataGridViewTextBoxColumn id;
 		private System.Windows.Forms.DataGridViewTextBoxColumn callsign;
 		private System.Windows.Forms.DataGridViewTextBoxColumn name;
