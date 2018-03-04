@@ -81,7 +81,7 @@ namespace DMR
 
 
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(468, 214);
 			base.Controls.Add(this.btnCancel);
             base.Controls.Add(this.btnOK);

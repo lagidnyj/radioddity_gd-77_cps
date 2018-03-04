@@ -201,7 +201,7 @@ namespace DMR
 			this.nudPretimeDelay.Size = new Size(120, 23);
 			this.nudPretimeDelay.TabIndex = 6;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(531, 507);
 			base.Controls.Add(this.nudPretimeDelay);
 			base.Controls.Add(this.button2);

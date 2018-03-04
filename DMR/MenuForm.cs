@@ -1065,7 +1065,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			bool flag = Settings.smethod_4() == Settings.UserMode.Expert;
+			bool flag = Settings.getUserExpertSettings() == Settings.UserMode.Expert;
 			this.lblMenuHangTime.Enabled &= flag;
 			this.cmbMenuHangTime.Enabled &= flag;
 			this.chkContactEdit.Enabled &= flag;
@@ -1104,7 +1104,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_2();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 
@@ -1182,7 +1182,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_2()
+		private void InitializeComponent()
 		{
 			this.lblBrightness = new Label();
 			this.chkFm = new CheckBox();
@@ -1657,7 +1657,7 @@ namespace DMR
 			this.chkInfo.Text = "Information";
 			this.chkInfo.UseVisualStyleBackColor = true;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(978, 508);
 			base.Controls.Add(this.lblBrightness);
 			base.Controls.Add(this.cmbBrightness);

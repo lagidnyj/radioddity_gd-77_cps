@@ -335,7 +335,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void method_0()
+		private void InitializeComponent()
 		{
 			this.pnlDeviceInfo = new CustomPanel();
 			this.lblTo1 = new Label();
@@ -537,7 +537,7 @@ namespace DMR
 			this.sgtextBox_1.Size = new Size(139, 23);
 			this.sgtextBox_1.TabIndex = 21;
 			base.AutoScaleDimensions = new SizeF(7f, 16f);
-			base.AutoScaleMode = AutoScaleMode.Font;
+//			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(680, 438);
 			base.Controls.Add(this.pnlDeviceInfo);
 			this.Font = new Font("Arial", 10f, FontStyle.Regular);
@@ -587,7 +587,7 @@ namespace DMR
 
 		public void RefreshByUserMode()
 		{
-			Settings.smethod_4();
+			Settings.getUserExpertSettings();
 			bool flag = Settings.CUR_MODE > 0;
 			bool flag2 = Settings.CUR_MODE > 1;
 			this.txtMinFreq.ReadOnly = !flag;
@@ -608,7 +608,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.method_0();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
 

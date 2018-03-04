@@ -17,7 +17,7 @@ namespace DMR
 		{
 			
 			//base._002Ector();
-			this.kslgOgrxhC();
+			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 			base.AllowEndUserDocking = true;
 		}
@@ -37,7 +37,7 @@ namespace DMR
 			base.Dispose(disposing);
 		}
 
-		private void kslgOgrxhC()
+		private void InitializeComponent()
 		{
 			this.pnlHelp = new Panel();
 			this.wbHelp = new WebBrowser();
