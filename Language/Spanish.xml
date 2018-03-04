@@ -6,8 +6,8 @@
 	<Language Id="Eng" Text="Español" />
 	<AboutForm Text="Acerca de">
 		<Controls>
-			<Control Id="lblVersion" Text="v2.0.5B" />
-			<Control Id="lblCompany" Text="GD-77 Portable en Español EA" />
+			<Control Id="lblVersion" Text="v2.0.5" />
+			<Control Id="lblCompany" Text="GD-77 Community Español EA" />
 			<Control Id="btnClose" Text="OK" />
 		</Controls>
 	</AboutForm>
@@ -356,7 +356,7 @@
 	<HelpForm Text="Visor de Ayuda (Sistema de Ayuda pendiente de traducción)">
 		<Controls />
 	</HelpForm>
-	<MainForm Text="Radioddity GD-77 CPS 2.0.5 Community Edition - Traducción al español por EA4ALX (ea4alx@gmail.com)">
+	<MainForm Text="Radioddity GD-77 CPS 2.0.5 Community Edition - Traducción al español de EA4ALX">
 		<TreeView>
 			<TreeNode Id="Model" Text="GD-77" />
 			<TreeNode Id="BasicInfo" Text="Información Básica" />
@@ -437,6 +437,8 @@
 			<MenuItem Id="tsmiRename" Text="Renombrar" />
 			<MenuItem Id="tsmiCopy" Text="Copiar" />
 			<MenuItem Id="tsmiPaste" Text="Pegar" />
+			<MenuItem Id="tsmiMoveUp" Text="Mover Arriba" />
+			<MenuItem Id="tsmiDownUp" Text="Mover Abajo" />
 		</ContextMenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiCollapseAll" Text="Recoger Todos" />
@@ -742,5 +744,6 @@
 		<Item Id="codePlugReadConfirm"  Text="¿Está seguro de querer LEER el Codeplug desde el GD-77?. Esto sobreescribirá el codeplug actual en la pantalla." />
 		<Item Id="codePlugWriteConfirm"  Text="¿Está seguro de querer ESCRIBIR este Codeplug en el GD-77?. Esto sobreescribirá el codeplug existente en el GD-77" />
 		<Item Id="pleaseConfirm"  Text="ATENCION - Por favor, confirme..." />
+    		<Item Id="userAgreement"  Text="Este programa se suministra tal y como está 'AS IS", sin garantía alguna. Utilicelo bajo su propio riesgo tanto para su PC como para su Radio DMR. Pulsando el botón 'Sí' confirma que entiende esta advertencia y está de acuerdo." />    
 	</Commons>
 </Resource>
