@@ -67,6 +67,12 @@
     <Compile Include="Class16.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DMR\frmDownloadContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DMR\frmDownloadContacts.Designer.cs">
+      <DependentUpon>frmDownloadContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     <EmbeddedResource Include="DMR\DtmfForm.resx" />
     <EmbeddedResource Include="DMR\EmergencyForm.resx" />
     <EmbeddedResource Include="DMR\EncryptForm.resx" />
+    <EmbeddedResource Include="DMR\frmDownloadContacts.resx">
+      <DependentUpon>frmDownloadContacts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DMR\g.resx" />
     <EmbeddedResource Include="DMR\GeneralSetForm.resx" />
     <EmbeddedResource Include="DMR\HelpForm.resx" />
