@@ -319,13 +319,30 @@ internal class Settings
 	public static readonly int ADDR_EX_CH;
 
 	public static Dictionary<string, string> dicCommon;
-    static string _003CLangXml_003Ek__BackingField;
+   // static string _003CLangXml_003Ek__BackingField;
+	private static XmlDocument _languageXML=null;
+
+
+	public static XmlDocument languageXML
+	{
+		get { return _languageXML; }
+	}
+
+	public static void setLanguageXMLFile(string xmlFile)
+	{
+		_languageXML = new XmlDocument();
+		_languageXML.Load(xmlFile);
+	}
+
+	/*
 	[CompilerGenerated]
 	public static string smethod_0()
 	{
+
 		return Settings._003CLangXml_003Ek__BackingField;
 	}
 
+	
 	[CompilerGenerated]
 	public static void smethod_1(string string_0)
 	{
@@ -333,12 +350,14 @@ internal class Settings
 		{
 			Settings._003CLangXml_003Ek__BackingField = string_0;
 		}
-		else
-		{
-			System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
-			MessageBox.Show(t.ToString(),"Warning. Code attempted to set language xml path to null");
-		}
+		//debugging only
+		//else
+		//{
+		//	System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
+		//	MessageBox.Show(t.ToString(),"Warning. Code attempted to set language xml path to null");
+		//}
 	}
+	 */
     static string _003CLangChm_003Ek__BackingField;
 	[CompilerGenerated]
 	public static string smethod_2()
@@ -1219,13 +1238,13 @@ internal class Settings
 
 	public static string smethod_67(string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/Settings/Item[@Id='{0}']", string_0);
 		try
 		{
-			XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+			XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 			if (xmlNode != null && xmlNode.Attributes["Text"] != null)
 			{
 				return xmlNode.Attributes["Text"].Value;
@@ -1240,11 +1259,11 @@ internal class Settings
 
 	public static void smethod_68(Form form_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}", form_0.Name);
-		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+		XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 		try
 		{
 			form_0.Text = xmlNode.Attributes["Text"].Value;
@@ -1263,11 +1282,11 @@ internal class Settings
 
 	public static void smethod_69(List<Control> Db4kySLQw7tX1WlNpo, string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/Controls/Control", string_0);
-		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+		XmlNodeList xmlNodeList = _languageXML.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
 		{
 			string value = item.Attributes["Id"].Value;
@@ -1296,11 +1315,11 @@ internal class Settings
 
 	public static void smethod_70(List<ToolStripMenuItem> gku9yQXy4fa3WZdpnA, string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/ContextMenuStrip/MenuItem", string_0);
-		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+		XmlNodeList xmlNodeList = _languageXML.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
 		{
 			string value = item.Attributes["Id"].Value;
@@ -1318,11 +1337,11 @@ internal class Settings
 
 	public static void smethod_71(List<ToolStripItem> LE9oY1wrram2m8Ao56, string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		Dictionary<string, string> dic = new Dictionary<string, string>();
 		string xpath = string.Format("/Resource/{0}/Controls/Control/ToolStripItem", string_0);
-		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+		XmlNodeList xmlNodeList = _languageXML.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
 		{
 			string value = item.Attributes["Id"].Value;
@@ -1340,10 +1359,10 @@ internal class Settings
 
 	public static void smethod_72(Dictionary<string, string> I2YgnU9gqyioPitkyF)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/Commons/Item");
-		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+		XmlNodeList xmlNodeList = _languageXML.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
 		{
 			string value = item.Attributes["Id"].Value;
@@ -1357,10 +1376,10 @@ internal class Settings
 
 	public static void smethod_73(Dictionary<string, string> uxSTPFh3sq4yXxEkYo, string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item", string_0);
-		XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+		XmlNodeList xmlNodeList = _languageXML.SelectNodes(xpath);
 		foreach (XmlNode item in xmlNodeList)
 		{
 			string value = item.Attributes["Id"].Value;
@@ -1374,12 +1393,12 @@ internal class Settings
 
 	public static void smethod_74(List<string[]> n2SR3VmEodXx385mq9, List<string> AMMonO7JcQ5lQDAuEr, string string_0)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		for (int i = 0; i < n2SR3VmEodXx385mq9.Count; i++)
 		{
 			string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}']", string_0, AMMonO7JcQ5lQDAuEr[i]);
-			XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+			XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 			if (xmlNode != null)
 			{
 				string value = xmlNode.Attributes["Text"].Value;
@@ -1394,12 +1413,12 @@ internal class Settings
 
 	public static void smethod_75(List<string> mTBilSHhIiS5P1HoGl, List<string> QaKAVsVaOpyU5FW5pp)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		for (int i = 0; i < mTBilSHhIiS5P1HoGl.Count; i++)
 		{
 			string xpath = string.Format("/Resource/Commons/Item[@Id='{0}']", QaKAVsVaOpyU5FW5pp[i]);
-			XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+			XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 			if (xmlNode != null)
 			{
 				string text = mTBilSHhIiS5P1HoGl[i] = xmlNode.Attributes["Text"].Value;
@@ -1409,10 +1428,10 @@ internal class Settings
 
 	public static void smethod_76(string string_0, ref string string_1)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/Commons/Item[@Id='{0}' and @Text]", string_0);
-		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+		XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 		if (xmlNode != null)
 		{
 			string_1 = xmlNode.Attributes["Text"].Value;
@@ -1421,10 +1440,10 @@ internal class Settings
 
 	public static void smethod_77(string string_0, ref string string_1, string string_2)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}' and @Text]", string_2, string_0);
-		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+		XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 		if (xmlNode != null)
 		{
 			string_1 = xmlNode.Attributes["Text"].Value;
@@ -1433,10 +1452,10 @@ internal class Settings
 
 	public static void smethod_78(string string_0, string[] string_1, string string_2)
 	{
-		XmlDocument xmlDocument = new XmlDocument();
-		xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
+		//XmlDocument xmlDocument = new XmlDocument();
+		//xmlDocument.Load(Settings._003CLangXml_003Ek__BackingField);
 		string xpath = string.Format("/Resource/{0}/Commons/Item[@Id='{1}' and @Text]", string_2, string_0);
-		XmlNode xmlNode = xmlDocument.SelectSingleNode(xpath);
+		XmlNode xmlNode = _languageXML.SelectSingleNode(xpath);
 		if (xmlNode != null)
 		{
 			string value = xmlNode.Attributes["Text"].Value;

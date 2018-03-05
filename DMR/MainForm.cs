@@ -2821,7 +2821,8 @@ namespace DMR
 			ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
 			string text = toolStripMenuItem.Tag.ToString();
 			IniFileUtils.WriteProfileString("Setup", "Language", Path.GetFileName(text));
-			Settings.smethod_1(text);
+			//Settings.smethod_1(text);
+			Settings.setLanguageXMLFile(text);
 			Settings.smethod_3(Path.ChangeExtension(text, "chm"));
 			Settings.smethod_76("Read", ref Settings.SZ_READ);
 			Settings.smethod_68(this);
@@ -2839,11 +2840,14 @@ namespace DMR
 			{
 				"Read"
 			});
+			/*
 			XmlDocument xmlDocument = new XmlDocument();
 			xmlDocument.Load(Settings.smethod_0());
+			*/
+
 			MainForm.dicTree.Clear();
 			string xpath = "/Resource/MainForm/TreeView/TreeNode";
-			XmlNodeList xmlNodeList = xmlDocument.SelectNodes(xpath);
+			XmlNodeList xmlNodeList = Settings.languageXML.SelectNodes(xpath);
 			foreach (XmlNode item in xmlNodeList)
 			{
 				string value = item.Attributes["Id"].Value;
@@ -2854,7 +2858,7 @@ namespace DMR
 			List<ToolStripMenuItem> list2 = this.mnsMain.smethod_7();
 			Dictionary<string, string> dicMenuItem = new Dictionary<string, string>();
 			xpath = "/Resource/MainForm/MenuStrip/MenuItem";
-			xmlNodeList = xmlDocument.SelectNodes(xpath);
+			xmlNodeList = Settings.languageXML.SelectNodes(xpath);
 			foreach (XmlNode item2 in xmlNodeList)
 			{
 				string value3 = item2.Attributes["Id"].Value;
@@ -2871,7 +2875,7 @@ namespace DMR
 			List<ToolStripItem> list3 = this.tsrMain.smethod_10();
 			Dictionary<string, string> dicToolItem = new Dictionary<string, string>();
 			xpath = "/Resource/MainForm/ToolStrip/ToolItem";
-			xmlNodeList = xmlDocument.SelectNodes(xpath);
+			xmlNodeList = Settings.languageXML.SelectNodes(xpath);
 			foreach (XmlNode item3 in xmlNodeList)
 			{
 				string value5 = item3.Attributes["Id"].Value;
