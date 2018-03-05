@@ -17,6 +17,7 @@ namespace DMR
 		public DownloadContactsForm()
 		{
 			InitializeComponent();
+			this.txtIDStart.Text = (int.Parse(GeneralSetForm.data.RadioId) / 10000).ToString();
 		}
 
 		private bool addPrivateContact(string id,string callsignAndName)
