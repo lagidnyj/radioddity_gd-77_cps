@@ -715,9 +715,6 @@
       <Control Id="btnImport" Text="Import selected" />
       <Control Id="btnDownload" Text="Download 'Last Heard' data" />
       <Control Id="lblIDStart" Text="Region Prefix code" />
-      <Control Id="txtIDStart" Text="505" />
-      <Control Id="lblIDStartAlert" Text="Please enter ID number starting digits. e.g. 505 for Australia." />
-      <Control Id="lblMessageAdded" Text="There are {0} new ID's which are not already in your contacts" />
       <Control Id="lblMessageDownloading" Text="Downloading" />
       <Control Id="dgvDownloadeContacts" Text="ID,Callsign,Name,Last heard">
         <ControlItem Id="" Text="ID." />
@@ -760,5 +757,11 @@
 		<Item Id="codePlugReadConfirm"  Text="Czy napewno chcesz odczytać ustawienia z radia?.Ta operacja nadpisze bieżące ustawienia w programie." />
 		<Item Id="codePlugWriteConfirm"  Text="Czy napewno chcesz wgrać ustawienia do radia? Ta operacja nadpisze bieżącą konfigurację w radiu." />
 		<Item Id="pleaseConfirm"  Text="Proszę potwierdzić" />
-	</Commons>
+    <Item Id="DownloadContactsMessageAdded" Text="There are {0} new ID's which are not already in your contacts" />
+    <Item Id="DownloadContactsRegionEmpty" Text="Please enter the 3 digit Region previx code. e.g. 505 for Australia." />
+    <Item Id="DownloadContactsDownloading" Text="Downloading..." />
+    <Item Id="DownloadContactsSelectContactsToImport" Text="Please select the contacts you would like to import" />
+    <Item Id="DownloadContactsTooMany" Text="Not all contacts could be imported because the maximum number of Digital Contacts has been reached" />
+    <Item Id="Warning" Text="Warning" />
+  </Commons>
 </Resource>

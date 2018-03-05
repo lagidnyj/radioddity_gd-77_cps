@@ -169,6 +169,13 @@ internal class Settings
 	public static string SZ_ERROR;
 
 	public static string SZ_WARNING;
+	public static string SZ_DOWNLOADCONTACTS_REGION_EMPTY = "Please enter the 3 digit Region previx code. e.g. 505 for Australia.";
+	public static string SZ_DOWNLOADCONTACTS_MESSAGE_ADDED = "There are {0} new ID's which are not already in your contacts";
+	public static string SZ_DOWNLOADCONTACTS_DOWNLOADING = "Downloading...";
+
+	public static string SZ_DOWNLOADCONTACTS_SELECT_CONTACTS_TO_IMPORT = "Please select the contacts you would like to import";
+	public static string SZ_DOWNLOADCONTACTS_TOO_MANY = "Not all contacts could be imported because the maximum number of Digital Contacts has been reached";
+
 
 	public static int CUR_MODE;
 
@@ -1527,6 +1534,8 @@ internal class Settings
 		Settings.SZ_PROMPT = "Prompt";
 		Settings.SZ_ERROR = "Error";
 		Settings.SZ_WARNING = "Warning";
+
+
 		Settings.CUR_MODE = 2;// Roger Clark. Changed from 0 to 2 as this seems to be the Expert settings mode.
 		Settings.MIN_FREQ = new uint[2]
 		{

@@ -111,7 +111,6 @@
 			this.txtIDStart.Name = "txtIDStart";
 			this.txtIDStart.Size = new System.Drawing.Size(63, 23);
 			this.txtIDStart.TabIndex = 3;
-			this.txtIDStart.Text = "505";
 			// 
 			// lblIDStart
 			// 

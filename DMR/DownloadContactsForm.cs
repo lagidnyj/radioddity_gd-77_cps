@@ -17,7 +17,10 @@ namespace DMR
 		public DownloadContactsForm()
 		{
 			InitializeComponent();
-			this.txtIDStart.Text = (int.Parse(GeneralSetForm.data.RadioId) / 10000).ToString();
+			if (int.Parse(GeneralSetForm.data.RadioId) / 10000 > 0)
+			{
+				this.txtIDStart.Text = (int.Parse(GeneralSetForm.data.RadioId) / 10000).ToString();
+			}
 		}
 
 		private bool addPrivateContact(string id,string callsignAndName)
@@ -45,13 +48,13 @@ namespace DMR
 		{
 			if (txtIDStart.Text == "" || int.Parse(txtIDStart.Text) == 0)
 			{
-				MessageBox.Show("Please enter ID number starting digits. e.g. 505 for Australia.");
+				MessageBox.Show(Settings.dicCommon["DownloadContactsRegionEmpty"]);//"Please enter the 3 digit Region previx code. e.g. 505 for Australia.");
 				return;
 			}
-			lblMessage.Text = "Downloading";
+			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
 			WebClient wc = new WebClient();
-			string str = wc.DownloadString("https://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1000");
+			string str = wc.DownloadString("https://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=10920");
 
 			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
@@ -80,14 +83,14 @@ namespace DMR
 					this.dgvDownloadeContacts.Rows.Insert(0, lineArr[2], lineArr[1], lineArr[3], lineArr[4]);
 				}
 			}
-			lblMessage.Text = string.Format("There are {0} new ID's which are not already in your contacts", this.dgvDownloadeContacts.RowCount);
+			lblMessage.Text = string.Format(Settings.dicCommon["DownloadContactsMessageAdded"], this.dgvDownloadeContacts.RowCount);
 		}
 
 		private void btnImport_Click(object sender, EventArgs e)
 		{
 			if (this.dgvDownloadeContacts.SelectedRows.Count == 0)
 			{
-				MessageBox.Show("Please select the contacts you would like to import");
+				MessageBox.Show(Settings.dicCommon["DownloadContactsSelectContactsToImport"]);//Please select the contacts you would like to import");
 			}
 			else
 			{
@@ -95,7 +98,7 @@ namespace DMR
 				{
 					if (addPrivateContact(row.Cells[0].Value + "", row.Cells[1].Value + " " + row.Cells[2].Value) == false)
 					{
-						MessageBox.Show("Not all contacts could be imported because the maximum number of Digital Contacts has been reached","Warning");
+						MessageBox.Show(Settings.dicCommon["DownloadContactsTooMany"],Settings.dicCommon["Warning"]);//"Not all contacts could be imported because the maximum number of Digital Contacts has been reached","Warning");
 						break;
 					}
 				}

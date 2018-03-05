@@ -981,6 +981,12 @@ namespace DMR
             Settings.dicCommon.Add("pleaseConfirm", Settings.SZ_PLEASE_CONFIRM);
 
 			Settings.dicCommon.Add("userAgreement", Settings.SZ_USER_AGREEMENT);
+			Settings.dicCommon.Add("DownloadContactsMessageAdded", Settings.SZ_DOWNLOADCONTACTS_REGION_EMPTY);
+			Settings.dicCommon.Add("DownloadContactsRegionEmpty", Settings.SZ_DOWNLOADCONTACTS_MESSAGE_ADDED);
+			Settings.dicCommon.Add("DownloadContactsDownloading", Settings.SZ_DOWNLOADCONTACTS_DOWNLOADING);
+			Settings.dicCommon.Add("DownloadContactsSelectContactsToImport", Settings.SZ_DOWNLOADCONTACTS_SELECT_CONTACTS_TO_IMPORT);
+			Settings.dicCommon.Add("DownloadContactsTooMany", Settings.SZ_DOWNLOADCONTACTS_TOO_MANY);
+			Settings.dicCommon.Add("Warning", Settings.SZ_WARNING);
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
