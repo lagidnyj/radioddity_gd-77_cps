@@ -54,12 +54,13 @@ namespace DMR
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
 			WebClient wc = new WebClient();
-			string str = wc.DownloadString("https://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=10920");
+			string str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=10920");
 
 			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
 			string[] lineArr;
 			bool found;
+			string name;
 			
 			for (int i = linesArr.Length - 2; i >1; i--)
 			{
@@ -80,7 +81,15 @@ namespace DMR
 				}
 				if (found == false)
 				{
-					this.dgvDownloadeContacts.Rows.Insert(0, lineArr[2], lineArr[1], lineArr[3], lineArr[4]);
+					if (lineArr[3].IndexOf(" ") != -1)
+					{
+						name = lineArr[3].Substring(0, lineArr[3].IndexOf(" "));
+					}
+					else
+					{
+						name = lineArr[3];
+					}
+					this.dgvDownloadeContacts.Rows.Insert(0, lineArr[2], lineArr[1], name, lineArr[4]);
 				}
 			}
 			lblMessage.Text = string.Format(Settings.dicCommon["DownloadContactsMessageAdded"], this.dgvDownloadeContacts.RowCount);
@@ -106,6 +115,11 @@ namespace DMR
 				(parentForm.MdiParent as MainForm).RefreshRelatedForm(base.GetType());
 				this.Close();
 			}
+		}
+
+		private void btnSelectAll_Click(object sender, EventArgs e)
+		{
+			this.dgvDownloadeContacts.SelectAll();
 		}
 
 		private void DownloadContacts_Load(object sender, EventArgs e)

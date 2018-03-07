@@ -29,10 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.dgvDownloadeContacts = new System.Windows.Forms.DataGridView();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnDownload = new System.Windows.Forms.Button();
 			this.txtIDStart = new System.Windows.Forms.TextBox();
@@ -42,6 +38,11 @@
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.btnSelectAll = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -58,36 +59,12 @@
 			this.dgvDownloadeContacts.Location = new System.Drawing.Point(21, 39);
 			this.dgvDownloadeContacts.Name = "dgvDownloadeContacts";
 			this.dgvDownloadeContacts.ReadOnly = true;
-			this.dgvDownloadeContacts.Size = new System.Drawing.Size(463, 439);
+			this.dgvDownloadeContacts.Size = new System.Drawing.Size(551, 439);
 			this.dgvDownloadeContacts.TabIndex = 0;
-			// 
-			// id
-			// 
-			this.id.HeaderText = "ID";
-			this.id.Name = "id";
-			this.id.ReadOnly = true;
-			// 
-			// callsign
-			// 
-			this.callsign.HeaderText = "Callsign";
-			this.callsign.Name = "callsign";
-			this.callsign.ReadOnly = true;
-			// 
-			// name
-			// 
-			this.name.HeaderText = "Name";
-			this.name.Name = "name";
-			this.name.ReadOnly = true;
-			// 
-			// lastheard
-			// 
-			this.lastheard.HeaderText = "Last heard";
-			this.lastheard.Name = "lastheard";
-			this.lastheard.ReadOnly = true;
 			// 
 			// btnImport
 			// 
-			this.btnImport.Location = new System.Drawing.Point(560, 450);
+			this.btnImport.Location = new System.Drawing.Point(643, 450);
 			this.btnImport.Name = "btnImport";
 			this.btnImport.Size = new System.Drawing.Size(129, 28);
 			this.btnImport.TabIndex = 1;
@@ -97,7 +74,7 @@
 			// 
 			// btnDownload
 			// 
-			this.btnDownload.Location = new System.Drawing.Point(499, 90);
+			this.btnDownload.Location = new System.Drawing.Point(582, 90);
 			this.btnDownload.Name = "btnDownload";
 			this.btnDownload.Size = new System.Drawing.Size(197, 32);
 			this.btnDownload.TabIndex = 2;
@@ -107,7 +84,7 @@
 			// 
 			// txtIDStart
 			// 
-			this.txtIDStart.Location = new System.Drawing.Point(626, 43);
+			this.txtIDStart.Location = new System.Drawing.Point(709, 43);
 			this.txtIDStart.Name = "txtIDStart";
 			this.txtIDStart.Size = new System.Drawing.Size(63, 23);
 			this.txtIDStart.TabIndex = 3;
@@ -115,7 +92,7 @@
 			// lblIDStart
 			// 
 			this.lblIDStart.AutoSize = true;
-			this.lblIDStart.Location = new System.Drawing.Point(495, 43);
+			this.lblIDStart.Location = new System.Drawing.Point(578, 43);
 			this.lblIDStart.Name = "lblIDStart";
 			this.lblIDStart.Size = new System.Drawing.Size(127, 16);
 			this.lblIDStart.TabIndex = 4;
@@ -150,19 +127,56 @@
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
-			this.dataGridViewTextBoxColumn4.HeaderText = "Last heard";
+			this.dataGridViewTextBoxColumn4.HeaderText = "Last heard\n(Days ago)";
 			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
 			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			this.dataGridViewTextBoxColumn4.Width = 150;
+			// 
+			// id
+			// 
+			this.id.HeaderText = "ID";
+			this.id.Name = "id";
+			this.id.ReadOnly = true;
+			// 
+			// callsign
+			// 
+			this.callsign.HeaderText = "Callsign";
+			this.callsign.Name = "callsign";
+			this.callsign.ReadOnly = true;
+			// 
+			// name
+			// 
+			this.name.HeaderText = "Name";
+			this.name.Name = "name";
+			this.name.ReadOnly = true;
+			// 
+			// lastheard
+			// 
+			this.lastheard.HeaderText = "Last heard (days ago)";
+			this.lastheard.Name = "lastheard";
+			this.lastheard.ReadOnly = true;
+			this.lastheard.Width = 175;
+			// 
+			// btnSelectAll
+			// 
+			this.btnSelectAll.Location = new System.Drawing.Point(581, 240);
+			this.btnSelectAll.Name = "btnSelectAll";
+			this.btnSelectAll.Size = new System.Drawing.Size(82, 28);
+			this.btnSelectAll.TabIndex = 1;
+			this.btnSelectAll.Text = "Select all";
+			this.btnSelectAll.UseVisualStyleBackColor = true;
+			this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
 			// 
 			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(708, 494);
+			this.ClientSize = new System.Drawing.Size(784, 494);
 			this.Controls.Add(this.lblMessage);
 			this.Controls.Add(this.lblIDStart);
 			this.Controls.Add(this.txtIDStart);
 			this.Controls.Add(this.btnDownload);
+			this.Controls.Add(this.btnSelectAll);
 			this.Controls.Add(this.btnImport);
 			this.Controls.Add(this.dgvDownloadeContacts);
 			this.Font = new System.Drawing.Font("Arial", 10F);
@@ -177,10 +191,6 @@
 		#endregion
 
 		private System.Windows.Forms.DataGridView dgvDownloadeContacts;
-		private System.Windows.Forms.DataGridViewTextBoxColumn id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn callsign;
-		private System.Windows.Forms.DataGridViewTextBoxColumn name;
-		private System.Windows.Forms.DataGridViewTextBoxColumn lastheard;
 		private System.Windows.Forms.Button btnImport;
 		private System.Windows.Forms.Button btnDownload;
 		private System.Windows.Forms.TextBox txtIDStart;
@@ -190,5 +200,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn id;
+		private System.Windows.Forms.DataGridViewTextBoxColumn callsign;
+		private System.Windows.Forms.DataGridViewTextBoxColumn name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn lastheard;
+		private System.Windows.Forms.Button btnSelectAll;
 	}
 }
