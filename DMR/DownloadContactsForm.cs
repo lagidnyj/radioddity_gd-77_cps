@@ -54,28 +54,37 @@ namespace DMR
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
 			WebClient wc = new WebClient();
-			string str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=10920");
+			string str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
 
 			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
 			string[] lineArr;
 			bool found;
 			string name;
-			
+			int ownRadioId = int.Parse(GeneralSetForm.data.RadioId);
+			int currentID;
 			for (int i = linesArr.Length - 2; i >1; i--)
 			{
-
-				lineArr = linesArr[i].Split(';');
 				found = false;
+				lineArr = linesArr[i].Split(';');
 
-				for (int j = 0; j < ContactForm.data.Count; j++)
+
+				if (ownRadioId == int.Parse(lineArr[2]))
 				{
-					if (ContactForm.data.DataIsValid(j))
+					found=true;
+				}
+				else
+				{
+					currentID = int.Parse(lineArr[2]);
+					for (int j = 0; j < ContactForm.data.Count; j++)
 					{
-						if (int.Parse(ContactForm.data[j].CallId) == int.Parse(lineArr[2]))
+						if (ContactForm.data.DataIsValid(j))
 						{
-							found = true;
-							break;
+							if (int.Parse(ContactForm.data[j].CallId) == currentID)
+							{
+								found = true;
+								break;
+							}
 						}
 					}
 				}
