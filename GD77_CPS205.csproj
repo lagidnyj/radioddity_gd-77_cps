@@ -73,6 +73,12 @@
     <Compile Include="DMR\DownloadContactsForm.Designer.cs">
       <DependentUpon>DownloadContactsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DMR\DMRIDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DMR\DMRIDForm.Designer.cs">
+      <DependentUpon>DMRIDForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     <EmbeddedResource Include="DMR\ContactsForm.resx" />
     <EmbeddedResource Include="DMR\DeviceInfoForm.resx" />
     <EmbeddedResource Include="DMR\DigitalKeyContactForm.resx" />
+    <EmbeddedResource Include="DMR\DMRIDForm.resx">
+      <DependentUpon>DMRIDForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DMR\DtmfContactForm.resx" />
     <EmbeddedResource Include="DMR\DtmfForm.resx" />
     <EmbeddedResource Include="DMR\EmergencyForm.resx" />

@@ -3264,7 +3264,7 @@ namespace DMR
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, null, typeof(RxGroupListForm), 128, -1, 17, RxGroupListForm.data));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ZoneBasicForm), typeof(ZoneForm), 250, -1, 16, ZoneForm.data));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ChannelsForm), typeof(ChannelForm), ChannelForm.CurCntCh, -1, 17, ChannelForm.data));
-			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ScanBasicForm), typeof(NormalScanForm), 64, -1, 16, NormalScanForm.data));
+			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ScanBasicForm), typeof(NormalScanForm), 0, -1, 30, null));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(null, null, null, 0, -1, 17, null));
 			int num = 0;
 			for (int i = 0; i < 2; i++)
@@ -3283,6 +3283,8 @@ namespace DMR
 				}
 				this.lstTreeNodeItem.Add(new TreeNodeItem(null, typeof(VfoForm), null, 2, i, num, VfoForm.data));
 			}
+			// Add new DMR-ID section
+//			this.lstTreeNodeItem.Add(new TreeNodeItem(null, typeof(DMRIDForm), null, 0, -1, 19, null));// 19 is the icon number
 		}
 
 		private DataTable method_19()
@@ -3313,6 +3315,7 @@ namespace DMR
 			dataTable.Rows.Add("0016", "VFO", "00");
 			dataTable.Rows.Add("001600", "VFOA", "0016");
 			dataTable.Rows.Add("001601", "VFOB", "0016");
+//			dataTable.Rows.Add("0017", "DMR-ID", "00");// DMRID
 			return dataTable;
 		}
 
