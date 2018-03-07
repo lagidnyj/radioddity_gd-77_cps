@@ -18,13 +18,24 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\RadioddityGD77CPS2.0.5CommunityEdition
-;CreateAppDir=yes
+CreateAppDir=yes
 ;DefaultDirName={sd}\RadioddityGD77CPS2.0.5CommunityEdition
 DisableProgramGroupPage=yes
 OutputDir=..\installer
 OutputBaseFilename=RadioddityCPS2.0.5CommunityEditionInstaller
 Compression=lzma
-SolidCompression=yes
+SolidCompression=yes  
+UsePreviousAppDir=no
+UsePreviousSetupType=no
+
+[Types]
+Name: "normal"; Description: "Normal installation"
+Name: "portable"; Description: "Portable installation"
+
+; Components are used inside the script and can be composed of a set of 'Types'
+[Components]
+Name: "normal";     Description: "Normal installation";   Types: normal
+Name: "portable";   Description: "Portable installation";   Types: portable
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -39,7 +50,9 @@ Source: "..\bin\Debug\Default.dat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\DMR.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\DockPanel.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\help.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0"; Flags: ignoreversion
+;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0";   Flags: ignoreversion; 
+Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0";   Flags: ignoreversion; Components: normal; 
+Source: "..\Setup.ini"; DestDir: "{app}";  Components: portable; Flags: ignoreversion
 Source: "..\bin\Debug\Tone.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\Data\Default.dat"; DestDir: "{app}\Data"; Flags: ignoreversion
@@ -59,4 +72,3 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-

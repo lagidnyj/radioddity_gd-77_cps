@@ -3,6 +3,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 internal class IniFileUtils
 {
@@ -137,6 +138,14 @@ internal class IniFileUtils
 
 	static IniFileUtils()
 	{
-		IniFileUtils.iniPath = Application.LocalUserAppDataPath + "\\Setup.ini";// was Application.StartupPath	
+		// for portable operation check if setup.ini is in the applications own folder
+		if (File.Exists(Application.StartupPath + "\\Setup.ini"))
+		{
+			IniFileUtils.iniPath = Application.StartupPath + "\\Setup.ini";
+		}
+		else
+		{
+			IniFileUtils.iniPath = Application.LocalUserAppDataPath + "\\Setup.ini";// was Application.StartupPath	
+		}
 	}
 }
