@@ -54,8 +54,16 @@ namespace DMR
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
 			WebClient wc = new WebClient();
-			string str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
-
+			string str;
+			try
+			{
+				str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
+			}
+			catch(Exception)
+			{
+				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
+				return;
+			}
 			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
 			string[] lineArr;

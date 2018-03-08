@@ -766,5 +766,7 @@
     <Item Id="DownloadContactsDownloading" Text="Downloading..." />
     <Item Id="DownloadContactsSelectContactsToImport" Text="Please select the contacts you would like to import" />
     <Item Id="DownloadContactsTooMany" Text="Not all contacts could be imported because the maximum number of Digital Contacts has been reached" />
-    <Item Id="Warning" Text="Warning" />  </Commons>
+    <Item Id="Warning" Text="Warning" />
+    <Item Id="UnableDownloadFromInternet" Text="Unable to download data. Please check your Internet connection" />
+  </Commons>
 </Resource>

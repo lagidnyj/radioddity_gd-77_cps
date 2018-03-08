@@ -987,6 +987,8 @@ namespace DMR
 			Settings.dicCommon.Add("DownloadContactsSelectContactsToImport", Settings.SZ_DOWNLOADCONTACTS_SELECT_CONTACTS_TO_IMPORT);
 			Settings.dicCommon.Add("DownloadContactsTooMany", Settings.SZ_DOWNLOADCONTACTS_TOO_MANY);
 			Settings.dicCommon.Add("Warning", Settings.SZ_WARNING);
+			Settings.dicCommon.Add("UnableDownloadFromInternet", Settings.SZ_UNABLEDOWNLOADFROMINTERNET);
+			
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
