@@ -438,6 +438,8 @@
 			<MenuItem Id="tsmiRename" Text="Zmień nazwe" />
 			<MenuItem Id="tsmiCopy" Text="Kopiuj" />
 			<MenuItem Id="tsmiPaste" Text="Wklej" />
+      <MenuItem Id="tsmiMoveUp" Text="Move up" />
+      <MenuItem Id="tsmiMoveDown" Text="Move down" />      
 		</ContextMenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiCollapseAll" Text="Zwiń wszystko" />

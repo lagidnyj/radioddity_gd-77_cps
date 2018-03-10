@@ -439,7 +439,7 @@
 			<MenuItem Id="tsmiCopy" Text="Copy" />
 			<MenuItem Id="tsmiPaste" Text="Paste" />
       <MenuItem Id="tsmiMoveUp" Text="Move up" />
-      <MenuItem Id="tsmiDownUp" Text="Move down" />
+      <MenuItem Id="tsmiMoveDown" Text="Move down" />
     </ContextMenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiCollapseAll" Text="Collapse All" />
