@@ -1541,7 +1541,7 @@ internal class Settings
 		Settings.MIN_FREQ = new uint[2]
 		{
 			400u,
-			136u
+			130u
 		};
 		Settings.MAX_FREQ = new uint[2]
 		{
