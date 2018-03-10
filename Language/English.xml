@@ -189,7 +189,7 @@
 		<Controls>
 			<Control Id="btnImport" Text="Import" />
 			<Control Id="btnExport" Text="Export" />
-			<Control Id="btnDeleteSelect" Text="Delete Select" />
+			<Control Id="btnDeleteSelect" Text="Delete Selected" />
 			<Control Id="btnClear" Text="Clear" />
 			<Control Id="btnDelete" Text="Delete" />
 			<Control Id="btnAdd" Text="Add" />

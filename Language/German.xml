@@ -193,7 +193,8 @@
 			<Control Id="btnClear" Text="Leeren" />
 			<Control Id="btnDelete" Text="Löschen" />
 			<Control Id="btnAdd" Text="Hinzu" />
-			<Control Id="dgvContacts" Text="Nummer,Name,Ruf ID,Typ,Kingelton,Anruf erhalten Ton">
+      <Control Id="btnInternetDownload" Text="Internet download" />
+      <Control Id="dgvContacts" Text="Nummer,Name,Ruf ID,Typ,Kingelton,Anruf erhalten Ton">
 				<ControlItem Id="" Text="Number" />
 				<ControlItem Id="" Text="Name" />
 				<ControlItem Id="" Text="Ruf ID" />

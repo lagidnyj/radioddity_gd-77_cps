@@ -193,7 +193,8 @@
 			<Control Id="btnClear" Text="Limpiar" />
 			<Control Id="btnDelete" Text="Borrar" />
 			<Control Id="btnAdd" Text="Añadir" />
-			<Control Id="dgvContacts" Text="Número,Nombre,ID Llamada,Tipo,Estilo Timbre,Tono Llamada Recibida">
+      <Control Id="btnInternetDownload" Text="Internet download" />
+      <Control Id="dgvContacts" Text="Número,Nombre,ID Llamada,Tipo,Estilo Timbre,Tono Llamada Recibida">
 				<ControlItem Id="" Text="Número" />
 				<ControlItem Id="" Text="Nombre" />
 				<ControlItem Id="" Text="ID Llamada" />
@@ -763,13 +764,13 @@
 		<Item Id="codePlugReadConfirm"  Text="¿Está seguro de querer LEER el Codeplug desde el GD-77?. Esto sobreescribirá el codeplug actual en la pantalla." />
 		<Item Id="codePlugWriteConfirm"  Text="¿Está seguro de querer ESCRIBIR este Codeplug en el GD-77?. Esto sobreescribirá el codeplug existente en el GD-77" />
 		<Item Id="pleaseConfirm"  Text="ATENCION - Por favor, confirme..." />
-    		<Item Id="userAgreement"  Text="Este programa se suministra tal y como está 'AS IS', sin garantía alguna. Utilicelo bajo su propio riesgo tanto para su PC como para su Radio DMR. Pulsando el botón 'Sí' confirma que entiende esta advertencia y está de acuerdo." />
-    		<Item Id="DownloadContactsMessageAdded" Text="Disponibles {0} nuevas ID's que no estaban ya incluidas en sus contactos" />
-    		<Item Id="DownloadContactsRegionEmpty" Text="Por favor, introduzca el código de prefijo de al menos 3 digitos de su zona. Por ejemplo: 214 para España, 2147 para Andalucía , 213 Andorra..." />
-		<Item Id="DownloadContactsDownloading" Text="Descargando ..." />
-    		<Item Id="DownloadContactsSelectContactsToImport" Text="Por favor, seleccione los contactos que desea importar" />
-   		<Item Id="DownloadContactsTooMany" Text="No todos los contactos pudieron ser importados. Se ha alcanzado el número máximo de Contactos Digitales" />
-    		<Item Id="Warning" Text="Aviso" />
-    		<Item Id="UnableDownloadFromInternet" Text="Imposible descargar los datos. Compruebe su conexión a Internet" />
+    <Item Id="userAgreement"  Text="Este programa se suministra tal y como está 'AS IS', sin garantía alguna. Utilicelo bajo su propio riesgo tanto para su PC como para su Radio DMR. Pulsando el botón 'Sí' confirma que entiende esta advertencia y está de acuerdo." />
+    <Item Id="DownloadContactsMessageAdded" Text="Disponibles {0} nuevas ID's que no estaban ya incluidas en sus contactos" />
+    <Item Id="DownloadContactsRegionEmpty" Text="Por favor, introduzca el código de prefijo de al menos 3 digitos de su zona. Por ejemplo: 214 para España, 2147 para Andalucía , 213 Andorra..." />
+    <Item Id="DownloadContactsDownloading" Text="Descargando ..." />
+    <Item Id="DownloadContactsSelectContactsToImport" Text="Por favor, seleccione los contactos que desea importar" />
+    <Item Id="DownloadContactsTooMany" Text="No todos los contactos pudieron ser importados. Se ha alcanzado el número máximo de Contactos Digitales" />
+    <Item Id="Warning" Text="Aviso" />
+    <Item Id="UnableDownloadFromInternet" Text="Imposible descargar los datos. Compruebe su conexión a Internet" />
   </Commons>
 </Resource>
