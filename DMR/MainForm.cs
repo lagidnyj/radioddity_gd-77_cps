@@ -206,6 +206,7 @@ namespace DMR
 
 		//private static readonly string[] TREENODE_KEY;
 
+		/*
 		public static int CurCbr
 		{
 			get;
@@ -217,12 +218,13 @@ namespace DMR
 			get;
 			set;
 		}
-
+		*/
+		/*
 		public static string CurModel
 		{
 			get;
 			set;
-		}
+		}*/
 
 		public static string CurFileName
 		{
@@ -999,9 +1001,9 @@ namespace DMR
 			{
 				Settings.smethod_7(new SizeF(graphics.DpiX / 96f, graphics.DpiY / 96f));
 			}
-			MainForm.CurCom = IniFileUtils.smethod_4("Setup", "Com", "Com1");
-			MainForm.CurCbr = IniFileUtils.smethod_2("Setup", "Baudrate", 9600);
-			MainForm.CurModel = IniFileUtils.smethod_4("Setup", "Model", "SG");
+			//MainForm.CurCom = IniFileUtils.smethod_4("Setup", "Com", "Com1");
+			//MainForm.CurCbr = IniFileUtils.smethod_2("Setup", "Baudrate", 9600);
+			//MainForm.CurModel = IniFileUtils.smethod_4("Setup", "Model", "SG");
 			//
 
 	/* Roger Clark
@@ -1078,7 +1080,7 @@ namespace DMR
 			this.GetAllLang();
 
 
-			string b = IniFileUtils.smethod_4("Setup", "Language", "English.xml");
+			string b = IniFileUtils.getProfileStringWithDefault("Setup", "Language", "English.xml");
 			foreach (ToolStripMenuItem dropDownItem in this.tsmiLanguage.DropDownItems)
 			{
 				string fileName = Path.GetFileName(dropDownItem.Tag.ToString());
@@ -1141,11 +1143,13 @@ namespace DMR
 				this.tsmiSave.PerformClick();
 				break;
 			}
+			/* Roger Clark. This function never seems to actually save this value to the ini file, so I'm commenting it out as it doesnt do as advertised
 			if (IniFileUtils.smethod_2("Setup", "SaveDockPanel", 0) != 0)
 			{
 				string fileName = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 				this.dockPanel.SaveAsXml(fileName);
 			}
+			 */
 		}
 
 		private void method_1(Form form_0)
@@ -2486,7 +2490,7 @@ namespace DMR
 		{
 			try
 			{
-				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.smethod_4("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
+				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
 
 				DialogResult dialogResult = this.ofdMain.ShowDialog();
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.ofdMain.FileName))

@@ -13,7 +13,7 @@ namespace DMR
 		private Button btnCancel;
         private Button btnOK;
 		private FirmwareUpdate firmwareUpdate;
-		private Class10 portComm;
+		//private Class10 portComm;
 		private CodeplugComms hidComm;
 
 		public bool IsRead
@@ -101,7 +101,7 @@ namespace DMR
 		{
 			
 			this.firmwareUpdate = new FirmwareUpdate();
-			this.portComm = new Class10();
+			//this.portComm = new Class10();
 			this.hidComm = new CodeplugComms();
 			//base._002Ector();
 			this.InitializeComponent();

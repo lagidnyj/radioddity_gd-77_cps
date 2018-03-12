@@ -34,8 +34,8 @@ Name: "portable"; Description: "Portable installation"
 
 ; Components are used inside the script and can be composed of a set of 'Types'
 [Components]
-Name: "normal";     Description: "Normal installation";   Types: normal
-Name: "portable";   Description: "Portable installation";   Types: portable
+Name: "normal";     Description: "Normal installation.";   Types: normal
+Name: "portable";   Description: "Portable installation. This will run from a memory stick and uses an ini file to store defaults etc";   Types: portable
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -51,11 +51,11 @@ Source: "..\bin\Debug\DMR.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\DockPanel.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\help.xml"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0";   Flags: ignoreversion; 
-Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0";   Flags: ignoreversion; Components: normal; 
+;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS205CommunityEdition\1.0.0.0";   Flags: ignoreversion; Components: normal; 
 Source: "..\Setup.ini"; DestDir: "{app}";  Components: portable; Flags: ignoreversion
 Source: "..\bin\Debug\Tone.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\Data\Default.dat"; DestDir: "{app}\Data"; Flags: ignoreversion
+Source: "..\bin\Debug\Data\Default.dat"; DestDir: "{app}\Data"; Components: portable; Flags: ignoreversion
 Source: "..\bin\Debug\Language\English.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Debug\Language\English.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Debug\Language\German.xml"; DestDir: "{app}\Language"; Flags: ignoreversion

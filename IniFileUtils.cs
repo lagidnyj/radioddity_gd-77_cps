@@ -4,10 +4,12 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Win32;
 
 internal class IniFileUtils
 {
 	private static string iniPath;
+	static string keyName = "HKEY_CURRENT_USER\\Software\\RadioddityCommunity\\GD77CPS205";
 
 	[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
 	private static extern long WritePrivateProfileString(string string_0, string string_1, string string_2, string string_3);
@@ -24,21 +26,21 @@ internal class IniFileUtils
 	[DllImport("kernel32.DLL ", CharSet = CharSet.Auto)]
 	private static extern int GetPrivateProfileSection(string string_0, byte[] byte_0, int int_0, string string_1);
 
-	public static string smethod_0()
+	public static string getIniFilePath()
 	{
 		return IniFileUtils.iniPath;
 	}
 
-	public static void smethod_1(string string_0)
+	public static void setIniFilePath(string string_0)
 	{
 		IniFileUtils.iniPath = string_0;
 	}
 
 	private IniFileUtils(string string_0)
 	{
-		IniFileUtils.smethod_1(string_0);
+		IniFileUtils.setIniFilePath(string_0);
 	}
-
+	/*
 	public static int smethod_2(string string_0, string string_1, int int_0)
 	{
 		return IniFileUtils.GetPrivateProfileInt(string_0, string_1, int_0, IniFileUtils.iniPath);
@@ -48,26 +50,50 @@ internal class IniFileUtils
 	{
 		IniFileUtils.WritePrivateProfileString(string_0, string_1, int_0.ToString(), IniFileUtils.iniPath);
 	}
-
-	public static string smethod_4(string string_0, string string_1, string string_2)
+	*/
+	public static string getProfileStringWithDefault(string string_0, string string_1, string string_2)
 	{
-		StringBuilder stringBuilder = new StringBuilder(1024);
-		IniFileUtils.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, 1024, IniFileUtils.iniPath);
-		return stringBuilder.ToString();
+		if (IniFileUtils.iniPath!=null)
+		{
+			StringBuilder stringBuilder = new StringBuilder(1024);
+			IniFileUtils.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, 1024, IniFileUtils.iniPath);
+			return stringBuilder.ToString();
+		}
+		else
+		{
+			var obj = Registry.GetValue(keyName, string_1, string_2);
+			if (obj != null)
+			{
+				return (string)obj;
+			}
+			else
+			{
+				return string_2;
+			}
+		}
 	}
-
+	/*
 	public static string smethod_5(string string_0, string string_1, string string_2, int int_0)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
 		IniFileUtils.GetPrivateProfileString(string_0, string_1, string_2, stringBuilder, int_0, IniFileUtils.iniPath);
 		return stringBuilder.ToString();
-	}
+	}*/
 
 	public static void WriteProfileString(string string_0, string string_1, string string_2)
 	{
-		IniFileUtils.WritePrivateProfileString(string_0, string_1, string_2, IniFileUtils.iniPath);
+		if (IniFileUtils.iniPath!=null)
+		{
+			IniFileUtils.WritePrivateProfileString(string_0, string_1, string_2, IniFileUtils.iniPath);
+		}
+		else
+		{
+			Registry.SetValue(keyName, string_1, string_2, RegistryValueKind.String);
+		}
 	}
 
+	/* Roger Clark. Commented out code thats not used and not documented.
+	 * I've done this in perparation to move to store values in the registry if possible rather than an ini file
 	public static void smethod_7(string string_0, string string_1)
 	{
 		IniFileUtils.WritePrivateProfileString(string_0, string_1, null, IniFileUtils.iniPath);
@@ -95,7 +121,7 @@ internal class IniFileUtils
 		return 0;
 	}
 
-	public static int smethod_10(string string_0, out string[] string_1, out string[] string_2)
+	public static int setIniFilePath0(string string_0, out string[] string_1, out string[] string_2)
 	{
 		byte[] array = new byte[65535];
 		IniFileUtils.GetPrivateProfileSection(string_0, array, array.Length, IniFileUtils.iniPath);
@@ -135,17 +161,21 @@ internal class IniFileUtils
 		}
 		return 0;
 	}
-
+	*/
 	static IniFileUtils()
 	{
+		iniPath = null;
 		// for portable operation check if setup.ini is in the applications own folder
 		if (File.Exists(Application.StartupPath + "\\Setup.ini"))
 		{
 			IniFileUtils.iniPath = Application.StartupPath + "\\Setup.ini";
+			return;
 		}
+		/*
 		else
 		{
 			IniFileUtils.iniPath = Application.LocalUserAppDataPath + "\\Setup.ini";// was Application.StartupPath	
 		}
+		*/
 	}
 }

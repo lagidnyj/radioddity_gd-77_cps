@@ -86,7 +86,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CustomStopwatch.cs" />
-    <Compile Include="Class10.cs" />
     <Compile Include="TextMsgFormCustomPasteWndProc.cs" />
     <Compile Include="CustomNumericUpDown.cs">
       <SubType>Component</SubType>
@@ -131,9 +130,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DMR\ChannelsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DMR\ComForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DMR\CommPrgForm.cs">
