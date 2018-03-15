@@ -193,7 +193,7 @@
 			<Control Id="btnClear" Text="Limpiar" />
 			<Control Id="btnDelete" Text="Borrar" />
 			<Control Id="btnAdd" Text="Añadir" />
-      <Control Id="btnInternetDownload" Text="Internet download" />
+      <Control Id="btnInternetDownload" Text="Descargas Internet" />
       <Control Id="dgvContacts" Text="Número,Nombre,ID Llamada,Tipo,Estilo Timbre,Tono Llamada Recibida">
 				<ControlItem Id="" Text="Número" />
 				<ControlItem Id="" Text="Nombre" />
