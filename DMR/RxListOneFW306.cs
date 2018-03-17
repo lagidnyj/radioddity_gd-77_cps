@@ -13,10 +13,13 @@ namespace DMR
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct RxListOneFW306
 	{
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+		public const int CNT_CONTACT_PER_RX_LIST = 15;
+		public const int LEN_RX_LIST_NAME = 16;
+
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = LEN_RX_LIST_NAME)]
 		private byte[] name;
 
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 15)]
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_CONTACT_PER_RX_LIST)]
 		private ushort[] contactList;
 
 		private ushort reserve;
@@ -62,8 +65,8 @@ namespace DMR
 		{
 
 			this = default(RxListOneFW306);
-			this.name = new byte[16];
-			this.contactList = new ushort[15];
+			this.name = new byte[LEN_RX_LIST_NAME];
+			this.contactList = new ushort[CNT_CONTACT_PER_RX_LIST];
 		}
 
 		public void Verify()

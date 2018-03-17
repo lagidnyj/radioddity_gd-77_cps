@@ -12,12 +12,6 @@ namespace DMR
 {
 	public class RxGroupListForm : DockContent, IDisp
 	{
-		public const int CNT_RX_LIST = 128;
-
-		public const int LEN_RX_LIST_NAME = 16;
-
-		private const int CNT_CONTACT_PER_RX_LIST = 15;
-
 		//private IContainer components;
 
 		private Button btnDel;

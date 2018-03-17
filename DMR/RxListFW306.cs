@@ -13,10 +13,12 @@ namespace DMR
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public class RxListFW306 : IData
 	{
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+		public const int CNT_RX_LIST = 128;
+
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
 		private byte[] rxListIndex;
 
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
 		private RxListOneFW306[] rxList;
 
 		public RxListOneFW306 this[int index]
@@ -43,7 +45,7 @@ namespace DMR
 		{
 			get
 			{
-				return 128;
+				return CNT_RX_LIST;
 			}
 		}
 
@@ -98,7 +100,7 @@ namespace DMR
 		{
 			if (index < 128)
 			{
-				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= 16)
+				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneFW306.LEN_RX_LIST_NAME)
 				{
 					return this.rxListIndex[index] - 1;
 				}
@@ -131,7 +133,7 @@ namespace DMR
 					{
 						break;
 					}
-					if (this.rxListIndex[num] > 16)
+					if (this.rxListIndex[num] > RxListOneFW306.LEN_RX_LIST_NAME)
 					{
 						break;
 					}
@@ -147,7 +149,7 @@ namespace DMR
 		{
 			if (this.rxListIndex[index] != 0)
 			{
-				return this.rxListIndex[index] <= 16;
+				return this.rxListIndex[index] <= RxListOneFW306.LEN_RX_LIST_NAME;
 			}
 			return false;
 		}
