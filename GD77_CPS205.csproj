@@ -67,6 +67,7 @@
     <Compile Include="Class16.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DMR\RxListFW31x.cs" />
     <Compile Include="DMR\DownloadContactsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,7 @@
     </Compile>
     <Compile Include="DMR\RxListFW306.cs" />
     <Compile Include="DMR\RxListOneFW306.cs" />
+    <Compile Include="DMR\RxListOneFW31x.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
