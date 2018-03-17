@@ -3016,7 +3016,7 @@ namespace DMR
 			DtmfContactForm.data = (DtmfContactForm.DtmfContact)Settings.smethod_62(array, DtmfContactForm.data.GetType());
 			array = new byte[Settings.SPACE_RX_GRP_LIST];
 			Array.Copy(eerom, Settings.ADDR_RX_GRP_LIST_EX, array, 0, array.Length);
-			RxGroupListForm.data = (RxGroupListForm.RxList)Settings.smethod_62(array, RxGroupListForm.data.GetType());
+			RxGroupListForm.data = (RxListFW306)Settings.smethod_62(array, RxGroupListForm.data.GetType());
 			ZoneForm.data.ZoneIndex[0] = eerom[Settings.ADDR_ZONE_BASIC];
 			ZoneForm.basicData.CurZone = eerom[Settings.ADDR_ZONE_BASIC + 1];
 			ZoneForm.basicData.MainCh = eerom[Settings.ADDR_ZONE_BASIC + 2];

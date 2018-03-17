@@ -79,6 +79,8 @@
     <Compile Include="DMR\DMRIDForm.Designer.cs">
       <DependentUpon>DMRIDForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DMR\RxListFW306.cs" />
+    <Compile Include="DMR\RxListOneFW306.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -310,7 +312,9 @@
     <EmbeddedResource Include="DMR\PasswordForm.resx" />
     <EmbeddedResource Include="DMR\PowerPwdForm.resx" />
     <EmbeddedResource Include="DMR\Properties.Resources.resx" />
-    <EmbeddedResource Include="DMR\RxGroupListForm.resx" />
+    <EmbeddedResource Include="DMR\RxGroupListForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="DMR\ScanBasicForm.resx" />
     <EmbeddedResource Include="DMR\SignalingBasicForm.resx" />
     <EmbeddedResource Include="DMR\TextMsgForm.resx" />

@@ -1216,7 +1216,7 @@ internal class Settings
 		EmergencyForm.data = (EmergencyForm.Emergency)binaryFormatter.Deserialize(fileStream);
 		DtmfContactForm.data = (DtmfContactForm.DtmfContact)binaryFormatter.Deserialize(fileStream);
 		ContactForm.data = (ContactForm.Contact)binaryFormatter.Deserialize(fileStream);
-		RxGroupListForm.data = (RxGroupListForm.RxList)binaryFormatter.Deserialize(fileStream);
+		RxGroupListForm.data = (RxListFW306)binaryFormatter.Deserialize(fileStream);
 		ZoneForm.data = (ZoneForm.Zone)binaryFormatter.Deserialize(fileStream);
 		ChannelForm.data = (ChannelForm.Channel)binaryFormatter.Deserialize(fileStream);
 		ScanBasicForm.data = (ScanBasicForm.ScanBasic)binaryFormatter.Deserialize(fileStream);
@@ -1591,7 +1591,7 @@ internal class Settings
 		Settings.ADDR_DMR_CONTACT_EX = 95776;
 		Settings.SPACE_DTMF_CONTACT = Marshal.SizeOf(typeof(DtmfContactForm.DtmfContact));
 		Settings.ADDR_DTMF_CONTACT = 12168;
-		Settings.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxGroupListForm.RxList));
+		Settings.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxListFW306));
 		Settings.ADDR_RX_GRP_LIST = 13352;
 		Settings.ADDR_RX_GRP_LIST_EX = 120352;
 		Settings.ADDR_ZONE_BASIC = 14136;
