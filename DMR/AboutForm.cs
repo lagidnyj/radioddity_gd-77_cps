@@ -26,7 +26,7 @@ namespace DMR
 		private void AboutForm_Load(object sender, EventArgs e)
 		{
 			Settings.smethod_68(this);
-			this.lblVersion.Text = "CPS 2.0.5 Community Edition";//IniFileUtils.smethod_4("Info", "Version", "v1.0.0");
+			this.lblVersion.Text = "GD-77 CPS 3.0.6 Community Edition";//IniFileUtils.smethod_4("Info", "Version", "v1.0.0");
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RadioddityCommunity")]
-[assembly: AssemblyProduct("GD77CPS205CommunityEdition")]
+[assembly: AssemblyProduct("GD77CPS306CommunityEdition")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyName("")]
 [assembly: AssemblyVersion("1.0.0.0")]

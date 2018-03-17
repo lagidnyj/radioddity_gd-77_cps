@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GD77_CPS205", "GD77_CPS205.csproj", "{DEF0E499-718F-45BE-9052-2D41D049A434}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GD77_CPS306", "GD77_CPS306.csproj", "{DEF0E499-718F-45BE-9052-2D41D049A434}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
