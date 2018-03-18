@@ -13,11 +13,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using WeifenLuo.WinFormsUI.Docking;
+using System.Reflection;
 
 namespace DMR
 {
 	public class MainForm : Form
 	{
+		private static string PRODUCT_NAME = ((AssemblyProductAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyProductAttribute), false)).Product;
+
 		private const int WM_SETFONT = 48;
 
 		private const int TVM_GETEDITCONTROL = 4367;
@@ -896,7 +899,9 @@ namespace DMR
 			base.MainMenuStrip = this.mnsMain;
 			base.Margin = new Padding(3, 4, 3, 4);
 			base.Name = "MainForm";
-			this.Text = "Radioddity GD-77 CPS - Community Edition";
+			string 	version = AssemblyName.GetAssemblyName(System.Reflection.Assembly.GetExecutingAssembly().Location).Version.ToString();
+
+			this.Text = MainForm.PRODUCT_NAME;
 			base.WindowState = FormWindowState.Maximized;
 			base.Load += this.MainForm_Load;
 			base.MdiChildActivate += this.MainForm_MdiChildActivate;
@@ -1045,14 +1050,24 @@ namespace DMR
 
 			ChannelForm.CurCntCh = 1024;
 			this.method_15();
+			string lastFileName = String.Empty;
 
 			if (MainForm.StartupArgs.Length > 0)
 			{
 				this.loadDefaultOrInitialFile(StartupArgs[0]);
 			}
 			else
-			{	
-				this.loadDefaultOrInitialFile();
+			{
+				if (IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath","")=="")
+				{
+					this.loadDefaultOrInitialFile();
+				}
+				else
+				{
+					lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+
+					openCodeplugFile(lastFileName);
+				}
 			}
 
 			this.frmHelp.Show(this.dockPanel);
@@ -1091,27 +1106,40 @@ namespace DMR
 				dropDownItem.PerformClick();
 				break;
 			}
-			this.Text += " [Build "+DateTime.Today.ToString("yyyy:MM:dd")+"]";
 
-			if (DialogResult.Yes != MessageBox.Show(Settings.dicCommon["userAgreement"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo))
+
+			this.Text = getMainTitleStub() + " " + lastFileName;
+
+			if (IniFileUtils.getProfileStringWithDefault("Setup", "agreedToTerms", "no") == "no")
 			{
-				if (System.Windows.Forms.Application.MessageLoop)
+				if (DialogResult.Yes !=  MessageBox.Show(Settings.dicCommon["userAgreement"], Settings.dicCommon["pleaseConfirm"], MessageBoxButtons.YesNo))
 				{
-					// Use this since we are a WinForms app
-					System.Windows.Forms.Application.Exit();
+					if (System.Windows.Forms.Application.MessageLoop)
+					{
+						// Use this since we are a WinForms app
+						System.Windows.Forms.Application.Exit();
+					}
+					else
+					{
+						// Use this since we are a console app
+						System.Environment.Exit(1);
+					}
 				}
 				else
 				{
-					// Use this since we are a console app
-					System.Environment.Exit(1);
+					IniFileUtils.WriteProfileString("Setup", "agreedToTerms", "yes");
+					base.FormClosing += this.MainForm_FormClosing;
 				}
 			}
 			else
 			{
 				base.FormClosing += this.MainForm_FormClosing;
 			}
+		}
 
-
+		private string getMainTitleStub()
+		{
+			return MainForm.PRODUCT_NAME + " (Build v" + AssemblyName.GetAssemblyName(System.Reflection.Assembly.GetExecutingAssembly().Location).Version.ToString() + ")";
 		}
 
 		private void MainForm_MdiChildActivate(object sender, EventArgs e)
@@ -2435,7 +2463,9 @@ namespace DMR
 				byte[] eerom = File.ReadAllBytes(text);
 				this.closeAllForms();
 				MainForm.ByteToData(eerom);
+
 				this.InitTree();
+				this.Text = getMainTitleStub();
 			}
 		}
 
@@ -2486,33 +2516,48 @@ namespace DMR
 			}
 		}
 
+		private void openCodeplugFile(string fileName)
+		{
+			int index = 0;
+			byte[] array = File.ReadAllBytes(fileName);
+			bool test1 = !array.Take(8).All(MainForm.smethod_1);
+			bool test2 = !array.Take(8).All((byte x) => x == Settings.CUR_MODEL[index++]);// RC. Note. Had to change preincrement to post increment
+
+			if (test1 && test2)
+			{
+				MessageBox.Show(Settings.dicCommon["Model does not match"]);
+				IniFileUtils.WriteProfileString("Setup", "LastFilePath", "");
+			}
+			else
+			{
+				//MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
+				MainForm.CurFileName = this.ofdMain.FileName;
+				IniFileUtils.WriteProfileString("Setup", "LastFilePath", fileName);
+				this.closeAllForms();
+				MainForm.ByteToData(array);
+				this.InitTree();
+				this.Text = getMainTitleStub() + " " + fileName;
+			}
+		}
+
 		private void tsbtnOpen_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				this.ofdMain.InitialDirectory = Path.GetDirectoryName(IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));//Application.StartupPath + "\\Data"); 
-
+				string lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", "");
+				//Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+				if (lastFileName == "")
+				{
+					this.ofdMain.InitialDirectory = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));//Application.StartupPath + "\\Data"); 
+				}
+				else
+				{
+					this.ofdMain.InitialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+				}
 				DialogResult dialogResult = this.ofdMain.ShowDialog();
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.ofdMain.FileName))
 				{
-					int index = 0;
-					byte[] array = File.ReadAllBytes(this.ofdMain.FileName);
-                    bool test1 = !array.Take(8).All(MainForm.smethod_1);
-                    bool test2 = !array.Take(8).All((byte x) => x == Settings.CUR_MODEL[index++]);// RC. Note. Had to change preincrement to post increment
-                    
-                    if (test1 && test2 )
-					{
-						MessageBox.Show(Settings.dicCommon["Model does not match"]);
-					}
-					else
-					{
-						//MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
-						MainForm.CurFileName = this.ofdMain.FileName;
-						IniFileUtils.WriteProfileString("Setup", "LastFilePath", this.ofdMain.FileName);
-						this.closeAllForms();
-						MainForm.ByteToData(array);
-						this.InitTree();
-					}
+					openCodeplugFile(this.ofdMain.FileName);
 				}
 			}
 			catch (Exception ex)
