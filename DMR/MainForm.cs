@@ -1054,7 +1054,17 @@ namespace DMR
 
 			if (MainForm.StartupArgs.Length > 0)
 			{
-				this.loadDefaultOrInitialFile(StartupArgs[0]);
+				if (File.Exists(StartupArgs[0]))
+				{
+					openCodeplugFile(StartupArgs[0]);
+					lastFileName = StartupArgs[0];
+				}
+				else
+				{
+					this.loadDefaultOrInitialFile();
+					lastFileName = "";
+					IniFileUtils.WriteProfileString("Setup", "LastFilePath", "");
+				}
 			}
 			else
 			{
@@ -1065,8 +1075,16 @@ namespace DMR
 				else
 				{
 					lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-
-					openCodeplugFile(lastFileName);
+					if (File.Exists(lastFileName))
+					{
+						openCodeplugFile(lastFileName);
+					}
+					else
+					{
+						this.loadDefaultOrInitialFile();
+						lastFileName = "";
+						IniFileUtils.WriteProfileString("Setup", "LastFilePath", "");
+					}
 				}
 			}
 
@@ -2475,6 +2493,7 @@ namespace DMR
 			{
 				this.loadDefaultOrInitialFile();
 				MainForm.CurFileName = "";
+				IniFileUtils.WriteProfileString("Setup", "LastFilePath", "");
 			}
 		}
 
