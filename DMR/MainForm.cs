@@ -2499,18 +2499,30 @@ namespace DMR
 
 		private void tsbtnSave_Click(object sender, EventArgs e)
 		{
-			string text = Application.StartupPath + "\\Data";
+			string initialDirectory;
+			//string text = Application.StartupPath + "\\Data";
+		
+			string lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", "");
+			if (lastFileName == "")
+			{
+				initialDirectory = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));//Application.StartupPath + "\\Data"); 
+			}
+			else
+			{
+				initialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+			}
+			/*
 			if (!Directory.Exists(text))
 			{
 				Directory.CreateDirectory(text);
-			}
+			}*/
 			try
 			{
 				if (string.IsNullOrEmpty(MainForm.CurFileName))
 				{
 					//Console.WriteLine(GeneralSetForm.data.RadioName);
 					this.sfdMain.FileName = GeneralSetForm.data.RadioName + "_" +  DateTime.Now.ToString("MMdd_HHmmss") + ".dat";
-					this.sfdMain.InitialDirectory = text;
+					this.sfdMain.InitialDirectory = initialDirectory;
 				}
 				else
 				{
@@ -2525,8 +2537,10 @@ namespace DMR
 					Buffer.BlockCopy(Settings.CUR_MODEL, 0, array, 0, 8);
 					File.WriteAllBytes(this.sfdMain.FileName, array);
 					MainForm.CurFileName = this.sfdMain.FileName;
+
 					MessageBox.Show(Settings.dicCommon["SaveSuccessfully"]);
 					IniFileUtils.WriteProfileString("Setup", "LastFilePath", this.sfdMain.FileName);
+					this.Text = getMainTitleStub() + " " + MainForm.CurFileName;
 				}
 			}
 			catch (Exception ex)
@@ -2550,7 +2564,7 @@ namespace DMR
 			else
 			{
 				//MessageBox.Show(Settings.dicCommon["OpenSuccessfully"]);
-				MainForm.CurFileName = this.ofdMain.FileName;
+				MainForm.CurFileName = fileName;
 				IniFileUtils.WriteProfileString("Setup", "LastFilePath", fileName);
 				this.closeAllForms();
 				MainForm.ByteToData(array);
@@ -2971,7 +2985,7 @@ namespace DMR
 		public static byte[] DataToByte()
 		{
 			byte[] array = new byte[Settings.EEROM_SPACE];
-			array.smethod_0((byte)255);
+			array.Fill((byte)255);
 			MainForm.DataVerify();
 			byte[] array2 = Settings.smethod_61(GeneralSetForm.data, Marshal.SizeOf(GeneralSetForm.data.GetType()));
 			Array.Copy(array2, 0, array, Settings.ADDR_GENERAL_SET, array2.Length);

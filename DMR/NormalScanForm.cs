@@ -62,7 +62,7 @@ namespace DMR
 				set
 				{
 					byte[] array = Settings.smethod_23(value);
-					this.name.smethod_0((byte)255);
+					this.name.Fill((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
 			}
@@ -139,7 +139,7 @@ namespace DMR
 				}
 				set
 				{
-					this.chList.smethod_0((ushort)0);
+					this.chList.Fill((ushort)0);
 					Array.Copy(value, 0, this.chList, 0, Math.Min(32, value.Length));
 				}
 			}
@@ -253,7 +253,7 @@ namespace DMR
 
 			public void Default()
 			{
-				this.chList.smethod_0((ushort)0);
+				this.chList.Fill((ushort)0);
 				this.chList[0] = 1;
 				this.priorityCh1 = 0;
 				this.priorityCh2 = 0;
@@ -396,7 +396,7 @@ namespace DMR
 				//base._002Ector();
 				int num = 0;
 				this.scanListIndex = new byte[64];
-				this.scanListIndex.smethod_0((byte)0);
+				this.scanListIndex.Fill((byte)0);
 				this.scanList = new NormalScanOne[64];
 				for (num = 0; num < this.scanList.Length; num++)
 				{

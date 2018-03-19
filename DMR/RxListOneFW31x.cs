@@ -33,7 +33,7 @@ namespace DMR
 			set
 			{
 				byte[] array = Settings.smethod_23(value);
-				this.name.smethod_0((byte)255);
+				this.name.Fill((byte)255);
 				Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 			}
 		}
@@ -46,7 +46,7 @@ namespace DMR
 			}
 			set
 			{
-				this.contactList.smethod_0((ushort)0);
+				this.contactList.Fill((ushort)0);
 				Array.Copy(value, 0, this.contactList, 0, value.Length);
 			}
 		}

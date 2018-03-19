@@ -62,7 +62,7 @@ namespace DMR
 				set
 				{
 					byte[] array = Settings.smethod_23(value);
-					this.name.smethod_0((byte)255);
+					this.name.Fill((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
 			}

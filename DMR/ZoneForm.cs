@@ -35,7 +35,7 @@ namespace DMR
 				set
 				{
 					byte[] array = Settings.smethod_23(value);
-					this.name.smethod_0((byte)255);
+					this.name.Fill((byte)255);
 					Array.Copy(array, 0, this.name, 0, Math.Min(array.Length, this.name.Length));
 				}
 			}
@@ -48,7 +48,7 @@ namespace DMR
 				}
 				set
 				{
-					this.chList.smethod_0((ushort)65535);
+					this.chList.Fill((ushort)65535);
 					Array.Copy(value, 0, this.chList, 0, value.Length);
 				}
 			}
@@ -76,7 +76,7 @@ namespace DMR
 			{
 				int num = 0;
 				byte[] array = new byte[32];
-				array.smethod_0((byte)0);
+				array.Fill((byte)0);
 				Array.Copy(this.name, array, 16);
 				ushort[] array2 = this.chList;
 				for (int i = 0; i < array2.Length; i++)
@@ -410,7 +410,7 @@ namespace DMR
 
 			public void Default(int index)
 			{
-				this.zoneList[index].ChList.smethod_0((ushort)0);
+				this.zoneList[index].ChList.Fill((ushort)0);
 			}
 
 			public void Paste(int from, int to)

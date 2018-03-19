@@ -101,7 +101,7 @@ namespace DMR
 				set
 				{
 					int num = 0;
-					this.radioName.smethod_0((byte)255);
+					this.radioName.Fill((byte)255);
 					for (num = 0; num < value.Length; num++)
 					{
 						this.radioName[num] = Convert.ToByte(value[num]);
@@ -777,7 +777,7 @@ namespace DMR
 				set
 				{
 					int num = 0;
-					this.prgPwd.smethod_0((byte)255);
+					this.prgPwd.Fill((byte)255);
 					for (num = 0; num < value.Length; num++)
 					{
 						this.prgPwd[num] = Convert.ToByte(value[num]);

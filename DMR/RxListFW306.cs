@@ -224,7 +224,7 @@ namespace DMR
 
 		public void Default(int index)
 		{
-			this.rxList[index].ContactList.smethod_0((ushort)0);
+			this.rxList[index].ContactList.Fill((ushort)0);
 		}
 
 		public void Paste(int from, int to)
