@@ -3202,7 +3202,10 @@ namespace DMR
 		{
 			if (this.cmbChMode.SelectedIndex == 0)
 			{
-				if (this.cmbTxTone.Text == Settings.SZ_NONE)
+				ChannelOne channelOne = ChannelForm.data[(Convert.ToInt32(base.Tag) % 1024)];
+				//Roger Clark cmbToneText is not setup when this funcytion is called				if (this.cmbTxTone.Text == Settings.SZ_NONE)
+				// Also Item [2] should not be removed if the selected value of AdmitCriteria is 2 
+				if (channelOne.TxTone == Settings.SZ_NONE && channelOne.AdmitCriteria!=2)
 				{
 					if (this.cmbAdmitCriteria.Text == ChannelForm.SZ_ADMIT_CRITERICA[2])
 					{
