@@ -190,6 +190,8 @@ namespace DMR
 		private ToolStripMenuItem tsmiExtras;
 
 		private ToolStripMenuItem tsmiContactsDownload;
+		private ToolStripMenuItem tsmiDMRID;
+
 
 		private DeserializeDockContent m_deserializeDockContent;
 
@@ -308,6 +310,8 @@ namespace DMR
 			this.tsmiLanguage = new ToolStripMenuItem();
 			this.tsmiExtras = new ToolStripMenuItem();
 			this.tsmiContactsDownload = new ToolStripMenuItem();
+			this.tsmiDMRID = new ToolStripMenuItem();
+			
 			this.tsmiWindow = new ToolStripMenuItem();
 			this.tsmiCascade = new ToolStripMenuItem();
 			this.tsmiTileHor = new ToolStripMenuItem();
@@ -596,9 +600,10 @@ namespace DMR
 			this.tsmiExtras.Name = "tsmiExtras";
 			this.tsmiExtras.Size = new Size(77, 21);
 			this.tsmiExtras.Text = "Extras";
-			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[1]// was 3
+			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[2]// was 3
 			{
-				this.tsmiContactsDownload
+				this.tsmiContactsDownload,
+				this.tsmiDMRID
 			});
 
 			this.tsmiContactsDownload.Name = "tsmiContactsDownload";
@@ -606,6 +611,13 @@ namespace DMR
 			this.tsmiContactsDownload.Size = new Size(156, 22);
 			this.tsmiContactsDownload.Text = "Contacts download";
 			this.tsmiContactsDownload.Click += this.tsbtnContactsDownload_Click;
+
+			this.tsmiDMRID.Name = "tsmiDMRID";
+			//this.tsmiContactsDownload.ShortcutKeys = (Keys)131154;
+			this.tsmiDMRID.Size = new Size(156, 22);
+			this.tsmiDMRID.Text = "DMR ID";
+			this.tsmiDMRID.Enabled = true;
+			this.tsmiDMRID.Click += this.tsbtnDMRID_Click;
 
 
 			this.tsmiWindow.DropDownItems.AddRange(new ToolStripItem[4]
@@ -2816,6 +2828,13 @@ namespace DMR
 		//	dlf.parentForm = ContactsForm;
 			dlf.ShowDialog();
 		}
+
+		private void tsbtnDMRID_Click(object sender, EventArgs e)
+		{
+			this.closeAllForms();
+			MessageBox.Show("This feature is currently in development");	
+		}
+
 
 
 		private void tsbtnRead_Click(object sender, EventArgs e)
