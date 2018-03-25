@@ -187,6 +187,10 @@ namespace DMR
 
 		private ToolStripMenuItem tsmiLanguage;
 
+		private ToolStripMenuItem tsmiExtras;
+
+		private ToolStripMenuItem tsmiContactsDownload;
+
 		private DeserializeDockContent m_deserializeDockContent;
 
 		private static IDisp PreActiveMdiChild;
@@ -302,6 +306,8 @@ namespace DMR
 			this.tsmiToolBar = new ToolStripMenuItem();
 			this.tsmiStatusBar = new ToolStripMenuItem();
 			this.tsmiLanguage = new ToolStripMenuItem();
+			this.tsmiExtras = new ToolStripMenuItem();
+			this.tsmiContactsDownload = new ToolStripMenuItem();
 			this.tsmiWindow = new ToolStripMenuItem();
 			this.tsmiCascade = new ToolStripMenuItem();
 			this.tsmiTileHor = new ToolStripMenuItem();
@@ -362,12 +368,13 @@ namespace DMR
 			this.imgMain.Images.SetKeyName(2, "21.png");
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);// Roger Clark. Added correct icon on main form!
 
-            this.mnsMain.Items.AddRange(new ToolStripItem[7]
+            this.mnsMain.Items.AddRange(new ToolStripItem[8]
 			{
 				this.tsmiFile,
 				this.tsmiSetting,
 				this.tsmiProgram,
 				this.tsmiView,
+				this.tsmiExtras,
 				this.tsmiLanguage,
 				this.tsmiWindow,
 				this.tsmiAbout
@@ -586,6 +593,21 @@ namespace DMR
 			this.tsmiLanguage.Name = "tsmiLanguage";
 			this.tsmiLanguage.Size = new Size(77, 21);
 			this.tsmiLanguage.Text = "Language";
+			this.tsmiExtras.Name = "tsmiExtras";
+			this.tsmiExtras.Size = new Size(77, 21);
+			this.tsmiExtras.Text = "Extras";
+			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[1]// was 3
+			{
+				this.tsmiContactsDownload
+			});
+
+			this.tsmiContactsDownload.Name = "tsmiContactsDownload";
+			//this.tsmiContactsDownload.ShortcutKeys = (Keys)131154;
+			this.tsmiContactsDownload.Size = new Size(156, 22);
+			this.tsmiContactsDownload.Text = "Contacts download";
+			this.tsmiContactsDownload.Click += this.tsbtnContactsDownload_Click;
+
+
 			this.tsmiWindow.DropDownItems.AddRange(new ToolStripItem[4]
 			{
 				this.tsmiCascade,
@@ -995,7 +1017,7 @@ namespace DMR
 			Settings.dicCommon.Add("DownloadContactsTooMany", Settings.SZ_DOWNLOADCONTACTS_TOO_MANY);
 			Settings.dicCommon.Add("Warning", Settings.SZ_WARNING);
 			Settings.dicCommon.Add("UnableDownloadFromInternet", Settings.SZ_UNABLEDOWNLOADFROMINTERNET);
-			
+			Settings.dicCommon.Add("DownloadContactsImportComplete", Settings.SZ_IMPORT_COMPLETE);			
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
@@ -2783,6 +2805,18 @@ namespace DMR
 				this.method_7(treeNode, true);
 			}
 		}
+
+		private void tsbtnContactsDownload_Click(object sender, EventArgs e)
+		{
+			this.closeAllForms();
+			DownloadContactsForm dlf = new DownloadContactsForm();
+			dlf.mainForm = this;
+			TreeNode treeNode = this.method_9(typeof(ContactsForm), this.tvwMain.Nodes);
+			dlf.treeNode = treeNode;
+		//	dlf.parentForm = ContactsForm;
+			dlf.ShowDialog();
+		}
+
 
 		private void tsbtnRead_Click(object sender, EventArgs e)
 		{

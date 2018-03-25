@@ -836,6 +836,7 @@ namespace DMR
 		{
 			DownloadContactsForm dlc = new DownloadContactsForm();
 			dlc.parentForm = this;
+			dlc.mainForm = this.MdiParent as MainForm;
 			dlc.ShowDialog();
 		}
 	}

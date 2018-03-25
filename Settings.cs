@@ -176,7 +176,7 @@ internal class Settings
 	public static string SZ_DOWNLOADCONTACTS_SELECT_CONTACTS_TO_IMPORT = "Please select the contacts you would like to import";
 	public static string SZ_DOWNLOADCONTACTS_TOO_MANY = "Not all contacts could be imported because the maximum number of Digital Contacts has been reached";
 	public static string SZ_UNABLEDOWNLOADFROMINTERNET = "Unable to download data. Please check your Internet connection";
-
+	public static string SZ_IMPORT_COMPLETE = "Import complete";
 
 	public static int CUR_MODE;
 

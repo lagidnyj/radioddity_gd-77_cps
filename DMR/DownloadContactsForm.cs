@@ -12,7 +12,9 @@ namespace DMR
 {
 	public partial class DownloadContactsForm : Form
 	{
-		public ContactsForm parentForm;
+		public ContactsForm parentForm=null;
+		public MainForm mainForm=null;
+		public TreeNode treeNode = null;
 
 		public DownloadContactsForm()
 		{
@@ -40,7 +42,15 @@ namespace DMR
 			ContactForm.data[minIndex] = value;
 
 			int[] array = new int[3] {8,10,7};// Note array index 1 appears to be Private call in terms of the tree view
-			(parentForm.MdiParent as MainForm).InsertTreeViewNode(parentForm.Node, minIndex, typeof(ContactForm), array[1], ContactForm.data);
+			if (parentForm != null)
+			{
+				mainForm.InsertTreeViewNode(parentForm.Node, minIndex, typeof(ContactForm), array[1], ContactForm.data);
+			}
+			else
+			{
+				mainForm.InsertTreeViewNode(treeNode, minIndex, typeof(ContactForm), array[1], ContactForm.data);
+			}
+
 			return true;
 		}
 
@@ -128,8 +138,13 @@ namespace DMR
 						break;
 					}
 				}
-				parentForm.DispData();
-				(parentForm.MdiParent as MainForm).RefreshRelatedForm(base.GetType());
+				// need to check if the form has been opened from the Digital Contacts form or directly from the top level menu
+				if (parentForm != null)
+				{
+					parentForm.DispData();
+					mainForm.RefreshRelatedForm(base.GetType());
+				}
+				MessageBox.Show(Settings.dicCommon["DownloadContactsImportComplete"]);
 				this.Close();
 			}
 		}

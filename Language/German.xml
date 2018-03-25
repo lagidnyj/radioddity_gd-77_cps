@@ -428,7 +428,8 @@
 			<MenuItem Id="tsmiLanguage" Text="Sprache" />
 			<MenuItem Id="tsmiEnglish" Text="English" />
 			<MenuItem Id="tsmiChinese" Text="Chinese" />
-		</MenuStrip>
+      <MenuItem Id="tsmiExtras" Text="Extras" />
+    </MenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiAdd" Text="Hinzufügen" />
 			<MenuItem Id="tsmiClear" Text="Leeren" />
@@ -769,5 +770,6 @@
     <Item Id="DownloadContactsTooMany" Text="Not all contacts could be imported because the maximum number of Digital Contacts has been reached" />
     <Item Id="Warning" Text="Warning" />
     <Item Id="UnableDownloadFromInternet" Text="Unable to download data. Please check your Internet connection" />
+    <Item Id="DownloadContactsImportComplete" Text="Import complete" />    
   </Commons>
 </Resource>
