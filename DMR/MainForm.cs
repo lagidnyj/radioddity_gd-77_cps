@@ -3050,7 +3050,7 @@ namespace DMR
 			Array.Copy(array2, 0, array, Settings.ADDR_ONE_TOUCH, array2.Length);
 			array2 = Settings.smethod_61(TextMsgForm.data, Marshal.SizeOf(TextMsgForm.data.GetType()));
 			Array.Copy(array2, 0, array, Settings.ADDR_TEXT_MSG, array2.Length);
-			array2 = Settings.smethod_61(EncryptForm.data, Marshal.SizeOf(EmergencyForm.data.GetType()));
+			array2 = Settings.smethod_61(EncryptForm.data, Marshal.SizeOf(EncryptForm.data.GetType()));
 			Array.Copy(array2, 0, array, Settings.ADDR_ENCRYPT, array2.Length);
 			array2 = Settings.smethod_61(SignalingBasicForm.data, Marshal.SizeOf(SignalingBasicForm.data.GetType()));
 			Array.Copy(array2, 0, array, Settings.ADDR_SIGNALING_BASIC, array2.Length);
