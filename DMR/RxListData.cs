@@ -15,10 +15,13 @@ namespace DMR
 	{
 #if CP_VER_3_0_6
 		public const int CNT_RX_LIST = 128;
+		public const int CNT_RX_LIST_INDEX = 128;
+
 #elif CP_VER_3_1_X
 		public const int CNT_RX_LIST = 76;// works if you set this to 128
+		public const int CNT_RX_LIST_INDEX = 128; //List index remains at 128 even though only 76 are used. 
 #endif
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST_INDEX)]
 		private byte[] rxListIndex;
 
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
@@ -87,7 +90,7 @@ namespace DMR
 
 			//base._002Ector();
 			int num = 0;
-			this.rxListIndex = new byte[CNT_RX_LIST];
+			this.rxListIndex = new byte[CNT_RX_LIST_INDEX];
 			this.rxList = new RxListOneData[CNT_RX_LIST];
 			for (num = 0; num < this.Count; num++)
 			{
@@ -103,7 +106,7 @@ namespace DMR
 		{
 			if (index < CNT_RX_LIST)
 			{
-				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneData.LEN_RX_LIST_NAME)
+				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneData.CNT_CONTACT_PER_RX_LIST + 1)
 				{
 					return this.rxListIndex[index] - 1;
 				}
@@ -136,7 +139,7 @@ namespace DMR
 					{
 						break;
 					}
-					if (this.rxListIndex[num] > RxListOneData.LEN_RX_LIST_NAME)
+					if (this.rxListIndex[num] > RxListOneData.CNT_CONTACT_PER_RX_LIST+1)
 					{
 						break;
 					}
@@ -152,7 +155,7 @@ namespace DMR
 		{
 			if (this.rxListIndex[index] != 0)
 			{
-				return this.rxListIndex[index] <= RxListOneData.LEN_RX_LIST_NAME;
+				return this.rxListIndex[index] <= RxListOneData.CNT_CONTACT_PER_RX_LIST + 1;
 			}
 			return false;
 		}

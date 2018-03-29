@@ -28,7 +28,9 @@ namespace DMR
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_CONTACT_PER_RX_LIST)]
 		private ushort[] contactList;
 
-		private ushort reserve;
+#if CP_VER_3_0_6
+		private ushort reserve;					//Spare Ushort only present in 3-0-6 
+#endif
 
 		public string Name
 		{
