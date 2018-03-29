@@ -256,7 +256,7 @@ internal class Settings
 
 	public static readonly int SPACE_RX_GRP_LIST;
 
-	public static readonly int ADDR_RX_GRP_LIST;
+	//public static readonly int ADDR_RX_GRP_LIST;
 
 	public static readonly int ADDR_RX_GRP_LIST_EX;
 
@@ -1592,7 +1592,7 @@ internal class Settings
 		Settings.SPACE_DTMF_CONTACT = Marshal.SizeOf(typeof(DtmfContactForm.DtmfContact));
 		Settings.ADDR_DTMF_CONTACT = 12168;
 		Settings.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxListData));
-		Settings.ADDR_RX_GRP_LIST = 13352;
+		//Settings.ADDR_RX_GRP_LIST = 13352;
 		Settings.ADDR_RX_GRP_LIST_EX = 120352;
 		Settings.ADDR_ZONE_BASIC = 14136;
 		Settings.ADDR_ZONE_LIST = 14144;

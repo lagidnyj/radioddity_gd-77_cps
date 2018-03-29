@@ -299,7 +299,7 @@ namespace DMR
 			int num2 = this.lstUnselected.SelectedIndices[count - 1];
 			int num3 = 0;
 			this.lstSelected.SelectedItems.Clear();
-			while (this.lstUnselected.SelectedItems.Count > 0 && this.lstSelected.Items.Count < 15)
+			while (this.lstUnselected.SelectedItems.Count > 0 && this.lstSelected.Items.Count < RxListOneData.CNT_CONTACT_PER_RX_LIST)
 			{
 				num = this.lstSelected.Items.Count;
 				SelectedItemUtils @class = (SelectedItemUtils)this.lstUnselected.SelectedItems[0];
@@ -442,7 +442,7 @@ namespace DMR
 
 		private void method_4()
 		{
-			this.btnAdd.Enabled = (this.lstUnselected.Items.Count > 0 && this.lstSelected.Items.Count < 15);
+			this.btnAdd.Enabled = (this.lstUnselected.Items.Count > 0 && this.lstSelected.Items.Count < RxListOneData.CNT_CONTACT_PER_RX_LIST);
 			this.btnDel.Enabled = (this.lstSelected.Items.Count > 0);
 			int count = this.lstSelected.Items.Count;
 			int count2 = this.lstSelected.SelectedIndices.Count;

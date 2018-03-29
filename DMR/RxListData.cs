@@ -13,8 +13,11 @@ namespace DMR
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public class RxListData : IData
 	{
+#if CP_VER_3_0_6
 		public const int CNT_RX_LIST = 128;
-
+#elif CP_VER_3_1_X
+		public const int CNT_RX_LIST = 128;//76;
+#endif
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
 		private byte[] rxListIndex;
 
@@ -84,8 +87,8 @@ namespace DMR
 
 			//base._002Ector();
 			int num = 0;
-			this.rxListIndex = new byte[128];
-			this.rxList = new RxListOneData[128];
+			this.rxListIndex = new byte[CNT_RX_LIST];
+			this.rxList = new RxListOneData[CNT_RX_LIST];
 			for (num = 0; num < this.Count; num++)
 			{
 				this.rxList[num] = new RxListOneData(num);
@@ -98,7 +101,7 @@ namespace DMR
 
 		public int GetContactCntByIndex(int index)
 		{
-			if (index < 128)
+			if (index < CNT_RX_LIST)
 			{
 				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneData.LEN_RX_LIST_NAME)
 				{

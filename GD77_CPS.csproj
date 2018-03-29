@@ -48,6 +48,28 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
+    <DefineConstants>CP_VER_3_0_6</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_3.1.x|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_3.1.x\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>CP_VER_3_1_X</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_3.1.x|x86'">
+    <OutputPath>bin\Release_3.1.x\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>CP_VER_3_1_X</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DefineConstants>CP_VER_3_0_6</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,7 +89,6 @@
     <Compile Include="Class16.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DMR\RxListFW31x.cs" />
     <Compile Include="DMR\DownloadContactsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +101,8 @@
     <Compile Include="DMR\DMRIDForm.Designer.cs">
       <DependentUpon>DMRIDForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DMR\RxListFW306.cs" />
-    <Compile Include="DMR\RxListOneFW306.cs" />
-    <Compile Include="DMR\RxListOneFW31x.cs" />
+    <Compile Include="DMR\RxListData.cs" />
+    <Compile Include="DMR\RxListOneData.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -254,10 +274,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Data\Default.dat">
+    <None Include="Default306.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Default.dat">
+    <None Include="Default31X.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="DockPanel.config">

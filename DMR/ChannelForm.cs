@@ -780,7 +780,7 @@ namespace DMR
 					{
 						return Settings.SZ_NONE;
 					}
-					if (this.RxGroupList <= 128)
+					if (this.RxGroupList <= RxListData.CNT_RX_LIST)
 					{
 						return RxGroupListForm.data.GetName(this.RxGroupList - 1);
 					}
@@ -1480,7 +1480,7 @@ namespace DMR
 				}
 				Settings.smethod_11(ref this.rxColor, (byte)0, (byte)15, def.txColor);
 				this.rxColor = this.txColor;
-				if (this.rxGroupList != 0 && this.rxGroupList <= 128)
+				if (this.rxGroupList != 0 && this.rxGroupList <= RxListData.CNT_RX_LIST)
 				{
 					if (!RxGroupListForm.data.DataIsValid(this.rxGroupList - 1))
 					{

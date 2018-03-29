@@ -19,6 +19,14 @@ namespace DMR
 {
 	public class MainForm : Form
 	{
+
+#if CP_VER_3_0_6
+		private const string DEFAULT_DATA_FILE_NAME = "Default306.dat";
+#elif CP_VER_3_1_X
+		private const string DEFAULT_DATA_FILE_NAME = "Default31X.dat";
+#endif
+
+
 		private static string PRODUCT_NAME = ((AssemblyProductAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyProductAttribute), false)).Product;
 
 		private const int WM_SETFONT = 48;
@@ -1554,11 +1562,11 @@ namespace DMR
 		public void InitRxGroupLists(TreeNode parentNode)
 		{
 			int num = 0;
-			for (num = 0; num < 128; num++)
+			for (num = 0; num < RxListData.CNT_RX_LIST; num++)
 			{
 				if (RxGroupListForm.data.DataIsValid(num))
 				{
-					this.AddTreeViewNode(parentNode.Nodes, RxGroupListForm.data[num].Name, new TreeNodeItem(this.cmsSub, typeof(RxGroupListForm), null, 128, num, 19, RxGroupListForm.data));
+					this.AddTreeViewNode(parentNode.Nodes, RxGroupListForm.data[num].Name, new TreeNodeItem(this.cmsSub, typeof(RxGroupListForm), null, RxListData.CNT_RX_LIST, num, 19, RxGroupListForm.data));
 				}
 			}
 		}
@@ -2508,7 +2516,7 @@ namespace DMR
 
 		private void loadDefaultOrInitialFile(string overRideWithFile=null)
 		{
-			string text = Application.StartupPath + "\\Default.dat";
+			string text = Application.StartupPath + "\\" + DEFAULT_DATA_FILE_NAME;
 			if (overRideWithFile != null)
 			{
 				text = overRideWithFile;
@@ -3402,7 +3410,7 @@ namespace DMR
 			this.lstTreeNodeItem.Add(new TreeNodeItem(null, null, null, 0, -1, 17, null));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(null, typeof(DtmfContactForm), null, 0, -1, 49, null));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroupContact, typeof(ContactsForm), typeof(ContactForm), 1024, -1, 17, ContactForm.data));
-			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, null, typeof(RxGroupListForm), 128, -1, 17, RxGroupListForm.data));
+			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, null, typeof(RxGroupListForm), RxListData.CNT_RX_LIST, -1, 17, RxGroupListForm.data));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ZoneBasicForm), typeof(ZoneForm), 250, -1, 16, ZoneForm.data));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ChannelsForm), typeof(ChannelForm), ChannelForm.CurCntCh, -1, 17, ChannelForm.data));
 			this.lstTreeNodeItem.Add(new TreeNodeItem(this.cmsGroup, typeof(ScanBasicForm), typeof(NormalScanForm), 64, -1, 16, NormalScanForm.data));
