@@ -11,7 +11,7 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace DMR
 {
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public class RxListFW306 : IData
+	public class RxListData : IData
 	{
 		public const int CNT_RX_LIST = 128;
 
@@ -19,9 +19,9 @@ namespace DMR
 		private byte[] rxListIndex;
 
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
-		private RxListOneFW306[] rxList;
+		private RxListOneData[] rxList;
 
-		public RxListOneFW306 this[int index]
+		public RxListOneData this[int index]
 		{
 			get
 			{
@@ -79,16 +79,16 @@ namespace DMR
 			}
 		}
 
-		public RxListFW306()
+		public RxListData()
 		{
 
 			//base._002Ector();
 			int num = 0;
 			this.rxListIndex = new byte[128];
-			this.rxList = new RxListOneFW306[128];
+			this.rxList = new RxListOneData[128];
 			for (num = 0; num < this.Count; num++)
 			{
-				this.rxList[num] = new RxListOneFW306(num);
+				this.rxList[num] = new RxListOneData(num);
 			}
 		}
 
@@ -100,7 +100,7 @@ namespace DMR
 		{
 			if (index < 128)
 			{
-				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneFW306.LEN_RX_LIST_NAME)
+				if (this.rxListIndex[index] >= 2 && this.rxListIndex[index] <= RxListOneData.LEN_RX_LIST_NAME)
 				{
 					return this.rxListIndex[index] - 1;
 				}
@@ -133,7 +133,7 @@ namespace DMR
 					{
 						break;
 					}
-					if (this.rxListIndex[num] > RxListOneFW306.LEN_RX_LIST_NAME)
+					if (this.rxListIndex[num] > RxListOneData.LEN_RX_LIST_NAME)
 					{
 						break;
 					}
@@ -149,7 +149,7 @@ namespace DMR
 		{
 			if (this.rxListIndex[index] != 0)
 			{
-				return this.rxListIndex[index] <= RxListOneFW306.LEN_RX_LIST_NAME;
+				return this.rxListIndex[index] <= RxListOneData.LEN_RX_LIST_NAME;
 			}
 			return false;
 		}

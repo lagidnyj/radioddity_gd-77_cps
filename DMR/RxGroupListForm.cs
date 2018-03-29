@@ -36,7 +36,7 @@ namespace DMR
 
 		private CustomPanel pnlRxGrpList;
 
-		public static RxListFW306 data;
+		public static RxListData data;
 
 		public TreeNode Node
 		{
@@ -186,7 +186,7 @@ namespace DMR
 				{
 					this.txtName_Leave(this.txtName, null);
 				}
-				RxListOneFW306 value = new RxListOneFW306(num3);
+				RxListOneData value = new RxListOneData(num3);
 				value.Name = this.txtName.Text;
 				num2 = this.lstSelected.Items.Count;
 				ushort[] array = new ushort[num2];
@@ -487,7 +487,7 @@ namespace DMR
 		static RxGroupListForm()
 		{
 			
-			RxGroupListForm.data = new RxListFW306();
+			RxGroupListForm.data = new RxListData();
 		}
 	}
 }

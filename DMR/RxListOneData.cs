@@ -11,7 +11,7 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace DMR
 {
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct RxListOneFW306
+	public struct RxListOneData
 	{
 		public const int CNT_CONTACT_PER_RX_LIST = 15;
 		public const int LEN_RX_LIST_NAME = 16;
@@ -56,15 +56,15 @@ namespace DMR
 			get
 			{
 				List<ushort> list = new List<ushort>(this.contactList);
-				List<ushort> list2 = list.FindAll(RxListOneFW306.smethod_0);
+				List<ushort> list2 = list.FindAll(RxListOneData.smethod_0);
 				return (byte)list2.Count;
 			}
 		}
 
-		public RxListOneFW306(int index)
+		public RxListOneData(int index)
 		{
 
-			this = default(RxListOneFW306);
+			this = default(RxListOneData);
 			this.name = new byte[LEN_RX_LIST_NAME];
 			this.contactList = new ushort[CNT_CONTACT_PER_RX_LIST];
 		}
@@ -72,7 +72,7 @@ namespace DMR
 		public void Verify()
 		{
 			List<ushort> list = new List<ushort>(this.contactList);
-			List<ushort> list2 = list.FindAll(RxListOneFW306.smethod_1);
+			List<ushort> list2 = list.FindAll(RxListOneData.smethod_1);
 			while (list2.Count < this.contactList.Length)
 			{
 				list2.Add(0);
