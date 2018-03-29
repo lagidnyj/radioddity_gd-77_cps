@@ -2613,6 +2613,12 @@ namespace DMR
 				MainForm.CurFileName = fileName;
 				IniFileUtils.WriteProfileString("Setup", "LastFilePath", fileName);
 				this.closeAllForms();
+#if CP_VER_3_1_X
+				if (!checkCodeplugVersion311(array))			//Check to see if this is not a 3.1.1 codeplug
+				{
+					convertCodeplug(array);					     //Convert layout from 3.0.6 to 3.1.x
+				}
+#endif        
 				MainForm.ByteToData(array);
 				this.InitTree();
 				this.Text = getMainTitleStub() + " " + fileName;
@@ -3116,6 +3122,86 @@ namespace DMR
 			}
 			return array;
 		}
+
+#if CP_VER_3_1_X
+		//CJD  Check Codeplug and try to determine if it is a V3.1.1 type by looking at the Rx Group Entries. 
+
+		public static bool checkCodeplugVersion311(byte[] cplg)
+		{
+			UInt32 RxGroupIndexAdd = 0x1D620;
+			UInt32 RxGroupAdd = 0x1D6A0;
+			UInt16 RxGroupLength306 = 48;
+			byte c;
+
+			for(c=0;c<76;c++)
+			{
+				if (cplg[RxGroupIndexAdd+c] > 16)         //if any of the Rx Groups has >15 members it must be V3.1.1
+				{
+					return true;
+				}
+			}
+
+
+			if(cplg[RxGroupIndexAdd+1]>0)				//if there is a second Rx Group then check where its name is
+			{
+				c = cplg[RxGroupAdd + RxGroupLength306+1];	//Get the second character of the second Rx Group Name if it is 3.0.6 
+				if(c<4)							            //if it is 3.1.1 it will be <4  (1023 contacts=3FF)
+				{
+					return true;							//If it is then it must be 3.1.1
+				}
+			}
+
+			return false;
+		}
+
+
+		//CJD New function to convert from V3.1.1 to 3.0.6 format
+		public static void convertCodeplug(byte[] cplg)
+		{
+			MessageBox.Show("This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x");
+			byte[,] rxgroups= new byte[128,48];
+			int p;
+			int i;
+			UInt32 RxGroupAdd = 0x1D6A0;
+			UInt32 RxGroupIndexAdd = 0x1D620;
+
+			for (p=0;p<128;p++)
+			{
+				for(i=0;i<48;i++)
+				{
+					rxgroups[p, i] = cplg[RxGroupAdd + p * 48 + i];			//copy each 3.0.6 Rx group into temporary array
+				}
+
+			}
+
+			for (p = 0; p < 76; p++)
+			{
+				for (i = 0; i < 48; i++)
+				{
+					cplg[RxGroupAdd + p * 80 + i]= rxgroups[p, i];         //copy each Rx group back into 3.1.x location
+				}
+
+				for(i=48;i<80;i++)
+				{
+					cplg[RxGroupAdd + p * 80 + i] = 0;						//zero any entries above first 16
+				}
+			}
+
+			i = 0;
+			for(p=76;p<128;p++)
+			{
+				if (cplg[RxGroupIndexAdd + p] > 0) i++;					//Count any rxgroups above 76
+				cplg[RxGroupIndexAdd + p] = 0;							//Remove any indexes above 76 
+			}
+
+			if(i>0)
+			{
+				MessageBox.Show("Version 3.1.x can only have 76 Rx Groups. Additional Groups have been ignored");
+			}
+
+		}
+
+#endif
 
 		// This function reads the binary data e.g codeplug file and stores the data into the internal storage structures
 		public static void ByteToData(byte[] eerom)
