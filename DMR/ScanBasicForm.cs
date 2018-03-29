@@ -134,7 +134,7 @@ namespace DMR
 			{
 				get
 				{
-					if (this.scanTime >= 1 && this.digitHang <= 13)
+					if (this.scanTime >= 1 && this.scanTime <= 13)
 					{
 						return this.scanTime * 5;
 					}
