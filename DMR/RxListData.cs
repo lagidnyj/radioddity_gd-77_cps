@@ -16,7 +16,7 @@ namespace DMR
 #if CP_VER_3_0_6
 		public const int CNT_RX_LIST = 128;
 #elif CP_VER_3_1_X
-		public const int CNT_RX_LIST = 128;//76;
+		public const int CNT_RX_LIST = 76;// works if you set this to 128
 #endif
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = CNT_RX_LIST)]
 		private byte[] rxListIndex;
