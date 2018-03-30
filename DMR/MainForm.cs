@@ -3132,10 +3132,7 @@ namespace DMR
 
 		public static bool checkCodeplugVersion311(byte[] cplg)
 		{
-			//UInt32 RxGroupIndexAdd = 0x1D620;
-			//const UInt32 RxGroupAdd = 0x1D6A0;
-			const UInt32 RxGroupAddOffset = 0x80;
-			const UInt16 RxGroupLength306 = 48;
+			const UInt16 RxGroupLength306 = 48;				//there are 48 bytes in each Rx Group for V3.0.6
 			byte c;
 
 			for(c=0;c<76;c++)
@@ -3149,14 +3146,14 @@ namespace DMR
 
 			if (cplg[Settings.ADDR_RX_GRP_LIST_EX + 1] > 0)				//if there is a second Rx Group then check where its name is
 			{
-				c = cplg[Settings.ADDR_RX_GRP_LIST_EX + RxGroupAddOffset + RxGroupLength306 + 1];	//Get the second character of the second Rx Group Name if it is 3.0.6 
-				if(c>=4)							            //if it is 3.1.1 it will be <4  (1023 contacts=3FF)
+				c = cplg[Settings.ADDR_RX_GRP_LIST_EX + RxListData.CNT_RX_LIST_INDEX + RxGroupLength306 + 1];   //Get the second character of the second Rx Group Name (Assuming it is 3.0.6) 
+				if (c>3)                                        //If it is 3.0.6 it will be an ascii character. If it is 3.1.x then it will be the high byte of a channel number which must be <4. 
 				{
-					return false;							//If it is then it must be 3.1.1
+					return false;								//If it is >3 then it must be 3.0.6
 				}
 			}
 
-			return true;
+			return true;							//if it was neither of the above then we can't tell what version it is so we must assume it is 3.1.x
 		}
 
 

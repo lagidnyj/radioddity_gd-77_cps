@@ -3043,6 +3043,11 @@ namespace DMR
 			this.lblScanList.TabIndex = 23;
 			this.lblScanList.Text = "Scan List";
 			this.lblScanList.TextAlign = ContentAlignment.MiddleRight;
+#if CP_VER_3_1_X
+			this.lblScanList.Visible = false;					//disable unused items for VFO mode. 
+			this.chkAutoScan.Visible = false;
+			this.cmbScanList.Visible = false;
+#endif
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
 //			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(1104, 684);
