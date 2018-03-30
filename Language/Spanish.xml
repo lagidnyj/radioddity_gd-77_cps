@@ -773,6 +773,8 @@
     <Item Id="DownloadContactsTooMany" Text="No todos los contactos pudieron ser importados. Se ha alcanzado el número máximo de Contactos Digitales" />
     <Item Id="Warning" Text="Aviso" />
     <Item Id="UnableDownloadFromInternet" Text="Imposible descargar los datos. Compruebe su conexión a Internet" />
-    <Item Id="DownloadContactsImportComplete" Text="Import complete" />    
+    <Item Id="DownloadContactsImportComplete" Text="Import complete" />
+    <Item Id="CodeplugUpgradeNotice" Text="This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x" />
+    <Item Id="CodeplugUpgradeWarningToManyRxGroups" Text="Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored" />    
   </Commons>
 </Resource>

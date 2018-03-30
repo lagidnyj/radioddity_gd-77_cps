@@ -771,5 +771,7 @@
     <Item Id="Warning" Text="Warning" />
     <Item Id="UnableDownloadFromInternet" Text="Unable to download data. Please check your Internet connection" />
     <Item Id="DownloadContactsImportComplete" Text="Import complete" />
+    <Item Id="CodeplugUpgradeNotice" Text="This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x" />
+    <Item Id="CodeplugUpgradeWarningToManyRxGroups" Text="Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored" />
   </Commons>
 </Resource>

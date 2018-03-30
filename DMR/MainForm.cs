@@ -1037,7 +1037,11 @@ namespace DMR
 			Settings.dicCommon.Add("DownloadContactsTooMany", Settings.SZ_DOWNLOADCONTACTS_TOO_MANY);
 			Settings.dicCommon.Add("Warning", Settings.SZ_WARNING);
 			Settings.dicCommon.Add("UnableDownloadFromInternet", Settings.SZ_UNABLEDOWNLOADFROMINTERNET);
-			Settings.dicCommon.Add("DownloadContactsImportComplete", Settings.SZ_IMPORT_COMPLETE);			
+			Settings.dicCommon.Add("DownloadContactsImportComplete", Settings.SZ_IMPORT_COMPLETE);
+			Settings.dicCommon.Add("CodeplugUpgradeNotice", Settings.SZ_CODEPLUG_UPGRADE_NOTICE);
+			Settings.dicCommon.Add("CodeplugUpgradeWarningToManyRxGroups", Settings.SZ_CODEPLUG_UPGRADE_WARNING_TO_MANY_RX_GROUPS);		
+
+
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
@@ -3128,30 +3132,31 @@ namespace DMR
 
 		public static bool checkCodeplugVersion311(byte[] cplg)
 		{
-			UInt32 RxGroupIndexAdd = 0x1D620;
-			UInt32 RxGroupAdd = 0x1D6A0;
-			UInt16 RxGroupLength306 = 48;
+			//UInt32 RxGroupIndexAdd = 0x1D620;
+			//const UInt32 RxGroupAdd = 0x1D6A0;
+			const UInt32 RxGroupAddOffset = 0x80;
+			const UInt16 RxGroupLength306 = 48;
 			byte c;
 
 			for(c=0;c<76;c++)
 			{
-				if (cplg[RxGroupIndexAdd+c] > 16)         //if any of the Rx Groups has >15 members it must be V3.1.1
+				if (cplg[Settings.ADDR_RX_GRP_LIST_EX + c] > 16)         //if any of the Rx Groups has >15 members it must be V3.1.1
 				{
 					return true;
 				}
 			}
 
 
-			if(cplg[RxGroupIndexAdd+1]>0)				//if there is a second Rx Group then check where its name is
+			if (cplg[Settings.ADDR_RX_GRP_LIST_EX + 1] > 0)				//if there is a second Rx Group then check where its name is
 			{
-				c = cplg[RxGroupAdd + RxGroupLength306+1];	//Get the second character of the second Rx Group Name if it is 3.0.6 
-				if(c<4)							            //if it is 3.1.1 it will be <4  (1023 contacts=3FF)
+				c = cplg[Settings.ADDR_RX_GRP_LIST_EX + RxGroupAddOffset + RxGroupLength306 + 1];	//Get the second character of the second Rx Group Name if it is 3.0.6 
+				if(c>=4)							            //if it is 3.1.1 it will be <4  (1023 contacts=3FF)
 				{
-					return true;							//If it is then it must be 3.1.1
+					return false;							//If it is then it must be 3.1.1
 				}
 			}
 
-			return false;
+			return true;
 		}
 
 
@@ -3162,14 +3167,13 @@ namespace DMR
 			byte[,] rxgroups= new byte[128,48];
 			int p;
 			int i;
-			UInt32 RxGroupAdd = 0x1D6A0;
-			UInt32 RxGroupIndexAdd = 0x1D620;
+			const UInt32 RxGroupAddOffset = 0x80;
 
 			for (p=0;p<128;p++)
 			{
 				for(i=0;i<48;i++)
 				{
-					rxgroups[p, i] = cplg[RxGroupAdd + p * 48 + i];			//copy each 3.0.6 Rx group into temporary array
+					rxgroups[p, i] = cplg[Settings.ADDR_RX_GRP_LIST_EX + RxGroupAddOffset + p * 48 + i];			//copy each 3.0.6 Rx group into temporary array
 				}
 
 			}
@@ -3178,25 +3182,25 @@ namespace DMR
 			{
 				for (i = 0; i < 48; i++)
 				{
-					cplg[RxGroupAdd + p * 80 + i]= rxgroups[p, i];         //copy each Rx group back into 3.1.x location
+					cplg[Settings.ADDR_RX_GRP_LIST_EX + RxGroupAddOffset + p * 80 + i] = rxgroups[p, i];         //copy each Rx group back into 3.1.x location
 				}
 
 				for(i=48;i<80;i++)
 				{
-					cplg[RxGroupAdd + p * 80 + i] = 0;						//zero any entries above first 16
+					cplg[Settings.ADDR_RX_GRP_LIST_EX + RxGroupAddOffset + p * 80 + i] = 0;						//zero any entries above first 16
 				}
 			}
 
 			i = 0;
 			for(p=76;p<128;p++)
 			{
-				if (cplg[RxGroupIndexAdd + p] > 0) i++;					//Count any rxgroups above 76
-				cplg[RxGroupIndexAdd + p] = 0;							//Remove any indexes above 76 
+				if (cplg[Settings.ADDR_RX_GRP_LIST_EX + p] > 0) i++;					//Count any rxgroups above 76
+				cplg[Settings.ADDR_RX_GRP_LIST_EX + p] = 0;							//Remove any indexes above 76 
 			}
 
 			if(i>0)
 			{
-				MessageBox.Show("Version 3.1.x can only have 76 Rx Groups. Additional Groups have been ignored");
+				MessageBox.Show("Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored");
 			}
 
 		}

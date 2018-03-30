@@ -178,6 +178,9 @@ internal class Settings
 	public static string SZ_UNABLEDOWNLOADFROMINTERNET = "Unable to download data. Please check your Internet connection";
 	public static string SZ_IMPORT_COMPLETE = "Import complete";
 
+	public static string SZ_CODEPLUG_UPGRADE_NOTICE = "This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x";
+	public static string SZ_CODEPLUG_UPGRADE_WARNING_TO_MANY_RX_GROUPS = "Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored";
+
 	public static int CUR_MODE;
 
 	public static uint[] MIN_FREQ;
@@ -1593,7 +1596,7 @@ internal class Settings
 		Settings.ADDR_DTMF_CONTACT = 12168;
 		Settings.SPACE_RX_GRP_LIST = Marshal.SizeOf(typeof(RxListData));
 		//Settings.ADDR_RX_GRP_LIST = 13352;
-		Settings.ADDR_RX_GRP_LIST_EX = 120352;
+		Settings.ADDR_RX_GRP_LIST_EX = 0x1D620;// 120352;
 		Settings.ADDR_ZONE_BASIC = 14136;
 		Settings.ADDR_ZONE_LIST = 14144;
 		Settings.ADDR_CHANNEL = 14208;
