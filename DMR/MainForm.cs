@@ -3163,7 +3163,7 @@ namespace DMR
 		//CJD New function to convert from V3.1.1 to 3.0.6 format
 		public static void convertCodeplug(byte[] cplg)
 		{
-			MessageBox.Show("This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x");
+			MessageBox.Show(Settings.dicCommon["CodeplugUpgradeNotice"]);
 			byte[,] rxgroups= new byte[128,48];
 			int p;
 			int i;
@@ -3200,7 +3200,7 @@ namespace DMR
 
 			if(i>0)
 			{
-				MessageBox.Show("Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored");
+				MessageBox.Show(Settings.dicCommon["CodeplugUpgradeWarningToManyRxGroups"]);
 			}
 
 		}
