@@ -584,6 +584,7 @@
 	</SignalingBasicForm>
 	<ScanBasicForm Text="Scan Basic">
 		<Controls>
+      <Control Id="lblScanTime" Text="Scan Time [s]" />
 			<Control Id="lblDigitHang" Text="Digital Hang Time [ms]" />
 			<Control Id="lblAnalogHang" Text="Analog Hang Time [ms]" />
 			<Control Id="lblVoteHang" Text="Vote Scan Hang Time [s]" />

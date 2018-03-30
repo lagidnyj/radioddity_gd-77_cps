@@ -584,6 +584,7 @@
 	</SignalingBasicForm>
 	<ScanBasicForm Text="Suchlauf Grundeinstellungen">
 		<Controls>
+      <Control Id="lblScanTime" Text="Scan Time [s]" />
 			<Control Id="lblDigitHang" Text="Digitale Haltezeit [ms]" />
 			<Control Id="lblAnalogHang" Text="Analoge Haltezeit [ms]" />
 			<Control Id="lblVoteHang" Text="Vote Scan Hang Time [s]" />

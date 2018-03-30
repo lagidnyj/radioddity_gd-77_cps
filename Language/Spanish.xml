@@ -584,6 +584,7 @@
 	</SignalingBasicForm>
 	<ScanBasicForm Text="Configuración Exploración">
 		<Controls>
+      <Control Id="lblScanTime" Text="Scan Time [s]" />
 			<Control Id="lblDigitHang" Text="Tiempo Caida Digital [ms]" />
 			<Control Id="lblAnalogHang" Text="Tiempo Caida Analógico [ms]" />
 			<Control Id="lblVoteHang" Text="Tiempo Caida Itinerancia [s]" />
