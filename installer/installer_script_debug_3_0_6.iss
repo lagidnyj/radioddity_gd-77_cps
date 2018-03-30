@@ -4,7 +4,7 @@
 #define MyAppName "Radioddity GD-77 CPS 3.0.6 - Community Edition"
 #define MyAppVersion "3.0.6.0"
 #define MyAppURL "https://github.com/rogerclarkmelbourne/radioddity_gd-77_cps2.0.5"
-#define MyAppExeName "GD77CPS306.exe"
+#define MyAppExeName "GD77CPS.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -44,18 +44,18 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\bin\Debug\GD77CPS306.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\GD77CPS306.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\Default.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\GD77CPS306.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Debug\GD77CPS.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Debug\GD77CPS.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Debug\Default306.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Debug\GD77CPS.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\DockPanel.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\help.xml"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS306CommunityEdition\1.0.0.0";   Flags: ignoreversion; 
-;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPS306CommunityEdition\1.0.0.0";   Flags: ignoreversion; Components: normal; 
+;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPSCommunityEdition\1.0.0.0";   Flags: ignoreversion; 
+;Source: "..\Setup.ini"; DestDir: "{localappdata}\RadioddityCommunity\GD77CPSCommunityEdition\1.0.0.0";   Flags: ignoreversion; Components: normal; 
 Source: "..\Setup.ini"; DestDir: "{app}";  Components: portable; Flags: ignoreversion
 Source: "..\bin\Debug\Tone.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Debug\Data\Default.dat"; DestDir: "{app}\Data"; Components: portable; Flags: ignoreversion
+;Source: "..\bin\Debug\Data\Default.dat"; DestDir: "{app}\Data"; Components: portable; Flags: ignoreversion
 Source: "..\bin\Debug\Language\English.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Debug\Language\English.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\bin\Debug\Language\German.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
