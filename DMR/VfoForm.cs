@@ -3043,11 +3043,19 @@ namespace DMR
 			this.lblScanList.TabIndex = 23;
 			this.lblScanList.Text = "Scan List";
 			this.lblScanList.TextAlign = ContentAlignment.MiddleRight;
-#if CP_VER_3_1_X
-			this.lblScanList.Visible = false;					//disable unused items for VFO mode. 
+
+			/*
+			 * 
+			 * Disable unused items for VFO mode.
+			 * 
+			 * Radioddity did this in version 3.1.x of the official CPS but this issue also applies to existing version(s) e.g. 3.0.6
+			 * So I have removed it as a bug fix to both.
+			 * 
+			this.lblScanList.Visible = false;					
 			this.chkAutoScan.Visible = false;
 			this.cmbScanList.Visible = false;
-#endif
+			*/
+
 			base.AutoScaleDimensions = new SizeF(6f, 12f);
 //			base.AutoScaleMode = AutoScaleMode.Font;
 			base.ClientSize = new Size(1104, 684);
