@@ -56,71 +56,24 @@ namespace DMR
 
 		private void InitializeComponent()
 		{
-			this.btnDel = new Button();
-			this.btnAdd = new Button();
-			this.lstSelected = new ListBox();
-			this.lstUnselected = new ListBox();
-			this.lblName = new Label();
-			this.grpUnselected = new GroupBox();
-			this.grpSelected = new GroupBox();
 			this.pnlRxGrpList = new CustomPanel();
-			this.btnDown = new Button();
-			this.btnUp = new Button();
-			this.txtName = new SGTextBox();
-			this.grpUnselected.SuspendLayout();
-			this.grpSelected.SuspendLayout();
+			this.btnDown = new System.Windows.Forms.Button();
+			this.btnUp = new System.Windows.Forms.Button();
+			this.txtName = new DMR.SGTextBox();
+			this.grpSelected = new System.Windows.Forms.GroupBox();
+			this.lstSelected = new System.Windows.Forms.ListBox();
+			this.btnAdd = new System.Windows.Forms.Button();
+			this.grpUnselected = new System.Windows.Forms.GroupBox();
+			this.lstUnselected = new System.Windows.Forms.ListBox();
+			this.btnDel = new System.Windows.Forms.Button();
+			this.lblName = new System.Windows.Forms.Label();
 			this.pnlRxGrpList.SuspendLayout();
-			base.SuspendLayout();
-			this.btnDel.Location = new Point(295, 276);
-			this.btnDel.Name = "btnDel";
-			this.btnDel.Size = new Size(75, 23);
-			this.btnDel.TabIndex = 4;
-			this.btnDel.Text = "Delete";
-			this.btnDel.UseVisualStyleBackColor = true;
-			this.btnDel.Click += this.btnDel_Click;
-			this.btnAdd.Location = new Point(295, 224);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new Size(75, 23);
-			this.btnAdd.TabIndex = 3;
-			this.btnAdd.Text = "Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += this.btnAdd_Click;
-			this.lstSelected.FormattingEnabled = true;
-			this.lstSelected.ItemHeight = 16;
-			this.lstSelected.Location = new Point(39, 28);
-			this.lstSelected.Name = "lstSelected";
-			this.lstSelected.SelectionMode = SelectionMode.MultiExtended;
-			this.lstSelected.Size = new Size(120, 356);
-			this.lstSelected.TabIndex = 5;
-			this.lstSelected.SelectedIndexChanged += this.lstSelected_SelectedIndexChanged;
-			this.lstSelected.DoubleClick += this.lstSelected_DoubleClick;
-			this.lstUnselected.FormattingEnabled = true;
-			this.lstUnselected.ItemHeight = 16;
-			this.lstUnselected.Location = new Point(44, 28);
-			this.lstUnselected.Name = "lstUnselected";
-			this.lstUnselected.SelectionMode = SelectionMode.MultiExtended;
-			this.lstUnselected.Size = new Size(120, 356);
-			this.lstUnselected.TabIndex = 2;
-			this.lblName.Location = new Point(226, 50);
-			this.lblName.Name = "lblName";
-			this.lblName.Size = new Size(64, 23);
-			this.lblName.TabIndex = 0;
-			this.lblName.Text = "Name";
-			this.lblName.TextAlign = ContentAlignment.MiddleRight;
-			this.grpUnselected.Controls.Add(this.lstUnselected);
-			this.grpUnselected.Location = new Point(73, 99);
-			this.grpUnselected.Name = "grpUnselected";
-			this.grpUnselected.Size = new Size(201, 414);
-			this.grpUnselected.TabIndex = 6;
-			this.grpUnselected.TabStop = false;
-			this.grpUnselected.Text = "Available";
-			this.grpSelected.Controls.Add(this.lstSelected);
-			this.grpSelected.Location = new Point(392, 97);
-			this.grpSelected.Name = "grpSelected";
-			this.grpSelected.Size = new Size(201, 415);
-			this.grpSelected.TabIndex = 7;
-			this.grpSelected.TabStop = false;
-			this.grpSelected.Text = "Member";
+			this.grpSelected.SuspendLayout();
+			this.grpUnselected.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// pnlRxGrpList
+			// 
 			this.pnlRxGrpList.AutoScroll = true;
 			this.pnlRxGrpList.AutoSize = true;
 			this.pnlRxGrpList.Controls.Add(this.btnDown);
@@ -131,47 +84,129 @@ namespace DMR
 			this.pnlRxGrpList.Controls.Add(this.grpUnselected);
 			this.pnlRxGrpList.Controls.Add(this.btnDel);
 			this.pnlRxGrpList.Controls.Add(this.lblName);
-			this.pnlRxGrpList.Dock = DockStyle.Fill;
-			this.pnlRxGrpList.Location = new Point(0, 0);
+			this.pnlRxGrpList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlRxGrpList.Location = new System.Drawing.Point(0, 0);
 			this.pnlRxGrpList.Name = "pnlRxGrpList";
-			this.pnlRxGrpList.Size = new Size(724, 562);
+			this.pnlRxGrpList.Size = new System.Drawing.Size(693, 514);
 			this.pnlRxGrpList.TabIndex = 8;
-			this.btnDown.Location = new Point(624, 276);
+			// 
+			// btnDown
+			// 
+			this.btnDown.Location = new System.Drawing.Point(598, 276);
 			this.btnDown.Name = "btnDown";
-			this.btnDown.Size = new Size(75, 23);
+			this.btnDown.Size = new System.Drawing.Size(75, 23);
 			this.btnDown.TabIndex = 9;
 			this.btnDown.Text = "Down";
 			this.btnDown.UseVisualStyleBackColor = true;
-			this.btnDown.Click += this.btnDown_Click;
-			this.btnUp.Location = new Point(624, 224);
+			this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+			// 
+			// btnUp
+			// 
+			this.btnUp.Location = new System.Drawing.Point(598, 224);
 			this.btnUp.Name = "btnUp";
-			this.btnUp.Size = new Size(75, 23);
+			this.btnUp.Size = new System.Drawing.Size(75, 23);
 			this.btnUp.TabIndex = 8;
 			this.btnUp.Text = "Up";
 			this.btnUp.UseVisualStyleBackColor = true;
-			this.btnUp.Click += this.btnUp_Click;
+			this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+			// 
+			// txtName
+			// 
 			this.txtName.InputString = null;
-			this.txtName.Location = new Point(299, 50);
+			this.txtName.Location = new System.Drawing.Point(100, 12);
 			this.txtName.MaxByteLength = 0;
 			this.txtName.Name = "txtName";
-			this.txtName.Size = new Size(115, 23);
+			this.txtName.Size = new System.Drawing.Size(115, 23);
 			this.txtName.TabIndex = 1;
-			this.txtName.Leave += this.txtName_Leave;
-			base.AutoScaleDimensions = new SizeF(7f, 16f);
-//			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(724, 562);
-			base.Controls.Add(this.pnlRxGrpList);
-			this.Font = new Font("Arial", 10f, FontStyle.Regular);
-			base.Name = "RxGroupListForm";
+			this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
+			// 
+			// grpSelected
+			// 
+			this.grpSelected.Controls.Add(this.lstSelected);
+			this.grpSelected.Location = new System.Drawing.Point(353, 50);
+			this.grpSelected.Name = "grpSelected";
+			this.grpSelected.Size = new System.Drawing.Size(230, 440);
+			this.grpSelected.TabIndex = 7;
+			this.grpSelected.TabStop = false;
+			this.grpSelected.Text = "Member";
+			// 
+			// lstSelected
+			// 
+			this.lstSelected.FormattingEnabled = true;
+			this.lstSelected.ItemHeight = 16;
+			this.lstSelected.Location = new System.Drawing.Point(25, 25);
+			this.lstSelected.Name = "lstSelected";
+			this.lstSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+			this.lstSelected.Size = new System.Drawing.Size(180, 388);
+			this.lstSelected.TabIndex = 5;
+			this.lstSelected.SelectedIndexChanged += new System.EventHandler(this.lstSelected_SelectedIndexChanged);
+			this.lstSelected.DoubleClick += new System.EventHandler(this.lstSelected_DoubleClick);
+			// 
+			// btnAdd
+			// 
+			this.btnAdd.Location = new System.Drawing.Point(258, 224);
+			this.btnAdd.Name = "btnAdd";
+			this.btnAdd.Size = new System.Drawing.Size(75, 23);
+			this.btnAdd.TabIndex = 3;
+			this.btnAdd.Text = "Add";
+			this.btnAdd.UseVisualStyleBackColor = true;
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+			// 
+			// grpUnselected
+			// 
+			this.grpUnselected.Controls.Add(this.lstUnselected);
+			this.grpUnselected.Location = new System.Drawing.Point(10, 50);
+			this.grpUnselected.Name = "grpUnselected";
+			this.grpUnselected.Size = new System.Drawing.Size(230, 440);
+			this.grpUnselected.TabIndex = 6;
+			this.grpUnselected.TabStop = false;
+			this.grpUnselected.Text = "Available";
+			// 
+			// lstUnselected
+			// 
+			this.lstUnselected.FormattingEnabled = true;
+			this.lstUnselected.ItemHeight = 16;
+			this.lstUnselected.Location = new System.Drawing.Point(25, 25);
+			this.lstUnselected.Name = "lstUnselected";
+			this.lstUnselected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+			this.lstUnselected.Size = new System.Drawing.Size(180, 388);
+			this.lstUnselected.TabIndex = 2;
+			// 
+			// btnDel
+			// 
+			this.btnDel.Location = new System.Drawing.Point(258, 276);
+			this.btnDel.Name = "btnDel";
+			this.btnDel.Size = new System.Drawing.Size(75, 23);
+			this.btnDel.TabIndex = 4;
+			this.btnDel.Text = "Delete";
+			this.btnDel.UseVisualStyleBackColor = true;
+			this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+			// 
+			// lblName
+			// 
+			this.lblName.Location = new System.Drawing.Point(7, 12);
+			this.lblName.Name = "lblName";
+			this.lblName.Size = new System.Drawing.Size(86, 23);
+			this.lblName.TabIndex = 0;
+			this.lblName.Text = "Name";
+			this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// RxGroupListForm
+			// 
+			this.ClientSize = new System.Drawing.Size(693, 514);
+			this.Controls.Add(this.pnlRxGrpList);
+			this.Font = new System.Drawing.Font("Arial", 10F);
+			this.Name = "RxGroupListForm";
 			this.Text = "Rx Group List";
-			base.Load += this.RxGroupListForm_Load;
-			base.FormClosing += this.RxGroupListForm_FormClosing;
-			this.grpUnselected.ResumeLayout(false);
-			this.grpSelected.ResumeLayout(false);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RxGroupListForm_FormClosing);
+			this.Load += new System.EventHandler(this.RxGroupListForm_Load);
 			this.pnlRxGrpList.ResumeLayout(false);
 			this.pnlRxGrpList.PerformLayout();
-			base.ResumeLayout(false);
-			base.PerformLayout();
+			this.grpSelected.ResumeLayout(false);
+			this.grpUnselected.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		public void SaveData()
