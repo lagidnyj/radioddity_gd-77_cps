@@ -296,9 +296,7 @@
     <None Include="Language\Spanish.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Setup.ini">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Setup.ini" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DMR\aR3nbf8dQp2feLmk31.lSfgApatkdxsVcGcrktoFd.resx" />

@@ -1114,14 +1114,15 @@ namespace DMR
 			}
 			else
 			{
-				if (IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath","")=="")
+				string tmp = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", "");
+				if ("" == tmp)
 				{
 					this.loadDefaultOrInitialFile();
 				}
 				else
 				{
 					lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-					if (File.Exists(lastFileName))
+					if (lastFileName!=null && lastFileName != "" && File.Exists(lastFileName))
 					{
 						openCodeplugFile(lastFileName);
 					}
@@ -2553,19 +2554,23 @@ namespace DMR
 			//string text = Application.StartupPath + "\\Data";
 		
 			string lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", "");
-			if (lastFileName == "")
+			try
 			{
-				initialDirectory = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));//Application.StartupPath + "\\Data"); 
+				if (lastFileName == "")
+				{
+					initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+				}
+				else
+				{
+					initialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+				}
 			}
-			else
+			catch (Exception)
 			{
-				initialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+				initialDirectory = "";
 			}
-			/*
-			if (!Directory.Exists(text))
-			{
-				Directory.CreateDirectory(text);
-			}*/
+
+
 			try
 			{
 				if (string.IsNullOrEmpty(MainForm.CurFileName))
@@ -2634,14 +2639,20 @@ namespace DMR
 			try
 			{
 				string lastFileName = IniFileUtils.getProfileStringWithDefault("Setup", "LastFilePath", "");
-				//Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-				if (lastFileName == "")
+				try
 				{
-					this.ofdMain.InitialDirectory = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));//Application.StartupPath + "\\Data"); 
+					if (null == lastFileName || "" == lastFileName)
+					{
+						this.ofdMain.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					}
+					else
+					{
+						this.ofdMain.InitialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+					}
 				}
-				else
+				catch (Exception)
 				{
-					this.ofdMain.InitialDirectory = Path.GetDirectoryName(lastFileName);//Application.StartupPath + "\\Data"); 
+					this.ofdMain.InitialDirectory = "";
 				}
 				DialogResult dialogResult = this.ofdMain.ShowDialog();
 				if (dialogResult == DialogResult.OK && !string.IsNullOrEmpty(this.ofdMain.FileName))
