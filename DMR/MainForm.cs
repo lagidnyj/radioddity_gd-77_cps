@@ -26,6 +26,7 @@ namespace DMR
 		private const string DEFAULT_DATA_FILE_NAME = "Default31X.dat";
 #endif
 
+		public static byte[] CommsBuffer=null;// = new byte[0x10000];
 
 		private static string PRODUCT_NAME = ((AssemblyProductAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyProductAttribute), false)).Product;
 
@@ -199,6 +200,7 @@ namespace DMR
 
 		private ToolStripMenuItem tsmiContactsDownload;
 		private ToolStripMenuItem tsmiDMRID;
+		private ToolStripMenuItem tsmiCalibration;
 
 
 		private DeserializeDockContent m_deserializeDockContent;
@@ -319,6 +321,7 @@ namespace DMR
 			this.tsmiExtras = new ToolStripMenuItem();
 			this.tsmiContactsDownload = new ToolStripMenuItem();
 			this.tsmiDMRID = new ToolStripMenuItem();
+			this.tsmiCalibration = new ToolStripMenuItem();
 			
 			this.tsmiWindow = new ToolStripMenuItem();
 			this.tsmiCascade = new ToolStripMenuItem();
@@ -608,10 +611,11 @@ namespace DMR
 			this.tsmiExtras.Name = "tsmiExtras";
 			this.tsmiExtras.Size = new Size(77, 21);
 			this.tsmiExtras.Text = "Extras";
-			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[2]// was 3
+			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[3]
 			{
 				this.tsmiContactsDownload,
-				this.tsmiDMRID
+				this.tsmiCalibration,
+				this.tsmiDMRID,
 			});
 
 			this.tsmiContactsDownload.Name = "tsmiContactsDownload";
@@ -626,6 +630,13 @@ namespace DMR
 			this.tsmiDMRID.Text = "DMR ID";
 			this.tsmiDMRID.Enabled = true;
 			this.tsmiDMRID.Click += this.tsbtnDMRID_Click;
+
+			this.tsmiCalibration.Name = "tsmiCalibration";
+			//this.tsmiCalibration.ShortcutKeys = (Keys)131154;
+			this.tsmiCalibration.Size = new Size(156, 22);
+			this.tsmiCalibration.Text = "Calibration";
+			this.tsmiCalibration.Enabled = true;
+			this.tsmiCalibration.Click += new EventHandler(this.tsbtnCalibration_Click);
 
 
 			this.tsmiWindow.DropDownItems.AddRange(new ToolStripItem[4]
@@ -1039,9 +1050,14 @@ namespace DMR
 			Settings.dicCommon.Add("UnableDownloadFromInternet", Settings.SZ_UNABLEDOWNLOADFROMINTERNET);
 			Settings.dicCommon.Add("DownloadContactsImportComplete", Settings.SZ_IMPORT_COMPLETE);
 			Settings.dicCommon.Add("CodeplugUpgradeNotice", Settings.SZ_CODEPLUG_UPGRADE_NOTICE);
-			Settings.dicCommon.Add("CodeplugUpgradeWarningToManyRxGroups", Settings.SZ_CODEPLUG_UPGRADE_WARNING_TO_MANY_RX_GROUPS);		
+			Settings.dicCommon.Add("CodeplugUpgradeWarningToManyRxGroups", Settings.SZ_CODEPLUG_UPGRADE_WARNING_TO_MANY_RX_GROUPS);
 
-
+			Settings.dicCommon.Add("CodeplugRead", Settings.SZ_CODEPLUG_READ);
+			Settings.dicCommon.Add("CodeplugWrite", Settings.SZ_CODEPLUG_WRITE);
+			Settings.dicCommon.Add("DMRIDRead", Settings.SZ_DMRID_READ);
+			Settings.dicCommon.Add("DMRIDWrite", Settings.SZ_DMRID_WRITE);
+			Settings.dicCommon.Add("CalibrationRead", Settings.SZ_CALIBRATION_READ);
+			Settings.dicCommon.Add("CalibrationWrite", Settings.SZ_CALIBRATION_WRITE);	
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
@@ -2869,6 +2885,24 @@ namespace DMR
 		}
 
 
+		private void tsbtnCalibration_Click(object sender, EventArgs e)
+		{
+			this.closeAllForms();
+			MainForm.CommsBuffer = new byte[1024*1024];
+			CodeplugComms.CommunicationMode = CodeplugComms.CommunicationType.calibrationRead;
+
+			CommPrgForm commPrgForm = new CommPrgForm();
+			commPrgForm.StartPosition = FormStartPosition.CenterParent;
+			DialogResult result= commPrgForm.ShowDialog();
+			if (DialogResult.OK == result)
+			{
+				CalibrationForm cf = new CalibrationForm();
+				cf.ShowDialog();
+			}
+
+		}
+
+
 
 		private void tsbtnRead_Click(object sender, EventArgs e)
 		{
@@ -2878,7 +2912,8 @@ namespace DMR
                 this.closeAllForms();
                 CommPrgForm commPrgForm = new CommPrgForm();
                 commPrgForm.StartPosition = FormStartPosition.CenterParent;
-                commPrgForm.IsRead = true;
+                //commPrgForm.IsRead = true;
+				CodeplugComms.CommunicationMode = CodeplugComms.CommunicationType.codeplugRead;
                 commPrgForm.ShowDialog();
                 if (commPrgForm.IsSucess)
                 {
@@ -2900,7 +2935,8 @@ namespace DMR
                 this.method_3();
                 CommPrgForm commPrgForm = new CommPrgForm();
                 commPrgForm.StartPosition = FormStartPosition.CenterParent;
-                commPrgForm.IsRead = false;
+                //commPrgForm.IsRead = false;
+				CodeplugComms.CommunicationMode = CodeplugComms.CommunicationType.calibrationWrite;
                 commPrgForm.ShowDialog();
             }
 		}

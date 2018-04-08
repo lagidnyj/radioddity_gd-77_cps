@@ -103,6 +103,24 @@
     </Compile>
     <Compile Include="DMR\RxListData.cs" />
     <Compile Include="DMR\RxListOneData.cs" />
+    <Compile Include="Extras\Calibration\CalibrationBandControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extras\Calibration\CalibrationBandControl.Designer.cs" />
+    <Compile Include="Extras\Calibration\CalibrationData.cs" />
+    <Compile Include="Extras\Calibration\CalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extras\Calibration\CalibrationForm.Designer.cs" />
+    <Compile Include="Extras\Calibration\CalibrationNUDLabelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extras\Calibration\CalibrationNUDLabelControl.Designer.cs" />
+    <Compile Include="Extras\Calibration\MultiNUDControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extras\Calibration\MultiNUDControl.Designer.cs" />
+    <Compile Include="Extras\Calibration\PowerSettingData.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -345,6 +363,10 @@
     <EmbeddedResource Include="DMR\WaitForm.resx" />
     <EmbeddedResource Include="DMR\ZoneBasicForm.resx" />
     <EmbeddedResource Include="DMR\ZoneForm.resx" />
+    <EmbeddedResource Include="Extras\Calibration\CalibrationBandControl.resx" />
+    <EmbeddedResource Include="Extras\Calibration\CalibrationForm.resx" />
+    <EmbeddedResource Include="Extras\Calibration\CalibrationNUDLabelControl.resx" />
+    <EmbeddedResource Include="Extras\Calibration\MultiNUDControl.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="help.xml">
