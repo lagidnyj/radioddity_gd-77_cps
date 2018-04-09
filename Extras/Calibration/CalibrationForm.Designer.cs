@@ -31,27 +31,27 @@ namespace DMR
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabCtlBands = new System.Windows.Forms.TabControl();
 			this.tabVHF = new System.Windows.Forms.TabPage();
-			this.calibrationBandControlVHF = new CalibrationBandControl();
+			this.calibrationBandControlVHF = new DMR.CalibrationBandControl();
 			this.tabUHF = new System.Windows.Forms.TabPage();
-			this.calibrationBandControlUHF = new CalibrationBandControl();
-			this.btnSave = new System.Windows.Forms.Button();
+			this.calibrationBandControlUHF = new DMR.CalibrationBandControl();
+			this.btnWrite = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
-			this.tabControl1.SuspendLayout();
+			this.tabCtlBands.SuspendLayout();
 			this.tabVHF.SuspendLayout();
 			this.tabUHF.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// tabControl1
+			// tabCtlBands
 			// 
-			this.tabControl1.Controls.Add(this.tabVHF);
-			this.tabControl1.Controls.Add(this.tabUHF);
-			this.tabControl1.Location = new System.Drawing.Point(12, 12);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(921, 524);
-			this.tabControl1.TabIndex = 0;
+			this.tabCtlBands.Controls.Add(this.tabVHF);
+			this.tabCtlBands.Controls.Add(this.tabUHF);
+			this.tabCtlBands.Location = new System.Drawing.Point(12, 12);
+			this.tabCtlBands.Name = "tabCtlBands";
+			this.tabCtlBands.SelectedIndex = 0;
+			this.tabCtlBands.Size = new System.Drawing.Size(921, 524);
+			this.tabCtlBands.TabIndex = 0;
 			// 
 			// tabVHF
 			// 
@@ -91,15 +91,15 @@ namespace DMR
 			this.calibrationBandControlUHF.TabIndex = 0;
 			this.calibrationBandControlUHF.Type = "UHF";
 			// 
-			// btnSave
+			// btnWrite
 			// 
-			this.btnSave.Location = new System.Drawing.Point(760, 561);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(75, 23);
-			this.btnSave.TabIndex = 1;
-			this.btnSave.Text = "Save";
-			this.btnSave.UseVisualStyleBackColor = true;
-			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.btnWrite.Location = new System.Drawing.Point(746, 561);
+			this.btnWrite.Name = "btnWrite";
+			this.btnWrite.Size = new System.Drawing.Size(102, 23);
+			this.btnWrite.TabIndex = 1;
+			this.btnWrite.Text = "Write to GD-77";
+			this.btnWrite.UseVisualStyleBackColor = true;
+			this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
 			// 
 			// btnCancel
 			// 
@@ -117,12 +117,12 @@ namespace DMR
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(945, 596);
 			this.Controls.Add(this.btnCancel);
-			this.Controls.Add(this.btnSave);
-			this.Controls.Add(this.tabControl1);
+			this.Controls.Add(this.btnWrite);
+			this.Controls.Add(this.tabCtlBands);
 			this.Name = "CalibrationForm";
 			this.Text = "Calibration";
-			this.Load += new System.EventHandler(this.onFormLoad);
-			this.tabControl1.ResumeLayout(false);
+			this.Shown += new System.EventHandler(this.onFormShown);
+			this.tabCtlBands.ResumeLayout(false);
 			this.tabVHF.ResumeLayout(false);
 			this.tabUHF.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -131,10 +131,10 @@ namespace DMR
 
 		#endregion
 
-		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabControl tabCtlBands;
 		private System.Windows.Forms.TabPage tabVHF;
 		private System.Windows.Forms.TabPage tabUHF;
-		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.Button btnWrite;
 		private System.Windows.Forms.Button btnCancel;
 		private CalibrationBandControl calibrationBandControlUHF;
 		private CalibrationBandControl calibrationBandControlVHF;

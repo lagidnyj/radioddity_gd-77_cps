@@ -15,6 +15,7 @@ namespace DMR
 		private FirmwareUpdate firmwareUpdate;
 		//private Class10 portComm;
 		private CodeplugComms hidComm;
+		private bool _closeWhenFinished = false;
 
 		/*
 
@@ -107,13 +108,13 @@ namespace DMR
 			this.ResumeLayout(false);
 		}
 
-		public CommPrgForm()
+		public CommPrgForm(bool closeWhenFinished = false)
 		{
-			
+
+			this._closeWhenFinished = closeWhenFinished;
 			this.firmwareUpdate = new FirmwareUpdate();
-			//this.portComm = new Class10();
+
 			this.hidComm = new CodeplugComms();
-			//base._002Ector();
 			this.InitializeComponent();
 			base.Scale(Settings.smethod_6());
 		}
@@ -123,8 +124,6 @@ namespace DMR
 			Settings.smethod_68(this);
 			this.prgComm.Minimum = 0;
 			this.prgComm.Maximum = 100;
-			//this.firmwareUpdate.CommunicationMode = this.CommunicationMode;
-//			this.firmwareUpdate.method_3(this.IsRead);
 
 			//this.hidComm.CommunicationMode = CommunicationMode;
 
@@ -258,6 +257,13 @@ namespace DMR
 	            if (e.Percentage == (float)this.prgComm.Maximum)
                 {
                     this.IsSucess = true;
+
+					if (_closeWhenFinished)
+					{
+						this.DialogResult = DialogResult.OK;
+						this.Close();
+						return;
+					}
 
 					switch (CodeplugComms.CommunicationMode)
 					{

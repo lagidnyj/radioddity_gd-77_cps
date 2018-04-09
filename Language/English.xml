@@ -730,6 +730,86 @@
       </Control>      
     </Controls>
   </DownloadContactsForm>
+  <CalibrationForm Text="Download contacts from 'Last Heard'">
+    <Controls>
+      <Control Id="btnSave" Text="Save" />
+      <Control Id="btnCancel" Text="Cancel" />
+        <Control Id="tabCtlBands" Text="" >
+          <ControlItem Id="tabVHF" Text="VHF">
+            <Control Id="calibrationBandControlVHF" Text="" >
+              <ControlItem Id="calibrationPowerControlHigh" Text="High power"/>
+              <ControlItem Id="calibrationPowerControlLow" Text=""/>
+              <ControlItem Id="calibrationTXIandQ" Text=""/>
+              <ControlItem Id=" grpAnalogTxDeviation" Text=""/>
+              <ControlItem Id="lblDTMF" Text=""/>
+              <ControlItem Id="lblToneBurst" Text=""/>
+              <ControlItem Id="lblAnalogTxDeviationWide" Text=""/>
+              <ControlItem Id="lblAnalogTxDeviationNarrow" Text=""/>
+              <ControlItem Id="lblOverallGain" Text=""/>
+              <ControlItem Id="grpSquelch" Text=""/>
+              <ControlItem Id="lblSquelchOpenNormal" Text=""/>
+              <ControlItem Id="lblSquelchCloseNormal" Text=""/>
+              <ControlItem Id="lblSquelchOpenTight" Text=""/>
+              <ControlItem Id="lblSquelchCloseTight" Text=""/>
+              <ControlItem Id="lblSquelchWide" Text=""/>
+              <ControlItem Id="lblSquelchNarrow" Text=""/>
+              <ControlItem Id="grpDigitalGain" Text=""/>
+              <ControlItem Id="lblDigitalGainRx" Text=""/>
+              <ControlItem Id="lblDigitalGainTx" Text=""/>
+              <ControlItem Id="lblDigitalGainWide" Text=""/>
+              <ControlItem Id="lblDigitalGainNarrow" Text=""/>
+              <ControlItem Id="grpAnalogGain" Text=""/>
+              <ControlItem Id="lblAnalogAudioGainRx" Text=""/>
+              <ControlItem Id="lblAnalogAudioGainWide" Text=""/>
+              <ControlItem Id="lblAnalogAudioGainNarrow" Text=""/>
+
+              <ControlItem Id="grpSMeter" Text=""/>
+              <ControlItem Id="lblSMeterLowEnd" Text=""/>
+              <ControlItem Id="lblSMeterHighEnd" Text=""/>
+
+              <ControlItem Id="lblReferenceOscTuning" Text=""/>
+              <ControlItem Id="lblReceiveAGCTarget" Text=""/>
+              <ControlItem Id="lblAnalogMicGain" Text=""/>
+            </Control>
+            <ControlItem Id="tabUHF" Text="UHF"/>
+          <Control Id="calibrationBandControlUHF" Text="" >
+            <ControlItem Id="calibrationPowerControlHigh" Text="High power"/>
+            <ControlItem Id="calibrationPowerControlLow" Text=""/>
+            <ControlItem Id="calibrationTXIandQ" Text=""/>
+            <ControlItem Id=" grpAnalogTxDeviation" Text=""/>
+            <ControlItem Id="lblDTMF" Text=""/>
+            <ControlItem Id="lblToneBurst" Text=""/>
+            <ControlItem Id="lblAnalogTxDeviationWide" Text=""/>
+            <ControlItem Id="lblAnalogTxDeviationNarrow" Text=""/>
+            <ControlItem Id="lblOverallGain" Text=""/>
+            <ControlItem Id="grpSquelch" Text=""/>
+            <ControlItem Id="lblSquelchOpenNormal" Text=""/>
+            <ControlItem Id="lblSquelchCloseNormal" Text=""/>
+            <ControlItem Id="lblSquelchOpenTight" Text=""/>
+            <ControlItem Id="lblSquelchCloseTight" Text=""/>
+            <ControlItem Id="lblSquelchWide" Text=""/>
+            <ControlItem Id="lblSquelchNarrow" Text=""/>
+            <ControlItem Id="grpDigitalGain" Text=""/>
+            <ControlItem Id="lblDigitalGainRx" Text=""/>
+            <ControlItem Id="lblDigitalGainTx" Text=""/>
+            <ControlItem Id="lblDigitalGainWide" Text=""/>
+            <ControlItem Id="lblDigitalGainNarrow" Text=""/>
+            <ControlItem Id="grpAnalogGain" Text=""/>
+            <ControlItem Id="lblAnalogAudioGainRx" Text=""/>
+            <ControlItem Id="lblAnalogAudioGainWide" Text=""/>
+            <ControlItem Id="lblAnalogAudioGainNarrow" Text=""/>
+            <ControlItem Id="grpSMeter" Text=""/>
+            <ControlItem Id="lblSMeterLowEnd" Text=""/>
+            <ControlItem Id="lblSMeterHighEnd" Text=""/>
+            <ControlItem Id="lblReferenceOscTuning" Text=""/>
+            <ControlItem Id="lblReceiveAGCTarget" Text=""/>
+            <ControlItem Id="lblAnalogMicGain" Text=""/>
+            </Control>
+        </ControlItem>
+      </Control>
+      <Control Id="lblMessageDownloading" Text="Downloading" />
+    </Controls>
+  </CalibrationForm>
 	<Commons>
 		<Item Id="None" Text="None" />
 		<Item Id="Selected" Text="Selected" />

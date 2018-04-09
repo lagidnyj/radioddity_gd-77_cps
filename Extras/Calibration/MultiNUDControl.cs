@@ -95,7 +95,24 @@ namespace DMR
 				updateComponents();
 			}
 		}
-		public string GroupText
+
+		[EditorBrowsable(EditorBrowsableState.Always)]
+		[Browsable(true)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Bindable(true)]
+		public override string Text
+		{
+			get
+			{
+				return this.groupBox1.Text;
+			}
+			set
+			{
+				this.groupBox1.Text = value;
+			}
+		}
+
+		public string CtrlText
 		{
 			get
 			{
