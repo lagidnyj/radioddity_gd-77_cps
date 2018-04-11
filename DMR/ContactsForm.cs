@@ -579,6 +579,9 @@ namespace DMR
 				100
 			};
 			this.dgvContacts.ReadOnly = true;
+			this.dgvContacts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));			
+			
 			this.dgvContacts.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			this.dgvContacts.AllowUserToAddRows = false;
 			this.dgvContacts.AllowUserToDeleteRows = false;

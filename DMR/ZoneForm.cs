@@ -903,6 +903,7 @@ namespace DMR
 			base.SuspendLayout();
 			this.pnlZone.AutoScroll = true;
 			this.pnlZone.AutoSize = true;
+			
 			this.pnlZone.Controls.Add(this.tsrZone);
 			this.pnlZone.Controls.Add(this.mnsZone);
 			this.pnlZone.Controls.Add(this.btnDown);
@@ -937,7 +938,7 @@ namespace DMR
 			this.tsrZone.Text = "toolStrip1";
 			this.tslblInfo.AutoSize = false;
 			this.tslblInfo.Name = "tslblInfo";
-			this.tslblInfo.Size = new Size(100, 22);
+			this.tslblInfo.Size = new Size(100, 52);
 			this.tslblInfo.Text = " 0 / 0";
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new Size(6, 25);
@@ -1059,8 +1060,10 @@ namespace DMR
 			this.grpSelected.Size = new Size(215, 388);
 			this.grpSelected.TabIndex = 7;
 			this.grpSelected.TabStop = false;
-			this.grpSelected.Text = "Member";
-			this.lstSelected.FormattingEnabled = true;
+            this.grpSelected.Text = "Member";
+            this.lstSelected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lstSelected.FormattingEnabled = true;
 			this.lstSelected.ItemHeight = 16;
 			this.lstSelected.Location = new Point(47, 37);
 			this.lstSelected.Name = "lstSelected";
@@ -1079,11 +1082,15 @@ namespace DMR
 			this.grpUnselected.Controls.Add(this.lstUnselected);
 			this.grpUnselected.Location = new Point(86, 110);
 			this.grpUnselected.Name = "grpUnselected";
-			this.grpUnselected.Size = new Size(215, 388);
+            this.grpUnselected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.grpUnselected.Size = new Size(215, 388);
 			this.grpUnselected.TabIndex = 6;
 			this.grpUnselected.TabStop = false;
 			this.grpUnselected.Text = "Available";
-			this.lstUnselected.FormattingEnabled = true;
+            this.lstUnselected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+| System.Windows.Forms.AnchorStyles.Left)));
+            this.lstUnselected.FormattingEnabled = true;
 			this.lstUnselected.ItemHeight = 16;
 			this.lstUnselected.Location = new Point(52, 37);
 			this.lstUnselected.Name = "lstUnselected";
@@ -1097,9 +1104,9 @@ namespace DMR
 			this.btnDel.Text = "Delete";
 			this.btnDel.UseVisualStyleBackColor = true;
 			this.btnDel.Click += this.btnDel_Click;
-			this.lblName.Location = new Point(245, 62);
+			this.lblName.Location = new Point(216, 63);
 			this.lblName.Name = "lblName";
-			this.lblName.Size = new Size(61, 23);
+			this.lblName.Size = new Size(90, 23);
 			this.lblName.TabIndex = 0;
 			this.lblName.Text = "Name";
 			this.lblName.TextAlign = ContentAlignment.MiddleRight;

@@ -156,15 +156,19 @@ namespace DMR
 			// 
 			this.grpUnselected.Controls.Add(this.lstUnselected);
 			this.grpUnselected.Location = new System.Drawing.Point(10, 50);
-			this.grpUnselected.Name = "grpUnselected";
+            this.grpUnselected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+| System.Windows.Forms.AnchorStyles.Left)));
+            this.grpUnselected.Name = "grpUnselected";
 			this.grpUnselected.Size = new System.Drawing.Size(230, 440);
 			this.grpUnselected.TabIndex = 6;
 			this.grpUnselected.TabStop = false;
 			this.grpUnselected.Text = "Available";
-			// 
-			// lstUnselected
-			// 
-			this.lstUnselected.FormattingEnabled = true;
+            // 
+            // lstUnselected
+            // 
+            this.lstUnselected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lstUnselected.FormattingEnabled = true;
 			this.lstUnselected.ItemHeight = 16;
 			this.lstUnselected.Location = new System.Drawing.Point(25, 25);
 			this.lstUnselected.Name = "lstUnselected";
