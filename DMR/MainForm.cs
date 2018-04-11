@@ -2952,10 +2952,11 @@ namespace DMR
                 }
                 GeneralSetForm.data.KillState = 0;
                 this.method_3();
+				CodeplugComms.CommunicationMode = CodeplugComms.CommunicationType.codeplugWrite;
                 CommPrgForm commPrgForm = new CommPrgForm();
                 commPrgForm.StartPosition = FormStartPosition.CenterParent;
                 //commPrgForm.IsRead = false;
-				CodeplugComms.CommunicationMode = CodeplugComms.CommunicationType.calibrationWrite;
+
                 commPrgForm.ShowDialog();
             }
 		}
