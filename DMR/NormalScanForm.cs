@@ -1603,6 +1603,7 @@ namespace DMR
             this.btnDown.TabIndex = 23;
             this.btnDown.Text = "Down";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += this.btnDown_Click;
             // 
             // btnUp
             // 
@@ -1612,6 +1613,7 @@ namespace DMR
             this.btnUp.TabIndex = 22;
             this.btnUp.Text = "Up";
             this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += this.btnUp_Click;
             // 
             // txtName
             // 
@@ -1645,6 +1647,7 @@ namespace DMR
             this.lstSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstSelected.Size = new System.Drawing.Size(150, 324);
             this.lstSelected.TabIndex = 5;
+            this.lstSelected.DoubleClick += this.lstSelected_DoubleClick;
             // 
             // grpUnselected
             // 
@@ -1681,12 +1684,13 @@ namespace DMR
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(333, 223);
+            this.btnDel.Location = new Point(333, 223);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.Size = new Size(75, 23);
             this.btnDel.TabIndex = 4;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += this.btnDel_Click;
             // 
             // btnAdd
             // 
@@ -1696,6 +1700,7 @@ namespace DMR
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += this.btnAdd_Click;
             // 
             // NormalScanForm
             // 
