@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Net;
+using System.Web.Script.Serialization;
+using System.IO;
 
 namespace DMR
 {
@@ -54,7 +56,103 @@ namespace DMR
 			return true;
 		}
 
-		private void btnDownload_Click(object sender, EventArgs e)
+		private void DMRMARCDownloadCompleteHandler(object sender=null, DownloadStringCompletedEventArgs e=null)
+		{
+			string ownRadioId = GeneralSetForm.data.RadioId;
+			int currentID;
+			bool found;
+			string name;
+
+			string json = e.Result;// File.ReadAllText("d:\\dmr-marc.json");
+			try
+			{
+				JavaScriptSerializer serializer = new JavaScriptSerializer();
+				serializer.MaxJsonLength = Int32.MaxValue;
+				DmrMarcData data = serializer.Deserialize<DmrMarcData>(json);
+				string filter = txtIDStart.Text;
+				int filterLength = filter.Length;
+				List<DmrMarcDataDataItem> records = data.users.FindAll(r => r.radio_id.Substring(0, filterLength) == filter);
+
+//				records.Sort((x, y) => Math.Sign(int.Parse(x.radio_id.Substring(4, 3)) - int.Parse(y.radio_id.Substring(4, 3))));// Sorting of Australian data --- wasnt useful
+
+
+				foreach (DmrMarcDataDataItem i in records)
+				{
+					found = false;
+
+
+					if (ownRadioId == i.radio_id)
+					{
+						found = true;
+					}
+					else
+					{
+						currentID = int.Parse(i.radio_id);
+						for (int j = 0; j < ContactForm.data.Count; j++)
+						{
+							if (ContactForm.data.DataIsValid(j))
+							{
+								if (int.Parse(ContactForm.data[j].CallId) == currentID)
+								{
+									found = true;
+									break;
+								}
+							}
+						}
+					}
+					if (found == false)
+					{
+						name = i.name + " " + i.surname;
+
+						this.dgvDownloadeContacts.Rows.Insert(0, i.radio_id, i.callsign, name, "");
+					}
+				}
+				lblMessage.Text = string.Format(Settings.dicCommon["DownloadContactsMessageAdded"], this.dgvDownloadeContacts.RowCount);
+
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
+			}
+		}
+
+		private void downloadProgressHandler(object sender, DownloadProgressChangedEventArgs e)
+		{
+			// Note. The server does not report the total file size. Therefore in order to display some sort of progress percentage we have to use an estimated total size
+			const int ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER = 15000000 / 100;
+			BeginInvoke((Action)(() =>
+				{
+					lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"] + e.BytesReceived / ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER + "%";
+				}));
+		}
+
+		private void btnDownloadDMRMARC_Click(object sender, EventArgs e)
+		{
+			//DMRMARCDownloadCompleteHandler();return; // Debugging only
+			
+			if (txtIDStart.Text == "" || int.Parse(txtIDStart.Text) == 0)
+			{
+				MessageBox.Show(Settings.dicCommon["DownloadContactsRegionEmpty"]);//"Please enter the 3 digit Region previx code. e.g. 505 for Australia.");
+				return;
+			}
+			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
+			this.Refresh();
+			WebClient wc = new WebClient();
+			try
+			{
+				wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DMRMARCDownloadCompleteHandler);
+				wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloadProgressHandler);
+				wc.DownloadStringAsync(new Uri("http://www.dmr-marc.net/cgi-bin/trbo-database/datadump.cgi?table=users&format=json"));
+			}
+			catch (Exception)
+			{
+				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
+				return;
+			}
+		}
+
+		private void btnDownloadLastHeard_Click(object sender, EventArgs e)
 		{
 			if (txtIDStart.Text == "" || int.Parse(txtIDStart.Text) == 0)
 			{
@@ -145,7 +243,7 @@ namespace DMR
 					mainForm.RefreshRelatedForm(base.GetType());
 				}
 				MessageBox.Show(Settings.dicCommon["DownloadContactsImportComplete"]);
-				this.Close();
+				//this.Close();
 			}
 		}
 
@@ -158,6 +256,11 @@ namespace DMR
 		{
 			Settings.smethod_59(base.Controls);
 			Settings.smethod_68(this);// Update texts etc from language xml file
+		}
+
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

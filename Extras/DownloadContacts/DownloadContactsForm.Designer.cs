@@ -34,7 +34,7 @@
 			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnImport = new System.Windows.Forms.Button();
-			this.btnDownload = new System.Windows.Forms.Button();
+			this.btnDownloadLastHeard = new System.Windows.Forms.Button();
 			this.txtIDStart = new System.Windows.Forms.TextBox();
 			this.lblIDStart = new System.Windows.Forms.Label();
 			this.lblMessage = new System.Windows.Forms.Label();
@@ -43,6 +43,8 @@
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnSelectAll = new System.Windows.Forms.Button();
+			this.btnDownloadDMRMARC = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -89,7 +91,7 @@
 			// 
 			// btnImport
 			// 
-			this.btnImport.Location = new System.Drawing.Point(643, 450);
+			this.btnImport.Location = new System.Drawing.Point(643, 405);
 			this.btnImport.Name = "btnImport";
 			this.btnImport.Size = new System.Drawing.Size(129, 28);
 			this.btnImport.TabIndex = 1;
@@ -97,15 +99,15 @@
 			this.btnImport.UseVisualStyleBackColor = true;
 			this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
 			// 
-			// btnDownload
+			// btnDownloadLastHeard
 			// 
-			this.btnDownload.Location = new System.Drawing.Point(582, 90);
-			this.btnDownload.Name = "btnDownload";
-			this.btnDownload.Size = new System.Drawing.Size(197, 32);
-			this.btnDownload.TabIndex = 2;
-			this.btnDownload.Text = "Download \'Last Heard\' data";
-			this.btnDownload.UseVisualStyleBackColor = true;
-			this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+			this.btnDownloadLastHeard.Location = new System.Drawing.Point(582, 90);
+			this.btnDownloadLastHeard.Name = "btnDownloadLastHeard";
+			this.btnDownloadLastHeard.Size = new System.Drawing.Size(197, 32);
+			this.btnDownloadLastHeard.TabIndex = 2;
+			this.btnDownloadLastHeard.Text = "Download \'Last Heard\' data";
+			this.btnDownloadLastHeard.UseVisualStyleBackColor = true;
+			this.btnDownloadLastHeard.Click += new System.EventHandler(this.btnDownloadLastHeard_Click);
 			// 
 			// txtIDStart
 			// 
@@ -167,6 +169,26 @@
 			this.btnSelectAll.UseVisualStyleBackColor = true;
 			this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
 			// 
+			// btnDownloadDMRMARC
+			// 
+			this.btnDownloadDMRMARC.Location = new System.Drawing.Point(581, 128);
+			this.btnDownloadDMRMARC.Name = "btnDownloadDMRMARC";
+			this.btnDownloadDMRMARC.Size = new System.Drawing.Size(197, 32);
+			this.btnDownloadDMRMARC.TabIndex = 2;
+			this.btnDownloadDMRMARC.Text = "Download \'DMR MARC\' data";
+			this.btnDownloadDMRMARC.UseVisualStyleBackColor = true;
+			this.btnDownloadDMRMARC.Click += new System.EventHandler(this.btnDownloadDMRMARC_Click);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(643, 450);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(129, 28);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "Close";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.btnClose_Click);
+			// 
 			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -175,8 +197,10 @@
 			this.Controls.Add(this.lblMessage);
 			this.Controls.Add(this.lblIDStart);
 			this.Controls.Add(this.txtIDStart);
-			this.Controls.Add(this.btnDownload);
+			this.Controls.Add(this.btnDownloadDMRMARC);
+			this.Controls.Add(this.btnDownloadLastHeard);
 			this.Controls.Add(this.btnSelectAll);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnImport);
 			this.Controls.Add(this.dgvDownloadeContacts);
 			this.Font = new System.Drawing.Font("Arial", 10F);
@@ -193,7 +217,7 @@
 
 		private System.Windows.Forms.DataGridView dgvDownloadeContacts;
 		private System.Windows.Forms.Button btnImport;
-		private System.Windows.Forms.Button btnDownload;
+		private System.Windows.Forms.Button btnDownloadLastHeard;
 		private System.Windows.Forms.TextBox txtIDStart;
 		private System.Windows.Forms.Label lblIDStart;
 		private System.Windows.Forms.Label lblMessage;
@@ -206,5 +230,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastheard;
 		private System.Windows.Forms.Button btnSelectAll;
+		private System.Windows.Forms.Button btnDownloadDMRMARC;
+		private System.Windows.Forms.Button button1;
 	}
 }
