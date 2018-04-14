@@ -17,6 +17,7 @@ namespace DMR
 		public ContactsForm parentForm=null;
 		public MainForm mainForm=null;
 		public TreeNode treeNode = null;
+		private bool _isDownloading = false;
 
 		public DownloadContactsForm()
 		{
@@ -73,7 +74,7 @@ namespace DMR
 				int filterLength = filter.Length;
 				List<DmrMarcDataDataItem> records = data.users.FindAll(r => r.radio_id.Substring(0, filterLength) == filter);
 
-//				records.Sort((x, y) => Math.Sign(int.Parse(x.radio_id.Substring(4, 3)) - int.Parse(y.radio_id.Substring(4, 3))));// Sorting of Australian data --- wasnt useful
+				//				records.Sort((x, y) => Math.Sign(int.Parse(x.radio_id.Substring(4, 3)) - int.Parse(y.radio_id.Substring(4, 3))));// Sorting of Australian data --- wasnt useful
 
 
 				foreach (DmrMarcDataDataItem i in records)
@@ -115,22 +116,40 @@ namespace DMR
 			{
 				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
 			}
+			finally
+			{
+				_wc = null;
+				_isDownloading = false;
+				Cursor.Current = Cursors.Default;
+			}
 		}
 
 		private void downloadProgressHandler(object sender, DownloadProgressChangedEventArgs e)
 		{
 			// Note. The server does not report the total file size. Therefore in order to display some sort of progress percentage we have to use an estimated total size
 			const int ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER = 15000000 / 100;
-			BeginInvoke((Action)(() =>
-				{
-					lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"] + e.BytesReceived / ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER + "%";
-				}));
+			try
+			{
+				BeginInvoke((Action)(() =>
+					{
+						lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"] + e.BytesReceived / ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER + "%";
+					}));
+			}
+			catch (Exception)
+			{
+				// No nothing
+			}
 		}
+		WebClient _wc = null;
 
 		private void btnDownloadDMRMARC_Click(object sender, EventArgs e)
 		{
 			//DMRMARCDownloadCompleteHandler();return; // Debugging only
-			
+			if (Cursor.Current == Cursors.WaitCursor || _isDownloading)
+			{
+				MessageBox.Show("Already downloading");
+				return;
+			}
 			if (txtIDStart.Text == "" || int.Parse(txtIDStart.Text) == 0)
 			{
 				MessageBox.Show(Settings.dicCommon["DownloadContactsRegionEmpty"]);//"Please enter the 3 digit Region previx code. e.g. 505 for Australia.");
@@ -138,22 +157,31 @@ namespace DMR
 			}
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
-			WebClient wc = new WebClient();
+			_wc = new WebClient();
 			try
 			{
-				wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DMRMARCDownloadCompleteHandler);
-				wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloadProgressHandler);
-				wc.DownloadStringAsync(new Uri("http://www.dmr-marc.net/cgi-bin/trbo-database/datadump.cgi?table=users&format=json"));
+				Application.DoEvents();
+				_wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DMRMARCDownloadCompleteHandler);
+				_wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloadProgressHandler);
+				_wc.DownloadStringAsync(new Uri("http://www.dmr-marc.net/cgi-bin/trbo-database/datadump.cgi?table=users&format=json"));
 			}
 			catch (Exception)
 			{
 				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
 				return;
 			}
+			_isDownloading = true;
+			Cursor.Current = Cursors.WaitCursor;
 		}
+
 
 		private void btnDownloadLastHeard_Click(object sender, EventArgs e)
 		{
+			if (Cursor.Current == Cursors.WaitCursor || _isDownloading)
+			{
+				MessageBox.Show("Already downloading");
+				return;
+			}
 			if (txtIDStart.Text == "" || int.Parse(txtIDStart.Text) == 0)
 			{
 				MessageBox.Show(Settings.dicCommon["DownloadContactsRegionEmpty"]);//"Please enter the 3 digit Region previx code. e.g. 505 for Australia.");
@@ -161,16 +189,26 @@ namespace DMR
 			}
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
-			WebClient wc = new WebClient();
+
+			_wc = new WebClient();
 			string str;
 			try
 			{
-				str = wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
+				_isDownloading = true;
+				Cursor.Current = Cursors.WaitCursor;
+				Application.DoEvents();
+				str = _wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
 			}
-			catch(Exception)
+			catch (Exception)
 			{
+				_isDownloading = false;
+				Cursor.Current = Cursors.Default;
 				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
 				return;
+			}
+			finally
+			{
+				_wc = null;
 			}
 			dgvDownloadeContacts.SuspendLayout();
 			string[] linesArr = str.Split('\n');
@@ -218,6 +256,8 @@ namespace DMR
 				}
 			}
 			lblMessage.Text = string.Format(Settings.dicCommon["DownloadContactsMessageAdded"], this.dgvDownloadeContacts.RowCount);
+			Cursor.Current = Cursors.Default;
+			_isDownloading = false;
 		}
 
 		private void btnImport_Click(object sender, EventArgs e)
@@ -232,10 +272,15 @@ namespace DMR
 				{
 					if (addPrivateContact(row.Cells[0].Value + "", row.Cells[1].Value + " " + row.Cells[2].Value) == false)
 					{
-						MessageBox.Show(Settings.dicCommon["DownloadContactsTooMany"],Settings.dicCommon["Warning"]);//"Not all contacts could be imported because the maximum number of Digital Contacts has been reached","Warning");
+						MessageBox.Show(Settings.dicCommon["DownloadContactsTooMany"], Settings.dicCommon["Warning"]);//"Not all contacts could be imported because the maximum number of Digital Contacts has been reached","Warning");
 						break;
 					}
+					else
+					{
+						this.dgvDownloadeContacts.Rows.Remove(row);
+					}
 				}
+
 				// need to check if the form has been opened from the Digital Contacts form or directly from the top level menu
 				if (parentForm != null)
 				{
@@ -243,7 +288,6 @@ namespace DMR
 					mainForm.RefreshRelatedForm(base.GetType());
 				}
 				MessageBox.Show(Settings.dicCommon["DownloadContactsImportComplete"]);
-				//this.Close();
 			}
 		}
 
@@ -261,6 +305,14 @@ namespace DMR
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+
+		private void onFormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (_wc != null)
+			{
+				_wc.CancelAsync();
+			}
 		}
 	}
 }

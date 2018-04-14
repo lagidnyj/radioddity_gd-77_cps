@@ -2880,6 +2880,7 @@ namespace DMR
 			}
 			catch (Exception)
 			{
+				Cursor.Current = Cursors.Default;
 				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
 				return;
 			}

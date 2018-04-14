@@ -29,22 +29,22 @@
 		private void InitializeComponent()
 		{
 			this.dgvDownloadeContacts = new System.Windows.Forms.DataGridView();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnDownloadLastHeard = new System.Windows.Forms.Button();
 			this.txtIDStart = new System.Windows.Forms.TextBox();
 			this.lblIDStart = new System.Windows.Forms.Label();
 			this.lblMessage = new System.Windows.Forms.Label();
+			this.btnSelectAll = new System.Windows.Forms.Button();
+			this.btnDownloadDMRMARC = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.btnSelectAll = new System.Windows.Forms.Button();
-			this.btnDownloadDMRMARC = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -63,31 +63,6 @@
 			this.dgvDownloadeContacts.ReadOnly = true;
 			this.dgvDownloadeContacts.Size = new System.Drawing.Size(551, 439);
 			this.dgvDownloadeContacts.TabIndex = 0;
-			// 
-			// id
-			// 
-			this.id.HeaderText = "ID";
-			this.id.Name = "id";
-			this.id.ReadOnly = true;
-			// 
-			// callsign
-			// 
-			this.callsign.HeaderText = "Callsign";
-			this.callsign.Name = "callsign";
-			this.callsign.ReadOnly = true;
-			// 
-			// name
-			// 
-			this.name.HeaderText = "Name";
-			this.name.Name = "name";
-			this.name.ReadOnly = true;
-			// 
-			// lastheard
-			// 
-			this.lastheard.HeaderText = "Last heard (days ago)";
-			this.lastheard.Name = "lastheard";
-			this.lastheard.ReadOnly = true;
-			this.lastheard.Width = 175;
 			// 
 			// btnImport
 			// 
@@ -134,31 +109,6 @@
 			this.lblMessage.TabIndex = 5;
 			this.lblMessage.Text = "Enter the ID prefix code for your region and press Download";
 			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.HeaderText = "Callsign";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.HeaderText = "Last heard\n(Days ago)";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			this.dataGridViewTextBoxColumn4.Width = 150;
-			// 
 			// btnSelectAll
 			// 
 			this.btnSelectAll.Location = new System.Drawing.Point(581, 240);
@@ -189,6 +139,56 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.btnClose_Click);
 			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.HeaderText = "Callsign";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.HeaderText = "Last heard\n(Days ago)";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			this.dataGridViewTextBoxColumn4.Width = 150;
+			// 
+			// id
+			// 
+			this.id.HeaderText = "ID";
+			this.id.Name = "id";
+			this.id.ReadOnly = true;
+			// 
+			// callsign
+			// 
+			this.callsign.HeaderText = "Callsign";
+			this.callsign.Name = "callsign";
+			this.callsign.ReadOnly = true;
+			// 
+			// name
+			// 
+			this.name.HeaderText = "Name";
+			this.name.Name = "name";
+			this.name.ReadOnly = true;
+			// 
+			// lastheard
+			// 
+			this.lastheard.HeaderText = "Last heard (days ago)";
+			this.lastheard.Name = "lastheard";
+			this.lastheard.ReadOnly = true;
+			this.lastheard.Width = 175;
+			// 
 			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -206,6 +206,7 @@
 			this.Font = new System.Drawing.Font("Arial", 10F);
 			this.Name = "DownloadContactsForm";
 			this.Text = "Download contacts from \'Last Heard\'";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.onFormClosing);
 			this.Load += new System.EventHandler(this.DownloadContacts_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).EndInit();
 			this.ResumeLayout(false);
