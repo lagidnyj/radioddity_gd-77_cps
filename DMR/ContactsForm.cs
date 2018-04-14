@@ -840,7 +840,15 @@ namespace DMR
 			DownloadContactsForm dlc = new DownloadContactsForm();
 			dlc.parentForm = this;
 			dlc.mainForm = this.MdiParent as MainForm;
-			dlc.ShowDialog();
+			try
+			{
+				dlc.ShowDialog();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
+				return;
+			}
 		}
 	}
 }

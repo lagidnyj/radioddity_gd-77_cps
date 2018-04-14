@@ -2874,8 +2874,15 @@ namespace DMR
 			dlf.mainForm = this;
 			TreeNode treeNode = this.method_9(typeof(ContactsForm), this.tvwMain.Nodes);
 			dlf.treeNode = treeNode;
-		//	dlf.parentForm = ContactsForm;
-			dlf.ShowDialog();
+			try
+			{
+				dlf.ShowDialog();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show(Settings.dicCommon["UnableDownloadFromInternet"]);
+				return;
+			}
 		}
 
 		private void tsbtnDMRID_Click(object sender, EventArgs e)
