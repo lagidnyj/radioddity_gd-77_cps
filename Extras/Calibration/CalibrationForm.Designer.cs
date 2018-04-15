@@ -111,7 +111,6 @@ namespace DMR
 			this.btnClose.Text = "Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-
 			// 
 			// CalibrationForm
 			// 
@@ -122,7 +121,7 @@ namespace DMR
 			this.Controls.Add(this.btnWrite);
 			this.Controls.Add(this.tabCtlBands);
 			this.Name = "CalibrationForm";
-			this.Text = "Calibration";
+			this.Text = "Calibration Viewer";
 			this.Shown += new System.EventHandler(this.onFormShown);
 			this.tabCtlBands.ResumeLayout(false);
 			this.tabVHF.ResumeLayout(false);

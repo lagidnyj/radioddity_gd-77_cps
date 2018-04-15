@@ -428,8 +428,11 @@
 			<MenuItem Id="tsmiLanguage" Text="Language" />
 			<MenuItem Id="tsmiEnglish" Text="English" />
 			<MenuItem Id="tsmiChinese" Text="Chinese" />
-      <MenuItem Id="tsmiExtras" Text="Extras" />      
-		</MenuStrip>
+      <MenuItem Id="tsmiExtras" Text="Extras" />
+      <MenuItem Id="tsmiContactsDownload" Text="Download contacts" />
+      <MenuItem Id="tsmiDMRID" Text="DMR ID" />
+      <MenuItem Id="tsmiCalibration" Text="Calibration viewer" />      
+    </MenuStrip>
 		<ContextMenuStrip>
 			<MenuItem Id="tsmiAdd" Text="Add" />
 			<MenuItem Id="tsmiClear" Text="Clear" />
@@ -730,7 +733,7 @@
       </Control>      
     </Controls>
   </DownloadContactsForm>
-  <CalibrationForm Text="Download contacts from 'Last Heard'">
+  <CalibrationForm Text="Calibration viewer'">
     <Controls>
       <Control Id="btnSave" Text="Save" />
       <Control Id="btnCancel" Text="Cancel" />
