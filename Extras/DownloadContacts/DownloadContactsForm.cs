@@ -26,6 +26,12 @@ namespace DMR
 			{
 				this.txtIDStart.Text = (int.Parse(GeneralSetForm.data.RadioId) / 10000).ToString();
 			}
+			string url = IniFileUtils.getProfileStringWithDefault("Setup", "DownloadContactsURL", "");
+			if (url == "")
+			{
+				url = "http://ham-digital.org/user_by_lh.php";
+			}
+				this.txtDownloadURL.Text = url;
 		}
 
 		private bool addPrivateContact(string id,string callsignAndName)
@@ -197,7 +203,7 @@ namespace DMR
 				_isDownloading = true;
 				Cursor.Current = Cursors.WaitCursor;
 				Application.DoEvents();
-				str = _wc.DownloadString("http://ham-digital.org/user_by_lh.php?id=" + txtIDStart.Text + "&cnt=1024");
+				str = _wc.DownloadString(this.txtDownloadURL.Text + "?id=" + txtIDStart.Text + "&cnt=1024");
 			}
 			catch (Exception)
 			{
@@ -300,10 +306,12 @@ namespace DMR
 		{
 			Settings.smethod_59(base.Controls);
 			Settings.smethod_68(this);// Update texts etc from language xml file
+
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
+			IniFileUtils.WriteProfileString("Setup", "DownloadContactsURL", txtDownloadURL.Text);
 			this.Close();
 		}
 

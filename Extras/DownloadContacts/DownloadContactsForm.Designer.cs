@@ -29,6 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.dgvDownloadeContacts = new System.Windows.Forms.DataGridView();
+			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnDownloadLastHeard = new System.Windows.Forms.Button();
 			this.txtIDStart = new System.Windows.Forms.TextBox();
@@ -41,10 +45,9 @@
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.callsign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lastheard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lblScriptURL = new System.Windows.Forms.Label();
+			this.txtDownloadURL = new System.Windows.Forms.TextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -58,15 +61,40 @@
             this.callsign,
             this.name,
             this.lastheard});
-			this.dgvDownloadeContacts.Location = new System.Drawing.Point(21, 39);
+			this.dgvDownloadeContacts.Location = new System.Drawing.Point(21, 42);
 			this.dgvDownloadeContacts.Name = "dgvDownloadeContacts";
 			this.dgvDownloadeContacts.ReadOnly = true;
-			this.dgvDownloadeContacts.Size = new System.Drawing.Size(551, 439);
+			this.dgvDownloadeContacts.Size = new System.Drawing.Size(551, 416);
 			this.dgvDownloadeContacts.TabIndex = 0;
+			// 
+			// id
+			// 
+			this.id.HeaderText = "ID";
+			this.id.Name = "id";
+			this.id.ReadOnly = true;
+			// 
+			// callsign
+			// 
+			this.callsign.HeaderText = "Callsign";
+			this.callsign.Name = "callsign";
+			this.callsign.ReadOnly = true;
+			// 
+			// name
+			// 
+			this.name.HeaderText = "Name";
+			this.name.Name = "name";
+			this.name.ReadOnly = true;
+			// 
+			// lastheard
+			// 
+			this.lastheard.HeaderText = "Last heard (days ago)";
+			this.lastheard.Name = "lastheard";
+			this.lastheard.ReadOnly = true;
+			this.lastheard.Width = 175;
 			// 
 			// btnImport
 			// 
-			this.btnImport.Location = new System.Drawing.Point(643, 405);
+			this.btnImport.Location = new System.Drawing.Point(643, 381);
 			this.btnImport.Name = "btnImport";
 			this.btnImport.Size = new System.Drawing.Size(129, 28);
 			this.btnImport.TabIndex = 1;
@@ -76,17 +104,17 @@
 			// 
 			// btnDownloadLastHeard
 			// 
-			this.btnDownloadLastHeard.Location = new System.Drawing.Point(582, 90);
+			this.btnDownloadLastHeard.Location = new System.Drawing.Point(582, 42);
 			this.btnDownloadLastHeard.Name = "btnDownloadLastHeard";
 			this.btnDownloadLastHeard.Size = new System.Drawing.Size(197, 32);
 			this.btnDownloadLastHeard.TabIndex = 2;
-			this.btnDownloadLastHeard.Text = "Download \'Last Heard\' data";
+			this.btnDownloadLastHeard.Text = "Download data";
 			this.btnDownloadLastHeard.UseVisualStyleBackColor = true;
 			this.btnDownloadLastHeard.Click += new System.EventHandler(this.btnDownloadLastHeard_Click);
 			// 
 			// txtIDStart
 			// 
-			this.txtIDStart.Location = new System.Drawing.Point(709, 43);
+			this.txtIDStart.Location = new System.Drawing.Point(709, 12);
 			this.txtIDStart.Name = "txtIDStart";
 			this.txtIDStart.Size = new System.Drawing.Size(63, 23);
 			this.txtIDStart.TabIndex = 3;
@@ -94,7 +122,7 @@
 			// lblIDStart
 			// 
 			this.lblIDStart.AutoSize = true;
-			this.lblIDStart.Location = new System.Drawing.Point(578, 43);
+			this.lblIDStart.Location = new System.Drawing.Point(578, 12);
 			this.lblIDStart.Name = "lblIDStart";
 			this.lblIDStart.Size = new System.Drawing.Size(127, 16);
 			this.lblIDStart.TabIndex = 4;
@@ -111,7 +139,7 @@
 			// 
 			// btnSelectAll
 			// 
-			this.btnSelectAll.Location = new System.Drawing.Point(581, 240);
+			this.btnSelectAll.Location = new System.Drawing.Point(581, 271);
 			this.btnSelectAll.Name = "btnSelectAll";
 			this.btnSelectAll.Size = new System.Drawing.Size(124, 28);
 			this.btnSelectAll.TabIndex = 1;
@@ -121,17 +149,18 @@
 			// 
 			// btnDownloadDMRMARC
 			// 
-			this.btnDownloadDMRMARC.Location = new System.Drawing.Point(581, 128);
+			this.btnDownloadDMRMARC.Location = new System.Drawing.Point(581, 80);
 			this.btnDownloadDMRMARC.Name = "btnDownloadDMRMARC";
 			this.btnDownloadDMRMARC.Size = new System.Drawing.Size(197, 32);
 			this.btnDownloadDMRMARC.TabIndex = 2;
 			this.btnDownloadDMRMARC.Text = "Download \'DMR MARC\' data";
 			this.btnDownloadDMRMARC.UseVisualStyleBackColor = true;
+			this.btnDownloadDMRMARC.Visible = false;
 			this.btnDownloadDMRMARC.Click += new System.EventHandler(this.btnDownloadDMRMARC_Click);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(643, 450);
+			this.button1.Location = new System.Drawing.Point(643, 426);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(129, 28);
 			this.button1.TabIndex = 1;
@@ -164,36 +193,39 @@
 			this.dataGridViewTextBoxColumn4.ReadOnly = true;
 			this.dataGridViewTextBoxColumn4.Width = 150;
 			// 
-			// id
+			// lblScriptURL
 			// 
-			this.id.HeaderText = "ID";
-			this.id.Name = "id";
-			this.id.ReadOnly = true;
+			this.lblScriptURL.AutoSize = true;
+			this.lblScriptURL.Location = new System.Drawing.Point(21, 469);
+			this.lblScriptURL.Name = "lblScriptURL";
+			this.lblScriptURL.Size = new System.Drawing.Size(133, 16);
+			this.lblScriptURL.TabIndex = 6;
+			this.lblScriptURL.Text = "Data download URL";
 			// 
-			// callsign
+			// txtDownloadURL
 			// 
-			this.callsign.HeaderText = "Callsign";
-			this.callsign.Name = "callsign";
-			this.callsign.ReadOnly = true;
+			this.txtDownloadURL.Location = new System.Drawing.Point(160, 464);
+			this.txtDownloadURL.Name = "txtDownloadURL";
+			this.txtDownloadURL.Size = new System.Drawing.Size(412, 23);
+			this.txtDownloadURL.TabIndex = 7;
 			// 
-			// name
+			// textBox1
 			// 
-			this.name.HeaderText = "Name";
-			this.name.Name = "name";
-			this.name.ReadOnly = true;
-			// 
-			// lastheard
-			// 
-			this.lastheard.HeaderText = "Last heard (days ago)";
-			this.lastheard.Name = "lastheard";
-			this.lastheard.ReadOnly = true;
-			this.lastheard.Width = 175;
+			this.textBox1.Enabled = false;
+			this.textBox1.Location = new System.Drawing.Point(578, 464);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(201, 23);
+			this.textBox1.TabIndex = 8;
+			this.textBox1.Text = "?id=REGION_PREFIX&cnt=1024";
 			// 
 			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 494);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtDownloadURL);
+			this.Controls.Add(this.lblScriptURL);
 			this.Controls.Add(this.lblMessage);
 			this.Controls.Add(this.lblIDStart);
 			this.Controls.Add(this.txtIDStart);
@@ -233,5 +265,8 @@
 		private System.Windows.Forms.Button btnSelectAll;
 		private System.Windows.Forms.Button btnDownloadDMRMARC;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label lblScriptURL;
+		private System.Windows.Forms.TextBox txtDownloadURL;
+		private System.Windows.Forms.TextBox textBox1;
 	}
 }
