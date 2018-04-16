@@ -6,7 +6,7 @@
 	<Language Id="Eng" Text="English" />
 	<AboutForm Text="About">
 		<Controls>
-			<Control Id="lblVersion" Text="v3.0.6" />
+			<Control Id="lblVersion" Text="" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
 		</Controls>
