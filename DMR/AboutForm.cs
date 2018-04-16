@@ -31,7 +31,7 @@ namespace DMR
 #elif CP_VER_3_1_X
 			this.lblVersion.Text = "GD-77 CPS 3.1.x Community Edition";
 #endif
-			this.lblCompany.Text += "\n\nRoger VK3KYY/G4KYF\nColin G4EML\nJason VK7ZJA";
+			this.lblCompany.Text += "\n\nRoger VK3KYY/G4KYF\nColin G4EML\nJason VK7ZJA\nMike DL2MF";
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)
