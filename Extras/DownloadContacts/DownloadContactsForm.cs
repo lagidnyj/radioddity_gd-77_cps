@@ -63,60 +63,70 @@ namespace DMR
 			return true;
 		}
 
-		private void DMRMARCDownloadCompleteHandler(object sender=null, DownloadStringCompletedEventArgs e=null)
+		private void DMRMARCDownloadCompleteHandler(object sender=null, DownloadStringCompletedEventArgs e=null)//,string testData=null)
 		{
 			string ownRadioId = GeneralSetForm.data.RadioId;
 			int currentID;
 			bool found;
-			string name;
+			string[] value;
+			string result;
 
-			string json = e.Result;// File.ReadAllText("d:\\dmr-marc.json");
+			if (ownRadioId.Substring(0, 1) == "0")
+			{
+				ownRadioId = ownRadioId.Substring(1);
+			}
+#if false
+			if (e != null)
+			{
+				result = e.Result;
+			}
+			else
+			{
+				result = testData;
+			}
+#else
+			result = e.Result;
+#endif
 			try
 			{
-				JavaScriptSerializer serializer = new JavaScriptSerializer();
-				serializer.MaxJsonLength = Int32.MaxValue;
-				DmrMarcData data = serializer.Deserialize<DmrMarcData>(json);
-				string filter = txtIDStart.Text;
-				int filterLength = filter.Length;
-				List<DmrMarcDataDataItem> records = data.users.FindAll(r => r.radio_id.Substring(0, filterLength) == filter);
-
-				//				records.Sort((x, y) => Math.Sign(int.Parse(x.radio_id.Substring(4, 3)) - int.Parse(y.radio_id.Substring(4, 3))));// Sorting of Australian data --- wasnt useful
+				string [] lines = result.Split('\n');
 
 
-				foreach (DmrMarcDataDataItem i in records)
+				ownRadioId = "\"" + ownRadioId + "\"";
+
+				foreach (string line in lines)
 				{
-					found = false;
+					value = line.Split(',');
 
-
-					if (ownRadioId == i.radio_id)
+					if (value[0] != "" && txtIDStart.Text == value[0].Substring(1, 3))
 					{
-						found = true;
-					}
-					else
-					{
-						currentID = int.Parse(i.radio_id);
-						for (int j = 0; j < ContactForm.data.Count; j++)
+						found = false;
+						if (ownRadioId == value[0])
 						{
-							if (ContactForm.data.DataIsValid(j))
+							found = true;
+						}
+						else
+						{
+							currentID = int.Parse(value[0].Trim('"'));
+							for (int j = 0; j < ContactForm.data.Count; j++)
 							{
-								if (int.Parse(ContactForm.data[j].CallId) == currentID)
+								if (ContactForm.data.DataIsValid(j))
 								{
-									found = true;
-									break;
+									if (int.Parse(ContactForm.data[j].CallId) == currentID)
+									{
+										found = true;
+										break;
+									}
 								}
 							}
 						}
-					}
-					if (found == false)
-					{
-						name = i.name + " " + i.surname;
-
-						this.dgvDownloadeContacts.Rows.Insert(0, i.radio_id, i.callsign, name, "");
+						if (found == false)
+						{
+							this.dgvDownloadeContacts.Rows.Insert(0, value[0].Trim('"'), value[1].Trim('"'), value[2].Trim('"'), "");
+						}
 					}
 				}
 				lblMessage.Text = string.Format(Settings.dicCommon["DownloadContactsMessageAdded"], this.dgvDownloadeContacts.RowCount);
-
-
 			}
 			catch (Exception ex)
 			{
@@ -132,13 +142,11 @@ namespace DMR
 
 		private void downloadProgressHandler(object sender, DownloadProgressChangedEventArgs e)
 		{
-			// Note. The server does not report the total file size. Therefore in order to display some sort of progress percentage we have to use an estimated total size
-			const int ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER = 15000000 / 100;
 			try
 			{
 				BeginInvoke((Action)(() =>
 					{
-						lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"] + e.BytesReceived / ESTIMATED_FILE_SIZE_PERCENTAGE_DIVIDER + "%";
+						lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"] + e.ProgressPercentage+"%";
 					}));
 			}
 			catch (Exception)
@@ -150,7 +158,6 @@ namespace DMR
 
 		private void btnDownloadDMRMARC_Click(object sender, EventArgs e)
 		{
-			//DMRMARCDownloadCompleteHandler();return; // Debugging only
 			if (Cursor.Current == Cursors.WaitCursor || _isDownloading)
 			{
 				MessageBox.Show("Already downloading");
@@ -163,13 +170,17 @@ namespace DMR
 			}
 			lblMessage.Text = Settings.dicCommon["DownloadContactsDownloading"];
 			this.Refresh();
+#if false
+			//debugging data from local file
+			DMRMARCDownloadCompleteHandler(null, null,File.ReadAllText("d:\\users_quoted.csv"));
+#else
 			_wc = new WebClient();
 			try
 			{
 				Application.DoEvents();
 				_wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DMRMARCDownloadCompleteHandler);
 				_wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloadProgressHandler);
-				_wc.DownloadStringAsync(new Uri("http://www.dmr-marc.net/cgi-bin/trbo-database/datadump.cgi?table=users&format=json"));
+				_wc.DownloadStringAsync(new Uri("http://dmr-marc.net/static/users_quoted.csv"));
 			}
 			catch (Exception)
 			{
@@ -178,6 +189,7 @@ namespace DMR
 			}
 			_isDownloading = true;
 			Cursor.Current = Cursors.WaitCursor;
+#endif
 		}
 
 
