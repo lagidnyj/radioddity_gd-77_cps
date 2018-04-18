@@ -98,7 +98,7 @@ namespace DMR
 				{
 					value = line.Split(',');
 
-					if (value[0] != "" && txtIDStart.Text == value[0].Substring(1, 3))
+					if (value[0] != "" && txtIDStart.Text == value[0].Substring(1, txtIDStart.Text.Length))
 					{
 						found = false;
 						if (ownRadioId == value[0])
