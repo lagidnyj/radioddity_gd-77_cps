@@ -19,7 +19,6 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\RadioddityGD77CPS31XCommunityEdition
 CreateAppDir=yes
-;DefaultDirName={sd}\RadioddityGD77CPS2.0.5CommunityEdition
 DisableProgramGroupPage=yes
 OutputDir=..\installer
 OutputBaseFilename=RadioddityGD77CPS31XCommunityEditionInstaller
@@ -66,6 +65,8 @@ Source: "..\Language\Spanish.xml"; DestDir: "{app}\Language"; Flags: ignoreversi
 Source: "..\Language\Spanish.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Slovenian.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Slovenian.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Ukrainian.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Ukrainian.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
