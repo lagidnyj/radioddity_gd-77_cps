@@ -57,16 +57,22 @@ Source: "..\bin\Debug_3.1.x\WeifenLuo.WinFormsUI.Docking.dll"; DestDir: "{app}";
 ;Source: "..\bin\Debug_3.1.x\Data\Default31x.dat"; DestDir: "{app}\Data"; Components: portable; Flags: ignoreversion
 Source: "..\Language\English.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\English.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\French.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\French.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\German.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\German.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Polski.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Polski.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
-Source: "..\Language\Spanish.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
-Source: "..\Language\Spanish.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Portuguese.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Portuguese.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Slovenian.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Slovenian.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Spanish.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
+Source: "..\Language\Spanish.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Ukrainian.xml"; DestDir: "{app}\Language"; Flags: ignoreversion
 Source: "..\Language\Ukrainian.chm"; DestDir: "{app}\Language"; Flags: ignoreversion
+
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
