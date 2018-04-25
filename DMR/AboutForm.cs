@@ -12,6 +12,7 @@ namespace DMR
 		private Label lblVersion;
 
 		private Label lblCompany;
+		private Label lblTranslationCredit;
 
 		private Button btnClose;
 
@@ -53,6 +54,7 @@ namespace DMR
 			this.lblVersion = new System.Windows.Forms.Label();
 			this.lblCompany = new System.Windows.Forms.Label();
 			this.btnClose = new System.Windows.Forms.Button();
+			this.lblTranslationCredit = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// lblVersion
@@ -85,11 +87,20 @@ namespace DMR
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
+			// lblTranslationCredit
+			// 
+			this.lblTranslationCredit.Location = new System.Drawing.Point(31, 204);
+			this.lblTranslationCredit.Name = "lblTranslationCredit";
+			this.lblTranslationCredit.Size = new System.Drawing.Size(351, 20);
+			this.lblTranslationCredit.TabIndex = 0;
+			this.lblTranslationCredit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// AboutForm
 			// 
 			this.ClientSize = new System.Drawing.Size(409, 299);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.lblCompany);
+			this.Controls.Add(this.lblTranslationCredit);
 			this.Controls.Add(this.lblVersion);
 			this.Font = new System.Drawing.Font("Arial", 10F);
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

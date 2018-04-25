@@ -9,6 +9,7 @@
 			<Control Id="lblVersion" Text="" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
+      <Control Id="lblTranslationCredit" Text="" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Boot Item">

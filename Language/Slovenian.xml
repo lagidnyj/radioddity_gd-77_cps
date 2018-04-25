@@ -3,12 +3,13 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
-	<Language Id="Eng" Text="Slovenščina" />
+	<Language Id="Slo" Text="Slovenščina" />
 	<AboutForm Text="Informacija">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
+      <Control Id="lblTranslationCredit" Text="Solvenian version by Savo - S56LLS" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Zagonski meni">

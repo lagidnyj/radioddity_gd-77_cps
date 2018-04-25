@@ -3,13 +3,14 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
-	<Language Id="Eng" Text="Français" />
+	<Language Id="Fra" Text="Français" />
 	<AboutForm Text="A propos">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
-		</Controls>
+      <Control Id="lblTranslationCredit" Text="French version by Thierry - F1CXG" />
+    </Controls>
 	</AboutForm>
 	<BootItemForm Text="Démarrage">
 		<Controls>

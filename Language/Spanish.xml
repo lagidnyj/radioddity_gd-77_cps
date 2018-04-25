@@ -3,12 +3,13 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
-	<Language Id="Eng" Text="Español" />
+	<Language Id="Esp" Text="Español" />
 	<AboutForm Text="Acerca de">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="GD-77 Community Español EA" />
 			<Control Id="btnClose" Text="OK" />
+      <Control Id="lblTranslationCredit" Text="Spanish version by EA4ALX" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Elementos Inicio">

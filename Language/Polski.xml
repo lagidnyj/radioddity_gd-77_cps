@@ -3,12 +3,13 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
-	<Language Id="Eng" Text="Polski" />
+	<Language Id="Pol" Text="Polski" />
 	<AboutForm Text="O programie">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
+      <Control Id="lblTranslationCredit" Text="Polish version by Rysiek - SQ9MDD" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Ekran Logowania">

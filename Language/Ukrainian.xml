@@ -3,7 +3,7 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32"/>
 	</Settings>
-	<Language Id="Eng" Text="Українська"/>
+	<Language Id="Ukr" Text="Українська"/>
 	<AboutForm Text="Про програму">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6"/>

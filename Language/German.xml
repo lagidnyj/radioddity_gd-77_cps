@@ -9,6 +9,7 @@
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="Radioddity und GD-77 Community" />
 			<Control Id="btnClose" Text="OK" />
+      <Control Id="lblTranslationCredit" Text="German version by DG9VH and DL2MF" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Gerätestart">

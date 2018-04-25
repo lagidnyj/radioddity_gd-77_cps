@@ -3,13 +3,14 @@
 	<Settings>
 		<Item Id="MaxZoneCount" Text="32" />
 	</Settings>
-	<Language Id="Eng" Text="Português" />
+	<Language Id="Por" Text="Português" />
 	<AboutForm Text="Acerca de">
 		<Controls>
 			<Control Id="lblVersion" Text="v3.0.6" />
 			<Control Id="lblCompany" Text="GD-77 Community Português CT" />
 			<Control Id="btnClose" Text="OK" />
-		</Controls>
+      <Control Id="lblTranslationCredit" Text="Portuguese version by CT1ESJ - Henrique" />      
+    </Controls>
 	</AboutForm>
 	<BootItemForm Text="Início">
 		<Controls>
