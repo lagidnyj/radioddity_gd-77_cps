@@ -9,7 +9,7 @@
 			<Control Id="lblVersion" Text="v3.0.6"/>
 			<Control Id="lblCompany" Text="Radioddity and GD-77 Community"/>
 			<Control Id="btnClose" Text="ОК"/>
-			<Control Id="lblTranslationCredit" Text="Ukranian version by Sergey Ka" />
+			<Control Id="lblTranslationCredit" Text="Ukranian version by Sergiy - UR3PDA" />
 		</Controls>
 	</AboutForm>
 	<BootItemForm Text="Тип привітання">
