@@ -182,7 +182,7 @@
 			<Control Id="lblCallId" Text="Call ID" />
 		</Controls>
 		<Commons>
-			<Item Id="CallType" Text="Group All,Private Call,All Call" />
+			<Item Id="CallType" Text="Group Call,Private Call,All Call" />
 			<Item Id="CallRxTone" Text="Off,On" />
 		</Commons>
 	</ContactForm>
