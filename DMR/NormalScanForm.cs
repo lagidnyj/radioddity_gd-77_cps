@@ -1443,6 +1443,7 @@ namespace DMR
             this.cmbPriorityCh2.Name = "cmbPriorityCh2";
             this.cmbPriorityCh2.Size = new System.Drawing.Size(166, 24);
             this.cmbPriorityCh2.TabIndex = 19;
+			this.cmbPriorityCh2.SelectedIndexChanged += new EventHandler(this.cmbPriorityCh2_SelectedIndexChanged);
             // 
             // lblTxDesignatedCh
             // 
@@ -1463,6 +1464,7 @@ namespace DMR
             this.cmbPriorityCh1.Name = "cmbPriorityCh1";
             this.cmbPriorityCh1.Size = new System.Drawing.Size(166, 24);
             this.cmbPriorityCh1.TabIndex = 17;
+			this.cmbPriorityCh1.SelectedIndexChanged += new EventHandler(this.cmbPriorityCh1_SelectedIndexChanged);
             // 
             // lblPriorityCh1
             // 
@@ -1623,6 +1625,7 @@ namespace DMR
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(146, 23);
             this.txtName.TabIndex = 1;
+			this.txtName.Leave += new EventHandler(this.txtName_Leave);
             // 
             // grpSelected
             // 
@@ -1647,6 +1650,7 @@ namespace DMR
             this.lstSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstSelected.Size = new System.Drawing.Size(150, 324);
             this.lstSelected.TabIndex = 5;
+			this.lstSelected.SelectedIndexChanged += new EventHandler(this.lstSelected_SelectedIndexChanged);
             this.lstSelected.DoubleClick += new EventHandler(this.lstSelected_DoubleClick);
             // 
             // grpUnselected
@@ -1709,7 +1713,10 @@ namespace DMR
             this.Font = new System.Drawing.Font("Arial", 10F);
             this.Name = "NormalScanForm";
             this.Text = "Normal Scan";
-            this.panel1.ResumeLayout(false);
+			this.Load += new EventHandler(this.NormalScanForm_Load);
+			this.FormClosing += new FormClosingEventHandler(this.NormalScanForm_FormClosing);
+
+			this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.grpListParam.ResumeLayout(false);
             this.grpListParam.PerformLayout();
