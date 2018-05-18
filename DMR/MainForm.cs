@@ -1057,7 +1057,9 @@ namespace DMR
 			Settings.dicCommon.Add("DMRIDRead", Settings.SZ_DMRID_READ);
 			Settings.dicCommon.Add("DMRIDWrite", Settings.SZ_DMRID_WRITE);
 			Settings.dicCommon.Add("CalibrationRead", Settings.SZ_CALIBRATION_READ);
-			Settings.dicCommon.Add("CalibrationWrite", Settings.SZ_CALIBRATION_WRITE);	
+			Settings.dicCommon.Add("CalibrationWrite", Settings.SZ_CALIBRATION_WRITE);
+			Settings.dicCommon.Add("IdAlreadyExists", Settings.SZ_ID_ALREADY_EXISTS);
+			Settings.dicCommon.Add("ContactNameDuplicate", Settings.SZ_CONTACT_DUPLICATE_NAME);
 
 			string text = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 			if (File.Exists(text))
