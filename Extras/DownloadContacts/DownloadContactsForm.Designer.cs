@@ -47,6 +47,7 @@
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.txtDownloadURL = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDownloadeContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -103,11 +104,11 @@
 			// 
 			// btnDownloadLastHeard
 			// 
-			this.btnDownloadLastHeard.Location = new System.Drawing.Point(21, 465);
+			this.btnDownloadLastHeard.Location = new System.Drawing.Point(582, 42);
 			this.btnDownloadLastHeard.Name = "btnDownloadLastHeard";
-			this.btnDownloadLastHeard.Size = new System.Drawing.Size(136, 30);
+			this.btnDownloadLastHeard.Size = new System.Drawing.Size(197, 28);
 			this.btnDownloadLastHeard.TabIndex = 2;
-			this.btnDownloadLastHeard.Text = "Download from";
+			this.btnDownloadLastHeard.Text = "Download from URL";
 			this.btnDownloadLastHeard.UseVisualStyleBackColor = true;
 			this.btnDownloadLastHeard.Click += new System.EventHandler(this.btnDownloadLastHeard_Click);
 			// 
@@ -148,11 +149,11 @@
 			// 
 			// btnDownloadDMRMARC
 			// 
-			this.btnDownloadDMRMARC.Location = new System.Drawing.Point(581, 42);
+			this.btnDownloadDMRMARC.Location = new System.Drawing.Point(582, 76);
 			this.btnDownloadDMRMARC.Name = "btnDownloadDMRMARC";
-			this.btnDownloadDMRMARC.Size = new System.Drawing.Size(197, 32);
+			this.btnDownloadDMRMARC.Size = new System.Drawing.Size(197, 28);
 			this.btnDownloadDMRMARC.TabIndex = 2;
-			this.btnDownloadDMRMARC.Text = "Download from DMR MARC";
+			this.btnDownloadDMRMARC.Text = "Download from radioid.net";
 			this.btnDownloadDMRMARC.UseVisualStyleBackColor = true;
 			this.btnDownloadDMRMARC.Click += new System.EventHandler(this.btnDownloadDMRMARC_Click);
 			// 
@@ -193,9 +194,9 @@
 			// 
 			// txtDownloadURL
 			// 
-			this.txtDownloadURL.Location = new System.Drawing.Point(160, 469);
+			this.txtDownloadURL.Location = new System.Drawing.Point(125, 469);
 			this.txtDownloadURL.Name = "txtDownloadURL";
-			this.txtDownloadURL.Size = new System.Drawing.Size(412, 23);
+			this.txtDownloadURL.Size = new System.Drawing.Size(447, 23);
 			this.txtDownloadURL.TabIndex = 7;
 			// 
 			// textBox1
@@ -207,11 +208,21 @@
 			this.textBox1.TabIndex = 8;
 			this.textBox1.Text = "?id=REGION_PREFIX&cnt=1024";
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(18, 472);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(101, 16);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Download URL";
+			// 
 			// DownloadContactsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 507);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.txtDownloadURL);
 			this.Controls.Add(this.lblMessage);
@@ -255,5 +266,6 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.TextBox txtDownloadURL;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label1;
 	}
 }
