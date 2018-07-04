@@ -671,9 +671,9 @@
 			<Control Id="lblChMode" Text="Режим"/>
 			<Control Id="lblTot" Text="TOT [с]"/>
 			<Control Id="lblTotRekey" Text="TOT Rekey Delay [s]"/>
-			<Control Id="lblRssiThreshold" Text="RSSI Threshold [dBm]"/>
-			<Control Id="lblRxRefFreq" Text="Rx Reference Frequency"/>
-			<Control Id="lblTxRefFreq" Text="Tx Reference Frequency"/>
+			<Control Id="lblRssiThreshold" Text="RSSI поріг [дБм]"/>
+			<Control Id="lblRxRefFreq" Text="Опорна частота ПРМ"/>
+			<Control Id="lblTxRefFreq" Text="Опорна частота ПРД"/>
 			<Control Id="lblRxFreq" Text="ПРМ частота [МГц]"/>
 			<Control Id="lblPower" Text="Потужність"/>
 			<Control Id="lblAdmitCriteria" Text="Критерій дозволу"/>
@@ -781,24 +781,24 @@
 		<Item Id="OpenPortFail" Text="Помилка відкриття послідовного порту"/>
 		<Item Id="CommError" Text="Комунікаційна помилка"/>
 		<Item Id="Add" Text="Додати: "/>
-		<Item Id="ScanSelected" Text="Unable to operate selected"/>
-		<Item Id="codePlugReadConfirm" Text="Are you sure you want to read the codeplug from the GD-77?.This will overwrite the current codeplug."/>
-		<Item Id="codePlugWriteConfirm" Text="Are you sure you want to write this codeplug to the GD-77?.This will overwrite codeplug currently in the GD-77"/>
-		<Item Id="pleaseConfirm" Text="Please confirm"/>
-		<Item Id="userAgreement" Text="This software is supplied 'as is' with no warranties. You use it at your own risk to both your PC and to your DMR Radio. By pressing the  Yes   button you agree and understand."/>
-		<Item Id="DownloadContactsMessageAdded" Text="There are {0} new ID's which are not already in your contacts"/>
-		<Item Id="DownloadContactsRegionEmpty" Text="Please enter the 3 digit Region previx code. e.g. 505 for Australia."/>
+		<Item Id="ScanSelected" Text="Не вдається керувати вибраним"/>
+		<Item Id="codePlugReadConfirm" Text="Ви хочете зчитати дані з GD-77. Це перезапише поточні дані каналів та налаштувань у програмі. Продовжити?"/>
+		<Item Id="codePlugWriteConfirm" Text="Ви хочете записати дані в GD-77. Це перезапише поточні дані каналів та налаштувань у радіо. Продовжити?"/>
+		<Item Id="pleaseConfirm" Text="Будь ласка підтвердіть"/>
+		<Item Id="userAgreement" Text="Це програмне забезпечення постачається 'як є' без будь-яких гарантій. Використовуєте це на свій власний ризик як для вашого ПК, так і для свого DMR-радіо. Натискаючи кнопку   Так   , ви погоджуєтеся та приймаєте ці умови."/>
+		<Item Id="DownloadContactsMessageAdded" Text="Існує {0} нових ID, яких ще немає у ваших контактах"/>
+		<Item Id="DownloadContactsRegionEmpty" Text="Будь ласка, введіть 3-значний код префіксу країни. Наприклад, 255 для України."/>
 		<Item Id="DownloadContactsDownloading" Text="Завантаження..."/>
-		<Item Id="DownloadContactsSelectContactsToImport" Text="Please select the contacts you would like to import"/>
-		<Item Id="DownloadContactsTooMany" Text="Not all contacts could be imported because the maximum number of Digital Contacts has been reached"/>
+		<Item Id="DownloadContactsSelectContactsToImport" Text="Будь ласка, виберіть контакти, які потрібно імпортувати"/>
+		<Item Id="DownloadContactsTooMany" Text="Не можна імпортувати всі контакти, оскільки досягнуто максимальної кількості цифрових контактів"/>
 		<Item Id="Warning" Text="Увага"/>
-		<Item Id="UnableDownloadFromInternet" Text="Unable to download data. Please check your Internet connection"/>
-		<Item Id="DownloadContactsImportComplete" Text="Import complete"/>
-		<Item Id="CodeplugUpgradeNotice" Text="This appears to be a V3.0.6 Codeplug. It will be converted to V3.1.x"/>
-		<Item Id="CodeplugUpgradeWarningToManyRxGroups" Text="Version 3.1.x can only have 76 Rx Groups. Additional Rx Groups have been ignored"/>
-    <Item Id="IdAlreadyExists" Text="ID already exists！" />
-    <Item Id="IdOutOfRange" Text="ID out of range!" />
-    <Item Id="IdNotEmpty" Text="ID can not be empty!" />
-    <Item Id="ContactNameDuplicate" Text="Warning. Duplicate contact name." />    
+		<Item Id="UnableDownloadFromInternet" Text="Неможливо завантажити дані. Будь ласка, перевірте підключення до Інтернету"/>
+		<Item Id="DownloadContactsImportComplete" Text="Імпорт завершено"/>
+		<Item Id="CodeplugUpgradeNotice" Text="Схоже це V3.0.6 Codeplug. Він буде сконвертований у V3.1.x"/>
+		<Item Id="CodeplugUpgradeWarningToManyRxGroups" Text="Версія 3.1.x може мати лише 76 Rx груп. Додаткові Rx групи були проігноровані"/>
+    <Item Id="IdAlreadyExists" Text="ID уже існує!" />
+    <Item Id="IdOutOfRange" Text="ID поза зоною!" />
+    <Item Id="IdNotEmpty" Text="ID не може бути порожнім!" />
+    <Item Id="ContactNameDuplicate" Text="Увага! Дублікат контакту." />    
 	</Commons>
 </Resource>
